@@ -357,8 +357,6 @@
 			});
 		});
 
-		
-
 		// EDITAR CLIENTE
 
 		$(document).on('click','.btn-editar', function(e){
