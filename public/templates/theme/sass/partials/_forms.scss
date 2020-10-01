@@ -1,0 +1,401 @@
+
+/*------------------------------------------------*/
+/*	Forms
+/*------------------------------------------------*/
+
+/* form */
+fieldset {
+	margin-bottom: 40px;
+}
+
+legend {
+	color: $base-font-color-dark;
+	font-size: 1.5em;
+	border-color: #ccc;
+}
+
+.form-horizontal .control-label {
+	text-align: left;
+}
+
+div[class*="col-"] > .form-group {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+/* submit ticket form */
+.form-ticket {
+	ul.uploaded-attachment > li {
+		i {
+			color: $base-font-color-dark;
+			font-size: 16px;
+			min-width: 14px;
+		}
+
+		.remove {
+			font-size: 0.85em;
+			text-decoration: underline;
+			color: inherit;
+
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+/* box with help button */
+.box-with-help {
+	position: relative;
+	padding: 50px 30px 0;
+
+	.btn-login-help {
+		position: absolute;
+		right: 0;
+		top: 0;
+		color: lighten($base-font-color-dark, 8%);
+
+		&:hover, &:focus {
+			color: $base-font-color-dark;
+		}
+	}
+}
+
+/* erorr list */
+.parsley-errors-list {
+	@include inline-block-list;
+	
+	li {
+		color: $color-danger;
+		font-size: 0.9em;
+		margin-top: 3px;
+	}
+}
+
+/* summernote text editor */
+.note-editor .note-editable {
+	background: #fff;
+}
+
+/* wizard */
+.wizard {
+	position: relative;
+	overflow: hidden;
+	background-color: #f9f9f9;
+
+	&:before,
+	&:after {
+		display: table;
+		line-height: 0;
+		content: "";
+	}
+
+	&:after {
+		clear: both;
+	} 
+
+	ul {
+		width: 4000px;
+		padding: 0;
+		margin: 0;
+		list-style: none outside none;
+
+		&.previous-disabled li.complete {
+			cursor: default;
+
+			&:hover {
+				color: #468847;
+				cursor: default;
+				background: #f3f4f5;
+
+				.chevron:before {
+					border-left-color: #f3f4f5;
+				}
+			}
+		}
+
+		li {
+			position: relative;
+			float: left;
+			height: 46px;
+			padding: 0 20px 0 30px;
+			margin: 0;
+			font-size: 16px;
+			line-height: 46px;
+			color: darken(#f2f2f2, 30%);
+			cursor: default;
+			background: #f2f2f2;
+
+			&:first-child {
+				padding-left: 20px;
+			}
+
+			.chevron {
+				position: absolute;
+				top: -24px;
+				right: -14px;
+				z-index: 1;
+				display: block;
+				border: 48px solid transparent;
+				border-right: 0;
+				border-left: 24px solid #fff;
+
+				&:before {
+					position: absolute;
+					top: -48px;
+					right: 5px;
+					display: block;
+					border: 48px solid transparent;
+					border-right: 0;
+					border-left: 24px solid #f2f2f2;
+					content: "";
+				}
+			}
+
+			&.complete {
+				color: #fff;
+				background: $color-success;
+
+				&:hover {
+					cursor: pointer;
+					background: darken($color-success, 1%);
+
+					.chevron:before {
+						border-left: 24px solid darken($color-success, 1%);
+					}
+				}
+
+				.chevron:before {
+					border-left: 24px solid $color-success;
+				}
+			}
+
+			&.active {
+				color: #fff;
+				background: $color-primary;
+
+				.chevron:before {
+					border-left: 24px solid $color-primary;
+				}
+			}
+
+			.badge {
+				position: relative;
+				top: -2px;
+				margin-right: 8px;
+				padding: 4px 7px;
+
+				&.badge-info {
+					background-color: darken($color-primary, 10%);
+				}
+
+				&.badge-success {
+					background-color: darken($color-success, 10%);
+				}
+			}
+		}
+	}
+}
+
+.wizard-wrapper {
+	.actions {
+		.btn {
+			i {
+				position: relative;
+				top: 2px;
+			}
+
+			&.btn-next i {
+				margin-left: 2px;
+			}
+		}
+	}
+
+	.step-content {
+		margin: 30px 0;
+		padding-left: 20px;
+		
+		.step-pane {
+			display: none;
+		}
+
+		.active {
+			display: block;
+
+			.btn-group .active {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+#demo-wizard {
+	width: 678px;
+
+	+ .step-content {
+		min-height: 270px !important;
+	}
+}
+
+/* circle style wizard */
+.wizard-circle {
+	text-align: center;
+
+	.nav {
+		@include inline-block;
+
+		li {
+			//margin: 0 7em;
+			width: 24em;
+
+			> a {
+				@include border-radius(50%);
+
+				width: 50px;
+				height: 50px;
+				margin: 0 auto;
+				margin-bottom: 20px;
+				line-height: 25px;
+				border: 3px solid #bbb;
+				background: #ccc;
+				color: #818181;
+				z-index: 3;
+			}
+
+			span {
+				color: #a5a5a5;
+			}
+
+			&:before {
+				border-top: 3px solid #bbb;
+				content: "";
+				display: block;
+				font-size: 0;
+				overflow: hidden;
+				position: relative;
+				top: 28px;
+				width: 100%;
+			}
+
+			&:first-child:before {
+				left: 50%;
+				max-width: 50%;
+			}
+
+			&:last-child:before {
+				max-width: 50%;
+				width: 50%;
+			}
+
+			+ li {
+				margin-left: 0;
+			}
+
+			&.active, &.done {
+				> a {
+					background: $color-primary;
+					border-color: darken($color-primary, 10%);
+					color: #fff;
+				}
+
+				span {
+					color: inherit;
+					font-weight: 700;
+				}
+			}
+
+			&.done:before {
+				border-top-color: darken($color-primary, 10%);
+				max-width: 100%;
+				left: 50%;
+				z-index: 2;
+			}
+		}
+	}
+
+	.pager {
+		li {
+			a {
+				cursor: pointer;
+				color: inherit;
+
+				&:hover, &:focus {
+					background: #ececec;
+				}
+			}
+
+			&.next a {
+				background: $color-primary;
+				color: #fff;
+
+				&:hover, &:focus {
+					background: darken($color-primary, 10%);
+				}
+			}
+
+			&.last {
+				display: none;
+
+				a {
+					background: $color-success;
+
+					&:hover, &:focus {
+						background: darken($color-success, 10%);
+					}
+				}
+			}
+
+			&.disabled a {
+				color: $color-default;
+			}
+		}
+
+		&.wizard {
+			background-color: transparent;
+		}
+	}
+
+	.tab-content {
+		text-align: left;
+		padding: 15px 0;
+		margin-top: 30px;
+		background: none;
+	}
+
+	fieldset {
+		padding: 15px;
+		border: 1px solid #ccc;
+	}
+
+	legend {
+		width: auto;
+		font-size: 14px;
+		background: #a5a5a5;
+		color: #fff;
+		padding: 5px;
+	}
+}
+
+#demo-wizard2 {
+	fieldset,
+	#tab3 {
+		min-height: 386px;
+		background: #fff;
+	}
+
+	#tab3 {
+		padding: 15px;
+	}
+
+	input {
+		width: 40%;
+	}
+
+	.dl-horizontal {
+		margin-top: 30px;
+		
+		dt {
+			margin-bottom: 10px;
+		}
+	}
+}

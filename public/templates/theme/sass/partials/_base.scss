@@ -1,0 +1,55 @@
+// ------------------------------------------------ //
+//	Base
+// ------------------------------------------------ //
+
+
+@import "compass/typography";
+@import "compass/css3";
+
+// general colors
+$body-bg-color: #fff;
+$primary-accent-color: #94c632;
+
+//font
+$base-font-family: "Open Sans";
+$secondary-font-family-bold: "josefinslab-bold";
+$secondary-font-family-semibold: "josefinslab-semibold";
+$base-font-color-dark: #696565;
+$base-font-color-light: #fff;
+
+// sign, button, link colors
+$color-default: #919191;
+$color-primary: #1688ae;
+$color-info: #59b7de;
+$color-danger: #ef2020;
+$color-warning: #ff9800;
+$color-success: #7bae16;
+$color-link: darken($color-primary, 8%);
+$color-link-hover: lighten($color-primary, 5%);
+
+// top bar
+$top-bar-bg-color: #fff;
+$top-bar-foreground-color: #919191;
+$searchbox-bg-color: #ececec;
+
+// left content, navigation
+$left-content-bg-color: #232323;
+$menu-item-font-color: #dadada;
+$left-col-width: 220px;
+
+// widget
+$widget-bg-color: #fff;
+$widget-header-bg-color: #e9e9e9;
+$widget-footer-bg-color: #e9e9e9;
+
+// custom colors
+$color-blue: #1D92AF;
+$color-green: #859419;
+$color-orange: #CE7B11;
+$color-seagreen: #3F7577;
+
+// media queries breakpoint
+$break-xsmall: 480px;
+$break-small: 768px;
+$break-medium: 992px;
+$break-large: 1200px;

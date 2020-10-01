@@ -1,0 +1,238 @@
+.conteudo {
+    background-repeat: no-repeat;
+    height: 53.7rem;
+    display: flex;
+    background-size: cover;
+    background-position: center;
+    /* opacity: 0.6; */
+    width: 100%;
+    flex-direction: row;
+    background-image: url(../bg/bg-3.jpg);
+    justify-content: center;
+    align-items: center;
+}
+.redes {
+    background-position: center;
+    background-image: url(../bg/fundo_03.png);
+    align-items: center;
+    height: 33.2rem;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 30rem;
+    display: flex;
+}
+.redes-interno {
+    color: white;
+    font-family: "montserrat";
+    font-size: 1.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.redes-interno a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.redes-interno a:hover {
+    text-decoration: none;
+}
+.redes-interno a div {
+    align-items: center;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    width: 90%;
+    border-radius: 0.5rem;
+    justify-content: center;
+    display: flex;
+    border: 1px solid white;
+    color: white;
+}
+
+.redes-interno i {
+    padding: 0 0.5rem;
+}
+.facebook,
+.whatsapp,
+.instagram {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.groups-interno-geral {
+    display: flex;
+    padding-bottom: 1rem;
+    width: 100%;
+    flex-direction: column;
+}
+.img-login {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0 0rem 0;
+    align-items: center;
+}
+.container a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+.container a:hover {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+.container span {
+    color: rgba(0, 0, 0, 0.5);
+}
+.container span:hover {
+    color: rgba(0, 0, 0, 0.7);
+}
+.footer-login {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #dadada;
+    color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+}
+.conteudo-login {
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgb(207, 207, 207);
+    width: 27rem;
+    height: auto;
+}
+.groups-login {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    flex-direction: column;
+    width: 100%;
+}
+.groups-register {
+    display: none;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+form {
+    height: 90%;
+    width: 100%;
+    display: flex;
+}
+.groups-interno {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.groups-interno input {
+    border: 1px solid #3c98c2ba;
+    color: rgb(61, 54, 96);
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    border-top: none;
+    text-align: center;
+    font-size: 1rem;
+    border-left: none;
+    border-right: none;
+    height: 3rem;
+    width: 80%;
+}
+.groups-interno input:hover {
+    /* transform: scale(1.1); */
+    transition: 0.5s;
+    color: rgb(61, 54, 96);
+}
+.groups-interno input:focus {
+    outline: 0;
+}
+.blocos-header {
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+}
+.header-login {
+    align-items: flex-start;
+    justify-content: center;
+    height: 10%;
+    display: flex;
+}
+.bloco1 {
+    background: #71cff987;
+    width: 50%;
+    height: 2.5rem;
+    border-right: 1.2px solid #3c98c2ba;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bloco2 {
+    background: #71cff987;
+    width: 50%;
+    border-left: 1.2px solid #3c98c2ba;
+    height: 2.5rem;
+    border-bottom: 2px solid black;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bloco1:hover,
+.bloco2:hover {
+    background: #3c98c2ba;
+}
+.groups-geral1 {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+form button {
+    background: #3287b2;
+    border: none;
+    height: 3rem;
+    margin: 1rem 0 1.5rem 0;
+    border-radius: 0.3rem;
+    width: 8rem;
+    color: white;
+    font-size: 1.2rem;
+}
+form button:hover {
+    background: rgb(52, 122, 130);
+    transition: 0.5s;
+}
+@media (max-width: 1680px) {
+    form button {
+        height: 2.5rem;
+        margin: 1rem 0 1rem 0;
+        border-radius: 0.3rem;
+        width: 7rem;
+    }
+    .img-login img {
+        height: 6rem;
+    }
+    .conteudo {
+        height: 48rem;
+    }
+    .conteudo-login {
+        height: 32rem;
+    }
+    .redes {
+        height: 32rem;
+    }
+}

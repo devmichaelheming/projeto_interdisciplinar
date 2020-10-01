@@ -1,0 +1,83 @@
+/*------------------------------------------------*/
+/*	Skin: Dark Orange
+/*------------------------------------------------*/
+
+$accent-color: #ff9800;
+
+/* top bar */
+.top-bar {
+	background-color: $accent-color;
+	border-bottom-color: darken($accent-color, 10%);
+
+	.action-group {
+		.btn-group {
+			> a {
+				color: darken($accent-color, 10%);
+			}
+
+		}
+
+		.action-item {
+			> a {
+				color: darken($accent-color, 10%);
+
+				&:hover, &:active, &.active {
+					color: #fff;
+				}
+			}
+		}
+	}
+
+	.logged-user {
+		.btn-group > a {
+			color: darken($accent-color, 10%);
+		}
+
+		.btn img {
+			border-color: #fff;
+		}
+	}
+
+	.action-group,
+	.logged-user {
+		.btn-group > a:hover {
+			color: #fff;
+		}
+
+		.btn-group.open > a {
+			color: #fff;
+		}
+	}
+}
+
+/* minified and off-canvas toggle button */
+.btn-nav-sidebar-minified i, 
+.btn-off-canvas i {
+	color: #fff;
+
+	&:hover {
+		color: #fff;
+	}
+}
+
+/* custom nav pills */
+.nav-pills-custom-minimal {
+	> li.active a {
+		border-top-color: $accent-color;
+
+		&:hover, &:focus {
+			border-top-color: $accent-color;
+		}
+	}
+
+	&.custom-minimal-bottom {
+		> li.active a {
+			border-bottom-color: $accent-color;
+
+			&:hover, &:focus {
+				border-bottom-color: $accent-color;
+			}
+		}
+	}
+}
+

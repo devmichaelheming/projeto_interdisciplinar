@@ -1,0 +1,102 @@
+/*------------------------------------------------*/
+/*	Page: Knowledge Base
+/*------------------------------------------------*/
+
+.form-knowledge-search {
+	margin-bottom: 50px;
+
+	@include max-screen($break-xsmall) {
+		input[type="search"] {
+			font-size: 0.9em;
+		}
+	}
+}
+
+.knowledge {
+	h3 {
+		border-bottom: 1px solid #ccc;
+		line-height: 28px;
+		font-size: 1.2em;
+
+		span {
+			font-weight: normal;
+		}
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	ul {
+		li {
+			line-height: 30px;
+
+			a {
+				color: $base-font-color-dark;
+				display: block;
+				padding-left: 20px; 
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+
+			i {
+				font-size: 18px;
+				line-height: 29px;
+			}
+		}
+	}
+}
+
+.knowledge-recent-popular {
+	margin-top: 50px;
+
+	ol {
+		padding-left: 20px;
+		li {
+			line-height: 30px; 
+		}
+	}
+}
+
+ul.nav-categories {
+	margin-bottom: 30px;
+
+	> li {
+		border: 1px solid #ccc;
+
+		&:first-child {
+			@include border-top-radius(2px);
+		}
+
+		&:last-child {
+			@include border-bottom-radius(2px);
+		}
+
+		&:not(:first-child) {
+			border-top: none;
+		}
+
+		+ li {
+			margin-top: 0;
+		}
+
+		> a {
+			@include border-radius(0);
+
+			color: $base-font-color-dark;
+
+			&:hover {
+				background-color: #e6e6e6;
+			}
+		}
+	}
+}
+
+.ticket-box {
+	@include border-radius(2px);
+
+	border: 1px solid #ccc;
+	padding: 15px;
+}

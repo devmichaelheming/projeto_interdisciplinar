@@ -1,0 +1,40 @@
+//************************//
+//	CHANGELOG
+//************************//
+
+Version 1.2, 05-01-2016
+- ADDED fixed left navigation sidebar
+- UPDATED Bootstrap to v3.3.6
+- UPDATED Font Awesome to v4.5.0
+- UPDATED Ionicons to v2.0.1
+- UPDATED documentation
+- IMPROVED icon visibility on top bar and left navigation
+- IMPROVED general UI and miscellaneous 
+- REMOVED awkward scrolling on left sidebar menu item after expanding
+- FIXED all invalid Ionicons class due to recent update
+- FIXED date range picker, adjusted last year value in the range
+- FIXED input with contextual icon, removed top position
+- FIXED invoice print style
+
+Version 1.1, 09-10-2014
+- ADDED new dashboard page
+- ADDED more pages (Projects, Project Detail, FAQ, Pricing Tables with 3 different styles)
+- ADDED more widgets and portlets (10+ items)
+- ADDED menu levels
+- ADDED wizards (arrow and circle styles)
+- ADDED fixed top navigation toggle at style switcher
+- UPDATED Font Awesome (4.2.0)
+- UPDATED skins
+- IMPROVED off-canvas navigation, simpler and efficient implementation
+- IMPROVED minified navigation, smoother and cleaner transition
+- IMPROVED the layout and ui element structure to be more simple and efficient
+- REMOVED scrolling in the main navigation
+- REMOVED left sidebar widgets, cleaner
+
+Version 1.0.1, 27-08-2014
+- FIXED off-canvas navigation on IE
+- FIXED widgets menu always active on every page templates (such as profile, search result etc)
+- Other misc updates and improvements
+
+Version 1.0, 27-08-2014
+- initial release

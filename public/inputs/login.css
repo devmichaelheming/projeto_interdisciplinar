@@ -1,0 +1,150 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 1) 15%,
+        rgba(0, 0, 0, 1) 15%,
+        rgba(0, 0, 0, 1) 85%,
+        rgba(255, 255, 255, 1) 85%
+    );
+}
+.conteudo {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    justify-content: center;
+    width: 30%;
+    box-shadow: 1px 1px 15px rgb(108, 108, 108);
+    height: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+.conteudo-login {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 4rem 0;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+}
+.icones a {
+    text-decoration: none;
+}
+.icones a i {
+    background: #e9e9e9;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    width: 3rem;
+    display: flex;
+    border-radius: 100%;
+    transition: 0.2s linear;
+    margin: 0 1rem;
+    box-shadow: 0px 2px 10px #b3b3b3;
+}
+.icones a i:hover {
+    transform: translateY(-10px);
+    transition: 0.2s linear;
+    background: rgb(245, 245, 245);
+}
+.fa-facebook-f {
+    color: #3b5999;
+}
+.fa-twitter {
+    color: #55acee;
+}
+.fa-instagram {
+    color: #000;
+}
+
+.icones {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+}
+.conteudo-login button {
+    background: rgb(28, 28, 28);
+    color: white;
+    border: none;
+    height: 3rem;
+    font-size: 1.5rem;
+    font-family: "montserrat";
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    width: 80%;
+    transition: 0.2s linear;
+}
+.conteudo-login button:hover {
+    background: rgb(75, 75, 75);
+    transition: 0.2s linear;
+}
+.form-group input {
+    width: 80%;
+    border-top: none;
+    border-right: none;
+    border-bottom: 1px solid #c5c5c5;
+    border-left: none;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+    color: rgb(57, 57, 57);
+    font-family: "montserrat";
+    text-align: center;
+}
+.form-group input:focus {
+    outline: 0;
+}
+.form-group i {
+    width: 80%;
+    font-size: 1.5rem;
+}
+.titulo {
+    color: #565656;
+    width: 100%;
+    padding: 0 0 2rem 7rem;
+    font-family: "montserrat";
+    font-size: 1.5rem;
+}
+.logo {
+    text-align: center;
+    font-family: "montserrat";
+    font-size: 3rem;
+    padding: 2rem 0;
+    color: #424242;
+    width: 100%;
+}
+.footer {
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem 0;
+}
+.sign-up {
+    color: #636363;
+    font-family: "montserrat";
+}
+.footer a {
+    text-decoration: none;
+    color: #636363;
+}

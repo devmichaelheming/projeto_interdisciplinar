@@ -1,0 +1,123 @@
+/*------------------------------------------------*/
+/*	Profile Page
+/*------------------------------------------------*/
+
+.user-profile {
+	padding-bottom: 30px;
+}
+
+.profile-header-background {
+	margin: -30px -30px 0 -30px;
+
+	img {
+		width: 100%;
+		height: 310px;
+	}
+}
+
+.profile-info-left {
+	position: relative;
+	top: -92px;
+
+	img.avatar {
+		border: 2px solid #fff;
+	}
+
+	h2 {
+		font-family: $secondary-font-family-semibold;
+		margin-bottom: 30px;
+	}
+
+	.section {
+		margin-top: 50px;
+
+		h3 {
+			font-size: 1.1em;
+			font-weight: 700;
+			border-bottom: 1px solid #ccc;
+			padding-bottom: 10px;
+		}
+	}
+
+	ul.list-social > li {
+		line-height: 2.3;
+
+		i {
+			@include inline-block;
+
+			position: relative;
+			top: 1px;
+			font-size: 16px;
+			min-width: 16px;
+			line-height: 1;
+		}
+
+		a {
+			color: $base-font-color-dark;
+		}
+	} 
+}
+
+.profile-info-right {
+	.tab-content {
+		padding: 30px 0;
+		background-color: transparent;
+	}
+
+	@include max-screen($break-small) {
+		position: relative;
+		top: -70px;
+	}
+}
+
+.user-follower,
+.user-following {
+	position: relative;
+	margin-bottom: 40px;
+
+	img {
+		@include border-radius(2px);
+
+		width: 40px;
+	}
+
+	a {
+		font-size: 1.1em;
+		line-height: 1;
+	}
+
+	.username {
+		font-size: 0.9em;
+		line-height: 1.5;
+	}
+
+	.btn {
+		position: absolute;
+		top: 0;
+		right: 0;
+		min-width: 92px;
+	}
+}
+
+.btn-toggle-following {
+	background-color: $color-success;
+	color: #fff;
+
+	&:hover {
+		background-color: $color-danger;
+		color: #fff;
+
+		span {
+			display: none;
+		}
+
+		&:after {
+			content: 'Unfollow';
+			display: inline;
+		}
+
+		i:before {
+			content: '\f129';
+		}
+	}
+}

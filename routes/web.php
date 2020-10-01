@@ -1,0 +1,74 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
+Auth::routes();
+
+Route::prefix('/admin')->group(function () {
+
+    Route::get('/', 'Controller@index')->name('admin');
+
+    Route::post('/logout', 'Auth\LoginController@logout')->name('sair');
+
+    // USUARIOS
+    // visualizar usuarios
+    Route::get('/usuarios', 'usuariosController@index')->name('admin.usuarios');
+    Route::get('/usuarios/listar', 'usuariosController@listar')->name('usuario.listar');
+    // visualizar cadastro
+    Route::get('/usuarios/viewCadastrar', 'usuariosController@viewCadastro')->name('usuarios.cadastrar');
+    // cadastrado
+    Route::post('/usuarios/cadastrado', 'usuariosController@cadastrado')->name('usuario.cadastrado');
+    //Editar usuarios
+    Route::get('/usuarios/editar/{id}', 'usuariosController@editarUsuario')->name('usuario.editar');
+    Route::post('/usuarios/editar/salvar/{id}', 'usuariosController@editarSalvar');
+    //Remover usuarios
+    Route::get('/usuarios/remover/{id}', 'usuariosController@removerUsuario')->name('usuario.remover');
+
+// CONTAS
+// visualizar contas
+Route::get('/contas', 'contasController@index')->name('admin.contas');
+Route::get('/contas/listar', 'contasController@listar')->name('contas.listar');
+// visualizar cadastro
+Route::get('/contas/viewCadastrar', 'contasController@viewCadastro')->name('contas.cadastrar');
+// cadastrado
+Route::post('/usuario/cadastrado', 'contasController@cadastrado')->name('contas.cadastrado');
+//Editar contas
+Route::get('/contas/editar/{id}', 'contasController@editarConta')->name('contas.editar');
+Route::post('/contas/editar/salvar/{id}', 'contasController@editarSalvar');
+//Remover contas
+Route::get('/contas/remover/{id}', 'contasController@removerConta')->name('contas.remover');
+
+// MES
+Route::get('/mes', 'contasController@mes')->name('admin.mes');
+
+    // CLIENTES
+    // visualizar contas
+    Route::get('/clientes', 'clientesController@index')->name('admin.clientes');
+    Route::get('/clientes/listar', 'clientesController@listar')->name('clientes.listar');
+    // visualizar cadastro
+    Route::get('/clientes/viewCadastrar', 'clientesController@viewCadastro')->name('clientes.cadastrar');
+    // cadastrado
+    Route::post('/usuario/cadastrado', 'clientesController@cadastrado')->name('clientes.cadastrado');
+    //Editar clientes
+    Route::get('/clientes/editar/{id}', 'clientesController@editarClientes')->name('clientes.editar');
+    Route::get('/clientes/relatorio/{id}', 'clientesController@relatorio')->name('clientes.relatorio');
+    Route::post('/clientes/editar/salvar/{id}', 'clientesController@editarSalvar');
+    //Remover clientes
+    Route::get('/clientes/remover/{id}', 'clientesController@removerClientes')->name('clientes.remover');
+
+});

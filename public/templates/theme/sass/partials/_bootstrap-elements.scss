@@ -1,0 +1,75 @@
+/*------------------------------------------------*/
+/*	Bootstrap Elements
+/*------------------------------------------------*/
+
+/* basic input */
+.form-control,
+.form-control:focus,
+.input-group-btn .btn {
+	@include box-shadow(none);
+}
+
+.form-control, 
+.input-lg, 
+.input-sm, 
+.input-xs {
+	@include border-radius(2px);
+}
+
+/* input groups */
+.input-group .form-control:last-child, 
+.input-group-addon:last-child, 
+.input-group-btn:last-child > .btn, 
+.input-group-btn:last-child > .btn-group > .btn, 
+.input-group-btn:last-child > .dropdown-toggle, 
+.input-group-btn:first-child > 
+.btn:not(:first-child), 
+.input-group-btn:first-child > 
+.btn-group:not(:first-child) > .btn {
+	@include border-top-right-radius(2px);
+	@include border-bottom-right-radius(2px);
+}
+
+.input-group .form-control:first-child, 
+.input-group-addon:first-child, 
+.input-group-btn:first-child > .btn, 
+.input-group-btn:first-child > .btn-group > .btn, 
+.input-group-btn:first-child > .dropdown-toggle, 
+.input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), 
+.input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+	@include border-top-left-radius(2px);
+	@include border-bottom-left-radius(2px);
+}
+
+.input-group-addon {
+	@include border-radius(2px);
+
+	.simple-radio input[type="radio"] + label,
+	.simple-checkbox input[type="checkbox"] + label {
+
+		padding-left: 0;
+		margin-right: 0;
+		margin-bottom: 0;
+
+		&:before {
+			margin-right: 0;
+		}
+	}
+
+	i {
+		font-size: 14px;
+	}
+
+	&.input-sm,
+	&.input-lg {
+		@include border-radius(2px);
+	}
+}
+
+.input-group-appendable {
+	margin-bottom: 10px;
+
+	.btn {
+		min-width: 34px;
+	}
+}

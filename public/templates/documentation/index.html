@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<title>Documentation | QueenAdmin - Admin Dashboard</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="QueenAdmin Admin Dashboard Documentation">
+	<meta name="author" content="The Develovers">
+
+	<!-- CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/shCore.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/shThemeDefault.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/styles.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="doc-header">
+			<header>
+				<img src="assets/img/queenadmin-logo.png" alt="QueenAdmin Logo"> <span class="badge">v1.2</span>
+				<h1>QueenAdmin Documentation</h1>
+			</header>
+			<div class="header-info">
+				<div class="row">
+					<div class="col-md-4">
+						<p>Created: Jul 23, 2014</p>
+						<p>Updated: Jan 5, 2016</p>
+						<p>By: The Develovers</p>
+						<p>Email: support@themeineed.com</p>
+					</div>
+					<div class="col-md-8">
+						<p>Thank you for purchasing QueenAdmin Admin Dashboard. By reading this documentation we hope you will get the most of its features. If you have any questions, please feel free to contact us by sending your message to <a href="mailto:support@themeineed.com">support@themeineed.com</a>.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-3">
+				<div class="doc-sidebar">
+					<ul class="nav doc-sidenav">
+						<li class="active">
+							<a href="#overview">Overview</a>
+							<ul class="nav">
+								<li><a href="#features">Features</a></li>
+								<li><a href="#important-notes">Important Notes</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#structure">Structure</a>
+							<ul class="nav">
+								<li><a href="#file-structure">File and Directory Structure</a></li>
+								<li><a href="#html-structure">HTML Structure</a></li>
+								<li><a href="#responsive">Responsive</a></li>
+								<li><a href="#sasscss-structure">Sass/CSS Structure</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#forms">Forms</a>
+							<ul class="nav">
+								<li><a href="#fancy-elements">Fancy Elements</a></li>
+								<li><a href="#inplace-editing">In-place Editing</a></li>
+								<li><a href="#validation">Validation</a></li>
+								<li><a href="#file-upload">File Upload</a></li>
+								<li><a href="#text-editor">Text Editor</a></li>
+								<li><a href="#wizards">Wizards with Validation</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#ui-elements">UI Elements</a>
+							<ul class="nav">
+								<li><a href="#general">General</a></li>
+								<li><a href="#buttons">Buttons</a></li>
+								<li><a href="#tabs">Tabs</a></li>
+								<li><a href="#tour">Tour</a></li>
+								<li><a href="#icons">Icons</a></li>
+							</ul>
+						</li>
+						<li><a href="#widgets">Widgets</a></li>
+						<li><a href="#charts">Charts</a></li>
+						<li>
+							<a href="#tables">Tables</a>
+							<ul class="nav">
+								<li><a href="#table-static">Static</a></li>
+								<li><a href="#table-dynamic">Dynamic</a></li>
+							</ul>
+						</li>
+						<li><a href="#maps">Maps</a></li>
+						<li><a href="#typography">Typography</a></li>
+						<li><a href="#skins">Skins</a></li>
+						<li><a href="#changelog">Changelog</a></li>
+						<li><a href="#credits">Credits</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="doc-content">
+					<div class="doc-section">
+						<h2 id="overview">Overview</h2>
+						<hr>
+						<p class="lead">QueenAdmin is bootstrap responsive dashboard theme built with Sass and Compass. It has tons of features and ready-to-use ui elements, widgets, charts and pages. </p>
+						<h3 id="features">Features</h3>
+						<p>QueenAdmin delivers so much features to enhance and save time on your project development.</p>
+						<ul>
+							<li>Additional dashboard page</li>
+							<li>More pages (Projects, Project Detail, FAQ, Pricing Tables with 3 different styles)</li>
+							<li>Additional 10+ widgets</li>
+							<li>Menu level</li>
+							<li>Wizards (arrow and circle style)</li>
+							<li>Stunning, clean and crisp design</li>
+							<li>Responsive design</li>
+							<li>Fancy form elements and form layout examples</li>
+							<li>Form validation</li>
+							<li>In-place editing field</li>
+							<li>Markdown and WYSIWYG text editor</li>
+							<li>Working drag and drop upload</li>
+							<li>Widgets, includes ajax-enabled widget</li>
+							<li>Minified navigation, fixed left navigation</li>
+							<li>Printer-friendly invoice</li>
+							<li>Table with pagination, column filter, drag and drop colum reorder, data export and others</li>
+							<li>Line Chart, Area Chart, Bar Chart, Donut Chart and mini charts</li>
+							<li>Built with Sass and well organized HTML, CSS and Javascript files</li>
+							<li>Page templates (profile, search result, inbox, view message, new message, knowledge base, submit ticket, invoice, login, register and error pages)</li>
+							<li>Growl-like notifications</li>
+							<li>Bootstrap tour</li>
+							<li>Vector map and Google map</li>
+							<li>and more ...</li>
+						</ul>
+						<h3 id="important-notes">Important Notes</h3>
+						<div class="alert alert-warning">
+							<h4>Icons</h4>
+							<p>The theme uses Ionicons as the main icon set, but Font Awesome is also used in text editor and View Message page as file type icon.</p>
+						</div>
+						<div class="alert alert-warning">
+							<h4>Use Web Server</h4>
+							<p>It's recommended that you open the template in a web server environment, for example <a href="https://www.apachefriends.org/index.html">XAMPP</a> (for windows) or <a href="http://www.mamp.info/en/">MAMP</a> (for Mac).</p>
+						</div>
+					</div>
+					<div class="doc-section">
+						<h2 id="structure">Structure</h2>
+						<hr>
+						<h3 id="file-structure">File and Directory Structure</h3>
+						<p>Below is the structure of the main file after unzipping:</p>
+						<ul class="list-unstyled">
+							<li><i class="fa fa-folder text-primary"></i> documentation/
+								<ul>
+									<li><i class="fa fa-folder text-primary"></i> assets/
+										<ul>
+											<li><i class="fa fa-folder text-primary"></i> css/</li>
+											<li><i class="fa fa-folder text-primary"></i> fonts/</li>
+											<li><i class="fa fa-folder text-primary"></i> img/</li>
+											<li><i class="fa fa-folder text-primary"></i> js/</li>
+										</ul>
+									</li>
+									<li><i class="fa fa-file-code-o"></i> index.html</li>
+								</ul>
+							</li>
+
+							<li><i class="fa fa-folder text-primary"></i> theme/
+								<ul>
+									<li><i class="fa fa-folder text-primary"></i> assets/
+										<ul>
+											<li><i class="fa fa-folder text-primary"></i> css/</li>
+											<li><i class="fa fa-folder text-primary"></i> fonts/</li>
+											<li><i class="fa fa-folder text-primary"></i> ico/</li>
+											<li><i class="fa fa-folder text-primary"></i> img/</li>
+											<li><i class="fa fa-folder text-primary"></i> js/</li>
+										</ul>
+									</li>
+									<li><i class="fa fa-folder text-primary"></i> php/
+										<ul>
+											<li><i class="fa fa-folder text-primary"></i> uploads/</li>
+											<li><i class="fa fa-file-code-o"></i> dropzone-upload.php</li>
+											<li><i class="fa fa-file-code-o"></i> widget-ajax.php</li>
+										</ul>
+									</li>
+									<li><i class="fa fa-folder text-primary"></i> sass/
+										<ul>
+											<li><i class="fa fa-folder text-primary"></i> modules/</li>
+											<li><i class="fa fa-folder text-primary"></i> partials/
+												<ul>
+													<li><i class="fa fa-folder text-primary"></i> pages/</li>
+													<li><i class="fa fa-file-code-o"></i> *.scss</li>
+												</ul>
+											</li>
+											<li><i class="fa fa-folder text-primary"></i> skins/</li>
+											<li><i class="fa fa-folder text-primary"></i> vendors/</li>
+											<li><i class="fa fa-file-code-o"></i> main.scss</li>
+										</ul>
+									</li>
+									<li><i class="fa fa-file-code-o"></i> *.html (all html pages)</li>
+								</ul>
+
+							</li>
+						</ul>
+						<h3 id="html-structure">HTML Structure</h3>
+						<p>The theme layout mainly has three areas: top bar, left sidebar and right content. Each page will have the same layout except for index.html, page-search-result.html, page-user-profile.html and page-view-message.html. Those pages don't have page title, breadcrumbs and sticky elements as others.</p>
+						<h4>Common Page</h4>
+						<img src="assets/img/scr-common-page.png" alt="Common Page">
+						<script type="syntaxhighlighter" class="brush: html">
+						<![CDATA[
+							<!DOCTYPE html>
+							<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
+							<!--[if !(IE)]><!--><html lang="en" class="no-js"> <!--<![endif]-->
+							<head>
+								<title>Page Title</title>
+								<meta charset="utf-8">
+								<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+								<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+								<meta name="description" content="QueenAdmin - Beautiful Bootstrap Admin Dashboard Theme">
+								<meta name="author" content="The Develovers">
+
+								<!-- CSS -->
+								...
+
+								<!-- Google Fonts -->
+								...
+
+								<!-- Fav and touch icons -->
+								...
+
+							</head>
+								<body class="fixed-top-active">
+									<!-- WRAPPER -->
+									<div class="wrapper">
+										<!-- TOP NAV BAR -->
+										<nav class="top-bar navbar-fixed-top" role="navigation">...</nav>
+										<!-- END TOP NAV BAR -->
+
+										<!-- COLUMN LEFT -->
+										<div id="col-left" class="col-left">
+											<div class="main-nav-wrapper">
+												<nav id="main-nav" class="main-nav"> ... </div>
+											</div>
+										</div>
+										<!-- END COLUMN LEFT -->
+
+										<!-- COLUMN RIGHT -->
+										<div id="col-right" class="col-right">
+											<div class="container-fluid primary-content">
+												<!-- PRIMARY CONTENT HEADING -->
+												<div class="primary-content-heading clearfix">
+													<h2>PAGE TITLE</h2>
+													<ul class="breadcrumb pull-left"> ... </ul>
+													<div class="sticky-content pull-right"> ... </div>
+													<!-- quick task modal -->
+													<div class="modal fade" id="quick-task-modal" tabindex="-1" role="dialog" aria-hidden="true" ... </div>
+													<!-- end quick task modal -->
+												</div>
+												<!-- END PRIMARY CONTENT HEADING -->
+
+												<!-- your content start here -->
+											</div>
+											<div class="right-sidebar"> ... </div>
+										</div>
+										<!-- END COLUMN RIGHT -->
+									</div>
+									<!-- END WRAPPER -->
+									
+									<!-- Javascripts -->
+									<!-- all javascript files needed on current page -->
+								</body>
+							</html>
+
+						]]>
+						</script>
+						<h4>Specific Page</h4>
+						<img src="assets/img/scr-specific-page.png" alt="Specific Page" /><br/><br/>
+						<p>This is another version of dashboard page. Use same general layout structure, only it has headline content before primary content heading</p>
+						<h3 id="responsive">Responsive</h3>
+						<p>Responsiveness is main feature of this theme, it will have a nice look on various screen size and devices. To make the theme responsive, breakpoints should be declared to determine which elements must be hidden, shown or reposition. You can find media queries breakpoints declaration at <code>sass/partials/_base.scss</code> file as below</p>
+						<script type="syntaxhighlighter" class="brush: css">
+						<![CDATA[
+							// media queries breakpoint
+							$break-xsmall: 480px;
+							$break-small: 768px;
+							$break-medium: 992px;
+							$break-large: 1200px;
+						]]>
+						</script>
+						<h3 id="sasscss-structure">Sass/CSS Structure</h3>
+						<p>Since QueenAdmin is built with Sass which generate CSS for the theme, consequently CSS file (<code>assets/css/main.css</code>) will have the same structure as below (<code>sass/main.scss</code>)</p>
+						<script type="syntaxhighlighter" class="brush: css">
+						<![CDATA[
+							/*	
+							*	############################################################################
+							*	
+							*	QueenAdmin Admin Dashboard Style
+							*	---------------------------------------------------------------------
+							*
+							*	Version		1.2
+							*	Author		The Develovers
+							*	Copyright	Copyright 2014 The Develovers
+							*	
+							*	############################################################################
+							*/
+
+
+							// Import main
+							@import "vendors/bootstrap-switch";
+							@import "vendors/bootstrap-multiselect";
+							@import "vendors/bootstrap-colorpicker";
+							@import "vendors/datepicker";
+							@import "vendors/daterangepicker-bs3";
+							@import "vendors/bootstrap-slider";
+							@import "vendors/jquery.gritter";
+							@import "vendors/bootstrap-progressbar-3.2.0";
+							@import "vendors/dropzone";
+							@import "vendors/dataTables.bootstrap";
+							@import "vendors/dataTables.colVis";
+							@import "vendors/dataTables.tableTools";
+							@import "vendors/summernote";
+							@import "vendors/select2";
+							@import "vendors/bootstrap-tagsinput";
+							@import "vendors/bootstrap-markdown";
+							@import "vendors/bootstrap-editable";
+							@import "vendors/typeahead.js-bootstrap";
+							@import "vendors/bootstrap-tour";
+							@import "modules/mixins";
+
+							// Import base and general styles
+							@import "partials/base";
+							@import "partials/general";
+							@import "partials/typography";
+
+							// Import UI library
+							@import "partials/bootstrap-elements";
+							@import "partials/ui-elements";
+							@import "partials/charts";
+							@import "partials/tables";
+							@import "partials/forms";
+
+							// Import site layout
+							@import "partials/top-bar";
+							@import "partials/navigation";
+							@import "partials/main-content";
+
+							// Import pages' styles
+							@import "partials/pages/profile";
+							@import "partials/pages/invoice";
+							@import "partials/pages/knowledgebase";
+							@import "partials/pages/errors";
+							@import "partials/pages/login-register";
+							@import "partials/pages/inbox";
+							@import "partials/pages/search-results";
+							@import "partials/pages/project";
+							@import "partials/pages/faq";
+							@import "partials/pages/pricing-tables";
+
+						]]>
+						</script>
+					</div>
+					<div class="doc-section">
+						<h2 id="forms">Forms</h2>
+						<hr>
+						<h3 id="fancy-elements">Fancy Elements</h3>
+						<p>Mostly, the theme uses plugins to provide fancy form elements, but some of them use CSS only. All initialization code for these elements is located at <code>assets/js/queen-elements.js</code> except for Select2 which you can find it at <code>assets/js/queen-common.js</code>.</p>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Masked Input</td>
+									<td><code>assets/js/plugins/jquery-maskedinput/</code></td>
+									<td><a href="http://digitalbush.com/projects/masked-input-plugin/">http://digitalbush.com/projects/masked-input-plugin/</a></td>
+								</tr>
+								<tr>
+									<td>Checkbox and Radio</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+								<tr>
+									<td>Slider Input</td>
+									<td><code>assets/js/plugins/bootstrap-slider/</code></td>
+									<td><a href="http://www.eyecon.ro/bootstrap-slider/">http://www.eyecon.ro/bootstrap-slider/</a></td>
+								</tr>
+								<tr>
+									<td>Range Slider Input</td>
+									<td><code>assets/js/plugins/jqallrangesliders/</code></td>
+									<td><a href="http://ghusse.github.io/jQRangeSlider/documentation.html">http://ghusse.github.io/jQRangeSlider/documentation.html</a></td>
+								</tr>
+								<tr>
+									<td>Select2</td>
+									<td><code>assets/js/plugins/select2/</code></td>
+									<td><a href="http://ivaynberg.github.io/select2/#documentation">http://ivaynberg.github.io/select2/#documentation</a></td>
+								</tr>
+								<tr>
+									<td>Tags Input</td>
+									<td><code>assets/js/plugins/bootstrap-tagsinput/</code></td>
+									<td><a href="http://timschlechter.github.io/bootstrap-tagsinput/examples/">http://timschlechter.github.io/bootstrap-tagsinput/examples/</a></td>
+								</tr>
+								<tr>
+									<td>Multiselect</td>
+									<td><code>assets/js/plugins/bootstrap-multiselect/</code></td>
+									<td><a href="http://davidstutz.github.com/bootstrap-multiselect/">http://davidstutz.github.com/bootstrap-multiselect/</a></td>
+								</tr>
+								<tr>
+									<td>Date Picker</td>
+									<td><code>assets/js/plugins/bootstrap-datepicker/</code></td>
+									<td><a href="http://www.eyecon.ro/bootstrap-datepicker">http://www.eyecon.ro/bootstrap-datepicker</a></td>
+								</tr>
+								<tr>
+									<td>Date Range Picker</td>
+									<td><code>assets/js/plugins/daterangepicker/</code></td>
+									<td><a href="https://github.com/dangrossman/bootstrap-daterangepicker">https://github.com/dangrossman/bootstrap-daterangepicker</a></td>
+								</tr>
+								<tr>
+									<td>Dynamic Form Field</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+								<tr>
+									<td>Spinner Input</td>
+									<td><code>assets/js/plugins/bootstrap-touchspin/</code></td>
+									<td><a href="http://www.virtuosoft.eu/code/bootstrap-touchspin/">http://www.virtuosoft.eu/code/bootstrap-touchspin/</a></td>
+								</tr>
+								<tr>
+									<td>Color Picker</td>
+									<td><code>assets/js/plugins/bootstrap-colorpicker/</code></td>
+									<td><a href="http://www.eyecon.ro/bootstrap-colorpicker/">http://www.eyecon.ro/bootstrap-colorpicker/</a></td>
+								</tr>
+								<tr>
+									<td>Textarea</td>
+									<td>-</td>
+									<td>-</td>
+								</tr>
+							</tbody>
+						</table>
+						<h3 id="inplace-editing">In-place Editing</h3>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>X-editable</td>
+									<td><code>assets/js/plugins/bootstrap-editable/</code></td>
+									<td><a href="http://vitalets.github.io/x-editable">http://vitalets.github.io/x-editable</a></td>
+								</tr>
+							</tbody>
+						</table>
+
+						<h3 id="validation">Validation</h3>
+						<p>You can validate form without javascript using Parsley, however please follow the documentation for further usage.</p>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Parsley</td>
+									<td><code>assets/js/plugins/parsley-validation/</code></td>
+									<td><a href="http://parsleyjs.org/doc/index.html">http://parsleyjs.org/doc/index.html</a></td>
+								</tr>
+							</tbody>
+						</table>
+						<h3 id="file-upload">File Upload</h3>
+						<p>The form is a working upload form with PHP file <code>php/uploads/dropzone-upload.php</code>. Uploaded file will be saved at <code>php/uploads/</code> directory.</p>
+						<div class="alert alert-info">
+							<strong><i class="fa fa-info-circle"></i> Note:</strong> Upload function only works on web server environment with PHP support.
+						</div>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Dropzone</td>
+									<td><code>assets/js/plugins/dropzone/</code></td>
+									<td><a href="http://www.dropzonejs.com/">http://www.dropzonejs.com/</a></td>
+								</tr>
+							</tbody>
+						</table>
+						<p>Dropzone plugin initialization and configurations can be found at <code>assets/js/queen-common.js</code></p>
+						<h3 id="text-editor">Text Editor</h3>
+						<p>Initialization and configurations can be found at <code>assets/js/queen-elements.js</code></p>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Summernote</td>
+									<td><code>assets/js/plugins/summernote/</code></td>
+									<td><a href="http://hackerwins.github.io/summernote/example.html">http://hackerwins.github.io/summernote/example.html</a></td>
+								</tr>
+								<tr>
+									<td>Bootstrap Markdown</td>
+									<td><code>assets/js/plugins/markdown/</code></td>
+									<td><a href="http://toopay.github.com/bootstrap-markdown/">http://toopay.github.com/bootstrap-markdown/</a></td>
+								</tr>
+							</tbody>
+						</table>
+						<h3 id="wizards">Wizards with Validation</h3>
+						<p>Initialization and configurations can be found at <code>assets/js/queen-elements.js</code></p>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Wizard by Fuel UX (Arrow Style)</td>
+									<td><code>assets/js/plugins/wizard/fuelux/</code></td>
+									<td><a href="http://exacttarget.github.io/fuelux/javascript.html#wizard">http://exacttarget.github.io/fuelux/javascript.html#wizard</a></td>
+								</tr>
+								<tr>
+									<td>Bootstrap Wizard (Circle Style)</td>
+									<td><code>assets/js/plugins/wizard/bootstrap-wizard/</code></td>
+									<td><a href="http://vadimg.com/twitter-bootstrap-wizard-example/#docs">http://vadimg.com/twitter-bootstrap-wizard-example/#docs</a></td>
+								</tr>
+								<tr>
+									<td>Validation by Parsley</td>
+									<td><code>assets/js/plugins/parsley-validation/</code></td>
+									<td><a href="http://parsleyjs.org/doc/index.html">http://parsleyjs.org/doc/index.html</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="doc-section">
+						<h2 id="ui-elements">UI Elements</h2>
+						<hr>
+						<h3 id="general">General</h3>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Bootstrap Progressbar</td>
+									<td><code>assets/js/plugins/bootstrap-progressbar/</code></td>
+									<td><a href="http://www.minddust.com/project/bootstrap-progressbar/demo/bootstrap-3-2-0/">http://www.minddust.com/project/bootstrap-progressbar/demo/bootstrap-3-2-0/</a></td>
+								</tr>
+								<tr>
+									<td>Gritter</td>
+									<td><code>assets/js/plugins/jquery-gritter/</code></td>
+									<td><a href="http://boedesign.com/blog/2009/07/11/growl-for-jquery-gritter/">http://boedesign.com/blog/2009/07/11/growl-for-jquery-gritter/</a></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="alert alert-warning">
+							<strong><i class="fa fa-warning"></i> Warning:</strong> Gritter plugin (<code>jquery.gritter.custom.js</code>) has small modification to enable close button templating by adding new global option. Further notes can be found at the plugin file.
+						</div>
+						<h3 id="buttons">Buttons</h3>
+						<p>Ajax-enabled button needs PHP file at the backend, can be found at <code>php/widget-ajax.php</code>. Also, please open <code>assets/js/queen-elements.js</code> and search for "#loading-example-btn" to see the ajax calling.</p>
+						<h3 id="tabs">Tabs</h3>
+						<p>This theme provides several tabs style from basic, minimal, custom tabs and so on.</p>
+						<script type="syntaxhighlighter" class="brush: html">
+						<![CDATA[
+
+							<!-- basic tab -->
+							<ul class="nav nav-tabs" role="tablist"> ... </ul>
+
+							<!-- basic tab with icons -->
+							<ul class="nav nav-tabs tabs-iconized" role="tablist"> ... </ul>
+
+							<!-- basic pill -->
+							<ul class="nav nav-pills tabs-iconized" role="tablist"> ... </ul>
+
+							<!-- custom minimal -->
+							<ul class="nav nav-pills nav-pills-custom-minimal tabs-iconized" role="tablist"> ... </ul>
+
+							<!-- custom colored -->
+							<ul class="nav nav-tabs nav-tabs-custom-colored tabs-iconized"> ... </ul>
+
+							<!-- custom left -->
+							<div class="custom-tabs-left">
+								<ul class="nav nav-tabs tabs-iconized"> ... </ul>
+								<div class="tab-content clearfix"> ... </div>
+							</div>
+
+						]]>
+						</script>
+						<h3 id="tour">Tour</h3>
+						<p>This plugins add tour functionality to tour page, the configurations and the content both can be found at <code>assets/js/queen-elements.js</code>.</p>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Bootstrap Tour</td>
+									<td><code>assets/js/plugins/bootstrap-tour/</code></td>
+									<td><a href="http://bootstraptour.com/api/">http://bootstraptour.com/api/</a></td>
+								</tr>
+							</tbody>
+						</table>
+						<h3 id="icons">Icons</h3>
+						<p>Main icon used in this theme is Ionicons. Please follow this link for complete list <a href="http://ionicons.com/">http://ionicons.com/</a>. Anyway, <a href="http://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> is also used in text editor and View Message page as file type icon.</p>
+					</div>
+					<div class="doc-section">
+						<h2 id="widgets">Widgets</h2>
+						<hr />
+						<p>By default, widget has header and content. It could have footer, but widget without header area is possible. In any way, widget will have a widget title.</p>
+						<h4>Default Widget</h4>
+						<img src="assets/img/scr-widget.png" alt="Default Widget" />
+						<h4>Widget With Footer</h4>
+						<img src="assets/img/scr-widget-has-footer.png" alt="Widget With Footer" />
+						<h4>Widget With No Header</h4>
+						<img src="assets/img/scr-widget-no-header.png" alt="Widget With No Header" />
+						<script type="syntaxhighlighter" class="brush: html">
+						<![CDATA[
+
+							<!-- default widget -->
+							<div class="widget">
+								<div class="widget-header clearfix"> ... </div>
+								<div class="widget-content"> ... </div>
+							</div>
+
+							<!-- widget with footer -->
+							<div class="widget">
+								<div class="widget-header clearfix"> ... </div>
+								<div class="widget-content"> ... </div>
+								<div class="widget-footer"> ... </div>
+							</div>
+
+							<!-- widget without header -->
+							<div class="widget widget-no-header">
+								<div class="widget-content">
+									<h3>Widget Title</h3>
+									<p> content goes here ... </p>
+								</div>
+							</div>
+
+						]]>
+						</script>
+						<h4>Quick Info <span class="badge">since v1.1</span></h4>
+						<p>We provide quick info widgets with several styles i.e. horizontal, vertical, boxed with colored and also clean background</p>
+						<ul class="list-unstyled list-inline">
+							<li><strong>Horizontal</strong><br />
+							<img src="assets/img/scr-widget-quickinfo-h.png" alt="Quick Info" /></li>
+							<li><strong>Vertical</strong><br />
+							<img src="assets/img/scr-widget-quickinfo-v.png" alt="Quick Info" /></li>
+							<li><strong>Boxed</strong><br />
+							<img src="assets/img/scr-widget-quickinfo-boxed.png" alt="Quick Info" /></li>
+							<li><strong>Boxed, Icon First</strong><br />
+							<img src="assets/img/scr-widget-quickinfo-boxed-iconfirst.png" alt="Quick Info" /></li>
+							<li><strong>Boxed, Clean</strong><br />
+						<img src="assets/img/scr-widget-quickinfo-boxed-clean.png" alt="Quick Info" /></li>
+						</ul>
+						<script type="syntaxhighlighter" class="brush: html">
+						<![CDATA[
+
+							<!-- horizontal -->
+							<div class="widget widget-no-header widget-transparent">
+								<div class="widget-content">
+									<h3 class="sr-only">QUICK SUMMARY INFO</h3>
+									<div class="row">
+										<div class="col-sm-3 col-xs-6 text-center">
+											<div class="quick-info horizontal">
+												<i class="icon ion-thumbsup pull-left bg-seagreen"></i>
+												<p>3700 <span>LIKES</span></p>
+											</div>
+										</div>
+
+										...
+										<!-- 3 items more-->
+									</div>
+								</div>
+							</div>
+
+							<!-- vertical -->
+							<div class="widget widget-no-header widget-transparent">
+								<div class="widget-content">
+									<h3 class="sr-only">QUICK SUMMARY INFO VERTICAL STLYE</h3>
+									<div class="row">
+										<div class="col-sm-4 text-center">
+											<div class="quick-info vertical">
+												<i class="icon ion-arrow-graph-up-right bg-orange"></i>
+												<p>27% <span>GROWTH</span></p>
+											</div>
+										</div>
+
+										...
+										<!-- 2 items more -->
+									</div>
+								</div>
+							</div>
+
+							<!-- boxed -->
+							<div class="widget widget-no-header widget-transparent">
+								<div class="widget-content">
+									<h3 class="sr-only">QUICK SUMMARY INFO BOXED STLYE</h3>
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="quick-info boxed bg-orange">
+												<i class="icon ion-arrow-graph-up-right"></i>
+												<p>27% <span>GROWTH</span></p>
+											</div>
+										</div>
+
+										...
+										<!-- 2 items more -->
+									</div>
+								</div>
+							</div>
+
+							<!-- boxed, icon first -->
+							<div class="widget widget-no-header widget-transparent">
+								<div class="widget-content">
+									<h3 class="sr-only">QUICK SUMMARY INFO BOXED ICON FIRST STLYE</h3>
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="quick-info boxed-icon-first bg-success clearfix">
+												<i class="icon ion-checkmark-circled"></i>
+												<p class="pull-right"><span>SUCCESS</span> 35</p>
+											</div>
+										</div>
+
+										...
+										<!-- 2 items more -->
+									</div>
+								</div>
+							</div>
+
+							<!-- boxed, clean -->
+							<div class="widget widget-no-header widget-transparent">
+								<div class="widget-content">
+									<h3 class="sr-only">QUICK SUMMARY INFO CLEAN BOXED STLYE</h3>
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="quick-info boxed-icon-first bg-white clearfix">
+												<i class="icon ion-checkmark-circled text-success"></i>
+												<p class="pull-right"><span>SUCCESS</span> 35</p>
+											</div>
+										</div>
+
+										...
+										<!-- 2 items more -->
+									</div>
+								</div>
+							</div>
+
+						]]>
+						</script>
+
+						<h4>General Portlets</h4>
+						<p>The theme also provides general portlets with various built-in colors such as blue, sea green, green and orange.</p>
+						<img src="assets/img/scr-portlets.png" alt="Portlets" />
+						<script type="syntaxhighlighter" class="brush: html">
+						<![CDATA[
+
+							<div class="portlet portlet-blue">
+								<h3>Portlet Title</h3>
+								<p> ... </p>
+							</div>
+
+							<div class="portlet portlet-seagreen">
+								<h3>Portlet Title</h3>
+								<p> ... </p>
+							</div>
+
+							<div class="portlet portlet-green">
+								<h3>Portlet Title</h3>
+								<p> ... </p>
+							</div>
+
+							<div class="portlet portlet-orange">
+								<h3>Portlet Title</h3>
+								<p> ... </p>
+							</div>
+
+						]]>
+						</script>
+					</div>
+					<div class="doc-section">
+						<h2 id="charts">Charts</h2>
+						<hr>
+						<p>Plugin initializations, configurations includes chart data can be found at <code>assets/js/queen-charts.js</code> except for jQuery easyPieChart used for CPU Usage on the left sidebar, it's initialized at <code>assets/js/queen-common.js</code></p>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Flot</td>
+									<td><code>assets/js/plugins/stat/flot/</code></td>
+									<td><a href="http://github.com/flot/flot/blob/master/API.md">http://github.com/flot/flot/blob/master/API.md</a></td>
+								</tr>
+								<tr>
+									<td>jQuery Sparklines</td>
+									<td><code>assets/js/plugins/stat/jquery-sparkline</code></td>
+									<td><a href="http://omnipotent.net/jquery.sparkline/#s-docs">http://omnipotent.net/jquery.sparkline/#s-docs</a></td>
+								</tr>
+								<tr>
+									<td>jQuery easyPieChart</td>
+									<td><code>assets/js/plugins/stat/jquery-easypiechart/</code></td>
+									<td><a href="http://rendro.github.io/easy-pie-chart/">http://rendro.github.io/easy-pie-chart/</a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="doc-section">
+						<h2 id="tables">Tables</h2>
+						<hr>
+						<p>Initializations and configuratins can be found at <code>assets/js/queen-table.js</code></p>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Datatable</td>
+									<td><code>assets/js/plugins/datatable/</code></td>
+									<td><a href="http://www.datatables.net/manual/index">http://www.datatables.net/manual/index</a></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="alert alert-info">
+							<strong><i class="fa fa-info-circle"></i> Note:</strong> Data export functions require Flash plugin.
+						</div>
+					</div>
+					<div class="doc-section" id="maps">
+						<h2>Maps</h2>
+						<hr />
+						<p>For Mapael, plugin initializtions, configurations and data can be found at <code>assets/js/queen-maps.js</code>.</p>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Element</th>
+									<th>Plugin Dir</th>
+									<th>Plugin Doc</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Mapael (Vector Map)</td>
+									<td><code>assets/js/plugins/mapael/</code></td>
+									<td><a href="http://www.neveldo.fr/mapael/#api-reference">http://www.neveldo.fr/mapael/#api-reference</a></td>
+								</tr>
+								<tr>
+									<td>Google Map (as functions)</td>
+									<td><code>assets/js/google-map/</code></td>
+									<td><a href="https://developers.google.com/maps/documentation/javascript/basics">https://developers.google.com/maps/documentation/javascript/basics</a></td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="alert alert-info">
+							<strong><i class="fa fa-info-circle"></i> Note: Google map requires API key</strong>. Please visit this link to obtain API key <a href="https://developers.google.com/maps/documentation/javascript/tutorial#api_key">https://developers.google.com/maps/documentation/javascript/tutorial#api_key</a>
+						</div>
+						<p>As you have your own API key, please open <code>assets/js/plugins/google-map/google-map.js</code></p> and find function <code>loadScript()</code> then replace "YOUR_API_KEY" with your API key as below
+						<script type="syntaxhighlighter" class="brush: js">
+						<![CDATA[
+
+							function loadScript() {
+								var script = document.createElement('script');
+								script.type = 'text/javascript';
+								script.src = 'https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=true&' +
+									'callback=initialize';
+								document.body.appendChild(script);
+							}
+
+						]]>
+						</script>
+						<p>The next thing is provide your address. Still on the same file, please find function <code>codeAddress()</code> as below</p>
+						<script type="syntaxhighlighter" class="brush: js">
+						<![CDATA[
+
+							function codeAddress() {
+							
+								var address = "Google New York, 76 Ninth Ave, New York, NY, USA";
+								geocoder.geocode( { 'address': address}, function(results, status) {
+									if (status == google.maps.GeocoderStatus.OK) {
+										map.setCenter(results[0].geometry.location);
+										var image = new google.maps.MarkerImage("assets/img/location-pin.png", null, null, null, new google.maps.Size(32, 32));
+										var beachMarker = new google.maps.Marker({
+											map: map,
+											icon: image,
+											position: results[0].geometry.location
+										});
+
+									} else {
+										alert('Geocode was not successful for the following reason: ' + status);
+									}
+								});
+							}
+
+						]]>
+						</script>
+						<p>Provide your address at variable <code>address</code>, you also found that the marker pin's location is at <code>assets/img/</code>. You can change marker pin by replacing the image file on that directory.</p>
+						
+					</div>
+					<div class="doc-section" id="typography">
+						<h2>Typography</h2>
+						<hr />
+						<p>By default Bootstrap will provides you contextual font color using class <code>.text-muted</code>, <code>.text-primary</code>, <code>.text-danger</code> and so on. Anyway, the theme also provides contextual background color that can be used for element's background.</p>
+						<script type="syntaxhighlighter" class="brush: html">
+						<![CDATA[
+
+							<p class="bg-primary"> ... </p>
+							<p class="bg-success"> ... </p>
+							<p class="bg-info"> ... </p>
+							<p class="bg-warning"> ... </p>
+							<p class="bg-danger"> ... </p>
+
+						]]>
+						</script>
+						<p>In the above example, the background is applied to paragraph, so you will get the paragraph of text highlighted by color.</p>
+					</div>
+					<div class="doc-section">
+						<h2 id="skins">Skins</h2>
+						<hr>
+						<p>This theme delivers ready-to-use skins with various colors for your brand identity. Each skin provides top bar and left main navigation combination colors. You can go further by customizing the skin, so it will match best with your branding requirements. All skin files can be found at <code>assets/css/skins/</code> directory.</p>
+
+					</div>
+					<div class="doc-section" id="changelog">
+						<h2>Changelog</h2>
+						<div class="well">
+							<h3>Version 1.2 <small>Jan 05, 2016</small></h3>
+							<ul>
+								<li>ADDED fixed left navigation sidebar</li>
+								<li>UPDATED Bootstrap to v3.3.6</li>
+								<li>UPDATED Font Awesome to v4.5.0</li>
+								<li>UPDATED Ionicons to v2.0.1</li>
+								<li>UPDATED documentation</li>
+								<li>IMPROVED icon visibility on top bar and left navigation</li>
+								<li>IMPROVED general UI and miscellaneous</li>
+								<li>REMOVED awkward scrolling on left sidebar menu item after expanding</li>
+								<li>FIXED all invalid Ionicons class due to recent update</li>
+								<li>FIXED date range picker, adjusted last year value in the range</li>
+								<li>FIXED input with contextual icon, removed top position</li>
+								<li>FIXED invoice print style</li>
+							</ul>
+							<h3>Version 1.1 <small>Oct 09, 2014</small></h3>
+							<ul>
+								<li>ADD new dashboard page</li>
+								<li>ADD more pages (Projects, Project Detail, FAQ, Pricing Tables with 3 different styles)</li>
+								<li>ADD more widgets and portlets (10+ items)</li>
+								<li>ADD menu levels</li>
+								<li>ADD wizards (arrow and circle styles)</li>
+								<li>ADD fixed top navigation toggle at style switcher</li>
+								<li>UPDATED Font Awesome (4.2.0)</li>
+								<li>UPDATED skins</li>
+								<li>IMPROVE off-canvas navigation, simpler and efficient implementation</li>
+								<li>IMPROVE minified navigation, smoother and cleaner transition</li>
+								<li>IMPROVE the layout and ui element structure to be more simple and efficient</li>
+							</ul>
+							<h3>Version 1.0.1 <small>Aug 08, 2014</small></h3>
+							<ul>
+								<li>FIXED off-canvas navigation on IE</li>
+								<li>FIXED widgets menu always active on every page templates (such as profile, search result etc)</li>
+								<li>Other misc updates and improvements</li>
+							</ul>
+							<h3>Version 1.0 <small>Aug 10, 2014</small></h3>
+							<ul>
+								<li>Initial release</li>
+							</ul>
+						</div>
+					</div>
+					<div class="doc-section" id="credits">
+						<h2>Credits</h2>
+						<div class="well">
+							<p>We would like to thank you for jQuery plugins, icons, fonts, images files used in this theme created by the fellow individual developer or team below:</p>
+							<ul>
+								<li>jQuery - <a href="http://jquery.com/">http://jquery.com/</a></li>
+								<li>Bootstrap - <a href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
+								<li>Modernizr - <a href="http://modernizr.com/">http://modernizr.com/</a></li>
+								<li>jQuery Flot - <a href="http://www.flotcharts.org/">http://www.flotcharts.org/</a></li>
+								<li>easyPieChart - <a href="http://rendro.github.io/easy-pie-chart/">http://rendro.github.io/easy-pie-chart/</a></li>
+								<li>Sparkline - <a href="http://omnipotent.net/jquery.sparkline/">http://omnipotent.net/jquery.sparkline/</a></li>
+								<li>Mapael - <a href="http://www.neveldo.fr/mapael/">http://www.neveldo.fr/mapael/</a></li>
+								<li>Rapael - <a href="http://raphaeljs.com/">http://raphaeljs.com/</a></li>
+								<li>DataTable - <a href="http://datatables.net/">http://datatables.net/</a></li>
+								<li>jQueryUI - <a href="http://jqueryui.com/">http://jqueryui.com/</a></li>
+								<li>Masked Input - <a href="http://digitalbush.com/projects/masked-input-plugin">http://digitalbush.com/projects/masked-input-plugin</a></li>
+								<li>jQRangeSlider - <a href="http://ghusse.github.io/jQRangeSlider/documentation.html">http://ghusse.github.io/jQRangeSlider/documentation.html</a></li>
+								<li>Color Picker - <a href="http://www.eyecon.ro/bootstrap-colorpicker/">http://www.eyecon.ro/bootstrap-colorpicker/</a></li>
+								<li>Bootstrap TouchSpin - <a href="http://www.virtuosoft.eu/code/bootstrap-touchspin/">http://www.virtuosoft.eu/code/bootstrap-touchspin/</a></li>
+								<li>Bootstrap Date Picker - <a href="http://www.eyecon.ro/bootstrap-datepicker">http://www.eyecon.ro/bootstrap-datepicker</a></li>
+								<li>Date Range Picker - <a href="https://github.com/dangrossman/bootstrap-daterangepicker">https://github.com/dangrossman/bootstrap-daterangepicker</a></li>
+								<li>Dropzone - <a href="http://www.dropzonejs.com/">http://www.dropzonejs.com/</a></li>
+								<li>Parsley - <a href="http://parsleyjs.org/">http://parsleyjs.org/</a></li>
+								<li>Bootstrap Multiselect - <a href="https://github.com/davidstutz/bootstrap-multiselect">https://github.com/davidstutz/bootstrap-multiselect</a></li>
+								<li>Bootstrap Progress Bar - <a href="http://www.minddust.com/bootstrap-progressbar/bootstrap-3.0.0-rc2.html">http://www.minddust.com/bootstrap-progressbar/bootstrap-3.0.0-rc2.html</a></li>
+								<li>Bootstrap Tour - <a href="http://bootstraptour.com">http://bootstraptour.com</a></li>
+								<li>Gritter - <a href="http://boedesign.com/blog/2009/07/11/growl-for-jquery-gritter/">http://boedesign.com/blog/2009/07/11/growl-for-jquery-gritter/</a></li>
+								<li>Images - <a href="http://unsplash.com/">http://unsplash.com/</a></li>
+								<li>UIFaces - <a href="http://uifaces.com/">http://uifaces.com/</a></li>
+								<li>Patterns - <a href="http://subtlepatterns.com/">http://subtlepatterns.com/</a></li>
+								<li>Font Awesome Icons - <a href="http://fortawesome.github.io/Font-Awesome/">http://fortawesome.github.io/Font-Awesome/</a></li>
+								<li>X-Editable - <a href="http://vitalets.github.io/x-editable/">http://vitalets.github.io/x-editable/</a></li>
+								<li>Summernote - <a href="http://hackerwins.github.io/summernote/">http://hackerwins.github.io/summernote/</a></li>
+								<li>Bootstrap Markdown - <a href="http://github.com/toopay/bootstrap-markdown">http://github.com/toopay/bootstrap-markdown</a></li>
+								<li>Select2 <a href="http://ivaynberg.github.io/select2/index.html">http://ivaynberg.github.io/select2/index.html</a></li>
+								<li>Bootstrap Slider - <a href="http://www.eyecon.ro/bootstrap-slider">http://www.eyecon.ro/bootstrap-slider</a></li>
+								<li>Bootstrap Tags Input - <a href="http://timschlechter.github.io/bootstrap-tagsinput/examples/bootstrap3/">http://timschlechter.github.io/bootstrap-tagsinput/examples/bootstrap3/</a></li>
+								<li>Typeaheadjs - <a href="https://github.com/twitter/typeahead.js">https://github.com/twitter/typeahead.js</a></li>
+								<li>Mockjax - <a href="https://github.com/appendto/jquery-mockjax">https://github.com/appendto/jquery-mockjax</a></li>
+								<li>FuelUX - <a href="http://exacttarget.github.io/fuelux/">http://exacttarget.github.io/fuelux/</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- JAVASCRIPTS -->
+	<script src="assets/js/jquery-2.1.0.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/shCore.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/shBrushXml.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/shBrushCss.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/shBrushJScript.js"></script>
+	<script type="text/javascript" src="assets/js/plugins/shBrushPhp.js"></script>
+	<script src="assets/js/documentation.js"></script>
+</body>
+</html>

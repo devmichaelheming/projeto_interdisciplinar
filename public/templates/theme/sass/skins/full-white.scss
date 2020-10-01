@@ -1,0 +1,83 @@
+/*------------------------------------------------*/
+/*	Skin: Full White
+/*------------------------------------------------*/
+
+@import "compass/css3";
+
+body {
+	background: #fff;
+}
+
+#col-right {
+	border-right: 1px solid #ccc;
+}
+
+.main-nav h3 {
+	border-bottom: 1px solid #ccc;
+}
+
+ul.main-menu {
+	li {
+		a {
+			color: #696565;
+
+			&:hover, &:focus {
+				background-color: #e7e7e7;
+				color: #696565;
+			}
+		}
+
+		&.active {
+			> a {
+				background-color: #e7e7e7;
+				color: #696565;
+
+				&.submenu-toggle {
+					background-color: #fff;
+					color: #696565;
+				}
+			}
+		}
+	}
+
+	.sub-menu,
+	.sub-menu .sub-menu {
+		> li {
+			a {
+				background-color: #fff;
+
+				&:hover, &:focus {
+					background-color: #e7e7e7;
+				}
+			}
+
+			&.active {
+				> a {
+					background-color: #e7e7e7;
+
+					&:hover, &:focus {
+						background-color: #e7e7e7;
+					}
+				}
+			}
+
+			&.has-submenu a {
+				background-color: #fff;
+			}
+		}
+	}
+}
+
+.main-nav-minified #col-left ul.main-menu {
+	li > a:hover {
+		background-color: #e7e7e7;
+	}
+
+	> li:hover ul.sub-menu {
+		@include box-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+
+		height: auto !important;
+	}
+}
+
+

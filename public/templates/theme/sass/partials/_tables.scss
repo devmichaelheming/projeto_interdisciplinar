@@ -1,0 +1,149 @@
+/*------------------------------------------------*/
+/*	Tables
+/*------------------------------------------------*/
+
+table.colored-header thead {
+	> tr > th {
+		background-color: #ebebeb !important;
+	}
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+	background-color: #ebebeb;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+	background-color: #ebebeb;
+}
+
+table.dataTable {
+	thead {
+		> tr > th {
+			padding-left: 8px;
+			padding-right: 15px;
+		}
+
+		.sorting {
+			background: none;
+			background: {
+				image: image-url('sort_both.png');
+				repeat: no-repeat;
+				position: center right;
+			}
+		}
+
+		.sorting_asc {
+			background: none;
+			background: {
+				image: image-url('sort_asc.png');
+				repeat: no-repeat;
+				position: center right;
+			}
+		}
+
+		.sorting_desc {
+			background: none;
+			background: {
+				image: image-url('sort_desc.png');
+				repeat: no-repeat;
+				position: center right;
+			}
+		}
+
+		.sorting_asc_disabled {
+			background: none;
+			background: {
+				image: image-url('sort_asc_disabled.png');
+				repeat: no-repeat;
+				position: center right;
+			}
+		}
+
+		.sorting_desc_disabled {
+			background: none;
+			background: {
+				image: image-url('sort_desc_disabled.png');
+				repeat: no-repeat;
+				position: center right;
+			}
+		}
+
+		.row-filter input {
+			width: 100%;
+		}
+	}
+}
+
+.dataTables_filter input {
+	margin-left: 5px;
+}
+
+@include max-screen($break-xsmall) {
+	.dataTables_filter,
+	.dataTables_length,
+	.dataTables_info {
+		display: none;
+	}
+}
+
+/* datatable extensions */
+ul.ColVis_collection {
+	@include border-radius(2px);
+	@include box-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+
+	width: auto;
+	background: #fff;
+
+	li, li.ColVis_Special {
+		@include box-shadow(none);
+
+		background: #f3f3f3;
+		border: inherit;
+
+		&:hover {
+			@include box-shadow(none);
+
+			background: darken(#f3f3f3, 3%);
+			border: inherit;
+		}
+	}
+
+	li span {
+		font-size: 90%;
+	}
+}
+
+/* dragged header */
+.DTCR_clonedTable th {
+	padding: 10px;
+	vertical-align: middle;
+	background-color: #ebebeb;
+}
+
+.DTCR_pointer {
+	border: 1px solid $color-warning;
+}
+
+.DTTT.btn-group {
+	float: right;
+	margin-bottom: 1em;
+	
+	.btn {
+		position: relative;
+	}
+}
+
+.table-responsive .dataTables_wrapper {
+	.row {
+		margin-left: 0;
+		margin-right: 0;
+
+		div[class^='col'] {
+			padding-left: 0;
+			padding-right: 0; 
+		}
+	}
+}
+

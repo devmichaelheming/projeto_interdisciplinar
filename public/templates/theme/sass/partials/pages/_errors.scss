@@ -1,0 +1,81 @@
+/*------------------------------------------------*/
+/*	Page: 404
+/*------------------------------------------------*/
+
+.page-404,
+.page-505 {
+	background: #C96046;
+
+	.container {
+		margin-top: -16em;
+	}
+
+	@include max-screen($break-xsmall) {
+
+		.container {
+			position: relative;
+			margin: 15px auto;
+		}
+		
+		&.middle-content .container {
+			top: 0;
+		}
+	}
+	
+	h1 {
+		font-family: $secondary-font-family-semibold;
+		font-size: 12em;
+		line-height: 1;
+	}
+
+	h1, h2 {
+		margin: 0;
+	}
+
+	h1, h2, .error-description {
+		color: darken(#C96046, 18%);
+	}
+	
+	hr {
+		border-color: darken(#C96046, 12%);
+		border-width: 4px;
+		margin-bottom: 0;
+	}
+
+	.error-description {
+		border-top: 2px solid lighten(#C96046, 8%);
+		padding-top: 20px;
+		font-size: 1.3em;
+	}
+
+}
+
+.page-404 {
+	input, input:focus {
+		border-color: darken(#C96046, 8%);
+		background-color: lighten(#C96046, 10%);
+		color: darken(#C96046, 18%);
+	}
+
+	.input-group {
+		margin: 0 auto;
+
+		@include min-screen($break-small) {
+			width: 50%;
+		}
+	}
+
+	.btn {
+		font-weight: 700;
+		border-color: darken(#C96046, 8%);
+		color: darken(#C96046, 18%);
+		background-color: lighten(#C96046, 5%);
+		
+		&:hover, &:focus, &:active {
+			background-color: #C96046;
+			color: darken(#C96046, 18%);
+		}
+	}
+
+}
+

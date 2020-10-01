@@ -1,0 +1,281 @@
+/*------------------------------------------------*/
+/*	General Styles
+/*------------------------------------------------*/
+
+body {
+	font-family: $base-font-family, sans-serif;
+	font-size: 13px;
+	color: $base-font-color-dark;
+	line-height: 1.6;
+	background: #232323;
+}
+
+a {
+	color: $color-link;
+	text-decoration: none;
+	outline: 0 none;
+
+	&:hover,
+	&:focus {
+		color: $color-link-hover;
+		text-decoration: none;
+		outline: 0 none;
+	}
+}
+
+hr {
+	border-color: #ccc;
+}
+
+.dashed {
+	border-style: dashed;
+}
+
+@include font-face($secondary-font-family-semibold, font-files(
+	"josefinslab-semibold-webfont.woff",
+	"josefinslab-semibold-webfont.ttf",
+	"josefinslab-semibold-webfont.svg"
+	), "josefinslab-semibold-webfont.eot");
+
+@include font-face($secondary-font-family-bold, font-files(
+	"josefinslab-bold-webfont.woff",
+	"josefinslab-bold-webfont.ttf",
+	"josefinslab-bold-webfont.svg"
+	), "josefinslab-bold-webfont.eot");
+
+/* layout structure */
+.wrapper {
+	overflow: hidden;
+}
+
+#col-left {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: 50px;
+
+	.widget {
+		position: fixed;
+		bottom: -45px;
+	}
+}
+
+#col-left,
+.top-bar >:first-child {
+	width: $left-col-width;
+}
+
+.fixed-top-active #col-right {
+	padding-top: 47px;
+}
+
+#col-right {
+	margin-left: $left-col-width;
+	background-image: image-url("gray_jean.png");
+	background-repeat: repeat;
+	min-height: 1585px;
+	padding: 0 0px 30px 15px;
+
+	&.no-heading {
+		padding-top: 80px;
+	}
+
+	@include max-screen($break-large) {
+		overflow: hidden;
+	}
+}
+
+.top-bar,
+#col-left,
+#col-right,
+ul.main-menu > li > a span {
+	@include transition-property(all);
+	@include transition-duration(0.5s);
+}
+
+/* when off-canvas navigation start hidden */
+@include max-screen($break-large) {
+	#col-left {
+		left: -$left-col-width;
+	}
+
+	#col-right {
+		margin-left: 0;
+	}
+}
+
+/* when user click off-canvas button */
+.off-canvas-active {
+	#col-left {
+		left: 0;
+	}
+
+	#col-right {
+		margin-left: $left-col-width;
+		margin-right: -$left-col-width;
+	}
+}
+
+@include min-screen($break-small) {
+	.container {
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
+.well-lg {
+	@include border-radius(4px);
+}
+
+.well-sm {
+	@include border-radius(2px);
+}
+
+.bottom-30px {
+	margin-bottom: 30px !important;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.control-inline {
+	display: -moz-inline-stack !important;
+	display: inline-block !important;
+	vertical-align: middle !important;
+	zoom: 1 !important;
+}
+
+.middle-content .container {
+	position: absolute;
+	top: 50%;
+	text-align: center;
+}
+
+.content-box-bordered {
+	@include border-radius(2px);
+
+	border: 1px solid #ccc;
+}
+
+.sticky-content {
+
+	.btn-default {
+		&.btn-favorites {
+			color: $color-warning;
+
+			&:hover, &:focus,
+			&:active, &.active {
+				color: darken($color-warning, 5%);
+			}
+		}
+
+		&.btn-quick-task {
+			color: $color-info;
+
+			&:hover, &:focus,
+			&:active, &.active {
+				color: darken($color-info, 5%);
+			}
+		}
+
+		&:hover, &:focus,
+		&:active, &.active {
+			background-color: #fff;
+		}
+	}
+
+	.dropdown-menu {
+		min-width: 370px;
+		padding-top: 15px;
+
+		> li {
+			@include inline-block;
+
+			min-width: 120px;
+			margin-bottom: 15px;
+
+			> a {
+				text-align: center;
+				color: #9a9a9a !important;
+
+				&:hover, &:focus {
+					top: -2px;
+					background: transparent;
+					
+					i {
+						top: -2px;
+					}
+				}
+			}
+
+			i {
+				@include transition-property(all);
+				@include transition-duration(0.2s);
+				@include transition-timing-function(ease-in-out);
+
+				font-size: 3em;
+				position: relative;
+				top: 0;
+			}
+
+			span {
+				display: block;
+				font-weight: 700;
+			}
+		}
+	}
+}
+
+/* contextual backgrounds */
+.bg-primary,
+.bg-success,
+.bg-info,
+.bg-warning,
+.bg-danger {
+	color: #fff;
+}
+
+.bg-default {
+	background: $color-default;
+}
+
+.bg-primary {
+	background: $color-primary;
+}
+
+.bg-success {
+	background: $color-success;
+}
+
+.bg-info {
+	background: $color-info;
+}
+
+.bg-warning {
+	background: $color-warning;
+}
+
+.bg-danger {
+	background: $color-danger;
+}
+
+.bg-blue {
+	background: $color-blue;
+}
+
+.bg-green {
+	background: $color-green;
+}
+
+.bg-orange {
+	background: $color-orange;
+}
+
+.bg-seagreen {
+	background: $color-seagreen;
+}
+
+.bg-white {
+	background: #fff;
+}

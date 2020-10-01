@@ -1,0 +1,458 @@
+/*------------------------------------------------*/
+/*	Chart
+/*------------------------------------------------*/
+
+/* flot chart legend */
+td.legendLabel {
+	padding-right: 5px;
+}
+
+/* headline stat on dashboard page */
+.headline {
+	background: #fff;
+	margin-top: 30px;
+
+	@include max-screen($break-small) {
+		margin: 0 -30px 0 -30px;
+	}
+
+	.headline-report-text {
+		padding: 0 10px 10px 0;
+		color: #fff;
+
+		h3 {
+			margin-top: 0;
+			color: #695B0E;
+			font-size: 1.4em;
+		}
+
+		ul {
+			@include border-radius(2px);
+
+			background: rgba(60, 112, 19, 0.5);
+
+			> li {
+				padding: 5px 10px;
+				line-height: 2;
+
+				> span:first-child {
+					@include inline-block;
+
+					min-width: 140px;
+				}
+
+				> span + span {
+					font-weight: 300;
+				}
+			}
+		}
+	}
+
+	.nav-pills-custom-minimal {
+		padding-left: 15px;
+		padding-right: 15px;
+		border-bottom: none;
+	}
+
+	.tab-content {
+		background-image: image-url('headline-bg.png');
+
+		> .tab-pane {
+			padding: 30px 15px;
+			height: 310px;
+		}
+
+		@include max-screen($break-medium) {
+			background-repeat: repeat-y;
+			
+			> .tab-pane {
+				height: auto;
+			}
+		}
+	}
+
+	.legend table {
+		background-color: rgba(255, 255, 255, 0.5);
+
+		td {
+			padding: 3px;
+
+			&.legendLabel {
+				padding-right: 5px;
+			}
+		}
+	}
+
+	.bottom-stat {
+		margin-left: 0;
+		margin-right: 0;
+
+		.row {
+			margin-left: 0;
+			margin-right: 0;
+
+			> div {
+				padding-left: 0;
+				padding-right: 0;
+				border-left: 1px solid #ccc;
+
+				&:first-child {
+					border-left: none;
+				}
+
+				@include max-screen($break-small) {
+					border-left: none;
+					border-bottom: 1px solid #ccc;
+
+					&:last-child {
+						border-bottom: none;
+					}
+				}
+			}
+		}
+
+		.stat-item {
+			text-align: center;
+			padding: 10px 0;
+			
+			.left,
+			.right {
+				@include inline-block;
+
+				margin: 0 5px;
+			}
+
+			.number {
+				font-family: $secondary-font-family-semibold;
+				font-size: 2.8em;
+				line-height: 1.1;
+			}
+
+			.text {
+				font-weight: 300;
+				font-size: 1.5em;
+			}
+
+			.icon {
+				font-size: 48px;
+				line-height: 1;
+			}
+		}
+	}
+}
+
+.social-stat {
+	padding: 15px 0;
+	margin: 0 auto;
+
+	@include max-screen($break-xsmall) {
+		width: auto;
+	}
+
+	.number {
+		height: 103px;
+		min-width: 105px;
+		padding-top: 1.5em;
+		font-weight: 300;
+		text-align: center;
+		background: rgba(#fff, 0.4);
+
+		@include max-screen($break-xsmall) {
+			float: none !important;
+			min-width: auto;
+		}
+		
+		> span {
+			font-size: 1.8em;
+			line-height: 1.4;
+
+			+ span {
+				display: block;
+				font-size: 0.8em;
+				font-weight: normal;
+				line-height: 2;
+			}
+		}
+
+		i {
+			font-size: 12px;
+		}
+	}
+
+	.mini-stat {
+		padding: 20px 0;
+		text-align: center;
+		background: rgba(#fff, 0.4);
+
+		p {
+			margin-bottom: 0;
+			margin-top: 5px;
+			font-size: 0.8em;
+		}
+
+		i {
+			margin-right: 2px;
+			font-size: 18px;
+			position: relative;
+			top: 2px;
+		}
+	}
+}
+
+.status-chart {
+	text-align: center;
+
+	.chart-title {
+		display: block;
+		font-size: 1em;
+		font-weight: 700;
+	}
+}
+
+.pie-chart {
+	@include inline-block;
+
+	position: relative;
+	width: 130px;
+	margin-bottom: 20px;
+
+	canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.percent {
+		@include inline-block;
+
+		line-height: 130px;
+		z-index: 2;
+		font-size: 1.2em;
+
+		&:after {
+			margin-left: 0.1em;
+		}
+	}
+}
+
+.flot-chart {
+	width: 100%;
+	height: 250px;
+}
+
+.donut-label {
+	font-size: 12px;
+	color: #FFF;
+	background: rgba(0, 0, 0, 0.5);
+	text-align: center;
+	padding: 3px;
+}
+
+#flotTip {
+	@include border-radius(0 !important);
+
+	background-color: rgba(0, 0, 0, 0.8) !important;
+	color: $base-font-color-light !important;
+	border: none !important;
+
+}
+
+/* sparkline tooltip fix */
+.jqstooltip {
+	@extend #flotTip;
+
+	width: auto !important;
+	height: auto !important;
+}
+
+.jqsfield {
+	color: $base-font-color-light !important;
+}
+
+/* interactive charts, choices toggle checkbox */
+.widget-chart-toggle-series {
+	#choices {
+		@include max-screen($break-medium) {
+			margin-top: 30px;
+
+			> div {
+				@include inline-block;
+			}
+		}
+	}
+}
+
+/*------------------------------------------------*/
+/*	Quick stat info
+/*------------------------------------------------*/
+
+.quick-info {
+	i {
+		font-size: 30px;
+	}
+
+	p {
+		font-size: 28px;
+		font-weight: 300;
+		line-height: 1.3;
+
+		span {
+			font-size: 0.5em;
+		}
+	}
+
+	&.horizontal {
+		i {
+			@include border-radius(50%);
+
+			display: block;
+			width: 60px;
+			height: 60px;
+			color: #fff;
+
+			&:before {
+				position: relative;
+				top: 6px;
+			}
+		}
+
+		p {
+			padding-left: 70px;
+			padding-top: 2px;
+			text-align: left;
+
+			span {
+				display: block;
+			}
+		}
+
+		@include max-screen($break-medium) {
+			margin-bottom: 30px;
+		}
+
+		@include max-screen($break-small) {
+			p {
+				text-align: left;
+				padding-left: 70px;
+			}
+		}
+
+		@include max-screen($break-xsmall) {
+			display: block;
+
+			i {
+				float: none !important;
+				margin: 0 auto;
+				margin-bottom: 10px;
+			}
+
+			p {
+				padding-left: 0;
+				text-align: center;
+			}
+		}
+	}
+
+	&.vertical {
+		@include inline-block;
+
+		i {
+			@include border-radius(50%);
+			@include inline-block;
+
+			width: 60px;
+			height: 60px;
+			margin-bottom: 10px;
+			color: #fff;
+
+			&:before {
+				position: relative;
+				top: 6px;
+			}
+		}
+
+		p {
+			padding-left: 0;
+			text-align: center;
+
+			span {
+				display: block;
+			}
+		}
+
+		@include max-screen($break-small) {
+			margin-bottom: 30px;
+		}
+	}
+
+	&.boxed {
+		display: block;
+		position: relative;
+		padding: 15px;
+		color: #fff;
+
+		i {
+			@include opacity(0.2);
+
+			position: absolute;
+			top: 2px;
+			right: 15px;
+			line-height: 1;
+			font-size: 72px;
+		}
+
+		p {
+			padding-left: 0;
+			margin-bottom: 0;
+			line-height: 1.6;
+		}
+	}
+
+	&.boxed-icon-first {
+		padding: 15px;
+
+		i {
+			position: relative;
+			top: 3px;
+			font-size: 48px;
+			line-height: 1;
+		}
+
+		p {
+			margin-bottom: 0;
+			text-align: right;
+
+			span {
+				display: block;
+			}
+		}
+	}
+}
+
+/* status bar list */
+.status-bar-list {
+	> li {
+		padding: 15px 0;
+	}
+
+	.progress {
+		@include border-radius(0);
+		
+		margin-bottom: 0;
+		background-color: #dcdcdc;
+
+		&.progress-xs {
+			height: 3px;
+		}
+
+		.progress-bar {
+			@include border-radius(0);
+		}
+	}
+
+	p {
+		margin-bottom: 0;
+		font-size: 0.85em;
+	}
+}
+
