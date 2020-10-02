@@ -382,7 +382,6 @@
 			return false;
 		});
 
-
 		// RELATORIO
 
 		$(document).on('click','.btn-relatorio', function(e){
