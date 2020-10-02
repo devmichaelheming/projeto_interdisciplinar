@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="form" role="form" action="{{ url('/admin/clientes/editar/salvar') }}/{{ $id }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
+<form class="form-horizontal" id="form" role="form" action="{{ url('/admin/servicos/editar/salvar') }}/{{ $id }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
 	@csrf
 
 	<div class="sessao-carro">

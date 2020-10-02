@@ -5825,6 +5825,7 @@ select.input-sm {
   border-radius: 2px;
   padding: 8px;
   position: relative;
+  margin-bottom: 0;
 }
 .alert i {
   font-size: 16px;
@@ -10821,7 +10822,7 @@ ul.project-activity-list > li .activity-item > i {
   color: #D32F2F;
 }
 .fa-check-circle{
-  color: green;
+  color: white;
 }
 .btn-plus{
   justify-content: center;

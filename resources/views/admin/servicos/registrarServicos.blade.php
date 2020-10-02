@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="form" role="form" action="{{ route('clientes.cadastrado') }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
+<form class="form-horizontal" id="form" role="form" action="{{ route('servicos.cadastrado') }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
 	@csrf
 
 	<div class="sessao-carro">
@@ -96,8 +96,8 @@
 	</div>
 
 	<div class="form-group" style="margin:0;">
-		<label for="modelo" class="control-label">Valor do serviço</label>
-		<input type="number" class="inputs" id="modelo" name="modelo" required placeholder="R$">
+		<label for="valor" class="control-label">Valor do serviço</label>
+		<input type="number" class="inputs" id="valor" name="valor" required placeholder="R$">
 	</div>
 
 	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">

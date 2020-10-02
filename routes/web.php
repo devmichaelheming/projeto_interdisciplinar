@@ -56,19 +56,20 @@ Route::get('/contas/remover/{id}', 'contasController@removerConta')->name('conta
 // MES
 Route::get('/mes', 'contasController@mes')->name('admin.mes');
 
-    // CLIENTES
+    // SERVIÇOS
     // visualizar contas
-    Route::get('/clientes', 'clientesController@index')->name('admin.clientes');
-    Route::get('/clientes/listar', 'clientesController@listar')->name('clientes.listar');
+    Route::get('/servicos', 'servicosController@index')->name('admin.servicos');
+    Route::get('/servicos/listar', 'servicosController@listar')->name('servicos.listar');
     // visualizar cadastro
-    Route::get('/clientes/viewCadastrar', 'clientesController@viewCadastro')->name('clientes.cadastrar');
+    Route::get('/servicos/viewCadastrar', 'servicosController@viewCadastro')->name('servicos.cadastrar');
     // cadastrado
-    Route::post('/usuario/cadastrado', 'clientesController@cadastrado')->name('clientes.cadastrado');
-    //Editar clientes
-    Route::get('/clientes/editar/{id}', 'clientesController@editarClientes')->name('clientes.editar');
-    Route::get('/clientes/relatorio/{id}', 'clientesController@relatorio')->name('clientes.relatorio');
-    Route::post('/clientes/editar/salvar/{id}', 'clientesController@editarSalvar');
-    //Remover clientes
-    Route::get('/clientes/remover/{id}', 'clientesController@removerClientes')->name('clientes.remover');
+    Route::post('/usuario/cadastrado', 'servicosController@cadastrado')->name('servicos.cadastrado');
+    //Editar servicos
+    Route::get('/servicos/editar/{id}', 'servicosController@editarServicos')->name('servicos.editar');
+    Route::get('/servicos/relatorio/{id}', 'servicosController@relatorio')->name('servicos.relatorio');
+    Route::post('/servicos/editar/salvar/{id}', 'servicosController@editarSalvar');
+    //Remover servicos
+    Route::get('/servicos/remover/{id}', 'servicosController@removerServicos')->name('servicos.remover');
+    Route::get('/servicos/confirm/{id}', 'servicosController@confirm')->name('servicos.confirm');
 
 });

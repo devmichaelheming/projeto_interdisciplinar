@@ -4,36 +4,39 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\user;
-use App\clientes;
+use App\servicos;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
-class clientesController extends Controller
+class servicosController extends Controller
 {
 
     public function index()
     {
-        $clientes = clientes::all();
+        $servicos = servicos::all();
 
-        $ativo = DB::table('clientes')->select(DB::raw('count(*) status'))->where('status', '=', 1)->get();
-        $inativo = DB::table('clientes')->select(DB::raw('count(*) status'))->where('status', '=', 0)->get();
+        $ativo = DB::table('servicos')->select(DB::raw('count(*) status'))->where('status', '=', 1)->get();
+        $inativo = DB::table('servicos')->select(DB::raw('count(*) status'))->where('status', '=', 0)->get();
 
-        foreach ($clientes as $cliente) {
-            if($cliente->status == 1){
-                $cliente->status = 'Finalizado';
+        foreach ($servicos as $servico) {
+            if($servico->status == 1){
+                $servico->status = 'Finalizado';
             }else{
-                $cliente->status = 'Andamento';
+                $servico->status = 'Andamento';
             }
         }
 
-        foreach ($clientes as $key => $cliente) {
-            $sep[] = str_replace('.', ',', $cliente['valor']);
+        $sep = [];
+
+        foreach ($servicos as $key => $servico) {
+            $sep[] = str_replace('.', ',', $servico['valor']);
         }
+        
         $total = array_sum($sep);
         
-        return view('admin.clientes.clientes', [
-            "clientes" => $clientes,
+        return view('admin.servicos.servicos', [
+            "servicos" => $servicos,
             "total" => $total,
             "ativo" => json_decode($ativo[0]->status),
             "inativo" => json_decode($inativo[0]->status),
@@ -42,14 +45,14 @@ class clientesController extends Controller
 
     public function viewCadastro()
     {
-        return view('admin.clientes.registrarClientes');
+        return view('admin.servicos.registrarServicos');
     }
 
     public function cadastrado(Request $request)
     {
 
         try{
-        $db = New clientes();
+        $db = New servicos();
 
             $db->nome = $request->input('nome');
             $db->email = $request->input('email');
@@ -68,22 +71,22 @@ class clientesController extends Controller
 
             $db->save();
 
-            return redirect()->route('admin.clientes')->with('mensagem', 'A conta foi cadastrada com sucesso!');
+            return redirect()->route('admin.servicos')->with('mensagem', 'O  serviço foi cadastrado com sucesso!');
         } catch (QueryException $ex) {
 
             if($ex->getCode() === "23000") {
-                return redirect()->route('admin.contas')->with('invalido', 'A conta já está cadastrada no sistema!');
+                return redirect()->route('admin.servicos')->with('invalido', 'O serviço já está cadastrado no sistema!');
             } else {
-                return redirect()->route('admin.contas')->with('invalido', 'Erro SQL ao cadastrar a conta!');
+                return redirect()->route('admin.servicos')->with('invalido', 'Erro SQL ao cadastrar o serviço!');
             }
         }
     }
 
     public function relatorio(Request $request, $id){
 
-        $db = clientes::find($id);
+        $db = servicos::find($id);
 
-        return view('admin.clientes.relatorio',[
+        return view('admin.servicos.relatorio',[
             'id' => $id,
             'nome' => $db['nome'],
             'relatorio' => $db['relatorio']
@@ -91,7 +94,7 @@ class clientesController extends Controller
         
     }
 
-    public function editarClientes(Request $request, $id)
+    public function editarServicos(Request $request, $id)
     {
         $user = user::all();
 
@@ -99,9 +102,9 @@ class clientesController extends Controller
             if(Auth::user()->peditar_usuario == 0){
                 return redirect()->route('admin')->with('mensagem', 'Você não tem permissão para acessar esta página!');
             }else{
-                $db = clientes::find($id);
+                $db = servicos::find($id);
 
-                return view('admin.clientes.editarClientes',[
+                return view('admin.servicos.editarServicos',[
                     'id' => $id,
                     'nome' => $db['nome'],
                     'email' => $db['email'],
@@ -124,7 +127,7 @@ class clientesController extends Controller
 
     public function editarSalvar(Request $request, $id)
     {
-        $db = clientes::find($id);
+        $db = servicos::find($id);
 
         $dados = $request->all();
 
@@ -160,24 +163,33 @@ class clientesController extends Controller
 
         $db->save();
 
-        return redirect()->route('admin.clientes')->with('mensagem', 'Os dados do cliente foram atualizados com sucesso!');
+        return redirect()->route('admin.servicos')->with('mensagem', 'Os dados do serviço foram atualizados com sucesso!');
     }
 
-     public function removerConta(request $request)
+    public function confirm(Request $request, $id)
     {
-        $user = clientes::all();
+        $db = user::find($id);
+        return view('admin.servicos.confirmDelete', [
+            'id' => $id,
+        ]);
+    }
 
-        foreach ($user as $users) {
-            if(Auth::user()->pdeletar_usuario == 0){
-                return redirect()->route('admin')->with('mensagem', 'Você não tem permissão para acessar esta página!');
-            }else{
-                $user = clientes::find($request->id);
+    public function removerServicos(request $request)
+    {
+        $user = servicos::all();
+
+        // foreach ($user as $users) {
+        //     if(Auth::user()->pdeletar_usuario == 0){
+        //         return redirect()->route('admin')->with('mensagem', 'Você não tem permissão para acessar esta página!');
+        //     }else{
+                $user = servicos::find($request->id);
                 $user->delete();
 
-                return redirect()->route('admin.clientes')->with('invalido', 'O cliente foi deletado com sucesso!');
-            }
-        }
+                return redirect()->route('admin.servicos')->with('invalido', 'O serviço foi deletado com sucesso!');
+        //     }
+        // }
     }
+
     public function mes(request $request)
     {
         dd($request->all());

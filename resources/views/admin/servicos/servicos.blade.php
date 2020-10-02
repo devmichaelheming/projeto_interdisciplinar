@@ -38,64 +38,7 @@
 		@include('templates.nav-left')
 
 		<div id="col-right" class="col-right ">
-
-			<div class="modal-cadastrar fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">
-								<span>
-									<i class="fas fa-user-plus" style="padding-right:0.5rem;"></i>
-									Cadastrar serviços
-								</span>
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							</h5>
-						</div>
-						<div class="modal-body-cadastrar">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="modal-relatorio fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">
-								<span>
-									<i class="far fa-file-alt" style="padding-right:0.5rem;"></i>
-									Relatório
-								</span>
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							</h5>
-						</div>
-						<div class="modal-body-relatorio">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">
-								<span>
-									<i class="fas fa-user-plus" style="padding-right:0.5rem;"></i>
-									Editar cliente
-								</span>
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							</h5>
-						</div>
-						<div class="modal-body"></div>
-					</div>
-				</div>
-			</div>
-
-			
-
+			@include('admin.servicos.modal')
 			<div class="container-fluid primary-content" style="padding-top:30px;">
 
 				<div class="row">
@@ -120,7 +63,7 @@
 					<div class="col-sm-3">
 						<div class="quick-info boxed bg-blue">
 							<i class="icon ion-person-stalker"></i>
-							<p>{{ count($clientes) }} <span>CLIENTES</span></p>
+							<p>{{ count($servicos) }} <span>SERVIÇOS</span></p>
 						</div>
 					</div>
 				</div>
@@ -131,13 +74,12 @@
 						<h3><i class="fas fa-toolbox" style="margin-right:0.5rem;"></i><span>Serviços</span></h3>
 
 						<div class="btn-group widget-header-toolbar">
-							<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/clientes/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo serviço</button>
+							<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/servicos/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo serviço</button>
 						</div>
 					</div>
 
 					@if (session('mensagem'))
 						<div class="sacefull">
-							
 							<div class="alert alert-success">
 								<span>
 									<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
@@ -151,7 +93,6 @@
 							</div>
 						</div>
 					@elseif(session('invalido'))
-						
 						<div class="alert alert-danger">
 							<span>
 								<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
@@ -183,48 +124,49 @@
 								</tr>
 							</thead>
 							<tbody>
-                                @for ($i = 0; $i < sizeof($clientes); $i++)
+                                @for ($i = 0; $i < sizeof($servicos); $i++)
 									<tr>
-										@if ($clientes[$i]['status'] == 'Andamento')
+										@if ($servicos[$i]['status'] == 'Andamento')
 											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
 										@else
 											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
 										@endif
 
-										@isset($clientes[$i]['nome'])
-											<td>{{ $clientes[$i]['nome'] }}</td>
+										@isset($servicos[$i]['nome'])
+											<td>{{ $servicos[$i]['nome'] }}</td>
 										@endisset
 										
-										@isset($clientes[$i]['telefone'])
-											<td>{{ $clientes[$i]['telefone'] }}</td>
+										@isset($servicos[$i]['telefone'])
+											<td>{{ $servicos[$i]['telefone'] }}</td>
 										@endisset
 										
-										@isset($clientes[$i]['bairro'])
-											<td>{{ $clientes[$i]['bairro'] }}</td>
+										@isset($servicos[$i]['bairro'])
+											<td>{{ $servicos[$i]['bairro'] }}</td>
 										@endisset
 
-										@isset($clientes[$i]['modelo'])
-											<td>{{ $clientes[$i]['modelo'] }}</td>
+										@isset($servicos[$i]['modelo'])
+											<td>{{ $servicos[$i]['modelo'] }}</td>
 										@endisset
 										
-										@isset($clientes[$i]['status'])
-											<td>{{ $clientes[$i]['status'] }}</td>
+										@isset($servicos[$i]['status'])
+											<td>{{ $servicos[$i]['status'] }}</td>
 										@endisset
 
-										<td><div class="botoes"><button type="button" class="botao-editar btn-relatorio" style="margin-left: 1rem;font-size:1.5rem;" data-id="{{ url('admin/clientes/relatorio') }}/{{ $clientes[$i]['id'] }}"><span class="entypo-tools"><i class="far fa-file-alt"></i></span></button></div></td>
+										<td><div class="botoes"><button type="button" class="botao-editar btn-relatorio" style="margin-left: 1rem;font-size:1.5rem;" data-id="{{ url('admin/servicos/relatorio') }}/{{ $servicos[$i]['id'] }}"><span class="entypo-tools"><i class="far fa-file-alt"></i></span></button></div></td>
 										
-										@isset($clientes[$i]['valor'])
-											<td>R$ {{ $clientes[$i]['valor'] }}</td>
+										@isset($servicos[$i]['valor'])
+											<td>R$ {{ $servicos[$i]['valor'] }}</td>
 										@endisset
 										
-										@isset($clientes[$i]['created_at'])
-											<td>{{ $clientes[$i]['created_at'] }}</td>
+										@isset($servicos[$i]['created_at'])
+											<td>{{ $servicos[$i]['created_at'] }}</td>
 										@endisset
 										
 										<td>
 										<div class="botoes">
-											<button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/clientes/editar') }}/{{ $clientes[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
-											<button type="button" class="botao-remover" onclick="javascript:location.href='clientes/remover/{{ $clientes[$i]['id'] }}'"><i class="far fa-trash-alt"></i></button>  
+											<button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/servicos/editar') }}/{{ $servicos[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
+											<button type="button" class="botao-remover" data-id="{{ url('admin/servicos/confirm') }}/{{ $servicos[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>  
+										
 										</div>
 										</td>
 
@@ -423,7 +365,7 @@
 			$(modalName).modal('show'); 
 
 			$.ajax({
-				url: '{{ url('admin/clientes/viewCadastrar') }}',
+				url: '{{ url('admin/servicos/viewCadastrar') }}',
 				type: 'get',
 				success: function(response){
 					console.log(response)        
@@ -432,6 +374,60 @@
 			});
 			return false;
 		});
+
+	// CONFIRMAR REMOVER
+
+	$(document).on('click','.botao-remover', function(e){
+        e.preventDefault();
+        
+        var bodyFormName = $('.modal-body-confirm');
+		var modalName = $('.modal-confirm');
+		var id = $(this).data('id')
+
+		console.log(bodyFormName)
+		console.log(modalName)
+		console.log(id)
+        
+		$(modalName).modal('show'); 
+
+        $.ajax({
+           url: id,
+           type: 'get',
+           success: function(response){       
+               $(bodyFormName).html(response);
+           }
+        });
+        return false;
+	});
+
+	// REMOVER
+
+	$(document).on('click','.btn-remover', function(e){
+        e.preventDefault();
+        
+        var bodyFormName = $('.modal-body-remover');
+		var modalName = $('.modal-remover');
+		var modalNamee = $('.modal-confirm');
+		var id = $(this).data('id')
+
+		console.log(bodyFormName)
+		console.log(modalName)
+		console.log(id)
+        
+		$(modalName).modal('show'); 
+
+        $.ajax({
+           url: id,
+           type: 'get',
+           success: function(response){
+			$(modalNamee).modal('hide'); 
+			$(bodyFormName).html(response);
+			// location.reload();
+           }
+        });
+		location.reload();
+        return true;
+	});
 	
 	</script>
 </body>
