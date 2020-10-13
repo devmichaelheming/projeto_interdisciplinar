@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="form" role="form" action="{{ route('usuario.cadastrado') }}" method="POST" enctype="multipart/form-data" >
+<form class="form-horizontal" id="form" role="form" action="{{ route('clientes.cadastrado') }}" method="POST" enctype="multipart/form-data" >
 	@csrf
 	<div class="form-group">
 		<label for="name" class="control-label sr-only">Username</label>

@@ -1,10 +1,10 @@
-<form class="form-horizontal" id="form" role="form" action="{{ route('usuario.cadastrado') }}" method="POST" enctype="multipart/form-data" >
+<form class="form-horizontal" id="form" role="form" action="{{ url('/admin/clientes/editar/salvar') }}/{{ $id }}" method="POST" enctype="multipart/form-data" >
 	@csrf
 	<div class="form-group">
 		<label for="name" class="control-label sr-only">Username</label>
 		<div class="col-sm-12">
 			<div class="input-group">
-				<input type="text" class="form-control" id="name" name="name" placeholder="Username">
+				<input type="text" class="form-control" id="name" name="name" value="{{$name}}">
 				<span class="input-group-addon"><i class="icon ion-person"></i></span>
 			</div>
 		</div>
@@ -13,7 +13,7 @@
 		<label for="email" class="control-label sr-only">Email</label>
 		<div class="col-sm-12">
 			<div class="input-group">
-				<input type="email" class="form-control" id="email" name="email" placeholder="Email">
+				<input type="email" class="form-control" id="email" name="email" value="{{$email}}">
 				<span class="input-group-addon"><i class="icon ion-email"></i></span>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 		<label for="phone" class="control-label sr-only">Telefone</label>
 		<div class="col-sm-12">
 			<div class="input-group">
-				<input type="text" class="form-control" id="phone" name="phone" placeholder="Telefone">
+				<input type="text" class="form-control" id="phone" name="phone" value="{{$phone}}">
 				<span class="input-group-addon"><i class="fas fa-phone"></i></span>
 			</div>
 		</div>
@@ -33,14 +33,14 @@
 		<label for="password" class="control-label sr-only">Password</label>
 		<div class="col-sm-12">
 			<div class="input-group">
-				<input type="password" class="form-control" id="password" name="password" placeholder="Password">
+				<input type="password" class="form-control" id="password" name="password" value="{{$password}}">
 				<span class="input-group-addon"><i class="icon ion-locked"></i></span>
 			</div>
 		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-12">
-			<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled"></i>Cadastrar cliente</button>
+			<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled"></i>Atualizar</button>
 		</div>
 	</div>
 </form>
@@ -146,3 +146,4 @@ $("#form").validate({
 </body>
 
 </html>
+

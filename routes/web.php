@@ -21,9 +21,25 @@ Auth::routes();
 
 Route::prefix('/admin')->group(function () {
 
-    Route::get('/', 'Controller@index')->name('admin');
+    // Route::get('/', 'Controller@index')->name('admin');
 
     Route::post('/logout', 'Auth\LoginController@logout')->name('sair');
+
+
+// CLIENTES
+// visualizar clientes
+Route::get('/', 'clientesController@index')->name('admin.clientes');
+Route::get('/clientes/listar', 'clientesController@listar')->name('clientes.listar');
+// visualizar cadastro
+Route::get('/clientes/viewCadastrar', 'clientesController@viewCadastro')->name('clientes.cadastrar');
+// cadastrado
+Route::post('/clientes/cadastrado', 'clientesController@cadastrado')->name('clientes.cadastrado');
+//Editar clientes
+Route::get('/clientes/editar/{id}', 'clientesController@editarCliente')->name('clientes.editar');
+Route::post('/clientes/editar/salvar/{id}', 'clientesController@editarSalvar');
+//Remover clientes
+Route::get('/clientes/remover/{id}', 'clientesController@removerCliente')->name('clientes.remover');
+ Route::get('/clientes/confirm/{id}', 'clientesController@confirm')->name('clientes.confirm');
 
     // USUARIOS
     // visualizar usuarios

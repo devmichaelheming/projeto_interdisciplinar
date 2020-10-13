@@ -31,6 +31,79 @@
  * limitations under the License.
  * ========================================================================
  */
+ /* ini: Preloader */
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(
+    255,
+    255,
+    255
+  ); /* cor do background que vai ocupar o body */
+  z-index: 999; /* z-index para jogar para frente e sobrepor tudo */
+}
+.topo-header-mobile {
+  display: none;
+}
+.topo-interno button {
+  display: none;
+}
+.menu-principal {
+  display: none;
+}
+#preloader .inner {
+  position: absolute;
+  top: 50%; /* centralizar a parte interna do preload (onde fica a animação)*/
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.bolas > div {
+  display: inline-block;
+  background-color: #ebbf2b;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  margin: 3px;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-name: animarBola;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+.bolas > div:nth-child(1) {
+  animation-duration: 0.75s;
+  animation-delay: 0;
+}
+.bolas > div:nth-child(2) {
+  animation-duration: 0.75s;
+  animation-delay: 0.12s;
+}
+.bolas > div:nth-child(3) {
+  animation-duration: 0.75s;
+  animation-delay: 0.24s;
+}
+
+@keyframes animarBola {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  16% {
+    -webkit-transform: scale(0.1);
+    transform: scale(0.1);
+    opacity: 0.7;
+  }
+  33% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 .bootstrap-switch {
   display: inline-block;
   cursor: pointer;
@@ -50,7 +123,18 @@
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
-
+.btn-cadastrar{
+  align-items: center;
+  border: 1px solid #9e9e9e;
+  border-radius: 100%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+}
+.btn-cadastrar:focus{
+  outline:0;
+}
 .bootstrap-switch.bootstrap-switch-mini {
   min-width: 71px;
 }
@@ -4786,7 +4870,7 @@ hr {
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: 63px;
+  margin-top: 65px;
 }
 #col-left .widget {
   position: fixed;
@@ -4803,14 +4887,14 @@ hr {
 }
 
 .fixed-top-active #col-right {
-  padding-top: 47px;
+  padding-top: 65px;
 }
 
 #col-right {
   margin-left: 220px;
-  background: rgb(233, 233, 233);
+  background: rgb(241, 241, 241);
   background-repeat: repeat;
-  min-height: 1000px;
+  min-height: 860px;
   padding: 0 0px 30px 15px;
 }
 #col-right.no-heading {
@@ -8031,7 +8115,7 @@ div[class*="col-"] > .form-group {
 
 .btn-nav-sidebar-minified,
 .btn-off-canvas {
-      padding: 1rem 0rem;
+      padding: 1rem 0.5rem;
       display: flex;
     width: 70px;
 }
@@ -8091,13 +8175,13 @@ div[class*="col-"] > .form-group {
 .top-bar {
   margin-left: -15px;
   margin-right: -15px;
-  min-height: 47px;
+  height: 5rem;
   padding: 0 40px 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #b7b7b7;
 }
 .top-bar > div,
 .top-bar .searchbox {
@@ -8115,8 +8199,19 @@ div[class*="col-"] > .form-group {
   }
 }
 .top-bar .top-bar-right {
+  background: rgb(213, 213, 213);
   text-align: right;
-  margin-top: 7px;
+  align-items: center;
+  height: 3.5rem;
+  border-radius: 5rem;
+  justify-content: space-between;
+  display: flex;
+  width: 10rem;
+  margin-top: 0px;
+  padding: 0 0.5rem;
+}
+.name{
+  padding-left: 0.5rem;
 }
 @media screen and (max-width: 1200px) {
   .top-bar {
@@ -8137,7 +8232,7 @@ div[class*="col-"] > .form-group {
   *zoom: 1;
   *display: inline;
   text-align: left;
-  margin-left: 15px;
+  margin-left: 0px;
 }
 .top-bar .action-group .dropdown-menu i,
 .top-bar .logged-user .dropdown-menu i {
@@ -8157,7 +8252,8 @@ div[class*="col-"] > .form-group {
 }
 .top-bar .action-group .btn-group > a,
 .top-bar .logged-user .btn-group > a {
-  color: #a8a5a5;
+  color: #000000;
+  font-weight: 600;
 }
 .top-bar .action-group .btn-group > a:hover,
 .top-bar .logged-user .btn-group > a:hover {
@@ -8194,7 +8290,7 @@ div[class*="col-"] > .form-group {
 .top-bar .dropdown-menu {
   padding: 0;
   width: 365px;
-  top: 37px;
+  top: 45px;
 }
 .top-bar .dropdown-menu:before, .top-bar .dropdown-menu:after {
   position: absolute;
@@ -8358,7 +8454,7 @@ div[class*="col-"] > .form-group {
 }
 .top-bar .logged-user {
   position: relative;
-  top: -3px;
+  top: 0px;
 }
 .top-bar .logged-user .btn {
   padding: 0;
@@ -8369,6 +8465,8 @@ div[class*="col-"] > .form-group {
 .top-bar .logged-user .btn i {
   position: relative;
   top: 2px;
+  color: black;
+  padding-left: 0.5rem;
 }
 .top-bar .logged-user .btn:hover {
   text-decoration: none;
@@ -8383,7 +8481,7 @@ div[class*="col-"] > .form-group {
 }
 .top-bar .logged-user .dropdown-menu {
   width: auto;
-  left: -40px;
+  left: -30px;
   padding: 0;
 }
 
@@ -8476,6 +8574,9 @@ ul.main-menu li.active > a {
 ul.main-menu li.active > a.submenu-toggle {
   background-color: transparent;
 }
+.submenu-toggle:hover{
+      border-left: 5px solid #57D4FF
+}
 ul.main-menu li i {
   font-size: 16px;
 }
@@ -8546,7 +8647,7 @@ body.fixed-left-active .main-nav {
   min-width: 200px;
   position: absolute;
   top: 0;
-  margin-left: 55px;
+  margin-left: 70px;
   z-index: 9999;
 }
 .main-nav-minified #col-left ul.main-menu > li.has-submenu li.has-submenu > a:after {
@@ -8760,6 +8861,7 @@ ul.widget-inbox-list .timestamp {
   *display: inline;
   margin-bottom: 0;
   line-height: 40px;
+  padding-top:0rem;
   float: left;
 }
 @media screen and (max-width: 480px) {
@@ -10822,7 +10924,19 @@ ul.project-activity-list > li .activity-item > i {
   color: #D32F2F;
 }
 .fa-check-circle{
-  color: white;
+  color: black;
+}
+#form{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+.groups-two{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 0 0.5rem 0;
 }
 .btn-plus{
   justify-content: center;

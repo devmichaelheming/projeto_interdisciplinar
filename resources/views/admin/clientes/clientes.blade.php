@@ -5,7 +5,7 @@
 <!--<![endif]-->
 
 <head>
-	<title>Dashboard | Serviços</title>
+	<title>Dashboard | Clientes</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="description" content="QueenAdmin - Beautiful Bootstrap Admin Dashboard Theme">
@@ -52,48 +52,25 @@
 		@include('templates.nav-left')
 
 		<div id="col-right" class="col-right ">
-			@include('admin.servicos.modal')
-			<div class="container-fluid primary-content" style="padding-top: 15px;">
+			@include('admin.clientes.modal')
+			<div class="container-fluid primary-content">
 
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="quick-info boxed bg-green">
-							<i class="fas fa-user-check"></i>
-							<p>{{ $ativo }} <span>SERVIÇOS FINALIZADOS</span></p>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="quick-info boxed bg-red">
-							<i class="fas fa-user-times"></i>
-							<p>{{ $inativo }} <span>SERVIÇOS EM ANDAMENTO</span></p>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="quick-info boxed bg-gold">
-							<i class="icon ion-cash"></i>
-							<p>${{ $total }} <span>LUCRO</span></p>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="quick-info boxed bg-blue">
-							<i class="icon ion-person-stalker"></i>
-							<p>{{ count($servicos) }} <span>SERVIÇOS</span></p>
-						</div>
-					</div>
-				</div>
-				
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
 					<div class="widget-header clearfix">
-						<h3><i class="fas fa-toolbox" style="margin-right:0.5rem;"></i><span>Serviços</span></h3>
-
+						<h3><i class="fas fa-users" style="margin-right:0.5rem;"></i> <span>Clientes cadastrados</span></h3>
 						<div class="btn-group widget-header-toolbar">
-							<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/servicos/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo serviço</button>
+
+							<button type="submit" class="btn-cadastrar" data-toggle="modal" data-idc="{{ url('/clientes/viewCadastrar') }}" style="margin-bottom: 1rem;">
+								<i class="fas fa-plus"></i>
+							</button>
+							
 						</div>
 					</div>
 
 					@if (session('mensagem'))
 						<div class="sacefull">
+							
 							<div class="alert alert-success">
 								<span>
 									<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
@@ -107,6 +84,7 @@
 							</div>
 						</div>
 					@elseif(session('invalido'))
+						
 						<div class="alert alert-danger">
 							<span>
 								<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
@@ -121,75 +99,51 @@
 					@endif
 
 					<div class="widget-content table-responsive">
-						<table id="table" class="table table-sorting">
-							
+						<table id="ticket-table" class="table table-sorting">
 							<thead>
 								<tr>
-									<th></th>
-									<th>Cliente</th>
+									<th>Id</th>
+									<th>Nome</th>
 									<th>Telefone</th>
-									<th>Bairro</th>
-									<th>Modelo</th>
-									<th>Status</th>
-									<th>Relatório</th>
-									<th>Valor do serviço</th>
-									<th>Data</th>
-									<th>Editar/Remover</th>
+									<th>Email</th>
+									<th>Criado em</th>
+									<th>Editar / Remover</th>
 								</tr>
 							</thead>
 							<tbody>
-                                @for ($i = 0; $i < sizeof($servicos); $i++)
-									<tr>
-										@if ($servicos[$i]['status'] == 'Andamento')
-											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
-										@else
-											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
-										@endif
+                                @for ($i = 0; $i < sizeof($clientes); $i++)
+								<tr>
+                                    @isset($clientes[$i]['id'])
+                                        <td><a href="#">#{{ $clientes[$i]['id'] }}</a></td>
+                                    @endisset
 
-										@isset($servicos[$i]['nome'])
-											<td>{{ $servicos[$i]['nome'] }}</td>
-										@endisset
-										
-										@isset($servicos[$i]['telefone'])
-											<td>{{ $servicos[$i]['telefone'] }}</td>
-										@endisset
-										
-										@isset($servicos[$i]['bairro'])
-											<td>{{ $servicos[$i]['bairro'] }}</td>
-										@endisset
+                                    @isset($clientes[$i]['name'])
+                                        <td>{{ $clientes[$i]['name'] }}</td>
+									@endisset
+									
+									@isset($clientes[$i]['phone'])
+                                        <td>{{ $clientes[$i]['phone'] }}</td>
+									@endisset
+									
+                                    @isset($clientes[$i]['email'])
+                                        <td>{{ $clientes[$i]['email'] }}</td>
+									@endisset
+									
+                                    @isset($clientes[$i]['created_at'])
+                                        <td>{{ $clientes[$i]['created_at'] }}</td>
+									@endisset
+									
+									<td>
+                                    	<div class="botoes">
+											<button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/clientes/editar') }}/{{ $clientes[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
+											<button type="button" class="botao-remover" data-id="{{ url('admin/clientes/confirm') }}/{{ $clientes[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   
+                                    	</div>
+									</td>
 
-										@isset($servicos[$i]['modelo'])
-											<td>{{ $servicos[$i]['modelo'] }}</td>
-										@endisset
-										
-										@isset($servicos[$i]['status'])
-											<td>{{ $servicos[$i]['status'] }}</td>
-										@endisset
-
-										<td><div class="botoes"><button type="button" class="botao-editar btn-relatorio" style="margin-left: 1rem;font-size:1.5rem;" data-id="{{ url('admin/servicos/relatorio') }}/{{ $servicos[$i]['id'] }}"><span class="entypo-tools"><i class="far fa-file-alt"></i></span></button></div></td>
-										
-										@isset($servicos[$i]['valor'])
-											<td>R$ {{ $servicos[$i]['valor'] }}</td>
-										@endisset
-										
-										@isset($servicos[$i]['created_at'])
-											<td>{{ $servicos[$i]['created_at'] }}</td>
-										@endisset
-										
-										<td>
-										<div class="botoes">
-											<button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/servicos/editar') }}/{{ $servicos[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
-											<button type="button" class="botao-remover" data-id="{{ url('admin/servicos/confirm') }}/{{ $servicos[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>  
-										</div>
-										</td>
-
-									</tr>
-								
-                            	@endfor
-
+								</tr>
+							@endfor
 							</tbody>
-                            
-                        </table>
+						</table>
 					</div>
 				</div>
 				
@@ -249,7 +203,7 @@
 								<a href="#"><img src="{{ asset('templates/theme/assets/img/user9.png')}}" class="img-circle" alt="Sorana">Sorana</a>
 							</li>
 							<li>
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user10.png')}}" class="img-circle" alt="Regan Morton">Regan Morton</a>
+								<a href="#"><img src="{{ asset('templates/theme/assets/img/user10.pn')}}" class="img-circle" alt="Regan Morton">Regan Morton</a>
 							</li>
 						</ul>
 					</div>
@@ -281,41 +235,14 @@
 	<script src=" {{ asset('templates/theme/assets/js/queen-charts.js') }}"></script>
 	<script src=" {{ asset('templates/theme/assets/js/queen-table.js') }}"></script>
 	<script src=" {{ asset('templates/theme/assets/js/queen-maps.js') }}"></script>
-	<script src=" {{ asset('js/dropdown.js') }}"></script>
-	<script src=" {{ asset('js/parsley.min.js') }}"></script>
-	<script src=" {{ asset('js/queen-form-layouts.js') }}"></script>
-
+	<script src=" {{ asset('dropdown.js') }}"></script>
+	<script src=" {{ asset('parsley.min.js') }}"></script>
 	<script>
-
+	
 		$(document).ready(function(e) {
 			$('#preloader .inner').fadeOut();
 			$('#preloader').delay(350).fadeOut('slow'); 
 			$('body').delay(350).css({'overflow': 'visible'});
-		});
-
-		$(document).ready(function() {
-		$('#table').DataTable( {
-			initComplete: function () {
-				this.api().columns().every( function () {
-					var column = this;
-					var select = $('<select><option value=""></option></select>')
-						.appendTo( $(column.footer()).empty() )
-						.on( 'change', function () {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
-	
-							column
-								.search( val ? '^'+val+'$' : '', true, false )
-								.draw();
-						} );
-	
-						column.data().unique().sort().each( function ( d, j ) {
-							select.append( '<option value="'+d+'">'+d+'</option>' )
-						});
-					});
-				}
-			});
 		});
 
 		// EDITAR CLIENTE
@@ -325,31 +252,6 @@
 			
 			var bodyFormName = $('.modal-body');
 			var modalName = $('.modal');
-			var id = $(this).data('id')
-
-			console.log(bodyFormName)
-			console.log(modalName)
-			console.log(id)
-			
-			$(modalName).modal('show'); 
-
-			$.ajax({
-				url: id,
-				type: 'get',
-				success: function(response){       
-					$(bodyFormName).html(response);
-				}
-			});
-			return false;
-		});
-
-		// RELATORIO
-
-		$(document).on('click','.btn-relatorio', function(e){
-			e.preventDefault();
-			
-			var bodyFormName = $('.modal-body-relatorio');
-			var modalName = $('.modal-relatorio');
 			var id = $(this).data('id')
 
 			console.log(bodyFormName)
@@ -384,7 +286,7 @@
 			$(modalName).modal('show'); 
 
 			$.ajax({
-				url: '{{ url('admin/servicos/viewCadastrar') }}',
+				url: '{{ url('admin/clientes/viewCadastrar') }}',
 				type: 'get',
 				success: function(response){
 					console.log(response)        
@@ -447,7 +349,7 @@
 		location.reload();
         return true;
 	});
-	
+
 	</script>
 </body>
 

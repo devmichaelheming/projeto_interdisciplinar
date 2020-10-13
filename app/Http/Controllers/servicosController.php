@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\user;
+use App\clientes;
 use App\servicos;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
@@ -45,7 +46,11 @@ class servicosController extends Controller
 
     public function viewCadastro()
     {
-        return view('admin.servicos.registrarServicos');
+         $clientes = clientes::all();
+
+        return view('admin.servicos.registrarServicos',[
+            'clientes' => $clientes
+        ]);
     }
 
     public function cadastrado(Request $request)
@@ -54,13 +59,13 @@ class servicosController extends Controller
         try{
         $db = New servicos();
 
-            $db->nome = $request->input('nome');
-            $db->email = $request->input('email');
-            $db->cpf = $request->input('cpf');
-            $db->telefone = $request->input('telefone');
-            $db->endereco = $request->input('endereco');
-            $db->cidade = $request->input('cidade');
-            $db->bairro = $request->input('bairro');
+            $db->cliente = $request->input('cliente');
+            // $db->email = $request->input('email');
+            // $db->cpf = $request->input('cpf');
+            // $db->telefone = $request->input('telefone');
+            // $db->endereco = $request->input('endereco');
+            // $db->cidade = $request->input('cidade');
+            // $db->bairro = $request->input('bairro');
             $db->status = $request->input('status');
             $db->ano = $request->input('ano');
             $db->marca = $request->input('marca');

@@ -5,13 +5,14 @@
 <!--<![endif]-->
 
 <head>
-	<title>Dashboard | Usuários</title>
+	<title>Dashboard | Clientes</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="description" content="QueenAdmin - Beautiful Bootstrap Admin Dashboard Theme">
 	<meta name="author" content="The Develovers">
 	<!-- CSS -->
 	<link href="{{ asset('templates/theme/assets/css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+	<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('templates/theme/assets/css/ionicons.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('templates/theme/assets/css/main.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('templates/theme/assets/css/skins/full-white.css') }}" rel="stylesheet" type="text/css">
@@ -27,8 +28,22 @@
 </head>
 
 <body class="fixed-top-active dashboard fixed-left-active">
+	<body>
+        <!-- início do preloader -->
+        <div id="preloader">
+            <div class="inner">
+               <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+               <div class="bolas">
+                  <div></div>
+                  <div></div>
+                  <div></div>                    
+               </div>
+            </div>
+        </div>
+        <!-- fim do preloader --> 
+    </body>
 	<!-- WRAPPER -->
-	<div class="wrapper">
+	<div class="wrapper main-nav-minified">
 
 		<!-- TOP NAV BAR -->
 		@include('templates.nav-top')
@@ -37,45 +52,18 @@
 		@include('templates.nav-left')
 
 		<div id="col-right" class="col-right ">
+			@include('admin.usuarios.modal')
 			<div class="container-fluid primary-content">
-
-				<div class="title">
-					<span>
-						Despesas
-					</span>
-				</div>
-
-				<div class="infos">
-
-					<div class="info-text">
-						<div class="quick-info">
-							<i class="fas fa-calculator"></i>
-							{{-- <i class="fas fa-calculator"></i> --}}
-							<div>Total de despesas <span>R$ 200,00</span></div>
-						</div>
-					</div>
-					<div class="info-text">
-						<div class="quick-info">
-							<i class="ion-cash"></i>
-							<div>Em aberto <span>R$ 200,00</span></div>
-						</div>
-					</div>
-					<div class="info-text">
-						<div class="quick-info">
-							<i class="far fa-check-circle"></i>
-							<div>Pago <span>R$ 200,00</span></div>
-						</div>
-					</div>
-
-				</div>
 
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
 					<div class="widget-header clearfix">
-						<h3><i class="icon ion-pricetag"></i> <span>Administradores do sistema</span></h3>
+						<h3><i class="fas fa-users" style="margin-right:0.5rem;"></i> <span>Clientes cadastrados</span></h3>
 						<div class="btn-group widget-header-toolbar">
 
-							<button type="button" class="btn-plus" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="margin-bottom: 1rem;"><i class="fas fa-plus"></i></button>
+							<div class="btn-group widget-header-toolbar">
+								<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/usuarios/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo cliente</button>
+							</div>
 
 							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog">
@@ -299,6 +287,120 @@
 	<script src=" {{ asset('templates/theme/assets/js/queen-maps.js') }}"></script>
 	<script src=" {{ asset('dropdown.js') }}"></script>
 	<script src=" {{ asset('parsley.min.js') }}"></script>
+	<script>
+	
+		$(document).ready(function(e) {
+			$('#preloader .inner').fadeOut();
+			$('#preloader').delay(350).fadeOut('slow'); 
+			$('body').delay(350).css({'overflow': 'visible'});
+		});
+
+		// EDITAR CLIENTE
+
+		$(document).on('click','.btn-editar', function(e){
+			e.preventDefault();
+			
+			var bodyFormName = $('.modal-body');
+			var modalName = $('.modal');
+			var id = $(this).data('id')
+
+			console.log(bodyFormName)
+			console.log(modalName)
+			console.log(id)
+			
+			$(modalName).modal('show'); 
+
+			$.ajax({
+				url: id,
+				type: 'get',
+				success: function(response){       
+					$(bodyFormName).html(response);
+				}
+			});
+			return false;
+		});
+
+		// CADASTRAR CLIENTE
+
+		$(document).on('click','.btn-cadastrar', function(e){
+			e.preventDefault();
+
+			var bodyFormName = $('.modal-body-cadastrar');
+			var modalName = $('.modal-cadastrar');
+			var idc = $(this).data('idc')
+
+			console.log(bodyFormName)
+			console.log(modalName)
+			console.log(idc)
+
+			$(modalName).modal('show'); 
+
+			$.ajax({
+				url: '{{ url('admin/usuarios/viewCadastrar') }}',
+				type: 'get',
+				success: function(response){
+					console.log(response)        
+					$(bodyFormName).html(response);
+				}
+			});
+			return false;
+		});
+
+	// CONFIRMAR REMOVER
+
+	$(document).on('click','.botao-remover', function(e){
+        e.preventDefault();
+        
+        var bodyFormName = $('.modal-body-confirm');
+		var modalName = $('.modal-confirm');
+		var id = $(this).data('id')
+
+		console.log(bodyFormName)
+		console.log(modalName)
+		console.log(id)
+        
+		$(modalName).modal('show'); 
+
+        $.ajax({
+           url: id,
+           type: 'get',
+           success: function(response){       
+               $(bodyFormName).html(response);
+           }
+        });
+        return false;
+	});
+
+	// REMOVER
+
+	$(document).on('click','.btn-remover', function(e){
+        e.preventDefault();
+        
+        var bodyFormName = $('.modal-body-remover');
+		var modalName = $('.modal-remover');
+		var modalNamee = $('.modal-confirm');
+		var id = $(this).data('id')
+
+		console.log(bodyFormName)
+		console.log(modalName)
+		console.log(id)
+        
+		$(modalName).modal('show'); 
+
+        $.ajax({
+           url: id,
+           type: 'get',
+           success: function(response){
+			$(modalNamee).modal('hide'); 
+			$(bodyFormName).html(response);
+			// location.reload();
+           }
+        });
+		location.reload();
+        return true;
+	});
+
+	</script>
 </body>
 
 </html>

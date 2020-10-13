@@ -1,13 +1,13 @@
 <form class="form-horizontal" id="form" role="form" action="{{ route('servicos.cadastrado') }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
 	@csrf
 
-	<div class="sessao-carro">
+	{{-- <div class="sessao-carro">
 		<span></span>
-		<span>Informações do cliente</span>
+		<span>Cliente</span>
 		<span></span>
-	</div>
+	</div> --}}
 
-	<div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
+	{{-- <div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
 
 		<div class="form-group-tipo2">
 			<label for="nome" class="control-label">Nome</label>
@@ -52,15 +52,24 @@
 	<div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;flex-direction:column;">
 		<label for="endereco" class="control-label">Endereço</label>
 		<input type="text" class="inputs" id="endereco" name="endereco" placeholder="Insira o endereço..." required>
+	</div> --}}
+
+	<div class="form-group" style="margin:0;">
+		<label for="cliente" class="control-label">Cliente:</label>
+		<select name="cliente" id="cliente" class="form-control">
+			@foreach ($clientes as $cliente)	
+				<option value="{{$cliente['id']}}">{{$cliente['name']}}</option>
+			@endforeach
+		</select>
 	</div>
 
-	<div class="sessao-carro">
+	{{-- <div class="sessao-carro">
 		<span></span>
 		<span>Informações do carro</span>
 		<span></span>
-	</div>
+	</div> --}}
 
-	<div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
+	<div class="groups-two">
 
 		<div class="form-group-tipo2">
 			<label for="ano" class="control-label">Ano</label>
@@ -74,7 +83,7 @@
 
 	</div>
 
-	<div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
+	<div class="groups-two">
 
 		<div class="form-group-tipo2">
 			<label for="modelo" class="control-label">Modelo</label>
