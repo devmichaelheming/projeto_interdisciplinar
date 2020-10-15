@@ -1,12 +1,14 @@
 <nav class="top-bar navbar-fixed-top" role="navigation">
 	<div class="logo-area">
-		<a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified pull-left">
+		<span style="padding:0 1rem;">
 			<img src="{{ asset('prj2.png') }}" style="height:3.5rem;">
-		</a>
+		</span>
+		{{-- <a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified"> --}}
+		{{-- </a> --}}
 		<a class="btn btn-link btn-off-canvas pull-left"><i class="icon ion-navicon"></i></a>
-		<div class="logo pull-left">
+		{{-- <div class="logo pull-left">
 		
-		</div>
+		</div> --}}
 	</div>
 			
 	<div class="top-bar-right pull-right">

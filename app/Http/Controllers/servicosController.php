@@ -30,6 +30,21 @@ class servicosController extends Controller
 
         $sep = [];
 
+        $clientes = clientes::all();
+
+        foreach ($clientes as $cliente) {
+            $id_cliente = $cliente->id;
+            $name = $cliente->name;
+
+            foreach ($servicos as $servico) {
+                if($servico->id_cliente == $id_cliente){
+                    $servico->id_cliente = $name;
+                }
+            }
+        }
+
+        
+
         foreach ($servicos as $key => $servico) {
             $sep[] = str_replace('.', ',', $servico['valor']);
         }
@@ -59,7 +74,7 @@ class servicosController extends Controller
         try{
         $db = New servicos();
 
-            $db->cliente = $request->input('cliente');
+            $db->id_cliente = $request->input('id_cliente');
             // $db->email = $request->input('email');
             // $db->cpf = $request->input('cpf');
             // $db->telefone = $request->input('telefone');
@@ -72,11 +87,11 @@ class servicosController extends Controller
             $db->modelo = $request->input('modelo');
             $db->placa = $request->input('placa');
             $db->valor = $request->input('valor');
-            $db->relatorio = $request->input('relatorio');
+            $db->descricao = $request->input('descricao');
 
             $db->save();
 
-            return redirect()->route('admin.servicos')->with('mensagem', 'O  serviço foi cadastrado com sucesso!');
+            return redirect()->route('erro')->with('mensagem', 'O  serviço foi cadastrado com sucesso!');
         } catch (QueryException $ex) {
 
             if($ex->getCode() === "23000") {
@@ -87,14 +102,14 @@ class servicosController extends Controller
         }
     }
 
-    public function relatorio(Request $request, $id){
+    public function descricao(Request $request, $id){
 
         $db = servicos::find($id);
 
-        return view('admin.servicos.relatorio',[
+        return view('admin.servicos.descricao',[
             'id' => $id,
             'nome' => $db['nome'],
-            'relatorio' => $db['relatorio']
+            'descricao' => $db['descricao']
         ]);
         
     }
@@ -103,31 +118,27 @@ class servicosController extends Controller
     {
         $user = user::all();
 
-        foreach ($user as $users) {
-            if(Auth::user()->peditar_usuario == 0){
-                return redirect()->route('admin')->with('mensagem', 'Você não tem permissão para acessar esta página!');
-            }else{
+        // foreach ($user as $users) {
+        //     if(Auth::user()->peditar_usuario == 0){
+        //         return redirect()->route('erro')->with('mensagem', 'Você não tem permissão para acessar esta página!');
+        //     }else{
                 $db = servicos::find($id);
+                $clientes = clientes::all();
 
                 return view('admin.servicos.editarServicos',[
                     'id' => $id,
-                    'nome' => $db['nome'],
-                    'email' => $db['email'],
-                    'cpf' => $db['cpf'],
-                    'endereco' => $db['endereco'],
-                    'telefone' => $db['telefone'],
-                    'cidade' => $db['cidade'],
-                    'bairro' => $db['bairro'],
+                    'id_cliente' => $db['id_cliente'],
                     'status' => $db['status'],
                     'ano' => $db['ano'],
                     'marca' => $db['marca'],
                     'modelo' => $db['modelo'],
                     'placa' => $db['placa'],
                     'valor' => $db['valor'],
-                    'relatorio' => $db['relatorio'],
+                    'descricao' => $db['descricao'],
+                    'clientes' => $clientes,
                 ]); 
-           }
-        }  
+        //    }
+        // }  
     }
 
     public function editarSalvar(Request $request, $id)
@@ -136,35 +147,23 @@ class servicosController extends Controller
 
         $dados = $request->all();
 
-        $nome = $dados['nome'];
-        $email = $dados['email'];
-        $cpf = $dados['cpf'];
-        $endereco = $dados['endereco'];
-        $telefone = $dados['telefone'];
-        $bairro = $dados['bairro'];
-        $cidade = $dados['cidade'];
+        $id_cliente = $dados['id_cliente'];
         $status = $dados['status'];
         $ano = $dados['ano'];
         $placa = $dados['placa'];
         $modelo = $dados['modelo'];
         $marca = $dados['marca'];
         $valor = $dados['valor'];
-        $relatorio = $dados['relatorio'];
+        $descricao = $dados['descricao'];
 
-        $db['nome'] = $nome;
-        $db['email'] = $email;
-        $db['cpf'] = $cpf;
-        $db['endereco'] = $endereco;
-        $db['telefone'] = $telefone;
-        $db['bairro'] = $bairro;
-        $db['cidade'] = $cidade;
+        $db['id_cliente'] = $id_cliente;
         $db['status'] = $status;
         $db['ano'] = $ano;
         $db['placa'] = $placa;
         $db['modelo'] = $modelo;
         $db['marca'] = $marca;
         $db['valor'] = $valor;
-        $db['relatorio'] = $relatorio;
+        $db['descricao'] = $descricao;
 
         $db->save();
 

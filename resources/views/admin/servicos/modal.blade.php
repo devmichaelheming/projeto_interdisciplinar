@@ -19,21 +19,21 @@
     </div>
 </div>
 
-{{-- MODAL RELATORIO --}}
+{{-- MODAL descricao --}}
 
-<div class="modal-relatorio fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-descricao fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">
                     <span>
                         <i class="far fa-file-alt" style="padding-right:0.5rem;"></i>
-                        Relatório
+                        Descrição
                     </span>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </h5>
             </div>
-            <div class="modal-body-relatorio">
+            <div class="modal-body-descricao">
                 
             </div>
         </div>

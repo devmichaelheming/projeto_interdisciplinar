@@ -24,7 +24,8 @@ Route::prefix('/admin')->group(function () {
     // Route::get('/', 'Controller@index')->name('admin');
 
     Route::post('/logout', 'Auth\LoginController@logout')->name('sair');
-
+    Route::get('/erro', 'Controller@erro')->name('erro');
+    Route::get('/erroRemover', 'Controller@erroRemover')->name('erroRemover');
 
 // CLIENTES
 // visualizar clientes
@@ -82,7 +83,7 @@ Route::get('/mes', 'contasController@mes')->name('admin.mes');
     Route::post('/usuario/cadastrado', 'servicosController@cadastrado')->name('servicos.cadastrado');
     //Editar servicos
     Route::get('/servicos/editar/{id}', 'servicosController@editarServicos')->name('servicos.editar');
-    Route::get('/servicos/relatorio/{id}', 'servicosController@relatorio')->name('servicos.relatorio');
+    Route::get('/servicos/descricao/{id}', 'servicosController@descricao')->name('servicos.descricao');
     Route::post('/servicos/editar/salvar/{id}', 'servicosController@editarSalvar');
     //Remover servicos
     Route::get('/servicos/remover/{id}', 'servicosController@removerServicos')->name('servicos.remover');

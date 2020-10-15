@@ -2,46 +2,61 @@
 	@csrf
 	<div class="form-group">
 		<label for="name" class="control-label sr-only">Username</label>
-		<div class="col-sm-12">
-			<div class="input-group">
-				<input type="text" class="form-control" id="name" name="name" value="{{$name}}">
-				<span class="input-group-addon"><i class="icon ion-person"></i></span>
-			</div>
+		<div class="input-group">
+			<input type="text" class="form-control" id="name" name="name" value="{{$name}}">
+			<span class="input-group-addon"><i class="icon ion-person"></i></span>
 		</div>
 	</div>
 	<div class="form-group">
 		<label for="email" class="control-label sr-only">Email</label>
-		<div class="col-sm-12">
-			<div class="input-group">
-				<input type="email" class="form-control" id="email" name="email" value="{{$email}}">
-				<span class="input-group-addon"><i class="icon ion-email"></i></span>
-			</div>
+		<div class="input-group">
+			<input type="email" class="form-control" id="email" name="email" value="{{$email}}">
+			<span class="input-group-addon"><i class="icon ion-email"></i></span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="endereco" class="control-label sr-only">Endereço</label>
+		<div class="input-group">
+			<input type="text" class="form-control" id="endereco" name="endereco" value="{{$endereco}}">
+			<span class="input-group-addon"><i class="fas fa-map-marker-alt"></i></span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="nascimento" class="control-label sr-only">Data de nascimento</label>
+		<div class="input-group">
+			<input type="text" class="form-control" id="nascimento" name="nascimento" value="{{$nascimento}}">
+			<span class="input-group-addon"><i class="far fa-calendar-alt"></i></span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cidade" class="control-label sr-only">Cidade</label>
+		<div class="input-group">
+			<input type="text" class="form-control" id="cidade" name="cidade" value="{{$cidade}}">
+			<span class="input-group-addon"><i class="far fa-building"></i></span>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="cpf" class="control-label sr-only">Cpf</label>
+		<div class="input-group">
+			<input type="text" class="form-control" id="cpf" name="cpf" value="{{$cpf}}">
+			<span class="input-group-addon"><i class="far fa-id-badge"></i></span>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="phone" class="control-label sr-only">Telefone</label>
-		<div class="col-sm-12">
-			<div class="input-group">
-				<input type="text" class="form-control" id="phone" name="phone" value="{{$phone}}">
-				<span class="input-group-addon"><i class="fas fa-phone"></i></span>
-			</div>
+		<div class="input-group">
+			<input type="text" class="form-control" id="phone" name="phone" value="{{$phone}}">
+			<span class="input-group-addon"><i class="fas fa-phone"></i></span>
 		</div>
 	</div>
 	
 	<div class="form-group">
-		<label for="password" class="control-label sr-only">Password</label>
-		<div class="col-sm-12">
-			<div class="input-group">
-				<input type="password" class="form-control" id="password" name="password" value="{{$password}}">
-				<span class="input-group-addon"><i class="icon ion-locked"></i></span>
-			</div>
-		</div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-12">
-			<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled"></i>Atualizar</button>
-		</div>
+		<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled"></i>Atualizar</button>
 	</div>
 </form>
 <script>

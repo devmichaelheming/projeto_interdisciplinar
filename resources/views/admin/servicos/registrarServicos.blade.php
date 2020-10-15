@@ -55,19 +55,19 @@
 	</div> --}}
 
 	<div class="form-group" style="margin:0;">
-		<label for="cliente" class="control-label">Cliente:</label>
-		<select name="cliente" id="cliente" class="form-control">
+		<label for="id_cliente" class="control-label">Cliente:</label>
+		<select name="id_cliente" id="id_cliente" class="form-control">
 			@foreach ($clientes as $cliente)	
 				<option value="{{$cliente['id']}}">{{$cliente['name']}}</option>
 			@endforeach
 		</select>
 	</div>
 
-	{{-- <div class="sessao-carro">
+	<div class="sessao-carro">
 		<span></span>
 		<span>Informações do carro</span>
 		<span></span>
-	</div> --}}
+	</div>
 
 	<div class="groups-two">
 
@@ -97,11 +97,9 @@
 
 	</div>
 
-	<hr>
-
 	<div class="form-group" style="margin:0;">
-		<label for="phone" class="control-label">Relatório</label>
-		<textarea name="relatorio" id="relatorio" class="inputs" placeholder="tipo de serviço, gastos previstos, observações..." required></textarea>
+		<label for="phone" class="control-label">Descrição</label>
+		<textarea name="descricao" id="descricao" class="inputs" placeholder="tipo de serviço, gastos previstos, observações..." required></textarea>
 	</div>
 
 	<div class="form-group" style="margin:0;">

@@ -5878,7 +5878,7 @@ button.close {
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
-.modal-relatorio {
+.modal-descricao {
   position: fixed;
   top: 0;
   right: 0;
@@ -5961,7 +5961,7 @@ button.close {
   position: relative;
   padding: 15px;
 }
-.modal-body-cadastrar, .modal-body-relatorio {
+.modal-body-cadastrar, .modal-body-descricao {
   position: relative;
   padding: 15px;
 }

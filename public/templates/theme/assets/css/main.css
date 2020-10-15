@@ -131,6 +131,7 @@
   height: 2.5rem;
   display: flex;
   justify-content: center;
+  background: #f7f7f7;
 }
 .btn-cadastrar:focus{
   outline:0;
@@ -8115,9 +8116,9 @@ div[class*="col-"] > .form-group {
 
 .btn-nav-sidebar-minified,
 .btn-off-canvas {
-      padding: 1rem 0.5rem;
-      display: flex;
-    width: 70px;
+  padding: 1rem 0.5rem;
+  display: flex;
+  width: 70px;
 }
 .btn-nav-sidebar-minified i,
 .btn-off-canvas i {
@@ -8131,6 +8132,23 @@ div[class*="col-"] > .form-group {
   cursor: pointer;
   font-size: 24px;
   line-height: 1;
+}
+@media (max-width: 600px) {
+.btn-nav-sidebar-minified i,
+.btn-off-canvas i {
+  
+  font-size: 5rem;
+}
+#col-left, .top-bar > :first-child{
+  display:flex;
+  align-items: flex-start;
+}
+.logo-area span{
+  padding:0.8rem 1rem 0 1rem!important;
+}
+.btn-nav-sidebar-minified, .btn-off-canvas {
+  padding: 0rem; 
+}
 }
 .btn-nav-sidebar-minified i:hover,
 .btn-off-canvas i:hover {
@@ -8176,7 +8194,7 @@ div[class*="col-"] > .form-group {
   margin-left: -15px;
   margin-right: -15px;
   height: 5rem;
-  padding: 0 40px 0 15px;
+  padding: 0 15px 0 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8199,7 +8217,7 @@ div[class*="col-"] > .form-group {
   }
 }
 .top-bar .top-bar-right {
-  background: rgb(213, 213, 213);
+  background: rgb(230, 230, 230);
   text-align: right;
   align-items: center;
   height: 3.5rem;
@@ -8630,6 +8648,7 @@ ul.main-menu .sub-menu li .sub-menu .text {
 body.fixed-left-active #col-left {
   position: fixed;
   height: 100%;
+  box-shadow: 1px 10px 15px #d2d2d2;
 }
 body.fixed-left-active .main-nav {
   position: relative;
@@ -9709,6 +9728,7 @@ body.page-register {
 .page-login-social .btn-login-social {
   width: 30%;
   margin: 0 auto;
+  border-radius:1rem;
 }
 @media screen and (max-width: 1200px) {
   .register-box,
@@ -9752,6 +9772,8 @@ body.page-register {
 }
 .page-login-social .container-fluid h1 {
   text-align: center;
+  padding-bottom: 30px;
+  background: #57D4FF;
 }
 .page-login-social .login-box {
   margin-top: 1em;
@@ -9842,7 +9864,7 @@ body.page-register {
 }
 
 .login-box {
-  padding: 30px;
+  padding: 0px;
   width: 40%;
   background-color: #fff;
 }
@@ -9852,10 +9874,11 @@ body.page-register {
   justify-content: center;
   width: 100%;
 }
+
 .login-box h1 {
   font-size: 1.5em;
   margin-top: 0;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 .login-box .text-right {
   padding-top: 5px;

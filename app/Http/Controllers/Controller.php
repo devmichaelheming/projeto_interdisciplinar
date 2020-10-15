@@ -20,4 +20,10 @@ class Controller extends BaseController
         ]);
         
     }
+    public function erro(){
+        return view('admin.erro');
+    }
+    public function erroRemover(){
+        return view('admin.erroRemover');
+    }
 }

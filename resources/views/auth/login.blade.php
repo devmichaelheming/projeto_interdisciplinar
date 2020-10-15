@@ -27,11 +27,10 @@
 <body class="middle-content page-login-social">
 	<div class="container-fluid">
 		<div class="content-box-bordered login-box box-with-help">
-			<div style="width:100%;display:flex;justify-content:center;">
-				<img src="{{ asset('prj2.png') }}" alt="" srcset="">
+			<div style="width:100%;display:flex;justify-content:center;background:#57D4FF;border-top-left-radius:1rem;border-top-right-radius:1rem;">
+				<img src="{{ asset('car.png') }}" alt="" srcset="">
 			</div>
-			<h1>Log in to your account</h1>
-			<form class="form-horizontal validate-form" role="form"  action="{{ route('login') }}" method="POST">
+			<form class="form-horizontal validate-form" role="form"  action="{{ route('login') }}" method="POST" style="padding:30px;">
 				@csrf
 				<div class="form-group">
 					<label for="inputEmail3b" class="control-label sr-only">Email</label>
@@ -61,32 +60,24 @@
 						</div>
 					</div>
 				</div>
-				<div class="form-group">
+				{{-- <div class="form-group">
 					<div class="col-sm-12">
 						<label class="fancy-checkbox">
 							<input type="checkbox">
 							<span>Remember me</span>
 						</label>
 					</div>
-				</div>
+				</div> --}}
 				<div class="form-group">
-					<div class="col-sm-7">
-						<button type="submit" class="btn btn-success btn-block">Sign in</button>
+					<div class="col-sm-4">
+						<button type="submit" class="btn btn-primary btn-block">Sign in</button>
 					</div>
-					<div class="col-md-5 text-right">
+					{{-- <div class="col-md-5 text-right">
 						<a href="#"><em>forgot password?</em></a>
-					</div>
+					</div> --}}
 				</div>
 			</form>
-			<p><em>Don't have an account yet?</em> <a href="#"><strong>Sign Up</strong></a></p>
-			<button type="button" class="btn btn-link btn-login-help"><i class="icon ion-help-circled"></i></button>
-		</div>
-		<div class="login-separator text-center"><span>or sign up with</span></div>
-		<div class="text-center">
-			<button type="button" class="btn btn-login-social btn-login-facebook"><span>Facebook</span></button>
-			<button type="button" class="btn btn-login-social btn-login-twitter"><span>Twitter</span></button>
-			<button type="button" class="btn btn-login-social btn-login-googleplus"><span>Google Plus</span></button>
-		</div>
+		</div>		
 	</div>
 	<!-- Javascript -->
 	<script src="{{asset('templates/theme/assets/js/jquery/jquery-2.1.0.min.js')}}"></script>

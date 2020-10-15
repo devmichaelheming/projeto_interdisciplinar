@@ -1,57 +1,13 @@
 <form class="form-horizontal" id="form" role="form" action="{{ url('/admin/servicos/editar/salvar') }}/{{ $id }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
 	@csrf
 
-	<div class="sessao-carro">
-		<span></span>
-		<span>Informações do cliente</span>
-		<span></span>
-	</div>
-
-	<div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
-
-		<div class="form-group-tipo2">
-			<label for="nome" class="control-label">Nome</label>
-            <input type="text" class="inputs" id="nome" name="nome" value="{{$nome}}" required>
-		</div>
-
-		<div class="form-group-tipo2">
-			<label for="email" class="control-label">E-mail</label>
-			<input type="email" class="inputs" id="email" name="email" value="{{$email}}" required>
-		</div>
-
-	</div>
-
-	<div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
-
-		<div class="form-group-tipo2">
-			<label for="cpf" class="control-label">Cpf</label>
-			<input type="text" class="inputs" id="cpf" name="cpf" value="{{$cpf}}" required>
-		</div>
-
-		<div class="form-group-tipo2">
-			<label for="telefone" class="control-label">Telefone</label>
-			<input type="number" class="inputs" id="telefone" name="telefone" value="{{$telefone}}" required>
-		</div>
-
-	</div>
-    
-    <div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
-
-		<div class="form-group-tipo2">
-			<label for="cidade" class="control-label">Cidade</label>
-			<input type="text" class="inputs" id="cidade" name="cidade" value="{{$cidade}}" required>
-		</div>
-
-		<div class="form-group-tipo2">
-			<label for="bairro" class="control-label">Bairro</label>
-			<input type="text" class="inputs" id="bairro" name="bairro" value="{{$bairro}}" required>
-		</div>
-
-	</div>
-
-	<div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;flex-direction:column;">
-		<label for="endereco" class="control-label">Endereço</label>
-		<input type="text" class="inputs" id="endereco" name="endereco" value="{{$endereco}}" required>
+	<div class="form-group mb-4">
+		<span for="id_cliente" class="title_city">Cliente:</span>
+		<select class="form-control" id="id_cliente" name="id_cliente">
+			@foreach ($clientes as $cliente)
+				<option value="{{ $cliente['id'] }}" {{ ($cliente['id'] == $id_cliente) ? 'selected' : '' }} >{{ $cliente['name'] }}</option>
+			@endforeach
+		</select>
 	</div>
 
 	<div class="sessao-carro">
@@ -91,8 +47,8 @@
 	<hr>
 
 	<div class="form-group" style="margin:0;">
-		<label for="phone" class="control-label">Relatório</label>
-		<textarea name="relatorio" id="relatorio" class="inputs" value="{{$relatorio}}" required>{{$relatorio}}</textarea>
+		<label for="phone" class="control-label">Descrição</label>
+		<textarea name="descricao" id="descricao" class="inputs" value="{{$descricao}}" required>{{$descricao}}</textarea>
 	</div>
 	
 	<div class="form-group" style="margin:0;">

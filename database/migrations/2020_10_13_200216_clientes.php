@@ -17,9 +17,12 @@ class Clientes extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('phone')->nullable();
+            $table->string('phone');
+            $table->string('nascimento');
+            $table->string('cidade');
+            $table->string('cpf');
+            $table->string('endereco');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

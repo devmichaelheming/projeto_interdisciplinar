@@ -57,7 +57,7 @@
 
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
-					<div class="widget-header clearfix">
+					{{-- <div class="widget-header clearfix">
 						<h3><i class="fas fa-users" style="margin-right:0.5rem;"></i> <span>Clientes cadastrados</span></h3>
 						<div class="btn-group widget-header-toolbar">
 
@@ -66,8 +66,12 @@
 							</button>
 							
 						</div>
-					</div>
-
+					</div> --}}
+					<span style="width:100%;display:flex;justify-content:flex-end;padding:0.5rem;">
+						<button type="submit" class="btn-cadastrar" data-toggle="modal" data-idc="{{ url('/clientes/viewCadastrar') }}">
+							<i class="fas fa-plus"></i>
+						</button>
+					</span>
 					@if (session('mensagem'))
 						<div class="sacefull">
 							
@@ -84,7 +88,6 @@
 							</div>
 						</div>
 					@elseif(session('invalido'))
-						
 						<div class="alert alert-danger">
 							<span>
 								<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
@@ -106,6 +109,8 @@
 									<th>Nome</th>
 									<th>Telefone</th>
 									<th>Email</th>
+									<th>Endereço</th>
+									<th>Cpf</th>
 									<th>Criado em</th>
 									<th>Editar / Remover</th>
 								</tr>
@@ -127,6 +132,14 @@
 									
                                     @isset($clientes[$i]['email'])
                                         <td>{{ $clientes[$i]['email'] }}</td>
+									@endisset
+
+									 @isset($clientes[$i]['endereco'])
+                                        <td>{{ $clientes[$i]['endereco'] }}</td>
+									@endisset
+
+									@isset($clientes[$i]['cpf'])
+                                        <td>{{ $clientes[$i]['cpf'] }}</td>
 									@endisset
 									
                                     @isset($clientes[$i]['created_at'])

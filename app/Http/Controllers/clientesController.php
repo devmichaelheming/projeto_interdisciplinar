@@ -32,8 +32,10 @@ class clientesController extends Controller
             $db->name = $request->input('name');
             $db->email = $request->input('email');
             $db->phone = $request->input('phone');
-
-            $db->password = bcrypt($request->input('password'));
+            $db->cidade = $request->input('cidade');
+            $db->nascimento = $request->input('nascimento');
+            $db->cpf = $request->input('cpf');
+            $db->endereco = $request->input('endereco');
             $db->save();
 
             return redirect()->route('admin.clientes')->with('mensagem', 'O cliente foi cadastrado com sucesso!');
@@ -62,7 +64,10 @@ class clientesController extends Controller
                     'name' => $db['name'],
                     'email' => $db['email'],
                     'phone' => $db['phone'],
-                    'password' => $db['password'],
+                    'cidade' => $db['cidade'],
+                    'nascimento' => $db['nascimento'],
+                    'endereco' => $db['endereco'],
+                    'cpf' => $db['cpf'],
                 ]); 
         //     }
         // }
@@ -79,12 +84,18 @@ class clientesController extends Controller
         $name = $dados['name'];
         $email = $dados['email'];
         $phone = $dados['phone'];
-        $password = bcrypt($dados['password']);
+        $cpf = $dados['cpf'];
+        $endereco = $dados['endereco'];
+        $nascimento = $dados['nascimento'];
+        $cidade = $dados['cidade'];
 
         $db['name'] = $name;
         $db['phone'] = $phone;
         $db['email'] = $email;
-        $db['password'] = $password;
+        $db['cpf'] = $cpf;
+        $db['endereco'] = $endereco;
+        $db['nascimento'] = $nascimento;
+        $db['cidade'] = $cidade;
 
         $db->save();
 

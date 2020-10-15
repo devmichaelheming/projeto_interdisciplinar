@@ -71,7 +71,7 @@
 					<div class="col-sm-3">
 						<div class="quick-info boxed bg-gold">
 							<i class="icon ion-cash"></i>
-							<p>${{ $total }} <span>LUCRO</span></p>
+							<p>${{ $total }} <span>LUCRO PREVISTO</span></p>
 						</div>
 					</div>
 					<div class="col-sm-3">
@@ -127,11 +127,9 @@
 								<tr>
 									<th></th>
 									<th>Cliente</th>
-									<th>Telefone</th>
-									<th>Bairro</th>
 									<th>Modelo</th>
 									<th>Status</th>
-									<th>Relatório</th>
+									<th>Descrição</th>
 									<th>Valor do serviço</th>
 									<th>Data</th>
 									<th>Editar/Remover</th>
@@ -146,16 +144,8 @@
 											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
 										@endif
 
-										@isset($servicos[$i]['nome'])
-											<td>{{ $servicos[$i]['nome'] }}</td>
-										@endisset
-										
-										@isset($servicos[$i]['telefone'])
-											<td>{{ $servicos[$i]['telefone'] }}</td>
-										@endisset
-										
-										@isset($servicos[$i]['bairro'])
-											<td>{{ $servicos[$i]['bairro'] }}</td>
+										@isset($servicos[$i]['id_cliente'])
+											<td>{{ $servicos[$i]['id_cliente'] }}</td>
 										@endisset
 
 										@isset($servicos[$i]['modelo'])
@@ -166,7 +156,7 @@
 											<td>{{ $servicos[$i]['status'] }}</td>
 										@endisset
 
-										<td><div class="botoes"><button type="button" class="botao-editar btn-relatorio" style="margin-left: 1rem;font-size:1.5rem;" data-id="{{ url('admin/servicos/relatorio') }}/{{ $servicos[$i]['id'] }}"><span class="entypo-tools"><i class="far fa-file-alt"></i></span></button></div></td>
+										<td><div class="botoes"><button type="button" class="botao-editar btn-descricao" style="margin-left: 1rem;font-size:1.5rem;" data-id="{{ url('admin/servicos/descricao') }}/{{ $servicos[$i]['id'] }}"><span class="entypo-tools"><i class="far fa-file-alt"></i></span></button></div></td>
 										
 										@isset($servicos[$i]['valor'])
 											<td>R$ {{ $servicos[$i]['valor'] }}</td>
@@ -177,10 +167,17 @@
 										@endisset
 										
 										<td>
-										<div class="botoes">
-											<button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/servicos/editar') }}/{{ $servicos[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
-											<button type="button" class="botao-remover" data-id="{{ url('admin/servicos/confirm') }}/{{ $servicos[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>  
-										</div>
+											<div class="botoes">
+												{{-- <button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('/servicos/editar') }}/{{ $servicos[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
+												<button type="button" class="botao-remover" data-id="{{ url('admin/servicos/confirm') }}/{{ $servicos[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   --}}
+
+										<button type="button" class="botao-editar btn-editar" data-id="{{ url('admin/servicos/editar') }}/{{ $servicos[$i]['id'] }}" style="margin-right: 10px;">
+											<i class="fas fa-edit"></i>
+										</button>
+										<button type="button" class="botao-remover btn-confirm" data-id="{{ url('/servicos/confirm') }}/{{ $servicos[$i]['id'] }}">
+											<i class="far fa-trash-alt"></i>
+										</button>
+											</div>
 										</td>
 
 									</tr>
@@ -343,13 +340,13 @@
 			return false;
 		});
 
-		// RELATORIO
+		// descricao
 
-		$(document).on('click','.btn-relatorio', function(e){
+		$(document).on('click','.btn-descricao', function(e){
 			e.preventDefault();
 			
-			var bodyFormName = $('.modal-body-relatorio');
-			var modalName = $('.modal-relatorio');
+			var bodyFormName = $('.modal-body-descricao');
+			var modalName = $('.modal-descricao');
 			var id = $(this).data('id')
 
 			console.log(bodyFormName)
