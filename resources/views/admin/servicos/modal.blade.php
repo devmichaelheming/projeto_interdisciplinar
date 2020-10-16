@@ -9,7 +9,7 @@
                         <i class="fas fa-user-plus" style="padding-right:0.5rem;"></i>
                         Cadastrar serviços
                     </span>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background:transparent;"><i class="fas fa-times"></i></button>
                 </h5>
             </div>
             <div class="modal-body-cadastrar">
@@ -20,7 +20,6 @@
 </div>
 
 {{-- MODAL descricao --}}
-
 <div class="modal-descricao fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -30,7 +29,7 @@
                         <i class="far fa-file-alt" style="padding-right:0.5rem;"></i>
                         Descrição
                     </span>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background:transparent;"><i class="fas fa-times"></i></button>
                 </h5>
             </div>
             <div class="modal-body-descricao">

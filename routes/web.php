@@ -40,7 +40,7 @@ Route::get('/clientes/editar/{id}', 'clientesController@editarCliente')->name('c
 Route::post('/clientes/editar/salvar/{id}', 'clientesController@editarSalvar');
 //Remover clientes
 Route::get('/clientes/remover/{id}', 'clientesController@removerCliente')->name('clientes.remover');
- Route::get('/clientes/confirm/{id}', 'clientesController@confirm')->name('clientes.confirm');
+Route::get('/clientes/confirm/{id}', 'clientesController@confirm')->name('clientes.confirm');
 
     // USUARIOS
     // visualizar usuarios
@@ -87,6 +87,7 @@ Route::get('/mes', 'contasController@mes')->name('admin.mes');
     Route::post('/servicos/editar/salvar/{id}', 'servicosController@editarSalvar');
     //Remover servicos
     Route::get('/servicos/remover/{id}', 'servicosController@removerServicos')->name('servicos.remover');
+    Route::get('/servicos/extornar/{id}', 'servicosController@extornarServicos')->name('servicos.extornar');
     Route::get('/servicos/confirm/{id}', 'servicosController@confirm')->name('servicos.confirm');
 
 });

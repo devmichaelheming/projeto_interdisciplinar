@@ -110,21 +110,16 @@
 	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
 		<label for="switch">Status do serviço ?</label>
 		<label class="control-inline fancy-radio">
-			<input type="radio" name="status" value="1" checked>
-			<span><i></i>Finalizado</span>
-		</label>
-		<label class="control-inline fancy-radio">
-			<input type="radio" name="status" value="0">
+			<input type="radio" name="status" value="0" checked>
 			<span><i></i>Em andamento</span>
 		</label>
+		<label class="control-inline fancy-radio">
+			<input type="radio" name="status" value="1">
+			<span><i></i>Finalizado</span>
+		</label>
 	</div>
 
-	<div class="form-group">
-		<div class="col-sm-12">
-			<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Cadastrar</button>
-		</div>
-	</div>
-
+	<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Cadastrar</button>
 </form>
 <script>
 

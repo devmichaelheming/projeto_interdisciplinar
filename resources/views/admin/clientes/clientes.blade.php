@@ -57,7 +57,7 @@
 
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
-					{{-- <div class="widget-header clearfix">
+					<div class="widget-header clearfix">
 						<h3><i class="fas fa-users" style="margin-right:0.5rem;"></i> <span>Clientes cadastrados</span></h3>
 						<div class="btn-group widget-header-toolbar">
 
@@ -66,12 +66,7 @@
 							</button>
 							
 						</div>
-					</div> --}}
-					<span style="width:100%;display:flex;justify-content:flex-end;padding:0.5rem;">
-						<button type="submit" class="btn-cadastrar" data-toggle="modal" data-idc="{{ url('/clientes/viewCadastrar') }}">
-							<i class="fas fa-plus"></i>
-						</button>
-					</span>
+					</div>
 					@if (session('mensagem'))
 						<div class="sacefull">
 							

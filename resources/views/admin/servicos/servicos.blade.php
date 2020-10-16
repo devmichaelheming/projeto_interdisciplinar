@@ -71,7 +71,7 @@
 					<div class="col-sm-3">
 						<div class="quick-info boxed bg-gold">
 							<i class="icon ion-cash"></i>
-							<p>${{ $total }} <span>LUCRO PREVISTO</span></p>
+							<p>${{ $total }} <span>PREVISÃO DE LUCRO</span></p>
 						</div>
 					</div>
 					<div class="col-sm-3">
@@ -132,17 +132,31 @@
 									<th>Descrição</th>
 									<th>Valor do serviço</th>
 									<th>Data</th>
-									<th>Editar/Remover</th>
+									<th>Extornar / Editar / Remover</th>
 								</tr>
 							</thead>
 							<tbody>
                                 @for ($i = 0; $i < sizeof($servicos); $i++)
 									<tr>
-										@if ($servicos[$i]['status'] == 'Andamento')
+										@if ($servicos[$i]['status'] == 'Extornado')
+											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:blue;width:1rem;height:1rem;"></span></div></td>
+										@else
+										
+											@if ($servicos[$i]['status'] == 'Andamento')
+												<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
+											@else
+												<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
+											@endif
+
+										@endif
+
+										{{-- @if ($servicos[$i]['status'] == 'Andamento')
 											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
+										@elseif ($servicos[$i]['status'] == 'Extornado')
+											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:blue;width:1rem;height:1rem;"></span></div></td>
 										@else
 											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
-										@endif
+										@endif --}}
 
 										@isset($servicos[$i]['id_cliente'])
 											<td>{{ $servicos[$i]['id_cliente'] }}</td>
@@ -168,15 +182,13 @@
 										
 										<td>
 											<div class="botoes">
-												{{-- <button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('/servicos/editar') }}/{{ $servicos[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
-												<button type="button" class="botao-remover" data-id="{{ url('admin/servicos/confirm') }}/{{ $servicos[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   --}}
-
-										<button type="button" class="botao-editar btn-editar" data-id="{{ url('admin/servicos/editar') }}/{{ $servicos[$i]['id'] }}" style="margin-right: 10px;">
-											<i class="fas fa-edit"></i>
-										</button>
-										<button type="button" class="botao-remover btn-confirm" data-id="{{ url('/servicos/confirm') }}/{{ $servicos[$i]['id'] }}">
-											<i class="far fa-trash-alt"></i>
-										</button>
+												<button type="button" class="botao-editar btn-extornar" data-id="{{ url('admin/servicos/extornar') }}/{{ $servicos[$i]['id'] }}" style="margin-left: 10px;">
+													<i class="fas fa-history"></i>
+												</button>
+												<button type="button" class="botao-editar btn-editar" data-id="{{ url('admin/servicos/editar') }}/{{ $servicos[$i]['id'] }}" style="margin-left: 30px;">
+													<i class="fas fa-edit"></i>
+												</button>
+												<button type="button" class="botao-remover" data-id="{{ url('admin/servicos/confirm') }}/{{ $servicos[$i]['id'] }}" style="margin-left: 30px;"><i class="far fa-trash-alt"></i></button>
 											</div>
 										</td>
 
@@ -318,6 +330,31 @@
 		// EDITAR CLIENTE
 
 		$(document).on('click','.btn-editar', function(e){
+			e.preventDefault();
+			
+			var bodyFormName = $('.modal-body');
+			var modalName = $('.modal');
+			var id = $(this).data('id')
+
+			console.log(bodyFormName)
+			console.log(modalName)
+			console.log(id)
+			
+			$(modalName).modal('show'); 
+
+			$.ajax({
+				url: id,
+				type: 'get',
+				success: function(response){       
+					$(bodyFormName).html(response);
+				}
+			});
+			return false;
+		});
+
+		// EDITAR CLIENTE
+
+		$(document).on('click','.btn-extornar', function(e){
 			e.preventDefault();
 			
 			var bodyFormName = $('.modal-body');

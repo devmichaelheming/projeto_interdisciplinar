@@ -55,9 +55,7 @@
 		</div>
 	</div>
 	
-	<div class="form-group">
-		<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled"></i>Atualizar</button>
-	</div>
+	<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled"></i>Atualizar</button>
 </form>
 <script>
 

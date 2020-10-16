@@ -23,6 +23,8 @@ class servicosController extends Controller
         foreach ($servicos as $servico) {
             if($servico->status == 1){
                 $servico->status = 'Finalizado';
+            }else if($servico->status == 2){
+                $servico->status = 'Extornado';
             }else{
                 $servico->status = 'Andamento';
             }
@@ -91,7 +93,7 @@ class servicosController extends Controller
 
             $db->save();
 
-            return redirect()->route('erro')->with('mensagem', 'O  serviço foi cadastrado com sucesso!');
+            return redirect()->route('admin.servicos')->with('mensagem', 'O  serviço foi cadastrado com sucesso!');
         } catch (QueryException $ex) {
 
             if($ex->getCode() === "23000") {
@@ -176,6 +178,18 @@ class servicosController extends Controller
         return view('admin.servicos.confirmDelete', [
             'id' => $id,
         ]);
+    }
+
+    public function extornarServicos(request $request, $id)
+    {
+        $db = servicos::find($id);
+
+        $db['status'] = '2';
+        $db['valor'] = '00.00';
+        $db->save();
+
+        return redirect()->route('erro')->with('mensagem', 'O serviço extornado com sucesso!');
+ 
     }
 
     public function removerServicos(request $request)

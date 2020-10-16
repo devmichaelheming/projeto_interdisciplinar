@@ -8,7 +8,7 @@
                         <i class="fas fa-user-plus" style="padding-right:0.5rem;"></i>
                         Cadastrar clientes
                     </span>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background:transparent;"><i class="fas fa-times"></i></button>
                 </h5>
             </div>
             <div class="modal-body-cadastrar">
@@ -29,7 +29,7 @@
                         <i class="fas fa-user-plus" style="padding-right:0.5rem;"></i>
                         Editar clientes
                     </span>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background:transparent;"><i class="fas fa-times"></i></button>
                 </h5>
             </div>
             <div class="modal-body"></div>
