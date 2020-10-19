@@ -33,11 +33,7 @@
         <div id="preloader">
             <div class="inner">
                <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
-               <div class="bolas">
-                  <div></div>
-                  <div></div>
-                  <div></div>                    
-               </div>
+				<img src="{{ asset('car.gif') }}" width="100%">
             </div>
         </div>
         <!-- fim do preloader --> 
@@ -127,8 +123,8 @@
 								<tr>
 									<th></th>
 									<th>Cliente</th>
-									<th>Modelo</th>
-									<th>Status</th>
+									<th>Modelo do veiculo</th>
+									<th>Status do serviço</th>
 									<th>Descrição</th>
 									<th>Valor do serviço</th>
 									<th>Data</th>
@@ -182,9 +178,9 @@
 										
 										<td>
 											<div class="botoes">
-												<button type="button" class="botao-editar btn-extornar" data-id="{{ url('admin/servicos/extornar') }}/{{ $servicos[$i]['id'] }}" style="margin-left: 10px;">
-													<i class="fas fa-history"></i>
-												</button>
+												<a href="{{ url('admin/servicos/extornar') }}/{{ $servicos[$i]['id'] }}" class="btn btn-sm btn-clean btn-icon btn-icon-md delitem" data-skin="brand" data-toggle="kt-tooltip" data-placement="top" title="Deletar">
+													<i class="fas fa-hand-holding-usd" style="font-size: 20px;"></i>
+												</a>
 												<button type="button" class="botao-editar btn-editar" data-id="{{ url('admin/servicos/editar') }}/{{ $servicos[$i]['id'] }}" style="margin-left: 30px;">
 													<i class="fas fa-edit"></i>
 												</button>
@@ -330,31 +326,6 @@
 		// EDITAR CLIENTE
 
 		$(document).on('click','.btn-editar', function(e){
-			e.preventDefault();
-			
-			var bodyFormName = $('.modal-body');
-			var modalName = $('.modal');
-			var id = $(this).data('id')
-
-			console.log(bodyFormName)
-			console.log(modalName)
-			console.log(id)
-			
-			$(modalName).modal('show'); 
-
-			$.ajax({
-				url: id,
-				type: 'get',
-				success: function(response){       
-					$(bodyFormName).html(response);
-				}
-			});
-			return false;
-		});
-
-		// EDITAR CLIENTE
-
-		$(document).on('click','.btn-extornar', function(e){
 			e.preventDefault();
 			
 			var bodyFormName = $('.modal-body');

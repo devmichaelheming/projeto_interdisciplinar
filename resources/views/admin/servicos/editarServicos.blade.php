@@ -44,14 +44,12 @@
 
 	</div>
 
-	<hr>
-
-	<div class="form-group" style="margin:0;">
+	<div class="form-group" style="flex-direction: column">
 		<label for="phone" class="control-label">Descrição</label>
-		<textarea name="descricao" id="descricao" class="inputs" value="{{$descricao}}" required>{{$descricao}}</textarea>
+		<textarea name="descricao" id="descricao" class="inputs" rows="5" value="{{$descricao}}" required>{{$descricao}}</textarea>
 	</div>
 	
-	<div class="form-group" style="margin:0;">
+	<div class="form-group" style="flex-direction: column">
 		<label for="modelo" class="control-label">Valor do serviço</label>
 		<input type="number" class="inputs" id="valor" name="valor" value="{{$valor}}" required>
 	</div>
@@ -65,6 +63,10 @@
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="1" {{ ($status == "1") ? "checked" : "" }}>
 			<span><i></i>Finalizado</span>
+		</label>
+		<label class="control-inline fancy-radio">
+			<input type="radio" name="status" value="2" {{ ($status == "2") ? "checked" : "" }}>
+			<span><i></i>Extornado</span>
 		</label>
 	</div>
 

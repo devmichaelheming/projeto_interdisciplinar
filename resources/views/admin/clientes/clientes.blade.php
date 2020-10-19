@@ -33,11 +33,7 @@
         <div id="preloader">
             <div class="inner">
                <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
-               <div class="bolas">
-                  <div></div>
-                  <div></div>
-                  <div></div>                    
-               </div>
+              <img src="{{ asset('car.gif') }}">
             </div>
         </div>
         <!-- fim do preloader --> 

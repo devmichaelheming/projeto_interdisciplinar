@@ -39,12 +39,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgb(
-    255,
-    255,
-    255
-  ); /* cor do background que vai ocupar o body */
-  z-index: 999; /* z-index para jogar para frente e sobrepor tudo */
+  background-color: #0da1b3;
+   /* cor do background que vai ocupar o body */
+  z-index: 10000; /* z-index para jogar para frente e sobrepor tudo */
 }
 .topo-header-mobile {
   display: none;
@@ -8225,7 +8222,7 @@ div[class*="col-"] > .form-group {
   justify-content: space-between;
   display: flex;
   width: 10rem;
-  margin-top: 0px;
+  margin: 0 1rem;
   padding: 0 0.5rem;
 }
 .name{

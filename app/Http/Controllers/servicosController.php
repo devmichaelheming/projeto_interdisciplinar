@@ -182,13 +182,17 @@ class servicosController extends Controller
 
     public function extornarServicos(request $request, $id)
     {
+
         $db = servicos::find($id);
 
-        $db['status'] = '2';
-        $db['valor'] = '00.00';
+        $status = '2';
+        $valor = '00.00';
+
+        $db['status'] = $status;
+        $db['valor'] =  $valor;
         $db->save();
 
-        return redirect()->route('erro')->with('mensagem', 'O serviço extornado com sucesso!');
+        return redirect()->route('admin.servicos')->with('mensagem', 'O serviço foi extornado com sucesso!');
  
     }
 

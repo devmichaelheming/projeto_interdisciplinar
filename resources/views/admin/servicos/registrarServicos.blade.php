@@ -97,12 +97,12 @@
 
 	</div>
 
-	<div class="form-group" style="margin:0;">
+	<div class="groups-two" style="flex-direction: column">
 		<label for="phone" class="control-label">Descrição</label>
-		<textarea name="descricao" id="descricao" class="inputs" placeholder="tipo de serviço, gastos previstos, observações..." required></textarea>
+		<textarea name="descricao" id="descricao" class="inputs" rows="5" placeholder="tipo de serviço, gastos previstos, observações..." required></textarea>
 	</div>
 
-	<div class="form-group" style="margin:0;">
+	<div class="groups-two" style="flex-direction: column">
 		<label for="valor" class="control-label">Valor do serviço</label>
 		<input type="number" class="inputs" id="valor" name="valor" required placeholder="R$">
 	</div>
@@ -116,6 +116,10 @@
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="1">
 			<span><i></i>Finalizado</span>
+		</label>
+		<label class="control-inline fancy-radio">
+			<input type="radio" name="status" value="1">
+			<span><i></i>Extornado</span>
 		</label>
 	</div>
 

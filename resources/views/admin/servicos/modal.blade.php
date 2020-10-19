@@ -32,8 +32,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background:transparent;"><i class="fas fa-times"></i></button>
                 </h5>
             </div>
-            <div class="modal-body-descricao">
-                
+            <div class="modal-body-descricao" style="padding:0 15px;">
             </div>
         </div>
     </div>
