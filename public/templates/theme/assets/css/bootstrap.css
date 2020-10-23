@@ -1607,7 +1607,7 @@ pre code {
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
-  margin-top: 15px;
+  margin-top: 0px;
   margin-bottom: auto;
 }
 .row {

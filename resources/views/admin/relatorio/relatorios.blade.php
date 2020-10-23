@@ -5,7 +5,7 @@
 <!--<![endif]-->
 
 <head>
-	<title>Dashboard | Serviços</title>
+	<title>Dashboard | Relatórios</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="description" content="QueenAdmin - Beautiful Bootstrap Admin Dashboard Theme">
@@ -47,155 +47,46 @@
 		{{-- MENU DE NAVEGAÇÃO --}}
 		@include('templates.nav-left')
 
-		<div id="col-right" class="col-right ">
-			@include('admin.servicos.modal')
-			<div class="container-fluid primary-content">
+		<div id="col-right" class="col-right">
 
-				<div class="row">
-					<div class="col-sm-3">
-						<div class="quick-info boxed bg-green">
-							<i class="fas fa-user-check"></i>
-							<p>{{ $ativo }} <span>SERVIÇOS FINALIZADOS</span></p>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="quick-info boxed bg-red">
-							<i class="fas fa-user-times"></i>
-							<p>{{ $inativo }} <span>SERVIÇOS EM ANDAMENTO</span></p>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="quick-info boxed bg-gold">
-							<i class="icon ion-cash"></i>
-							<p>${{ $total }} <span>PREVISÃO DE LUCRO</span></p>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="quick-info boxed bg-blue">
-							<i class="icon ion-person-stalker"></i>
-							<p>{{ count($servicos) }} <span>SERVIÇOS</span></p>
-						</div>
-					</div>
-				</div>
+            @include('admin.relatorio.modal')
+            
+			<div class="container-fluid primary-content">
 				
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
 					<div class="widget-header clearfix">
-						<h3><i class="fas fa-toolbox" style="margin-right:0.5rem;"></i><span>Serviços</span></h3>
+						<h3><i class="fas fa-file-pdf" style="margin-right: 0.5rem;"></i><span>Relatórios</span></h3>
+                    </div>
+                    <div class="lista-relatorios">
 
-						<div class="btn-group widget-header-toolbar">
-							<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/servicos/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo serviço</button>
-						</div>
-					</div>
-
-					@if (session('mensagem'))
-						<div class="sacefull">
-							<div class="alert alert-success">
-								<span>
-									<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-									{{ session('mensagem') }}
-								</span>
-								<div class="alert-close">
-									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-										<span aria-hidden="true"><i class="fas fa-times"></i></span>
-									</button>
-								</div>
+						<div class="relatorio text-center">
+							<div class="quick-info vertical">
+								<i class="fas fa-user bg-orange"></i>
+								<p>RELATÓRIO DE CLIENTES<button type="submit" class="btn-relatorio clientes" data-toggle="modal" data-idc="{{ url('/relatorios/clientes') }}">Clique aqui para gerar o relatório</button></p>
 							</div>
 						</div>
-					@elseif(session('invalido'))
-						<div class="alert alert-danger">
-							<span>
-								<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-								{{ session('invalido') }}
-							</span>
-							<div class="alert-close">
-								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-									<span aria-hidden="true"><i class="fas fa-times"></i></span>
-								</button>
+						<div class="relatorio text-center">
+							<div class="quick-info vertical">
+								<i class="fas fa-money-check-alt bg-green"></i>
+								<p>RELATÓRIO DE VENDAS<button type="submit" class="btn-relatorio vendas" data-toggle="modal" data-idc="{{ url('/relatorios/vendas') }}">Clique aqui para gerar o relatório</button></p>
 							</div>
 						</div>
-					@endif
+						<div class="relatorio text-center">
+							<div class="quick-info vertical">
+								<i class="fas fa-user-plus bg-blue"></i>
+								<p>RELATÓRIO DE CADASTROS<button type="submit" class="btn-relatorio cadastros" data-toggle="modal" data-idc="{{ url('/relatorios/cadastros') }}">Clique aqui para gerar o relatório</button></p>
+							</div>
+                        </div>
+                        <div class="relatorio text-center">
+							<div class="quick-info vertical">
+								<i class="fas fa-briefcase bg-red"></i>
+								<p>RELATÓRIO DE SERVIÇOS<button type="submit" class="btn-relatorio servicos" data-toggle="modal" data-idc="{{ url('/relatorios/servicos') }}">Clique aqui para gerar o relatório</button></p>
+							</div>
+						</div>
 
-					<div class="widget-content table-responsive">
-						<table id="table" class="table table-sorting">
-							
-							<thead>
-								<tr>
-									<th></th>
-									<th>Cliente</th>
-									<th>Modelo do veiculo</th>
-									<th>Status do serviço</th>
-									<th>Descrição</th>
-									<th>Valor do serviço</th>
-									<th>Data</th>
-									<th>Extornar / Editar</th>
-								</tr>
-							</thead>
-							<tbody>
-                                @for ($i = 0; $i < sizeof($servicos); $i++)
-									<tr>
-										@if ($servicos[$i]['status'] == 'Extornado')
-											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:blue;width:1rem;height:1rem;"></span></div></td>
-										@else
-										
-											@if ($servicos[$i]['status'] == 'Andamento')
-												<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
-											@else
-												<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
-											@endif
-
-										@endif
-
-										{{-- @if ($servicos[$i]['status'] == 'Andamento')
-											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
-										@elseif ($servicos[$i]['status'] == 'Extornado')
-											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:blue;width:1rem;height:1rem;"></span></div></td>
-										@else
-											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
-										@endif --}}
-
-										@isset($servicos[$i]['id_cliente'])
-											<td>{{ $servicos[$i]['id_cliente'] }}</td>
-										@endisset
-
-										@isset($servicos[$i]['modelo'])
-											<td>{{ $servicos[$i]['modelo'] }}</td>
-										@endisset
-										
-										@isset($servicos[$i]['status'])
-											<td>{{ $servicos[$i]['status'] }}</td>
-										@endisset
-
-										<td><div class="botoes"><button type="button" class="botao-editar btn-descricao" style="margin-left: 1rem;font-size:1.5rem;" data-id="{{ url('admin/servicos/descricao') }}/{{ $servicos[$i]['id'] }}"><span class="entypo-tools"><i class="far fa-file-alt"></i></span></button></div></td>
-										
-										@isset($servicos[$i]['valor'])
-											<td>R$ {{ $servicos[$i]['valor'] }}</td>
-										@endisset
-										
-										@isset($servicos[$i]['created_at'])
-											<td>{{ $servicos[$i]['created_at'] }}</td>
-										@endisset
-										
-										<td>
-											<div class="botoes">
-												<a href="{{ url('admin/servicos/extornar') }}/{{ $servicos[$i]['id'] }}" class="btn btn-sm btn-clean btn-icon btn-icon-md delitem" data-skin="brand" data-toggle="kt-tooltip" data-placement="top" title="Deletar">
-													<i class="fas fa-hand-holding-usd" style="font-size: 20px;"></i>
-												</a>
-												<button type="button" class="botao-editar btn-editar" data-id="{{ url('admin/servicos/editar') }}/{{ $servicos[$i]['id'] }}" style="margin-left: 30px;">
-													<i class="fas fa-edit"></i>
-												</button>
-												{{-- <button type="button" class="botao-remover" data-id="{{ url('admin/servicos/confirm') }}/{{ $servicos[$i]['id'] }}" style="margin-left: 30px;"><i class="far fa-trash-alt"></i></button> --}}
-											</div>
-										</td>
-
-									</tr>
-								
-                            	@endfor
-
-							</tbody>
-                            
-                        </table>
-					</div>
+                    </div>
+        
 				</div>
 				
 				<!-- END TICKETS -->
@@ -323,63 +214,13 @@
 			});
 		});
 
-		// EDITAR CLIENTE
+		// RELATÓROS DE CLIENTES
 
-		$(document).on('click','.btn-editar', function(e){
-			e.preventDefault();
-			
-			var bodyFormName = $('.modal-body');
-			var modalName = $('.modal');
-			var id = $(this).data('id')
-
-			console.log(bodyFormName)
-			console.log(modalName)
-			console.log(id)
-			
-			$(modalName).modal('show'); 
-
-			$.ajax({
-				url: id,
-				type: 'get',
-				success: function(response){       
-					$(bodyFormName).html(response);
-				}
-			});
-			return false;
-		});
-
-		// descricao
-
-		$(document).on('click','.btn-descricao', function(e){
-			e.preventDefault();
-			
-			var bodyFormName = $('.modal-body-descricao');
-			var modalName = $('.modal-descricao');
-			var id = $(this).data('id')
-
-			console.log(bodyFormName)
-			console.log(modalName)
-			console.log(id)
-			
-			$(modalName).modal('show'); 
-
-			$.ajax({
-				url: id,
-				type: 'get',
-				success: function(response){       
-					$(bodyFormName).html(response);
-				}
-			});
-			return false;
-		});
-
-		// CADASTRAR CLIENTE
-
-		$(document).on('click','.btn-cadastrar', function(e){
+		$(document).on('click','.clientes', function(e){
 			e.preventDefault();
 
-			var bodyFormName = $('.modal-body-cadastrar');
-			var modalName = $('.modal-cadastrar');
+			var bodyFormName = $('.modal-body-clientes');
+			var modalName = $('.modal-clientes');
 			var idc = $(this).data('idc')
 
 			console.log(bodyFormName)
@@ -389,7 +230,7 @@
 			$(modalName).modal('show'); 
 
 			$.ajax({
-				url: '{{ url('admin/servicos/viewCadastrar') }}',
+				url: '{{ url('admin/relatorios/clientes') }}',
 				type: 'get',
 				success: function(response){
 					console.log(response)        
@@ -399,59 +240,112 @@
 			return false;
 		});
 
-	// CONFIRMAR REMOVER
+		// RELATÓROS DE VENDAS
 
-	$(document).on('click','.botao-remover', function(e){
+		$(document).on('click','.vendas', function(e){
+			e.preventDefault();
+
+			var bodyFormName = $('.modal-body-vendas');
+			var modalName = $('.modal-vendas');
+			var idc = $(this).data('idc')
+
+			console.log(bodyFormName)
+			console.log(modalName)
+			console.log(idc)
+
+			$(modalName).modal('show'); 
+
+			$.ajax({
+				url: '{{ url('admin/relatorios/vendas') }}',
+				type: 'get',
+				success: function(response){
+					console.log(response)        
+					$(bodyFormName).html(response);
+				}
+			});
+			return false;
+		});
+
+		// RELATORIO DE CADASTROS
+
+		$(document).on('click','.cadastros', function(e){
+			e.preventDefault();
+
+			var bodyFormName = $('.modal-body-cadastros');
+			var modalName = $('.modal-cadastros');
+			var idc = $(this).data('idc')
+
+			console.log(bodyFormName)
+			console.log(modalName)
+			console.log(idc)
+
+			$(modalName).modal('show'); 
+
+			$.ajax({
+				url: '{{ url('admin/relatorios/cadastros') }}',
+				type: 'get',
+				success: function(response){
+					console.log(response)        
+					$(bodyFormName).html(response);
+				}
+			});
+			return false;
+		});
+
+	// RELATORIO DE CADASTROS
+
+    $(document).on('click','.servicos', function(e){
         e.preventDefault();
-        
-        var bodyFormName = $('.modal-body-confirm');
-		var modalName = $('.modal-confirm');
-		var id = $(this).data('id')
 
-		console.log(bodyFormName)
-		console.log(modalName)
-		console.log(id)
-        
-		$(modalName).modal('show'); 
+        var bodyFormName = $('.modal-body-servicos');
+        var modalName = $('.modal-servicos');
+        var idc = $(this).data('idc')
+
+        console.log(bodyFormName)
+        console.log(modalName)
+        console.log(idc)
+
+        $(modalName).modal('show'); 
 
         $.ajax({
-           url: id,
-           type: 'get',
-           success: function(response){       
-               $(bodyFormName).html(response);
-           }
+            url: '{{ url('admin/relatorios/servicos') }}',
+            type: 'get',
+            success: function(response){
+                console.log(response)        
+                $(bodyFormName).html(response);
+            }
         });
         return false;
-	});
+    });
 
-	// REMOVER
+	// // REMOVER
 
-	$(document).on('click','.btn-remover', function(e){
-        e.preventDefault();
+	// $(document).on('click','.btn-remover', function(e){
+    //     e.preventDefault();
         
-        var bodyFormName = $('.modal-body-remover');
-		var modalName = $('.modal-remover');
-		var modalNamee = $('.modal-confirm');
-		var id = $(this).data('id')
+    //     var bodyFormName = $('.modal-body-remover');
+	// 	var modalName = $('.modal-remover');
+	// 	var modalNamee = $('.modal-confirm');
+	// 	var id = $(this).data('id')
 
-		console.log(bodyFormName)
-		console.log(modalName)
-		console.log(id)
+	// 	console.log(bodyFormName)
+	// 	console.log(modalName)
+	// 	console.log(id)
         
-		$(modalName).modal('show'); 
+	// 	$(modalName).modal('show'); 
 
-        $.ajax({
-           url: id,
-           type: 'get',
-           success: function(response){
-			$(modalNamee).modal('hide'); 
-			$(bodyFormName).html(response);
-			// location.reload();
-           }
-        });
-		location.reload();
-        return true;
-	});
+    //     $.ajax({
+    //        url: id,
+    //        type: 'get',
+    //        success: function(response){
+	// 		$(modalNamee).modal('hide'); 
+	// 		$(bodyFormName).html(response);
+	// 		// location.reload();
+    //        }
+    //     });
+	// 	location.reload();
+    //     return true;
+	// });
 	
 	</script>
 </body>

@@ -1,0 +1,1 @@
+<a href="{{ route('relatorios.servicos.pdf') }}">Relatorio dos servicos aqui</a>

@@ -1,0 +1,1 @@
+<a href="{{ route('relatorios.vendas.pdf') }}">Relatorio das vendas aqui</a>

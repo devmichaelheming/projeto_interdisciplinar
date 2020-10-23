@@ -39,7 +39,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #0da1b3;
+  background-color: #fff;
    /* cor do background que vai ocupar o body */
   z-index: 10000; /* z-index para jogar para frente e sobrepor tudo */
 }
@@ -5173,6 +5173,9 @@ blockquote.pull-right {
   -moz-border-radius-bottomright: 2px;
   -webkit-border-bottom-right-radius: 2px;
   border-bottom-right-radius: 2px;
+  border-top: none;
+  border-right: none;
+  background: transparent;
 }
 
 .input-group .form-control:first-child,
@@ -5188,6 +5191,9 @@ blockquote.pull-right {
   -moz-border-radius-bottomleft: 2px;
   -webkit-border-bottom-left-radius: 2px;
   border-bottom-left-radius: 2px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
 }
 
 .input-group-addon {
@@ -7537,8 +7543,11 @@ td.legendLabel {
   color: #fff;
 }
 .quick-info.vertical i:before {
-  position: relative;
-  top: 6px;
+  font-size: 2.5rem;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 .quick-info.vertical p {
   padding-left: 0;
@@ -8195,8 +8204,8 @@ div[class*="col-"] > .form-group {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
-  border-bottom: 1px solid #b7b7b7;
+  background-color: transparent;
+  border-bottom: none;
 }
 .top-bar > div,
 .top-bar .searchbox {
@@ -8847,7 +8856,7 @@ ul.widget-inbox-list .timestamp {
 .widget {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   border-width: 1px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -11026,25 +11035,50 @@ justify-content: center;
   justify-content: space-between;
   display: flex;
 }
-.sessao-carro{
+.sessao1{
   display: flex;
   width: 100%;
+  background: #eeeeee;
+  height: 100%;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0 0rem 0;
+  display: flex;
+  padding: 0.5rem;
+  margin-top: 1rem;
 }
-.sessao-carro span:nth-child(1){
-  width: 26%;
-  height: 0.1rem;
-  background: rgb(146 146 146);
+.sessao2{
+  display: flex;
+  width: 100%;
+  background: #eeeeee;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  padding: 0.5rem;
+  margin-top: 2rem;
 }
-.sessao-carro span:nth-child(2){
-  font-weight: 600;
-  font-size: 1.5rem;
-  color: black;
+.botao{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
 }
-.sessao-carro span:nth-child(3){
-  width: 26%;
-  height: 0.1rem;
-  background: rgb(146 146 146);
+.lista-relatorios{
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.relatorio{
+  width: 20%;
+}
+.btn-relatorio{
+  background: transparent;
+  font-size: 1.1rem;
+  color: #737373;
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-weight: 600; */
+  border: none;
+}
+.relatorio-clientes{
+  padding: 1rem;
 }

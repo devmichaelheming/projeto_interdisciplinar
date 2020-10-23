@@ -44,8 +44,11 @@ class servicosController extends Controller
                 }
             }
         }
-
-        
+        foreach ($servicos as $key => $servico) {
+            if (is_numeric($servico['id_cliente'])) {
+                $servico->delete();
+            }
+        }
 
         foreach ($servicos as $key => $servico) {
             $sep[] = str_replace('.', ',', $servico['valor']);

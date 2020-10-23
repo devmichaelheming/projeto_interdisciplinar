@@ -5866,7 +5866,7 @@ button.close {
 .modal-open {
   overflow: hidden;
 }
-.modal, .modal-cadastrar, .modal-confirm, .modal-remover {
+.modal, .modal-cadastrar, .modal-confirm, .modal-remover, .modal-clientes, .modal-cadastros, .modal-vendas, .modal-servicos{
   position: fixed;
   top: 0;
   right: 0;
@@ -5961,9 +5961,9 @@ button.close {
   position: relative;
   padding: 15px;
 }
-.modal-body-cadastrar, .modal-body-descricao {
+.modal-body-cadastrar, .modal-body-descricao, .modal-body-clientes, .modal-body-vendas, .modal-body-cadastros, .modal-body-servicos {
   position: relative;
-  padding: 15px;
+  padding: 0.5rem;
 }
 .modal-footer {
   padding: 15px;

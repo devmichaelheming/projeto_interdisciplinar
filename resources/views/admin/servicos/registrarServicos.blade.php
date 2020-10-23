@@ -53,6 +53,9 @@
 		<label for="endereco" class="control-label">Endereço</label>
 		<input type="text" class="inputs" id="endereco" name="endereco" placeholder="Insira o endereço..." required>
 	</div> --}}
+	<div class="sessao1">
+		<span>Informações do cliente</span>
+	</div>
 
 	<div class="form-group" style="margin:0;">
 		<label for="id_cliente" class="control-label">Cliente:</label>
@@ -63,10 +66,8 @@
 		</select>
 	</div>
 
-	<div class="sessao-carro">
-		<span></span>
+	<div class="sessao2">
 		<span>Informações do carro</span>
-		<span></span>
 	</div>
 
 	<div class="groups-two">
@@ -108,7 +109,7 @@
 	</div>
 
 	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
-		<label for="switch">Status do serviço ?</label>
+		<label for="switch">Status do serviço</label>
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="0" checked>
 			<span><i></i>Em andamento</span>
@@ -122,8 +123,9 @@
 			<span><i></i>Extornado</span>
 		</label>
 	</div>
-
-	<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Cadastrar</button>
+	<div class="botao">
+		<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Cadastrar</button>
+	</div>
 </form>
 <script>
 

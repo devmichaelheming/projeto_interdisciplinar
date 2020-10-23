@@ -1,6 +1,10 @@
 <form class="form-horizontal" id="form" role="form" action="{{ url('/admin/servicos/editar/salvar') }}/{{ $id }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
 	@csrf
 
+	<div class="sessao1">
+		<span>Informações do cliente</span>
+	</div>
+
 	<div class="form-group" style="margin:0;">
 		<label for="id_cliente" class="control-label">Cliente:</label>
 		<select class="form-control" id="id_cliente" name="id_cliente">
@@ -10,10 +14,8 @@
 		</select>
 	</div>
 
-	<div class="sessao-carro">
-		<span></span>
+	<div class="sessao2">
 		<span>Informações do carro</span>
-		<span></span>
 	</div>
 
 	<div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
@@ -55,7 +57,7 @@
 	</div>
 
 	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
-		<label for="switch">Status do serviço ?</label>
+		<label for="switch">Status do serviço</label>
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="0" {{ ($status == "0") ? "checked" : "" }}>
 			<span><i></i>Em andamento</span>

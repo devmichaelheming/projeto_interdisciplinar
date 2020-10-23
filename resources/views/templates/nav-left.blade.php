@@ -7,6 +7,8 @@
 			
 				<li><a href="{{ route('admin.servicos') }}"><i class="fas fa-wrench"></i><span class="text">Serviços</span></a></li>
 
+				<li><a href="{{ route('admin.relatorios') }}"><i class="fas fa-file-pdf"></i><span class="text">Relatórios</span></a></li>
+
 			</ul>
 		</nav>
 	</div>
