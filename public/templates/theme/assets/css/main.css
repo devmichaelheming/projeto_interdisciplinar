@@ -11081,4 +11081,8 @@ justify-content: center;
 }
 .relatorio-clientes{
   padding: 1rem;
+  overflow: auto;
+}
+.relatorio-clientes select{
+  margin-bottom: 1rem;
 }

@@ -94,17 +94,17 @@ Route::get('/mes', 'contasController@mes')->name('admin.mes');
     // visualizar relatorios
     Route::get('/relatorios', 'relatoriosController@index')->name('admin.relatorios');
 
-     Route::get('/relatorios/servicos', 'relatoriosController@servicos')->name('relatorios.servicos');
-     Route::post('/relatorios/servicos/pdf', 'relatoriosController@servicos_pdf')->name('relatorios.servicos.pdf');
+    Route::get('/relatorios/servicos', 'relatoriosController@servicos')->name('relatorios.servicos');
+    Route::post('/relatorios/servicos/pdf', 'relatoriosController@servicos_pdf')->name('relatorios.servicos.pdf');
 
-     Route::get('/relatorios/cadastros', 'relatoriosController@cadastros')->name('relatorios.cadastros');
-     Route::post('/relatorios/cadastros/pdf', 'relatoriosController@cadastros_pdf')->name('relatorios.cadastros.pdf');
+    Route::get('/relatorios/cadastros', 'relatoriosController@cadastros')->name('relatorios.cadastros');
+    Route::post('/relatorios/cadastros/pdf', 'relatoriosController@cadastros_pdf')->name('relatorios.cadastros.pdf');
 
-     Route::get('/relatorios/clientes', 'relatoriosController@clientes')->name('relatorios.clientes');
-     Route::post('/relatorios/clientes/pdf', 'relatoriosController@clientes_pdf')->name('relatorios.clientes.pdf');
+    Route::get('/relatorios/clientes', 'relatoriosController@clientes')->name('relatorios.clientes');
+    Route::post('/relatorios/clientes/pdf', 'relatoriosController@clientes_pdf')->name('relatorios.clientes.pdf');
 
-     Route::get('/relatorios/vendas', 'relatoriosController@vendas')->name('relatorios.vendas');
-     Route::post('/relatorios/vendas/pdf', 'relatoriosController@vendas_pdf')->name('relatorios.vendas.pdf');
+    Route::get('/relatorios/vendas', 'relatoriosController@vendas')->name('relatorios.vendas');
+    Route::post('/relatorios/vendas/pdf', 'relatoriosController@vendas_pdf')->name('relatorios.vendas.pdf');
 
     Route::get('/relatorios/listar', 'relatoriosController@listar')->name('relatorios.listar');
     // visualizar cadastro

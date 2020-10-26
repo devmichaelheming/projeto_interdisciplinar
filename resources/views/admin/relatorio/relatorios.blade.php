@@ -68,6 +68,12 @@
 						</div>
 						<div class="relatorio text-center">
 							<div class="quick-info vertical">
+								<i class="fas fa-briefcase bg-red"></i>
+								<p>RELATÓRIO DE SERVIÇOS<button type="submit" class="btn-relatorio servicos" data-toggle="modal" data-idc="{{ url('/relatorios/servicos') }}">Clique aqui para gerar o relatório</button></p>
+							</div>
+						</div>
+						<div class="relatorio text-center">
+							<div class="quick-info vertical">
 								<i class="fas fa-money-check-alt bg-green"></i>
 								<p>RELATÓRIO DE VENDAS<button type="submit" class="btn-relatorio vendas" data-toggle="modal" data-idc="{{ url('/relatorios/vendas') }}">Clique aqui para gerar o relatório</button></p>
 							</div>
@@ -78,12 +84,6 @@
 								<p>RELATÓRIO DE CADASTROS<button type="submit" class="btn-relatorio cadastros" data-toggle="modal" data-idc="{{ url('/relatorios/cadastros') }}">Clique aqui para gerar o relatório</button></p>
 							</div>
                         </div>
-                        <div class="relatorio text-center">
-							<div class="quick-info vertical">
-								<i class="fas fa-briefcase bg-red"></i>
-								<p>RELATÓRIO DE SERVIÇOS<button type="submit" class="btn-relatorio servicos" data-toggle="modal" data-idc="{{ url('/relatorios/servicos') }}">Clique aqui para gerar o relatório</button></p>
-							</div>
-						</div>
 
                     </div>
         

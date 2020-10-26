@@ -1,5 +1,5 @@
-<form action="{{ route('relatorios.servicos.pdf') }}" method="POST">
-
+<form action="{{ route('relatorios.clientes.pdf') }}" method="POST">
+@csrf
     <div class="relatorio-clientes">
         <label>Selecione o cliente em que deseja gerar o relatório</label>
 
