@@ -20,6 +20,7 @@ class Clientes extends Migration
             $table->string('phone');
             $table->string('nascimento');
             $table->string('cidade');
+            $table->string('status');
             $table->string('cpf');
             $table->string('endereco');
             $table->timestamp('email_verified_at')->nullable();

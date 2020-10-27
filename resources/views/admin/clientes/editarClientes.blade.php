@@ -54,6 +54,18 @@
 			<span class="input-group-addon"><i class="fas fa-phone"></i></span>
 		</div>
 	</div>
+
+	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
+		<label for="switch">Status</label>
+		<label class="control-inline fancy-radio">
+			<input type="radio" name="status" value="1" {{ ($status == "1") ? "checked" : "" }}>
+			<span><i></i>Ativado</span>
+		</label>
+		<label class="control-inline fancy-radio">
+			<input type="radio" name="status" value="0" {{ ($status == "0") ? "checked" : "" }}>
+			<span><i></i>Desativado</span>
+		</label>
+	</div>
 	
 	<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled"></i>Atualizar</button>
 </form>

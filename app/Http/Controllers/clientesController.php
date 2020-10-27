@@ -13,6 +13,14 @@ class clientesController extends Controller
     {
         $clientes = clientes::all();
 
+        foreach ($clientes as $cliente) {
+            if($cliente->status == 1){
+                $cliente->status = 'Ativado';
+            }else{
+                $cliente->status = 'Desativado';
+            }
+        }
+
         return view('admin.clientes.clientes', [
             "clientes" => $clientes
         ]);
@@ -29,6 +37,7 @@ class clientesController extends Controller
         try{
         $db = New clientes();
 
+            $db->status = $request->input('status');
             $db->name = $request->input('name');
             $db->email = $request->input('email');
             $db->phone = $request->input('phone');
@@ -62,6 +71,7 @@ class clientesController extends Controller
                 return view('admin.clientes.editarClientes',[
                     'id' => $id,
                     'name' => $db['name'],
+                    'status' => $db['status'],
                     'email' => $db['email'],
                     'phone' => $db['phone'],
                     'cidade' => $db['cidade'],
@@ -82,6 +92,7 @@ class clientesController extends Controller
         $dados = $request->all();
 
         $name = $dados['name'];
+        $status = $dados['status'];
         $email = $dados['email'];
         $phone = $dados['phone'];
         $cpf = $dados['cpf'];
@@ -90,6 +101,7 @@ class clientesController extends Controller
         $cidade = $dados['cidade'];
 
         $db['name'] = $name;
+        $db['status'] = $status;
         $db['phone'] = $phone;
         $db['email'] = $email;
         $db['cpf'] = $cpf;
@@ -111,7 +123,7 @@ class clientesController extends Controller
         ]);
     }
 
-     public function removerCliente(request $request)
+    public function removerCliente(request $request)
     {
         
         // $user = clientes::all();

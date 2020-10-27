@@ -29,10 +29,11 @@ class relatoriosController extends Controller
 
     public function clientes_pdf(Request $request)
     {
-
         $dados_name = $request['id_cliente'];
 
         $clientes = clientes::all();
+
+        $servicos = servicos::all();
 
         $dados = [];
 
@@ -46,6 +47,7 @@ class relatoriosController extends Controller
         $created_cliente = '';
 
         foreach ($clientes as $cliente) {
+        
             $idcity = $cliente->id;
             $name = $cliente->name;
             $email = $cliente->email;
@@ -69,13 +71,48 @@ class relatoriosController extends Controller
 
         }
 
+        foreach ($servicos as $servico) {
+            if($servico->status == 1){
+                $servico->status = 'Finalizado';
+            }elseif ($servico->status == 2) {
+                $servico->status = 'Extornado';
+            }else{
+                $servico->status = 'Andamento';
+            }
+        }
+
+         foreach ($clientes as $cliente) {
+            $id_cliente =  $dados_name;
+
+            $servicos_cliente = [];
+
+            foreach ($servicos as $servico) {    
+                if($id_cliente == $servico->id_cliente){
+
+                    $arr = [];
+
+                    $arr['status'] = $servico->status;
+                    $arr['valor'] = $servico->valor;
+                    $arr['descricao'] = $servico->descricao;
+                    $arr['ano'] = $servico->ano;
+                    $arr['marca'] = $servico->marca;
+                    $arr['placa'] = $servico->placa;
+                    $arr['created_at'] = $servico->created_at;
+                    $arr['cliente'] = $id_cliente;
+
+                    $servicos_cliente[] = $arr;
+
+                }
+            }
+        }
+
         $dados[] = ['name'=>$name_cliente, 'email'=>$email_cliente, 'phone'=>$phone_cliente, 'nascimento'=>$nascimento_cliente, 'cidade'=>$cidade_cliente, 'cpf'=>$cpf_cliente, 'endereco'=>$endereco_cliente, 'created_at'=>$created_cliente];
 
         $dados = $dados[0];
 
-        $pdf = PDF::loadView('admin.relatorio.pdf.clientes', compact('dados'));
+        $pdf = PDF::loadView('admin.relatorio.pdf.clientes', compact('dados', 'servicos_cliente'));
 
-        return $pdf->setPaper('a3')->stream('clientes.pdf');
+        return $pdf->setPaper('a4')->stream('clientes.pdf');
     }
 
     // VENDAS
@@ -119,6 +156,16 @@ class relatoriosController extends Controller
             }
         }
 
+        foreach ($servicos as $servico) {
+            if($servico->status == 1){
+                $servico->status = 'Finalizado';
+            }elseif ($servico->status == 2) {
+                $servico->status = 'Extornado';
+            }else{
+                $servico->status = 'Andamento';
+            }
+        }
+
         return view('admin.relatorio.relatorio_servicos', [
             'servicos' => $servicos
         ]);
@@ -141,9 +188,11 @@ class relatoriosController extends Controller
 
         foreach ($servicos as $servico) {
             if($servico->status == 1){
-                $servico->status = 'Ativado';
+                $servico->status = 'Finalizado';
+            }elseif ($servico->status == 2) {
+                $servico->status = 'Extornado';
             }else{
-                $servico->status = 'Desativado';
+                $servico->status = 'Andamento';
             }
         }
 

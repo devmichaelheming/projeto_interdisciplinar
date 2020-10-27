@@ -57,6 +57,7 @@ ul.main-menu .sub-menu .sub-menu > li.has-submenu a {
 .main-nav-minified #col-left ul.main-menu li > a:hover {
     background-color: #fff;
     border-left: 5px solid #57D4FF;
+    transition: 0.1s linear;
 }
 .main-nav-minified #col-left ul.main-menu > li:hover ul.sub-menu {
     -moz-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);

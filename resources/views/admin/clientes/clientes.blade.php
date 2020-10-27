@@ -99,6 +99,7 @@
 									<th>Id</th>
 									<th>Nome</th>
 									<th>Telefone</th>
+									<th>Status</th>
 									<th>Email</th>
 									<th>Endereço</th>
 									<th>Cpf</th>
@@ -109,9 +110,17 @@
 							<tbody>
                                 @for ($i = 0; $i < sizeof($clientes); $i++)
 								<tr>
-                                    @isset($clientes[$i]['id'])
-                                        <td><a href="#">#{{ $clientes[$i]['id'] }}</a></td>
-                                    @endisset
+                                    {{-- @if ($clientes[$i]['status'] == 'Extornar')
+											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:blue;width:1rem;height:1rem;"></span></div></td>
+										@else --}}
+										
+											@if ($clientes[$i]['status'] == 'Desativado')
+												<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
+											@else
+												<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
+											@endif
+
+										{{-- @endif --}}
 
                                     @isset($clientes[$i]['name'])
                                         <td>{{ $clientes[$i]['name'] }}</td>
@@ -119,6 +128,10 @@
 									
 									@isset($clientes[$i]['phone'])
                                         <td>{{ $clientes[$i]['phone'] }}</td>
+									@endisset
+
+									@isset($clientes[$i]['status'])
+										<td>{{ $clientes[$i]['status'] }}</td>
 									@endisset
 									
                                     @isset($clientes[$i]['email'])

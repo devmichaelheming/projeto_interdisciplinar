@@ -64,9 +64,14 @@
         border-spacing: 0px;
         border-color: grey;
     }
+    .title{
+        font-size: 1.3rem;
+        padding: 1rem 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 </style>
 <body>
-    <h2>INFORMAÇÃO DO CLIENTE(A): <?PHP echo strtoupper($dados['name']) ?></h2>
+    <div class="title">INFORMAÇÃO DO CLIENTE(A): <?PHP echo strtoupper($dados['name']) ?></div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -93,5 +98,35 @@
             </tr>
         </tbody>
     </table>
+
+    <div class="title">SERVIÇOS CADASTRADOS DO CLIENTE: <?PHP echo strtoupper($dados['name']) ?></div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Status:</th>
+                <th scope="col">Valor:</th>
+                <th scope="col">Descrição:</th>
+                <th scope="col">Ano:</th>
+                <th scope="col">Marca:</th>
+                <th scope="col">Placa:</th>
+                <th scope="col">Criado em:</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($servicos_cliente as $servicos)
+                <tr>
+                    <td>{{ $servicos['status'] }}</td>
+                    <td>{{ $servicos['valor'] }}</td>
+                    <td>{{ $servicos['descricao'] }}</td>
+                    <td>{{ $servicos['ano'] }}</td>
+                    <td>{{ $servicos['marca'] }}</td>
+                    <td>{{ $servicos['placa'] }}</td>
+                    <td>{{ $servicos['created_at'] }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
 </body>
 </html>

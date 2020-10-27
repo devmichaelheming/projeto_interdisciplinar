@@ -64,9 +64,14 @@
         border-spacing: 0px;
         border-color: grey;
     }
+    .title{
+        font-size: 1.3rem;
+        padding: 1rem 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 </style>
 <body>
-    <h2>INFORMAÇÕES DO SERVIÇOS</h2>
+    <div class="title">INFORMAÇÕES DO SERVIÇOS</div>
     <table class="table table-striped">
         <thead>
             <tr>
