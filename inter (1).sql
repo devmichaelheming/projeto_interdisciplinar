@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 27/10/2020 às 15:45
+-- Tempo de geração: 03/11/2020 às 22:43
 -- Versão do servidor: 10.4.11-MariaDB
 -- Versão do PHP: 7.2.26
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `projeto`
+-- Banco de dados: `inter`
 --
 
 -- --------------------------------------------------------

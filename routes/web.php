@@ -13,15 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+// Route::get('/', function () {
+//     return redirect()->route('login');
+// });
+
+Route::get('/', 'Controller@index')->name('divulgacao');
 
 Auth::routes();
 
 Route::prefix('/admin')->group(function () {
 
-    // Route::get('/', 'Controller@index')->name('admin');
+    Route::get('/', 'Auth\LoginController@showLoginForm')->name('admin');
+
+    Route::get('/home', 'principalController@index')->name('home');
 
     Route::post('/logout', 'Auth\LoginController@logout')->name('sair');
     Route::get('/erro', 'Controller@erro')->name('erro');
@@ -29,7 +33,7 @@ Route::prefix('/admin')->group(function () {
 
 // CLIENTES
 // visualizar clientes
-Route::get('/', 'clientesController@index')->name('admin.clientes');
+Route::get('/clientes', 'clientesController@index')->name('admin.clientes');
 Route::get('/clientes/listar', 'clientesController@listar')->name('clientes.listar');
 // visualizar cadastro
 Route::get('/clientes/viewCadastrar', 'clientesController@viewCadastro')->name('clientes.cadastrar');

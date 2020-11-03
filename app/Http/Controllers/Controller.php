@@ -13,16 +13,13 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index()
     {
-        $users = user::all();
-
-        return view('admin.index', [
-            "users" => $users
-        ]);
-        
+        return view('index');
     }
+
     public function erro(){
         return view('admin.erro');
     }
+
     public function erroRemover(){
         return view('admin.erroRemover');
     }

@@ -17,9 +17,9 @@
 			<div class="btn-group">
 				<a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
 					<img src="{{ asset('templates/theme/assets/img/user-loggedin.png')}}" alt="Sebastian" />
-					{{-- <span class="name">{{ Auth::user()->name }}
+					<span class="name">{{ Auth::user()->name }}
 						<i class="icon ion-ios-arrow-down"></i>
-					</span> --}}
+					</span>
 				</a>
 				<ul class="dropdown-menu" role="menu">
 					<li>

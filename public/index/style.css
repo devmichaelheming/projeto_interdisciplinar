@@ -1,0 +1,211 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+nav {
+    width: 100%;
+}
+.header img {
+    height: 5rem;
+}
+.header {
+    height: 8rem;
+    display: flex;
+    background: #fff;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0px -5px 10px #777777;
+    padding: 0.5rem 1rem;
+}
+.contato {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.contato i {
+    color: #147da0;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+}
+.contato span {
+    font-size: 1.2rem;
+    font-family: arial;
+    padding: 0.5rem;
+    border-left: 3px solid #147da0;
+    color: #0e5c75;
+}
+.contato span:nth-child(2) {
+    font-size: 1.2rem;
+    font-family: arial;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+    margin-left: 2rem;
+    border-left: 2px solid #d8d8d8;
+    color: #0e5c75;
+}
+.rs {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-family: "montserrat";
+}
+.links-rs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.links-rs span a {
+    text-decoration: none;
+}
+.links-rs span a i {
+    color: #147da0;
+    font-size: 1.5rem;
+    transition: 0.2s linear;
+}
+.links-rs span a i:hover {
+    color: #0b475b;
+    transform: scale(1.2);
+    transition: 0.2s linear;
+}
+.title-rs {
+    color: #147da0;
+    font-weight: 600;
+    padding: 0.5rem 0;
+}
+.banner {
+    margin-top: 5rem;
+}
+.carousel-item img {
+    height: 40rem;
+    width: 100%;
+}
+.header-info {
+    display: flex;
+    height: auto;
+    justify-content: space-around;
+    width: 100%;
+}
+.card-info {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 8rem;
+    padding: 1rem;
+    font-family: "montserrat";
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    background: #147da0;
+    z-index: 1000;
+    border-radius: 0.2rem;
+}
+.card-info i {
+    justify-content: center;
+    border: 2px solid white;
+    font-size: 1.5rem;
+    height: 3rem;
+    align-items: center;
+    display: flex;
+    width: 3rem;
+    border-radius: 100%;
+    margin-bottom: 0.5rem;
+}
+.info-more {
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 4rem;
+}
+.card-info-more {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid #dfdfdf;
+    border-top: none;
+    font-family: "montserrat";
+    width: 100%;
+    color: #317d96;
+    justify-content: center;
+    text-align: justify;
+    flex-direction: column;
+}
+#financeiro-more,
+#servico-more,
+#clientes-more,
+#admin-more {
+    display: none;
+    transition: 0.2s linear;
+    transform: translate3d(0, -40px, 0);
+}
+.more {
+    transform: translate3d(0, 0px, 0) !important;
+    transition: 0.2s linear;
+    display: flex !important;
+}
+.card-info button {
+    border: none;
+    color: white;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.card-info button:focus {
+    outline: 0;
+}
+.informacoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 0;
+    border-top: 1px solid #efefef;
+    border-bottom: 1px solid #efefef;
+}
+.text {
+    width: 30rem;
+    padding: 1rem;
+}
+.informacoes .logo img {
+    height: 10rem;
+}
+.logo {
+    margin: 0 2rem;
+}
+.conteudo {
+    margin: 0 2rem;
+    border-radius: 0.3rem;
+    border: 1px solid #ccc;
+}
+.title {
+    padding: 0.5rem 1rem;
+    background: #f1f1f1;
+    border-top-right-radius: 0.3rem;
+    color: #4fa2bd;
+    border-top-left-radius: 0.3rem;
+    font-weight: 600;
+    font-family: "montserrat";
+}
+.bloco-clientes,
+.bloco-financeiro,
+.bloco-servico,
+.bloco-admin {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    display: flex;
+    width: 22%;
+}
+.info-geral {
+    padding: 6rem 0;
+}
