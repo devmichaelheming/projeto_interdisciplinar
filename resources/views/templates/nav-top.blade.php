@@ -1,7 +1,7 @@
 <nav class="top-bar navbar-fixed-top" role="navigation">
 	<div class="logo-area">
-		<span style="padding:0 1rem;">
-			<img src="{{ asset('prj2.png') }}" style="height:3.5rem;">
+		<span style="padding:0 0.5rem;">
+			<img src="{{ asset('logo.png') }}" style="height:3rem;">
 		</span>
 		{{-- <a href="#" id="btn-nav-sidebar-minified" class="btn btn-link btn-nav-sidebar-minified"> --}}
 		{{-- </a> --}}
@@ -55,7 +55,7 @@
 					<a href="#" id="toggle-right-sidebar" class="toggle-right-sidebar"><i class="icon ion-ios-chatboxes-outline"></i><span class="count">5</span></a>
 				</li>
 			</ul>
-		</div> --}}
+			</div> --}}
 	</div>
 </nav>
 	<script src="{{ asset('js/jquery.js') }}"></script>

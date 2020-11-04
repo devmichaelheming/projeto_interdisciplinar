@@ -19,6 +19,7 @@ class servicosController extends Controller
 
         $ativo = DB::table('servicos')->select(DB::raw('count(*) status'))->where('status', '=', 1)->get();
         $inativo = DB::table('servicos')->select(DB::raw('count(*) status'))->where('status', '=', 0)->get();
+        $extornados = DB::table('servicos')->select(DB::raw('count(*) status'))->where('status', '=', 2)->get();
 
         foreach ($servicos as $servico) {
             if($servico->status == 1){
@@ -61,6 +62,7 @@ class servicosController extends Controller
             "total" => $total,
             "ativo" => json_decode($ativo[0]->status),
             "inativo" => json_decode($inativo[0]->status),
+            "extornados" => json_decode($extornados[0]->status),
         ]);
     }
 

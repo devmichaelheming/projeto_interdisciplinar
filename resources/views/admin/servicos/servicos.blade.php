@@ -51,26 +51,32 @@
 			@include('admin.servicos.modal')
 			<div class="container-fluid primary-content">
 
-				<div class="row">
-					<div class="col-sm-3">
+				<div class="porcentagens">
+					<div class="col">
 						<div class="quick-info boxed bg-green">
 							<i class="fas fa-user-check"></i>
 							<p>{{ $ativo }} <span>SERVIÇOS FINALIZADOS</span></p>
 						</div>
 					</div>
-					<div class="col-sm-3">
+					<div class="col">
 						<div class="quick-info boxed bg-red">
 							<i class="fas fa-user-times"></i>
 							<p>{{ $inativo }} <span>SERVIÇOS EM ANDAMENTO</span></p>
 						</div>
 					</div>
-					<div class="col-sm-3">
+					<div class="col">
+						<div class="quick-info boxed bg-blue2">
+							<i class="icon ion-person-stalker"></i>
+							<p>{{ $extornados }} <span>SERVIÇOS EXTORNADOS</span></p>
+						</div>
+					</div>
+					<div class="col">
 						<div class="quick-info boxed bg-gold">
 							<i class="icon ion-cash"></i>
 							<p>${{ $total }} <span>PREVISÃO DE LUCRO</span></p>
 						</div>
 					</div>
-					<div class="col-sm-3">
+					<div class="col">
 						<div class="quick-info boxed bg-blue">
 							<i class="icon ion-person-stalker"></i>
 							<p>{{ count($servicos) }} <span>SERVIÇOS</span></p>

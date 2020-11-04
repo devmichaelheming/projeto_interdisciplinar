@@ -67,7 +67,10 @@
 		</label>
 	</div>
 	
-	<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled"></i>Cadastrar cliente</button>
+	<div class="botao">
+		<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Cadastrar cliente</button>
+	</div>
+	{{-- <button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled"></i>Cadastrar cliente</button> --}}
 </form>
 <script>
 

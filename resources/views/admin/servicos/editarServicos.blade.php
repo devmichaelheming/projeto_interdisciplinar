@@ -72,5 +72,8 @@
 		</label>
 	</div>
 
-	<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Atualizar</button>
+	<div class="botao">
+		<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Atualizar</button>
+	</div>
+	{{-- <button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Atualizar</button> --}}
 </form>

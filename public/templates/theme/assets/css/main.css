@@ -5080,6 +5080,9 @@ ul.main-menu > li > a span {
 .bg-blue {
   background: #1D92AF;
 }
+.bg-blue2 {
+  background: rgb(29, 87, 175);
+}
 
 .bg-green {
   background: #4d9419;
