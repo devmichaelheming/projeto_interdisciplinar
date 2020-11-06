@@ -94,10 +94,8 @@
 
             <div class="bloco-financeiro" data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal, after: holdAnimClass">
                 <div class="card-info" id="financeiro">
-                    <button type="button">
                         <i class="fas fa-coins"></i>
                         <span>Controle financeiro</span>
-                    </button>
                 </div>
 
                 <div class="card-info-more" id="financeiro-more">
@@ -111,10 +109,8 @@
             <div class="bloco-clientes" data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal, after: holdAnimClass">
 
                 <div class="card-info" id="clientes">
-                    <button type="button">
-                        <i class="fas fa-file-pdf"></i>
-                        <span>Relátorios de clientes</span>
-                    </button>
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Relátorios de clientes</span>
                 </div>
 
                 <div class="card-info-more" id="clientes-more">
@@ -128,10 +124,8 @@
             <div class="bloco-servico" data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal, after: holdAnimClass">
 
                 <div class="card-info" id="servico">
-                    <button type="button">
-                        <i class="fas fa-file-pdf"></i>
-                        <span>Relátorios de serviços</span>
-                    </button>
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Relátorios de serviços</span>
                 </div>
 
                 <div class="card-info-more" id="servico-more">
@@ -145,10 +139,8 @@
             <div class="bloco-admin" data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal, after: holdAnimClass">
 
                 <div class="card-info" id="admin">
-                    <button type="button">
-                        <i class="fas fa-user-lock"></i>
-                        <span>Permissões para administradores</span>
-                    </button>
+                    <i class="fas fa-user-lock"></i>
+                    <span>Permissões para administradores</span>
                 </div>
 
                  <div class="card-info-more" id="admin-more">
@@ -168,32 +160,32 @@
             <form action="" id="form" method="POST" data-anijs="if: scroll, on: window, do: zoomIn animated, before: scrollReveal, after: holdAnimClass">
                 <div class="bloco1">
                     <div class="group">
-                        <label for="name">NOME</label>
+                        <span for="name">Nome</span>
                         <input type="text" id="name" name="name" placeholder="nome">
                     </div>
                     <div class="group">
-                        <label for="sobrenome">SOBRENOME</label>
+                        <span for="sobrenome">Sobrenome</span>
                         <input type="text" id="sobrenome" name="sobrenome" placeholder="sobrenome">
                     </div>
                 </div>
                 
                 <div class="bloco1">
                     <div class="group">
-                        <label for="email">E-MAIL</label>
+                        <span for="email">E-Mail</span>
                         <input type="email" id="email" name="email" placeholder="example@example.com">
                     </div>
                     <div class="group">
-                        <label for="telefone">TELEFONE</label>
+                        <span for="telefone">Telefone</span>
                         <input type="text" id="telefone" name="telefone" placeholder="(00)00000-0000" onkeypress="return isNumber(event)">
                     </div>
                 </div>
                 
                 <div class="group">
-                    <label for="assunto">ASSUNTO</label>
+                    <span for="assunto">Assunto</span>
                     <input type="text" id="assunto" name="assunto" placeholder="assunto">
                 </div>
                 <div class="group">
-                    <label for="mensagem">MENSAGEM</label>
+                    <span for="mensagem">Mensagem</span>
                     <textarea name="mensagem" id="mensagem" rows="6" placeholder="Insira aqui sua mensagem"></textarea>
                 </div>
                 <button type="submit">Enviar</button>
@@ -203,27 +195,35 @@
 
     <footer>
         <div class="footer-top">
-            <div class="title-footer-top">
-                REDES SOCIAIS
+            <div class="bloco2-footer">
+                <div class="title-endereco">
+                    ENDEREÇO
+                </div>
+                <span>
+                    Rua das Cerejeiras, N° 1987, Jardim Paraíso, CEP 78556-106
+                </span>
             </div>
-            <div class="conteudo-footer-top">
-                <span>
-                    <a href="https://www.facebook.com/">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                </span>
-                <div class="linha"></div>
-                <span>
-                    <a href="https://api.whatsapp.com/send?phone=556633920717&text=Olá, gostaria de que conhecer um pouco mais do produto">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </span>
-                <div class="linha"></div>
-                <span>
-                    <a href="https://www.instagram.com/">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </span>
+            <div class="bloco1-footer">
+                <div class="title-footer-top">
+                    REDES SOCIAIS
+                </div>
+                <div class="conteudo-footer-top">
+                    <span>
+                        <a href="https://www.facebook.com/">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </span>
+                    <span>
+                        <a href="https://api.whatsapp.com/send?phone=556633920717&text=Olá, gostaria de que conhecer um pouco mais do produto">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </span>
+                    <span>
+                        <a href="https://www.instagram.com/">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </span>
+                </div>   
             </div>
         </div>
         <div class="footer-interno">
@@ -239,7 +239,8 @@
     <script src="{{ asset('js/anijs-min.js') }}"></script>
     <script src="{{ asset('js/anijs-helper-scrollreveal.js') }}"></script>
     <script src="{{ asset('js/collapse.js') }}"></script>
-     <script src="{{asset('mask/dist/jquery.mask.js')}}"></script>
+    <script src="{{asset('mask/dist/jquery.mask.js')}}"></script>
+    <script src="{{asset('jquery-validation/dist/jquery.validate.js')}}"></script>
     <script>
         var options = {
             onKeyPress: function (cpf, ev, el, op) {
@@ -250,6 +251,29 @@
         }
 
         $('#telefone').mask('000.000.000-000', options);
+
+        $('form#form').validate({
+            rules: {
+                name: {
+                    required: true
+                },
+                email: {
+                    required: true
+                },
+                telefone: {
+                    required: true
+                },
+                sobrenome: {
+                    required: true
+                },
+                assunto: {
+                    required: true
+                },
+                mensagem: {
+                    required: true
+                }
+            }
+        })
     </script>
 </body>
 </html>

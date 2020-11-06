@@ -135,7 +135,7 @@ nav {
     border-bottom-left-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
 }
-.card-info button span {
+.card-info span {
     font-size: 1.3rem;
     color: #b7b7b7;
 }
@@ -152,7 +152,7 @@ nav {
     transition: 0.2s linear;
     opacity: 1 !important;
 }
-.card-info button {
+.card-info {
     border: none;
     color: #b7b7b7;
     background: transparent;
@@ -163,9 +163,7 @@ nav {
     justify-content: center;
     flex-direction: column;
 }
-.card-info button:focus {
-    outline: 0;
-}
+
 .informacoes {
     display: flex;
     align-items: center;
@@ -243,40 +241,35 @@ nav {
 .footer-top {
     height: auto;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     background: #e3f5fb;
-    border-top: 1px solid #e0e0e0;
+    padding: 4rem 0;
     display: flex;
-    flex-direction: column;
 }
 .title-footer-top {
     width: 100%;
     display: flex;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-align: center;
     color: #147da0;
     justify-content: center;
     font-family: "montserrat";
     font-weight: 600;
-    padding: 2rem 0 0rem 0;
+    padding: 2rem 0;
 }
 .conteudo-footer-top {
-    height: 12rem;
     width: 100%;
     align-items: center;
     justify-content: space-evenly;
-    padding: 2rem 0;
+    padding: 0rem 0;
     display: flex;
 }
 .conteudo-footer-top span i {
-    border: 2px solid #147da0;
     font-size: 2rem;
-    width: 4rem;
     color: #147da0;
     align-items: center;
     justify-content: center;
     display: flex;
-    height: 4rem;
     border-radius: 100%;
     transition: 0.2s linear;
 }
@@ -297,9 +290,6 @@ nav {
     width: 2px;
     background: #147da0;
 }
-.conteudo-footer-top span {
-    padding: 0 2rem;
-}
 .contato-form {
     display: flex;
     justify-content: center;
@@ -316,7 +306,6 @@ nav {
     justify-content: center;
     padding: 4rem 0;
     background-position: center;
-    background-image: navajowhite;
     background-size: cover;
 }
 #form {
@@ -329,6 +318,11 @@ nav {
     box-shadow: 1px 1px 10px #9e9e9e;
     padding: 0.5rem 0.5rem 2rem 0.5rem;
     border-radius: 0.3rem;
+    transition: 1s;
+}
+#form:hover {
+    transform: translateY(-20px);
+    transition: 1s;
 }
 .bloco1 {
     justify-content: center;
@@ -353,12 +347,23 @@ nav {
     padding: 0.5rem;
     border-radius: 0.2rem;
 }
-.group label {
+.group span {
     width: 100%;
-    padding-left: 1rem;
+    padding-left: 0.8rem;
     font-family: "montserrat";
     color: #0b4a5f;
     font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+.group label {
+    width: 100%;
+    padding-right: 1rem;
+    color: red;
+    font-size: 0.8rem;
+    justify-content: flex-end;
+    display: flex;
+    margin-bottom: 0;
+    margin-top: -1.5rem;
 }
 .group input {
     width: 97.5%;
@@ -383,4 +388,17 @@ nav {
     border: 1px solid #bbbbbb;
     padding: 0.5rem;
     border-radius: 0.2rem;
+}
+.title-endereco {
+    padding: 2rem 0;
+    color: #147da0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: "montserrat";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.bloco2-footer span {
+    font-family: "montserrat";
 }
