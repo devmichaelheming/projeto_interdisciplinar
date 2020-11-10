@@ -3,13 +3,32 @@
 		<nav id="main-nav" class="main-nav">
 			<ul class="main-menu">
 				
-				<li><a href="{{ route('admin.clientes') }}"><i class="fas fa-users"></i><span class="text">Clientes</span></a></li>
+				<button type="button" style="background:transparent;border:none;width:100%;padding:0;" data-trigger="hover" title="Popover title" data-content="Usúarios">
+					<li><a href="{{ route('admin.usuarios') }}"><i class="fas fa-user-plus"></i><span class="text"></span></a></li>
+				</button>
+
+				<button type="button" style="background:transparent;border:none;width:100%;padding:0;" data-trigger="hover" title="Popover title" data-content="Clientes">
+					<li><a href="{{ route('admin.clientes') }}"><i class="fas fa-users"></i><span class="text"></span></a></li>
+				</button>
 			
-				<li><a href="{{ route('admin.servicos') }}"><i class="fas fa-wrench"></i><span class="text">Serviços</span></a></li>
+				<button type="button" style="background:transparent;border:none;width:100%;padding:0;" data-trigger="hover" title="Popover title" data-content="Serviços">
+					<li><a href="{{ route('admin.servicos') }}"><i class="fas fa-wrench"></i><span class="text"></span></a></li>
+				</button>
 
-				<li><a href="{{ route('admin.relatorios') }}"><i class="fas fa-file-pdf"></i><span class="text">Relatórios</span></a></li>
-
+				<button type="button" style="background:transparent;border:none;width:100%;padding:0;" data-trigger="hover" title="Popover title" data-content="Relatórios">
+					<li><a href="{{ route('admin.relatorios') }}"><i class="fas fa-file-pdf"></i><span class="text"></span></a></li>
+				</button>
+				
+				<button type="button" style="background:transparent;border:none;width:100%;padding:0;" data-trigger="hover" title="Popover title" data-content="Contatos">
+					<li><a href="{{ route('admin.contatos') }}"><i class="fas fa-address-card"></i><span class="text"></span></a></li>
+				</button>
 			</ul>
 		</nav>
 	</div>
 </div>
+<script>
+
+$(function () {
+			$('[data-trigger="hover"]').popover()
+		})
+</script>

@@ -19,14 +19,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Controller@index')->name('divulgacao');
 
+Route::post('/contato', 'Controller@contato')->name('contato.salvar');
+
 Auth::routes();
 
 Route::prefix('/admin')->group(function () {
 
     Route::get('/', 'Auth\LoginController@showLoginForm')->name('admin');
 
-    Route::get('/home', 'principalController@index')->name('home');
+    Route::get('/home', 'principalController@index')->name('admin.home');
 
+    Route::post('/login', 'Auth\LoginController@login')->name('admin.acessar');
     Route::post('/logout', 'Auth\LoginController@logout')->name('sair');
     Route::get('/erro', 'Controller@erro')->name('erro');
     Route::get('/erroRemover', 'Controller@erroRemover')->name('erroRemover');
@@ -99,7 +102,8 @@ Route::get('/mes', 'contasController@mes')->name('admin.mes');
     Route::get('/relatorios', 'relatoriosController@index')->name('admin.relatorios');
 
     Route::get('/relatorios/servicos', 'relatoriosController@servicos')->name('relatorios.servicos');
-    Route::post('/relatorios/servicos/pdf', 'relatoriosController@servicos_pdf')->name('relatorios.servicos.pdf');
+    Route::post('/relatorios/servicos/mensal/pdf', 'relatoriosController@servicos_mensal_pdf')->name('relatorios.servicos.mensal.pdf');
+    Route::post('/relatorios/servicos/diario/pdf', 'relatoriosController@servicos_diario_pdf')->name('relatorios.servicos.diario.pdf');
 
     Route::get('/relatorios/cadastros', 'relatoriosController@cadastros')->name('relatorios.cadastros');
     Route::post('/relatorios/cadastros/pdf', 'relatoriosController@cadastros_pdf')->name('relatorios.cadastros.pdf');
@@ -120,5 +124,9 @@ Route::get('/mes', 'contasController@mes')->name('admin.mes');
     Route::post('/relatorios/editar/salvar/{id}', 'relatoriosController@editarSalvar');
     //Remover relatorios
     Route::get('/relatorios/remover/{id}', 'relatoriosController@removerRelatorios')->name('relatorios.remover');
+
+// CONTATOS CADASTRADOS
+Route::get('/contatos', 'contatosController@index')->name('admin.contatos');
+Route::get('/contatos/vermais/{id}', 'contatosController@vermais')->name('contatos.vermais');
 
 });

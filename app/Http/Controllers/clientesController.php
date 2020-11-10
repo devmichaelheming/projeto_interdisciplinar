@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class clientesController extends Controller
 {
- public function index()
+    public function index()
     {
         $clientes = clientes::all();
 
@@ -33,7 +33,6 @@ class clientesController extends Controller
 
     public function cadastrado(Request $request)
     {
-
         try{
         $db = New clientes();
 

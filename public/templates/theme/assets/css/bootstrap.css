@@ -1607,7 +1607,7 @@ pre code {
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
-  margin-top: 0px;
+  margin-top: 30px;
   margin-bottom: auto;
 }
 .row {
@@ -6861,7 +6861,8 @@ button.close {
 }
 .modal-title span{
   font-size: 1.5rem;
-    color: black;
+    color: #1688ae;
+    font-weight: 600;
 }
 .inputs:focus {
   outline: 0;

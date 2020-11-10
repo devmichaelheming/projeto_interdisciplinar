@@ -78,16 +78,18 @@ class servicosController extends Controller
     public function cadastrado(Request $request)
     {
 
+        $date = date('Y/m/d');
+
+        $convert_date = explode('/', $date);
+
+        $date_ano = $convert_date[0];
+        $date_mes = $convert_date[1];
+        $date_dia = $convert_date[2];
+        
         try{
         $db = New servicos();
 
             $db->id_cliente = $request->input('id_cliente');
-            // $db->email = $request->input('email');
-            // $db->cpf = $request->input('cpf');
-            // $db->telefone = $request->input('telefone');
-            // $db->endereco = $request->input('endereco');
-            // $db->cidade = $request->input('cidade');
-            // $db->bairro = $request->input('bairro');
             $db->status = $request->input('status');
             $db->ano = $request->input('ano');
             $db->marca = $request->input('marca');
@@ -95,6 +97,9 @@ class servicosController extends Controller
             $db->placa = $request->input('placa');
             $db->valor = $request->input('valor');
             $db->descricao = $request->input('descricao');
+            $db->date_ano = $date_ano;
+            $db->date_mes = $date_mes;
+            $db->date_dia = $date_dia;
 
             $db->save();
 

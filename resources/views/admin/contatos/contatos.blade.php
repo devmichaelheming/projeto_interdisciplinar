@@ -5,7 +5,7 @@
 <!--<![endif]-->
 
 <head>
-	<title>Dashboard | Relatórios</title>
+	<title>Dashboard | Contatos</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="description" content="QueenAdmin - Beautiful Bootstrap Admin Dashboard Theme">
@@ -33,7 +33,7 @@
         <div id="preloader">
             <div class="inner">
                <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
-				<img src="{{ asset('loading.gif') }}" width="100%">
+               <img src="{{ asset('loading.gif') }}">
             </div>
         </div>
         <!-- fim do preloader --> 
@@ -47,18 +47,24 @@
 		{{-- MENU DE NAVEGAÇÃO --}}
 		@include('templates.nav-left')
 
-		<div id="col-right" class="col-right">
-
-            @include('admin.relatorio.modal')
-            
+		<div id="col-right" class="col-right ">
+			@include('admin.contatos.modal')
 			<div class="container-fluid primary-content">
-				
+
 				{{-- TABLE --}}
-				
 				<div class="widget" id="widget">
 					<div class="widget-header clearfix">
-						<h3><i class="fas fa-file-pdf" style="margin-right: 0.5rem;"></i><span>Relatórios</span></h3>
+						<h3><i class="fas fa-address-card" style="margin-right: 0.5rem;"></i> <span>Contatos cadastrados</span></h3>
+						<div class="btn-group widget-header-toolbar">
+
+							<div class="btn-group widget-header-toolbar">
+								<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/usuarios/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo usuário</button>
+							</div>
+
+	
+						</div>
 					</div>
+
 					@if (session('mensagem'))
 						<div class="sacefull">
 							
@@ -75,6 +81,7 @@
 							</div>
 						</div>
 					@elseif(session('invalido'))
+						
 						<div class="alert alert-danger">
 							<span>
 								<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
@@ -87,35 +94,62 @@
 							</div>
 						</div>
 					@endif
-                    <div class="lista-relatorios">
 
-						<div class="relatorio text-center">
-							<div class="quick-info vertical">
-								<i class="fas fa-user bg-orange"></i>
-								<p>RELATÓRIO DE CLIENTES<button type="submit" class="btn-relatorio clientes" data-toggle="modal" data-idc="{{ url('/relatorios/clientes') }}">Clique aqui para gerar o relatório</button></p>
-							</div>
-						</div>
-						<div class="relatorio text-center">
-							<div class="quick-info vertical">
-								<i class="fas fa-briefcase bg-red"></i>
-								<p>RELATÓRIO DE SERVIÇOS<button type="submit" class="btn-relatorio servicos" data-toggle="modal" data-idc="{{ url('/relatorios/servicos') }}">Clique aqui para gerar o relatório</button></p>
-							</div>
-						</div>
-						{{-- <div class="relatorio text-center">
-							<div class="quick-info vertical">
-								<i class="fas fa-money-check-alt bg-green"></i>
-								<p>RELATÓRIO DE VENDAS<button type="submit" class="btn-relatorio vendas" data-toggle="modal" data-idc="{{ url('/relatorios/vendas') }}">Clique aqui para gerar o relatório</button></p>
-							</div>
-						</div>
-						<div class="relatorio text-center">
-							<div class="quick-info vertical">
-								<i class="fas fa-user-plus bg-blue"></i>
-								<p>RELATÓRIO DE CADASTROS<button type="submit" class="btn-relatorio cadastros" data-toggle="modal" data-idc="{{ url('/relatorios/cadastros') }}">Clique aqui para gerar o relatório</button></p>
-							</div>
-                        </div> --}}
+					<div class="widget-content table-responsive">
+						<table id="ticket-table" class="table table-sorting">
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Nome</th>
+									{{-- <th>Telefone</th>
+									<th>E-Mail</th> --}}
+									<th>Assunto</th>
+									<th>Criado em</th>
+									<th>Ver mais...</th>
+								</tr>
+							</thead>
+							<tbody>
+                                @for ($i = 0; $i < sizeof($contatos); $i++)
+								<tr>
+                                    @isset($contatos[$i]['id'])
+                                        <td><a href="#">#{{ $contatos[$i]['id'] }}</a></td>
+                                    @endisset
 
-                    </div>
-        
+                                    @isset($contatos[$i]['name'])
+                                        <td>{{ $contatos[$i]['name'] }}</td>
+									@endisset
+									
+									{{-- @isset($contatos[$i]['phone'])
+                                        <td>{{ $contatos[$i]['phone'] }}</td>
+                                    @endisset
+
+									@isset($contatos[$i]['email'])
+                                        <td>{{ $contatos[$i]['email'] }}</td>
+                                    @endisset
+                                    
+									@isset($contatos[$i]['telefone'])
+                                        <td>{{ $contatos[$i]['telefone'] }}</td>
+									@endisset --}}
+									
+                                    @isset($contatos[$i]['assunto'])
+                                        <td>{{ $contatos[$i]['assunto'] }}</td>
+									@endisset
+									
+                                    @isset($contatos[$i]['created_at'])
+                                        <td>{{ $contatos[$i]['created_at'] }}</td>
+									@endisset
+									
+									<td>
+                                      <div class="botoes">
+											<button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/contatos/vermais') }}/{{ $contatos[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-ellipsis-h"></i></span></button>
+                                      </div>
+									</td>
+
+								</tr>
+							@endfor
+							</tbody>
+						</table>
+					</div>
 				</div>
 				
 				<!-- END TICKETS -->
@@ -174,7 +208,7 @@
 								<a href="#"><img src="{{ asset('templates/theme/assets/img/user9.png')}}" class="img-circle" alt="Sorana">Sorana</a>
 							</li>
 							<li>
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user10.png')}}" class="img-circle" alt="Regan Morton">Regan Morton</a>
+								<a href="#"><img src="{{ asset('templates/theme/assets/img/user10.pn')}}" class="img-circle" alt="Regan Morton">Regan Morton</a>
 							</li>
 						</ul>
 					</div>
@@ -206,176 +240,41 @@
 	<script src=" {{ asset('templates/theme/assets/js/queen-charts.js') }}"></script>
 	<script src=" {{ asset('templates/theme/assets/js/queen-table.js') }}"></script>
 	<script src=" {{ asset('templates/theme/assets/js/queen-maps.js') }}"></script>
-	<script src=" {{ asset('js/dropdown.js') }}"></script>
-	<script src=" {{ asset('js/parsley.min.js') }}"></script>
-	<script src=" {{ asset('js/queen-form-layouts.js') }}"></script>
-
+	<script src=" {{ asset('dropdown.js') }}"></script>
+	<script src=" {{ asset('parsley.min.js') }}"></script>
 	<script>
-
+	
 		$(document).ready(function(e) {
 			$('#preloader .inner').fadeOut();
 			$('#preloader').delay(350).fadeOut('slow'); 
 			$('body').delay(350).css({'overflow': 'visible'});
 		});
 
-		$(document).ready(function() {
-		$('#table').DataTable( {
-			initComplete: function () {
-				this.api().columns().every( function () {
-					var column = this;
-					var select = $('<select><option value=""></option></select>')
-						.appendTo( $(column.footer()).empty() )
-						.on( 'change', function () {
-							var val = $.fn.dataTable.util.escapeRegex(
-								$(this).val()
-							);
-	
-							column
-								.search( val ? '^'+val+'$' : '', true, false )
-								.draw();
-						} );
-	
-						column.data().unique().sort().each( function ( d, j ) {
-							select.append( '<option value="'+d+'">'+d+'</option>' )
-						});
-					});
-				}
-			});
-		});
+		// EDITAR USUARIO
 
-		// RELATÓROS DE CLIENTES
-
-		$(document).on('click','.clientes', function(e){
+		$(document).on('click','.btn-editar', function(e){
 			e.preventDefault();
-
-			var bodyFormName = $('.modal-body-clientes');
-			var modalName = $('.modal-clientes');
-			var idc = $(this).data('idc')
+			
+			var bodyFormName = $('.modal-body');
+			var modalName = $('.modal');
+			var id = $(this).data('id')
 
 			console.log(bodyFormName)
 			console.log(modalName)
-			console.log(idc)
-
+			console.log(id)
+			
 			$(modalName).modal('show'); 
 
 			$.ajax({
-				url: '{{ url('admin/relatorios/clientes') }}',
+				url: id,
 				type: 'get',
-				success: function(response){
-					console.log(response)        
+				success: function(response){       
 					$(bodyFormName).html(response);
 				}
 			});
 			return false;
 		});
 
-		// RELATÓROS DE VENDAS
-
-		$(document).on('click','.vendas', function(e){
-			e.preventDefault();
-
-			var bodyFormName = $('.modal-body-vendas');
-			var modalName = $('.modal-vendas');
-			var idc = $(this).data('idc')
-
-			console.log(bodyFormName)
-			console.log(modalName)
-			console.log(idc)
-
-			$(modalName).modal('show'); 
-
-			$.ajax({
-				url: '{{ url('admin/relatorios/vendas') }}',
-				type: 'get',
-				success: function(response){
-					console.log(response)        
-					$(bodyFormName).html(response);
-				}
-			});
-			return false;
-		});
-
-		// RELATORIO DE CADASTROS
-
-		$(document).on('click','.cadastros', function(e){
-			e.preventDefault();
-
-			var bodyFormName = $('.modal-body-cadastros');
-			var modalName = $('.modal-cadastros');
-			var idc = $(this).data('idc')
-
-			console.log(bodyFormName)
-			console.log(modalName)
-			console.log(idc)
-
-			$(modalName).modal('show'); 
-
-			$.ajax({
-				url: '{{ url('admin/relatorios/cadastros') }}',
-				type: 'get',
-				success: function(response){
-					console.log(response)        
-					$(bodyFormName).html(response);
-				}
-			});
-			return false;
-		});
-
-	// RELATORIO DE CADASTROS
-
-    $(document).on('click','.servicos', function(e){
-        e.preventDefault();
-
-        var bodyFormName = $('.modal-body-servicos');
-        var modalName = $('.modal-servicos');
-        var idc = $(this).data('idc')
-
-        console.log(bodyFormName)
-        console.log(modalName)
-        console.log(idc)
-
-        $(modalName).modal('show'); 
-
-        $.ajax({
-            url: '{{ url('admin/relatorios/servicos') }}',
-            type: 'get',
-            success: function(response){
-                console.log(response)        
-                $(bodyFormName).html(response);
-            }
-        });
-        return false;
-    });
-
-	// // REMOVER
-
-	// $(document).on('click','.btn-remover', function(e){
-    //     e.preventDefault();
-        
-    //     var bodyFormName = $('.modal-body-remover');
-	// 	var modalName = $('.modal-remover');
-	// 	var modalNamee = $('.modal-confirm');
-	// 	var id = $(this).data('id')
-
-	// 	console.log(bodyFormName)
-	// 	console.log(modalName)
-	// 	console.log(id)
-        
-	// 	$(modalName).modal('show'); 
-
-    //     $.ajax({
-    //        url: id,
-    //        type: 'get',
-    //        success: function(response){
-	// 		$(modalNamee).modal('hide'); 
-	// 		$(bodyFormName).html(response);
-	// 		// location.reload();
-    //        }
-    //     });
-	// 	location.reload();
-    //     return true;
-	// });
-	
 	</script>
 </body>
 

@@ -5,7 +5,7 @@
 <!--<![endif]-->
 
 <head>
-	<title>Dashboard | Clientes</title>
+	<title>Dashboard | Usuários</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta name="description" content="QueenAdmin - Beautiful Bootstrap Admin Dashboard Theme">
@@ -54,63 +54,14 @@
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
 					<div class="widget-header clearfix">
-						<h3><i class="fas fa-users" style="margin-right:0.5rem;"></i> <span>Clientes cadastrados</span></h3>
+						<h3><i class="fas fa-users" style="margin-right:0.5rem;"></i> <span>Usuários cadastrados</span></h3>
 						<div class="btn-group widget-header-toolbar">
 
 							<div class="btn-group widget-header-toolbar">
-								<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/usuarios/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo cliente</button>
+								<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/usuarios/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo usuário</button>
 							</div>
 
-							<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-user-plus" style="padding-right:0.5rem;"></i>Cadastrar despesa</h5>
-											</button>
-										</div>
-										<div class="modal-body">
-											<form class="form-horizontal" id="form" role="form" action="{{ route('usuario.cadastrado') }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
-												@csrf
-												<div class="form-group">
-													<label for="name" class="control-label sr-only">Username</label>
-													<div class="col-sm-12">
-														<input type="text" class="form-control" id="name" name="name" placeholder="Username" required data-parsley-minlength="8">
-													</div>
-												</div>
-												
-												<div class="form-group">
-													<label for="email" class="control-label sr-only">Email</label>
-													<div class="col-sm-12">
-														<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-													</div>
-												</div>
-
-												<div class="form-group">
-													<label for="phone" class="control-label sr-only">Telefone</label>
-													<div class="col-sm-12">
-														<input type="text" class="form-control" id="phone" name="phone" placeholder="Telefone" required>
-													</div>
-												</div>
-												
-												<div class="form-group">
-													<label for="password" class="control-label sr-only">Password</label>
-													<div class="col-sm-12">
-														<input type="password" class="form-control" id="password" name="password" placeholder="Password" required data-parsley-minlength="8">
-													</div>
-												</div>
-												<div class="form-group">
-													<div class="col-sm-12">
-														<button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Cadastrar conta</button>
-													</div>
-												</div>
-											</form>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-										</div>
-									</div>
-								</div>
-							</div>
+	
 						</div>
 					</div>
 
@@ -181,8 +132,8 @@
 									
 									<td>
                                       <div class="botoes">
-										<button type="button" class="botao-editar" style="margin-right: 10px;" onclick="javascript:location.href='usuarios/editar/{{ $users[$i]['id'] }}'"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
-                                        <button type="button" class="botao-remover" onclick="javascript:location.href='usuarios/remover/{{ $users[$i]['id'] }}'"><i class="far fa-trash-alt"></i></button>  
+										 <button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/usuarios/editar') }}/{{ $users[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
+											<button type="button" class="botao-remover" data-id="{{ url('admin/usuarios/confirm') }}/{{ $users[$i]['id'] }}"><i class="far fa-trash-alt"></i></button> 
                                       </div>
 									</td>
 
@@ -291,7 +242,7 @@
 			$('body').delay(350).css({'overflow': 'visible'});
 		});
 
-		// EDITAR CLIENTE
+		// EDITAR USUARIO
 
 		$(document).on('click','.btn-editar', function(e){
 			e.preventDefault();
@@ -316,7 +267,7 @@
 			return false;
 		});
 
-		// CADASTRAR CLIENTE
+		// CADASTRAR USUARIO
 
 		$(document).on('click','.btn-cadastrar', function(e){
 			e.preventDefault();

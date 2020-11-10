@@ -5917,7 +5917,7 @@ button.close {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0rem 0 0.5rem 0rem;
+  margin: 0rem 0 2rem 0rem;
 }
 .modal-dialog {
   position: relative;
@@ -5969,7 +5969,7 @@ button.close {
 }
 .modal-body {
   position: relative;
-  padding: 15px;
+  padding: 0.5rem;
 }
 .modal-body-cadastrar, .modal-body-descricao, .modal-body-clientes, .modal-body-vendas, .modal-body-cadastros, .modal-body-servicos {
   position: relative;

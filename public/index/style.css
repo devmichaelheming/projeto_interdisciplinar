@@ -18,6 +18,10 @@ nav {
     width: 100%;
     box-shadow: 0px -5px 10px #777777;
     padding: 0.5rem 1rem;
+    top: 0;
+    position: fixed;
+    z-index: 1000;
+    transition: 0.1s linear;
 }
 .contato {
     display: flex;
@@ -80,12 +84,18 @@ nav {
 .carousel-item img {
     height: 30rem;
     width: 100%;
+    margin-top: 8rem;
 }
 .header-info {
     display: flex;
     height: auto;
     justify-content: space-around;
     width: 100%;
+    align-items: flex-start;
+}
+.sticky {
+    transition: 0.1s linear;
+    height: 6rem;
 }
 .card-info {
     display: flex;
@@ -121,7 +131,7 @@ nav {
 .card-info-more {
     display: flex;
     align-items: center;
-    height: 100%;
+    height: auto;
     padding: 1rem;
     border-top: none;
     background: #f7f7f7;
@@ -169,7 +179,6 @@ nav {
     align-items: center;
     justify-content: center;
     padding: 6rem 0;
-    border-top: 1px solid #efefef;
     border-bottom: 1px solid #efefef;
 }
 .text {
@@ -270,20 +279,41 @@ nav {
     align-items: center;
     justify-content: center;
     display: flex;
-    border-radius: 100%;
     transition: 0.2s linear;
 }
 .conteudo-footer-top span i:hover {
-    background: #147da0;
-    color: white;
-    border-color: white;
+    color: #1a9ac5;
     transition: 0.2s linear;
+    transform: translateY(-10px);
+}
+.title-form {
+    padding: 1rem 0 1rem 0;
+    font-family: "montserrat";
+    font-size: 2rem;
 }
 .conteudo-footer-top span a {
     text-decoration: none;
 }
 .conteudo-footer-top span a:hover {
     text-decoration: none;
+}
+.linha-form {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+.linha-form span {
+    height: 0.3rem;
+    width: 95%;
+    background: rgb(20, 125, 160);
+    background: linear-gradient(
+        90deg,
+        rgba(20, 125, 160, 1) 30%,
+        rgba(93, 191, 223, 1) 30%
+    );
+    margin-bottom: 1rem;
 }
 .linha {
     height: 100%;
@@ -295,7 +325,6 @@ nav {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-bottom: 10rem;
 }
 .contato-interno {
     background-repeat: no-repeat;
@@ -318,11 +347,6 @@ nav {
     box-shadow: 1px 1px 10px #9e9e9e;
     padding: 0.5rem 0.5rem 2rem 0.5rem;
     border-radius: 0.3rem;
-    transition: 1s;
-}
-#form:hover {
-    transform: translateY(-20px);
-    transition: 1s;
 }
 .bloco1 {
     justify-content: center;
@@ -372,7 +396,7 @@ nav {
     padding: 0.5rem;
     border-radius: 0.2rem;
 }
-#form button {
+#form #load-more {
     border-radius: 0.3rem;
     background: #147da0;
     width: 10rem;
@@ -380,7 +404,17 @@ nav {
     font-size: 1.2rem;
     color: white;
     height: 2.5rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#form #load-more span {
+    padding: 0 0.2rem;
+}
+#form #load-more img {
+    padding: 0 0.2rem;
+    height: 2rem;
 }
 .group textarea {
     width: 97.5%;
@@ -401,4 +435,10 @@ nav {
 }
 .bloco2-footer span {
     font-family: "montserrat";
+}
+.retorno {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

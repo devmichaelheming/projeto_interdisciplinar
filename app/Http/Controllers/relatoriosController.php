@@ -145,59 +145,76 @@ class relatoriosController extends Controller
         $servicos = servicos::all();
         $clientes = clientes::all();
 
-         foreach ($clientes as $cliente) {
-            $id_cliente = $cliente->id;
-            $name = $cliente->name;
-
-            foreach ($servicos as $servico) {
-                if($servico->id_cliente == $id_cliente){
-                    $servico->id_cliente = $name;
-                }
-            }
-        }
-
-        foreach ($servicos as $servico) {
-            if($servico->status == 1){
-                $servico->status = 'Finalizado';
-            }elseif ($servico->status == 2) {
-                $servico->status = 'Extornado';
-            }else{
-                $servico->status = 'Andamento';
-            }
-        }
-
         return view('admin.relatorio.relatorio_servicos', [
             'servicos' => $servicos
         ]);
     }
-    public function servicos_pdf()
+    public function servicos_mensal_pdf(Request $request)
     {
-        $servicos = servicos::all();
-        $clientes = clientes::all();
+        $mes = $request['mensal'];
 
-         foreach ($clientes as $cliente) {
-            $id_cliente = $cliente->id;
-            $name = $cliente->name;
+        $convert_mes = explode('-', $mes);
 
-            foreach ($servicos as $servico) {
-                if($servico->id_cliente == $id_cliente){
-                    $servico->id_cliente = $name;
-                }
+        $request_ano = $convert_mes[0];
+
+        $request_mes = $convert_mes[1];
+
+         switch ($request_mes) {
+            case '01':
+                $mesgeral = 'janeiro';
+            break;
+            case '02':
+                $mesgeral = 'fevereiro';
+            break;
+            case '03':
+                $mesgeral = 'março';
+            break;
+            case '04':
+                $mesgeral = 'abril';
+            break;
+            case '05':
+                $mesgeral = 'maio';
+            break;
+            case '06':
+                $mesgeral = 'junho';
+            break;
+            case '07':
+                $mesgeral = 'julho';
+            break;
+            case '08':
+                $mesgeral = 'agosto';
+            break;
+            case '09':
+                $mesgeral = 'setembro';
+            break;
+            case '10':
+                $mesgeral = 'outubro';
+            break;
+            case '11':
+                $mesgeral = 'novembro';
+            break;
+            case '12':
+                $mesgeral = 'dezembro';
+            break;
+        }
+
+        $servico = servicos::where('date_mes', $request_mes)->get();
+
+        if (empty($servico[0])) {
+             return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste mês!');
+        }
+
+        $servicos_total = [];
+
+        foreach ($servico as $value) {
+            if ($request_ano == $value['date_ano']) {
+                $servicos_total[] = $value;   
             }
         }
 
-        foreach ($servicos as $servico) {
-            if($servico->status == 1){
-                $servico->status = 'Finalizado';
-            }elseif ($servico->status == 2) {
-                $servico->status = 'Extornado';
-            }else{
-                $servico->status = 'Andamento';
-            }
-        }
-
-        $pdf = PDF::loadView('admin.relatorio.pdf.servicos', compact('servicos'));
+        $pdf = PDF::loadView('admin.relatorio.pdf.servicos', compact('servicos_total', 'mesgeral'));
 
         return $pdf->setPaper('a4')->stream('servicos.pdf');
+        
     }
 }

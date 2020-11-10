@@ -8207,8 +8207,8 @@ div[class*="col-"] > .form-group {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
-  border-bottom: none;
+  background-color: white;
+  border-bottom: 1px solid rgb(213, 213, 213);
 }
 .top-bar > div,
 .top-bar .searchbox {
@@ -8861,7 +8861,6 @@ ul.widget-inbox-list .timestamp {
   /* border-radius: 0.5rem; */
   border-width: 1px;
   margin-bottom: 20px;
-  margin-top: 0px;
   border-style: solid;
   background-color: #fff;
   border-color: #d0d0d0;
@@ -8890,6 +8889,7 @@ ul.widget-inbox-list .timestamp {
   line-height: 40px;
   padding-top:0rem;
   float: left;
+  padding-top: 5px;
 }
 @media screen and (max-width: 480px) {
   .widget .widget-header h3 {
@@ -8924,7 +8924,7 @@ ul.widget-inbox-list .timestamp {
   }
 }
 .widget .widget-header .widget-header-toolbar.btn-group {
-  top: 5px;
+  top: 3px;
 }
 @media screen and (max-width: 480px) {
   .widget .widget-header .widget-header-toolbar.btn-group > .btn {
@@ -11046,7 +11046,6 @@ justify-content: center;
   justify-content: space-between;
   display: flex;
   padding: 0.5rem;
-  margin-top: 1rem;
 }
 .sessao2{
   display: flex;
@@ -11062,7 +11061,9 @@ justify-content: center;
 .botao{
   display: flex;
   width: 100%;
+  padding-left: 0.5rem;
   justify-content: flex-start;
+  margin-bottom: 1rem;
 }
 .lista-relatorios{
   padding: 2rem 1rem;
@@ -11089,4 +11090,42 @@ justify-content: center;
 }
 .mes{
   padding: 0.5rem;
+}
+.servicos-relatorio {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.servicos-relatorio form{
+  width: 48%;
+}
+.servicos-relatorio form .relatorio-clientes .form-group .input-group{
+  width: 100%;
+}
+.vermais {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.group-vermais .input-group-vermais input{
+  border: 2px dashed rgb(181 181 181);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background: transparent;
+}
+.group-vermais .input-group-vermais input::placeholder{
+  color: rgb(158 158 158);
+}
+.group-vermais .input-group-vermais textarea{
+  border: 2px dashed rgb(181 181 181);
+  background: transparent;
+  color: rgb(158 158 158);
+}
+.group-vermais{
+  margin: 1rem 0;
+}
+.group-vermais label{
+  padding-left: 0.5rem;
+  color: #1688ae;
 }

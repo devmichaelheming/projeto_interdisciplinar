@@ -15,21 +15,18 @@ class servicos extends Migration
     {
         Schema::create('servicos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->string('nome');
             $table->string('id_cliente');
-            // $table->string('cpf');
-            // $table->string('telefone');
-            // $table->string('endereco');
-            // $table->string('cidade');
-            // $table->string('bairro');
             $table->string('status');
             $table->string('valor');
             $table->string('descricao');
-
             $table->string('ano');
             $table->string('marca');
             $table->string('modelo');
             $table->string('placa');
+
+            $table->string('date_dia');
+            $table->string('date_mes');
+            $table->string('date_ano');
             $table->timestamps();
         });
     }

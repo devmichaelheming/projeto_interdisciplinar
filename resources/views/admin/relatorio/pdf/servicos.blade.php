@@ -71,7 +71,7 @@
     }
 </style>
 <body>
-    <div class="title">INFORMAÇÕES DO SERVIÇOS</div>
+    <div class="title">Serviços do mês de {{ $mesgeral }}</div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -87,7 +87,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($servicos as $servico)
+            @foreach ($servicos_total as $servico)
                 <tr>
                     <td>{{ $servico['id_cliente'] }}</td>
                     <td>{{ $servico['status'] }}</td>
