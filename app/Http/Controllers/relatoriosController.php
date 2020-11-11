@@ -217,4 +217,75 @@ class relatoriosController extends Controller
         return $pdf->setPaper('a4')->stream('servicos.pdf');
         
     }
+
+    public function servicos_diario_pdf(Request $request)
+    {
+        $mes = $request['diario'];
+
+        $convert_diario = explode('-', $mes);
+
+        $request_ano = $convert_diario[0];
+
+        $request_mes = $convert_diario[1];
+
+        $request_dia = $convert_diario[2];
+
+         switch ($request_mes) {
+            case '01':
+                $mesgeral = 'janeiro';
+            break;
+            case '02':
+                $mesgeral = 'fevereiro';
+            break;
+            case '03':
+                $mesgeral = 'março';
+            break;
+            case '04':
+                $mesgeral = 'abril';
+            break;
+            case '05':
+                $mesgeral = 'maio';
+            break;
+            case '06':
+                $mesgeral = 'junho';
+            break;
+            case '07':
+                $mesgeral = 'julho';
+            break;
+            case '08':
+                $mesgeral = 'agosto';
+            break;
+            case '09':
+                $mesgeral = 'setembro';
+            break;
+            case '10':
+                $mesgeral = 'outubro';
+            break;
+            case '11':
+                $mesgeral = 'novembro';
+            break;
+            case '12':
+                $mesgeral = 'dezembro';
+            break;
+        }
+
+        $servico = servicos::where('date_mes', $request_mes)->get();
+
+        if (empty($servico[0])) {
+             return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste mês!');
+        }
+
+        $servicos_total = [];
+
+        foreach ($servico as $value) {
+            if ($request_ano == $value['date_ano']) {
+                $servicos_total[] = $value;   
+            }
+        }
+
+        $pdf = PDF::loadView('admin.relatorio.pdf.servicos', compact('servicos_total', 'mesgeral'));
+
+        return $pdf->setPaper('a4')->stream('servicos.pdf');
+    }
+
 }
