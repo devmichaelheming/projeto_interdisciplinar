@@ -77,10 +77,16 @@ class servicosController extends Controller
 
     public function cadastrado(Request $request)
     {
-
         $date = date('Y/m/d');
 
         $convert_date = explode('/', $date);
+
+        date_default_timezone_set('America/Manaus');
+
+        // $created_at = date('Y/m/d H:i:s');
+        $created_at = $request['date'];
+
+        $date_atual = str_replace('T', ' ', $created_at);
 
         $date_ano = $convert_date[0];
         $date_mes = $convert_date[1];
@@ -97,6 +103,7 @@ class servicosController extends Controller
             $db->placa = $request->input('placa');
             $db->valor = $request->input('valor');
             $db->descricao = $request->input('descricao');
+            $db->created_at = $date_atual;
             $db->date_ano = $date_ano;
             $db->date_mes = $date_mes;
             $db->date_dia = $date_dia;

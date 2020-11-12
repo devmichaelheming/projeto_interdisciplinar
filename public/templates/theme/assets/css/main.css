@@ -8924,7 +8924,7 @@ ul.widget-inbox-list .timestamp {
   }
 }
 .widget .widget-header .widget-header-toolbar.btn-group {
-  top: 3px;
+  top: 6px;
 }
 @media screen and (max-width: 480px) {
   .widget .widget-header .widget-header-toolbar.btn-group > .btn {
@@ -11056,7 +11056,18 @@ justify-content: center;
   justify-content: space-between;
   display: flex;
   padding: 0.5rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
+}
+.sessao3{
+  display: flex;
+  width: 100%;
+  background: #eeeeee;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
 }
 .botao{
   display: flex;

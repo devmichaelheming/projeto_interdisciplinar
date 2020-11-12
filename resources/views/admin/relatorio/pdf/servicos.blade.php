@@ -71,7 +71,7 @@
     }
 </style>
 <body>
-    <div class="title">Serviços do mês de {{ $mesgeral }}</div>
+<div class="title">Serviços do mês de {{ $mesgeral }}, de {{ $request_ano }}</div>
     <table class="table table-striped">
         <thead>
             <tr>

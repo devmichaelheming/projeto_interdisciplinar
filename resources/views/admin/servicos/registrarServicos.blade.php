@@ -1,59 +1,6 @@
 <form class="form-horizontal" id="form" role="form" action="{{ route('servicos.cadastrado') }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
 	@csrf
-
-	{{-- <div class="sessao-carro">
-		<span></span>
-		<span>Cliente</span>
-		<span></span>
-	</div> --}}
-
-	{{-- <div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
-
-		<div class="form-group-tipo2">
-			<label for="nome" class="control-label">Nome</label>
-			<input type="text" class="inputs" id="nome" name="nome" placeholder="Insira o nome do cliente..." required>
-		</div>
-
-		<div class="form-group-tipo2">
-			<label for="email" class="control-label">E-mail</label>
-			<input type="email" class="inputs" id="email" name="email" placeholder="Insira o email do cliente..." required>
-		</div>
-
-	</div>
-
-	<div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
-
-		<div class="form-group-tipo2">
-			<label for="cpf" class="control-label">Cpf</label>
-			<input type="text" class="inputs" id="cpf" name="cpf" placeholder="Insira o cpf do cliente..." required>
-		</div>
-
-		<div class="form-group-tipo2">
-			<label for="telefone" class="control-label">Telefone</label>
-			<input type="number" class="inputs" id="telefone" placeholder="(66)0.0000-0000" name="telefone" required>
-		</div>
-
-	</div>
-    
-    <div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;">
-
-		<div class="form-group-tipo2">
-			<label for="cidade" class="control-label">Cidade</label>
-			<input type="text" class="inputs" id="cidade" placeholder="Insira a cidade..." name="cidade" required>
-		</div>
-
-		<div class="form-group-tipo2">
-			<label for="bairro" class="control-label">Bairro</label>
-			<input type="text" class="inputs" id="bairro" placeholder="Insira o bairro..."  name="bairro" required>
-		</div>
-
-	</div>
-
-	<div class="groups-two" style="display:flex;justify-content:space-between;padding:0.5rem 0 0.5rem 0;flex-direction:column;">
-		<label for="endereco" class="control-label">Endereço</label>
-		<input type="text" class="inputs" id="endereco" name="endereco" placeholder="Insira o endereço..." required>
-	</div> --}}
-	<div class="sessao1">
+	<div class="sessao3">
 		<span>Informações do cliente</span>
 	</div>
 
@@ -98,6 +45,15 @@
 
 	</div>
 
+	<div class="sessao3">
+		<span>Informações do serviço</span>
+	</div>
+
+	<div class="groups-two" style="flex-direction: column">
+		<label for="date" class="control-label">Data do serviço</label>
+		<input type="datetime-local" class="inputs" id="date" name="date" required placeholder="00/00/0000">
+	</div>
+
 	<div class="groups-two" style="flex-direction: column">
 		<label for="phone" class="control-label">Descrição</label>
 		<textarea name="descricao" id="descricao" class="inputs" rows="5" placeholder="tipo de serviço, gastos previstos, observações..." required></textarea>
@@ -108,7 +64,7 @@
 		<input type="number" class="inputs" id="valor" name="valor" required placeholder="R$">
 	</div>
 
-	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
+	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
 		<label for="switch">Status do serviço</label>
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="0" checked>

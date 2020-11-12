@@ -200,8 +200,31 @@ class relatoriosController extends Controller
 
         $servico = servicos::where('date_mes', $request_mes)->get();
 
+        $clientes = clientes::all();
+
+        foreach ($clientes as $cliente) {
+            $id_cliente = $cliente->id;
+            $name = $cliente->name;
+
+            foreach ($servico as $servicos) {
+                if($servicos->id_cliente == $id_cliente){
+                    $servicos->id_cliente = $name;
+                }
+            }
+        }
+
         if (empty($servico[0])) {
              return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste mês!');
+        }
+
+        foreach ($servico as $servicos) {
+            if($servicos->status == 1){
+                $servicos->status = 'Finalizado';
+            }elseif ($servicos->status == 2) {
+                $servicos->status = 'Extornado';
+            }else{
+                $servicos->status = 'Andamento';
+            }
         }
 
         $servicos_total = [];
@@ -230,7 +253,7 @@ class relatoriosController extends Controller
 
         $request_dia = $convert_diario[2];
 
-         switch ($request_mes) {
+        switch ($request_mes) {
             case '01':
                 $mesgeral = 'janeiro';
             break;
@@ -269,21 +292,28 @@ class relatoriosController extends Controller
             break;
         }
 
-        $servico = servicos::where('date_mes', $request_mes)->get();
+        $servico = servicos::where('date_dia', $request_dia)->get();
 
         if (empty($servico[0])) {
-             return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste mês!');
+            return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste dia!');
         }
 
         $servicos_total = [];
 
         foreach ($servico as $value) {
             if ($request_ano == $value['date_ano']) {
-                $servicos_total[] = $value;   
+                if ($request_mes == $value['date_mes']) {
+                    $servicos_total[] = $value;   
+                }
+            } else{
+                // // dd($servicos_total);
+
+                // return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste ano!');
             }
         }
 
-        $pdf = PDF::loadView('admin.relatorio.pdf.servicos', compact('servicos_total', 'mesgeral'));
+
+        $pdf = PDF::loadView('admin.relatorio.pdf.servicos', compact('servicos_total', 'mesgeral', 'request_ano'));
 
         return $pdf->setPaper('a4')->stream('servicos.pdf');
     }

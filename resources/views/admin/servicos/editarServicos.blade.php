@@ -1,7 +1,7 @@
 <form class="form-horizontal" id="form" role="form" action="{{ url('/admin/servicos/editar/salvar') }}/{{ $id }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
 	@csrf
 
-	<div class="sessao1">
+	<div class="sessao3">
 		<span>Informações do cliente</span>
 	</div>
 
@@ -46,6 +46,10 @@
 
 	</div>
 
+	<div class="sessao3">
+		<span>Informações do cliente</span>
+	</div>
+
 	<div class="form-group" style="flex-direction: column">
 		<label for="phone" class="control-label">Descrição</label>
 		<textarea name="descricao" id="descricao" class="inputs" rows="5" value="{{$descricao}}" required>{{$descricao}}</textarea>
@@ -56,7 +60,7 @@
 		<input type="number" class="inputs" id="valor" name="valor" value="{{$valor}}" required>
 	</div>
 
-	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
+	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:0.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
 		<label for="switch">Status do serviço</label>
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="0" {{ ($status == "0") ? "checked" : "" }}>
