@@ -77,9 +77,12 @@ class servicosController extends Controller
 
     public function cadastrado(Request $request)
     {
-        $date = date('Y/m/d');
+        dd($request->all());
+        $date = $request['date'];
 
-        $convert_date = explode('/', $date);
+        $subs = substr("$date", 0, 10);
+
+        $convert_date = explode('-', $subs);
 
         date_default_timezone_set('America/Manaus');
 
@@ -144,6 +147,12 @@ class servicosController extends Controller
                 $db = servicos::find($id);
                 $clientes = clientes::all();
 
+                $dr = mb_strimwidth($db['created_at'], 0, 19);
+
+                // $dd = date("d/m/Y");
+
+                // dd($dr);
+
                 return view('admin.servicos.editarServicos',[
                     'id' => $id,
                     'id_cliente' => $db['id_cliente'],
@@ -154,6 +163,7 @@ class servicosController extends Controller
                     'placa' => $db['placa'],
                     'valor' => $db['valor'],
                     'descricao' => $db['descricao'],
+                    'created_at' => "12/10/2019 16:58:00",
                     'clientes' => $clientes,
                 ]); 
         //    }

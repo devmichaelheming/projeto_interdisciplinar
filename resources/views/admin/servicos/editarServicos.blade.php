@@ -47,7 +47,12 @@
 	</div>
 
 	<div class="sessao3">
-		<span>Informações do cliente</span>
+		<span>Informações do serviço</span>
+	</div>
+
+	<div class="groups-two" style="flex-direction: column">
+		<label for="date" class="control-label">Data do serviço</label>
+		<input type="datetime-local" class="inputs" id="date" name="date" required value="{{$created_at}}">
 	</div>
 
 	<div class="form-group" style="flex-direction: column">

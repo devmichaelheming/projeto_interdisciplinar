@@ -217,7 +217,7 @@ nav {
     width: 22%;
 }
 .info-geral {
-    padding: 6rem 0 4rem 0;
+    padding: 4rem 0 2rem 0;
 }
 .title-info {
     padding-bottom: 4rem;
@@ -238,7 +238,7 @@ nav {
     color: #104f64;
 }
 .footer-interno span {
-    height: 5rem;
+    height: 4rem;
     align-items: center;
     display: flex;
     color: white;
@@ -264,13 +264,12 @@ nav {
     justify-content: center;
     font-family: "montserrat";
     font-weight: 600;
-    padding: 2rem 0;
+    padding: 0rem 0 0.5rem 0;
 }
 .conteudo-footer-top {
     width: 100%;
     align-items: center;
     justify-content: space-evenly;
-    padding: 0rem 0;
     display: flex;
 }
 .conteudo-footer-top span i {
@@ -424,7 +423,7 @@ nav {
     border-radius: 0.2rem;
 }
 .title-endereco {
-    padding: 2rem 0;
+    padding: 0rem 0 0.5rem 0;
     color: #147da0;
     font-size: 1.3rem;
     font-weight: 600;

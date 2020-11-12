@@ -232,10 +232,12 @@ class relatoriosController extends Controller
         foreach ($servico as $value) {
             if ($request_ano == $value['date_ano']) {
                 $servicos_total[] = $value;   
+            } else{
+                return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste ano!');
             }
         }
 
-        $pdf = PDF::loadView('admin.relatorio.pdf.servicos', compact('servicos_total', 'mesgeral'));
+        $pdf = PDF::loadView('admin.relatorio.pdf.servicos', compact('servicos_total', 'mesgeral', 'request_ano'));
 
         return $pdf->setPaper('a4')->stream('servicos.pdf');
         
@@ -306,9 +308,7 @@ class relatoriosController extends Controller
                     $servicos_total[] = $value;   
                 }
             } else{
-                // // dd($servicos_total);
-
-                // return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste ano!');
+                return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste ano!');
             }
         }
 
