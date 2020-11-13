@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/anji.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('index/style.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
@@ -52,13 +52,16 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ asset('banner3.png') }}">
+                    {{-- <img src="{{ asset('banner3.png') }}"> --}}
+                    <div class="carrousel-img1"></div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('banner.png') }}">
+                    {{-- <img src="{{ asset('banner.png') }}"> --}}
+                    <div class="carrousel-img2"></div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('banner2.png') }}">
+                    {{-- <img src="{{ asset('banner2.png') }}"> --}}
+                    <div class="carrousel-img3"></div>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -86,19 +89,25 @@
         </div>
     </div>
 
-    <div class="info-geral" data-anijs="if: scroll, on: window, do: fadeInRightBig animated, before: scrollReveal, after: holdAnimClass">
-        
-        <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
+    <div class="info-geral">
 
+        <div class="title-beneficios-geral">
+            <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
+            <div class="linha-form2">
+                <span></span>
+            </div>
+        </div>
+        
         <div class="header-info">
 
-            <div class="bloco-financeiro" >
+            <div class="bloco-info">
                 <div class="card-info" id="financeiro">
-                        <i class="fas fa-coins"></i>
-                        <span>Controle financeiro</span>
+                    <i class="fas fa-coins"></i>
+                    <span>CONTROLE FINANCEIRO</span>
                 </div>
 
                 <div class="card-info-more" id="financeiro-more">
+                    <div class="title-card-info-more">CONTROLE FINANCEIRO</div>
                     <span>
                         Controle os serviços cadastrados no sistema, exibindo de uma maneira pratica na tela de serviços: serviços finalizados, serviços em andamento, serviços extornados, previsões de lucro e quantidade total de serviços.
                     </span>
@@ -106,44 +115,22 @@
 
             </div>
 
-            {{-- <div class="bloco-clientes" data-anijs="if: scroll, on: window, do: fadeInUp animated, before: scrollReveal, after: holdAnimClass">
-
-                <div class="card-info" id="clientes">
-                    <i class="fas fa-file-pdf"></i>
-                    <span>Relátorios de clientes</span>
+            <div class="title-beneficios">
+                <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
+                <div class="linha-form2">
+                    <span></span>
                 </div>
-
-                <div class="card-info-more" id="clientes-more">
-                    <span>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas impedit reprehenderit aperiam laudantium magni commodi vitae aliquid, repudiandae quaerat quibusdam in ex, et ipsam explicabo voluptatum tenetur minima delectus optio?
-                    </span>
-                </div>
-
-            </div> --}}
-
-            <div class="bloco-servico">
-
-                <div class="card-info" id="servico">
-                    <i class="fas fa-file-pdf"></i>
-                    <span>Relátorios</span>
-                </div>
-
-                <div class="card-info-more" id="servico-more">
-                    <span>
-                        Relatórios das informações dos serviços, e dos clientes cadastrados no sistema.
-                    </span>
-                </div>
-
             </div>
-            
-            <div class="bloco-admin">
+        
+            <div class="bloco-info">
 
                 <div class="card-info" id="admin">
                     <i class="fas fa-user-lock"></i>
-                    <span>Permissões para administradores</span>
+                    <span>PERMISSÕES</span>
                 </div>
 
                  <div class="card-info-more" id="admin-more">
+                    <div class="title-card-info-more">PERMISSÕES</div>
                     <span>
                         Controle e administre os usuários cadastrados no sistema, limitando suas permissões para agir no sistema.
                     </span>
@@ -153,12 +140,25 @@
             
         </div>
 
+        <div class="bloco-info">
+
+            <div class="card-info" id="servico">
+                <i class="fas fa-file-pdf"></i>
+                <span>RELATÓRIOS</span>
+            </div>
+
+            <div class="card-info-more" id="servico-more">
+                <div class="title-card-info-more">RELATÓRIOS</div>
+                <span>
+                    Relatórios das informações dos serviços, e dos clientes cadastrados no sistema.
+                </span>
+            </div>
+
+        </div>
     </div>
 
     <div class="contato-form">
         <div class="contato-interno">
-
-            
 
             <form id="form" name="form" data-anijs="if: scroll, on: window, do: fadeInLeftBig animated, before: scrollReveal, after: holdAnimClass">
                 <div class="title-form">ENTRE EM CONTATO CONOSCO</div>
@@ -237,6 +237,9 @@
                 </div>   
             </div>
         </div>
+        <div class="linha-form3">
+            <span></span>
+        </div>
         <div class="footer-interno">
             <span>
                 © TODOS OS DIREITOS RESERVADOS
@@ -249,10 +252,20 @@
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/anijs-min.js') }}"></script>
     <script src="{{ asset('js/anijs-helper-scrollreveal.js') }}"></script>
-    <script src="{{ asset('js/collapse.js') }}"></script>
     <script src="{{asset('mask/dist/jquery.mask.js')}}"></script>
     <script src="{{asset('jquery-validation/dist/jquery.validate.js')}}"></script>
     <script>
+
+        function typeWriter(elemento) {
+            const textoArray = elemento.innerHTML.split('');
+            elemento.innerHTML = '';
+            textoArray.forEach((letra, i) => {
+            setTimeout(() => elemento.innerHTML += letra, 90 * i);
+            });
+        }
+
+        const titulo = document.querySelector('.title');
+        typeWriter(titulo);
 
         $(document).ready(function(){
         
@@ -400,7 +413,6 @@
         document.getElementById('sobrenome').value="";
         document.getElementById('retorno').hidden();
     }
-
     </script>
 </body>
 </html>

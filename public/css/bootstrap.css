@@ -5874,7 +5874,6 @@ button.close {
   left: 0;
   z-index: 1050;
   display: none;
-  overflow: auto;
   -webkit-overflow-scrolling: touch;
   outline: 0;
 }
@@ -5970,10 +5969,14 @@ button.close {
 .modal-body {
   position: relative;
   padding: 0.5rem;
+  max-height: 56rem;
+  overflow-y: auto;
 }
 .modal-body-cadastrar, .modal-body-descricao, .modal-body-clientes, .modal-body-vendas, .modal-body-cadastros, .modal-body-servicos {
   position: relative;
   padding: 0.5rem;
+  max-height: 56rem;
+  overflow-y: auto;
 }
 .modal-footer {
   padding: 15px;
@@ -6134,7 +6137,7 @@ button.close {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1060;
+  z-index: 1000000;
   display: none;
   max-width: 276px;
   padding: 1px;

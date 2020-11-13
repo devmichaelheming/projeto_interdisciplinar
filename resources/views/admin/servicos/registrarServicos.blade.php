@@ -85,36 +85,36 @@
 </form>
 <script>
 
-function selecionar(elemento)
-		{
-			var verific = elemento.value
+	function selecionar(elemento)
+	{
+		var verific = elemento.value
 
-			console.log(verific)
-			
-			switch (verific) {
-				case 'parcelas':
-					$("#retorno div").remove()
-					$("#retorno").append('\
-					<div class="form-group-tipo">\
-						<label for="phone" class="control-label" style="padding:0;">Vezes</label>\
-							<input type="number" class="inputs" id="vezes" name="vezes" required>\
-					</div>\
-					<div class="form-group-tipo">\
-					<label for="phone" class="control-label" style="padding:0;">Periodo</label>\
-					<select id="ticket-priority" id="periodo" name="periodo" class="select-ticket-priority">\
-						<option value="meses">Meses</option>\
-						<option value="anos">Anos</option>\
-					</select>\
-					</div>\
-					');
-				break;
-				case 'unica':
-					$("#retorno div").remove()
-				break;
-				case 'fixa':
-					$("#retorno div").remove()
-				break;
-			}
+		console.log(verific)
+		
+		switch (verific) {
+			case 'parcelas':
+				$("#retorno div").remove()
+				$("#retorno").append('\
+				<div class="form-group-tipo">\
+					<label for="phone" class="control-label" style="padding:0;">Vezes</label>\
+						<input type="number" class="inputs" id="vezes" name="vezes" required>\
+				</div>\
+				<div class="form-group-tipo">\
+				<label for="phone" class="control-label" style="padding:0;">Periodo</label>\
+				<select id="ticket-priority" id="periodo" name="periodo" class="select-ticket-priority">\
+					<option value="meses">Meses</option>\
+					<option value="anos">Anos</option>\
+				</select>\
+				</div>\
+				');
+			break;
+			case 'unica':
+				$("#retorno div").remove()
+			break;
+			case 'fixa':
+				$("#retorno div").remove()
+			break;
 		}
+	}
 
 </script>

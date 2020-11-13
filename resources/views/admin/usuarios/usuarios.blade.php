@@ -54,7 +54,7 @@
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
 					<div class="widget-header clearfix">
-						<h3><i class="fas fa-users" style="margin-right:0.5rem;"></i> <span>Usuários cadastrados</span></h3>
+						<h3><i class="fas fa-users-cog" style="margin-right: 0.5rem;"></i> <span>Usuários do sistema</span></h3>
 						<div class="btn-group widget-header-toolbar">
 
 							<div class="btn-group widget-header-toolbar">
@@ -81,7 +81,6 @@
 							</div>
 						</div>
 					@elseif(session('invalido'))
-						
 						<div class="alert alert-danger">
 							<span>
 								<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
@@ -234,6 +233,8 @@
 	<script src=" {{ asset('templates/theme/assets/js/queen-maps.js') }}"></script>
 	<script src=" {{ asset('dropdown.js') }}"></script>
 	<script src=" {{ asset('parsley.min.js') }}"></script>
+	<script src="{{ asset('jquery-validation/dist/jquery.validate.min.js')}}"></script>
+	<script src="{{ asset('jquery-validation/dist/jquery.validate.js')}}"></script>
 	<script>
 	
 		$(document).ready(function(e) {

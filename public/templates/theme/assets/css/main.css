@@ -8924,7 +8924,7 @@ ul.widget-inbox-list .timestamp {
   }
 }
 .widget .widget-header .widget-header-toolbar.btn-group {
-  top: 6px;
+  top: 3px;
 }
 @media screen and (max-width: 480px) {
   .widget .widget-header .widget-header-toolbar.btn-group > .btn {
