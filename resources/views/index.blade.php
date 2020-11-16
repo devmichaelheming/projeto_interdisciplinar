@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('index/style.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('anime/style.css') }}">
     <title>Sistema de gerenciamento de mecânicas</title>
 </head>
 <body>
@@ -52,15 +53,12 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    {{-- <img src="{{ asset('banner3.png') }}"> --}}
                     <div class="carrousel-img1"></div>
                 </div>
                 <div class="carousel-item">
-                    {{-- <img src="{{ asset('banner.png') }}"> --}}
                     <div class="carrousel-img2"></div>
                 </div>
                 <div class="carousel-item">
-                    {{-- <img src="{{ asset('banner2.png') }}"> --}}
                     <div class="carrousel-img3"></div>
                 </div>
             </div>
@@ -73,20 +71,89 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
+        
     </div>
 
-    <div class="informacoes" data-anijs="if: scroll, on: window, do: fadeInLeftBig animated, before: scrollReveal, after: holdAnimClass">
-        <div class="logo">
-            <img src="{{ asset('logo.png') }}">
-        </div>
-        <div class="conteudo">
-            <div class="title">
-                CONHEÇA MAIS SOBRE O SISTEMA!
-            </div>
-            <div class="text">
-                Nosso sistema visa facilitar, organizar e proporcionar maior agilidade em sua oficina mecânica. desde controle de estoque até mesmo controle financeiro.
+    <div class="informacoes">
+
+        <div class="top-navegacao"></div>
+
+        <div class="title-informacoes">
+            <div class="title-info2">NOSSOS CLIENTES</div>
+            <div class="linha-form-informacoes">
+                <span></span>
             </div>
         </div>
+
+        <div class="bloco-informacoes">
+
+            <div class="informacoes-card" data-anime="left">
+                <div class="header-informacoes">
+                    <div class="logo">
+                        <img src="{{ asset('auto_center.png') }}">
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <div class="title">
+                        AUTO CENTER SINOP!
+                    </div>
+                    <div class="text">
+                        Endereço: R. Colonizador Ênio Pipino, 2205 - St. Industrial Sul, Sinop - MT, 78558-439
+                    </div>
+                </div>
+            </div>
+            <div class="informacoes-card" data-anime="top">
+            <div class="header-informacoes">
+                    <div class="logo">
+                        <img src="{{ asset('ams.jpeg') }}">
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <div class="title">
+                        AMS AUTO MECÂNICA SINOP
+                    </div>
+                    <div class="text">
+                        Endereço: Av. dos Jacarandás, 165 - Jardim Jacarandas, Sinop - MT, 78557-727
+                    </div>
+                </div>
+            </div>
+            <div class="informacoes-card" data-anime="top">
+                <div class="header-informacoes">
+                    <div class="logo">
+                        <img src="{{ asset('alcar.png') }}">
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <div class="title">
+                        ALCAR MECÂNICA
+                    </div>
+                    <div class="text">
+                        Endereço: R. Colonizador Ênio Pipino, 4211 - St. Industrial Sul, Sinop - MT, 78550-000
+                    </div>
+                </div>
+            </div>
+            <div class="informacoes-card" data-anime="right">
+                <div class="header-informacoes">
+                    <div class="logo">
+                        <img src="{{ asset('itaubas.jpeg') }}">
+                    </div>
+                </div>
+                <div class="conteudo">
+                    <div class="title">
+                        MECÂNICA ITAÚBAS
+                    </div>
+                    <div class="text">
+                        Endereço: R. das Samambaias - St. Industrial Sul, Sinop - MT, 78558-105
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div class="linha-form3">
+        <span></span>
     </div>
 
     <div class="info-geral">
@@ -100,7 +167,7 @@
         
         <div class="header-info">
 
-            <div class="bloco-info">
+            <div class="bloco-info"   data-anime="leftBig">
                 <div class="card-info" id="financeiro">
                     <i class="fas fa-coins"></i>
                     <span>CONTROLE FINANCEIRO</span>
@@ -122,7 +189,7 @@
                 </div>
             </div>
         
-            <div class="bloco-info">
+            <div class="bloco-info" data-anime="rightBig">
 
                 <div class="card-info" id="admin">
                     <i class="fas fa-user-lock"></i>
@@ -140,7 +207,7 @@
             
         </div>
 
-        <div class="bloco-info">
+        <div class="bloco-info"  data-anime="bottomBig">
 
             <div class="card-info" id="servico">
                 <i class="fas fa-file-pdf"></i>
@@ -157,10 +224,14 @@
         </div>
     </div>
 
+    <div class="linha-form3">
+        <span></span>
+    </div>
+
     <div class="contato-form">
         <div class="contato-interno">
 
-            <form id="form" name="form" data-anijs="if: scroll, on: window, do: fadeInLeftBig animated, before: scrollReveal, after: holdAnimClass">
+            <form id="form" name="form" data-anime="rightBig">
                 <div class="title-form">ENTRE EM CONTATO CONOSCO</div>
                 <div class="linha-form">
                     <span></span>
@@ -206,6 +277,10 @@
     <footer>
         <div class="footer-top">
             <img src="{{ asset('logo.png') }}">
+            <div class="contato-footer">
+                <i class="fas fa-phone-volume"></i>
+                <span>(66)3212-5236</span>
+            </div>
             <div class="bloco2-footer">
                 <div class="title-endereco">
                     ENDEREÇO
@@ -254,18 +329,19 @@
     <script src="{{ asset('js/anijs-helper-scrollreveal.js') }}"></script>
     <script src="{{asset('mask/dist/jquery.mask.js')}}"></script>
     <script src="{{asset('jquery-validation/dist/jquery.validate.js')}}"></script>
+    <script src="{{asset('anime/script.js')}}"></script>
     <script>
 
-        function typeWriter(elemento) {
-            const textoArray = elemento.innerHTML.split('');
-            elemento.innerHTML = '';
-            textoArray.forEach((letra, i) => {
-            setTimeout(() => elemento.innerHTML += letra, 90 * i);
-            });
-        }
+        // function typeWriter(elemento) {
+        //     const textoArray = elemento.innerHTML.split('');
+        //     elemento.innerHTML = '';
+        //     textoArray.forEach((letra, i) => {
+        //     setTimeout(() => elemento.innerHTML += letra, 90 * i);
+        //     });
+        // }
 
-        const titulo = document.querySelector('.title');
-        typeWriter(titulo);
+        // const titulo = document.querySelector('.title');
+        // typeWriter(titulo);
 
         $(document).ready(function(){
         

@@ -60,7 +60,6 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: rgb(244, 245, 250);
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -5921,9 +5920,9 @@ a.close.disabled {
   overflow: hidden;
 }
 
-.modal-open .modal {
+.modal-open .modal, .modal-cadastrar, .modal-confirm, .modal-remover, .modal-clientes, .modal-cadastros, .modal-vendas, .modal-servicos{
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 
 .modal {

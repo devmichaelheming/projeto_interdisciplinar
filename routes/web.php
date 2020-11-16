@@ -62,6 +62,7 @@ Route::get('/clientes/confirm/{id}', 'clientesController@confirm')->name('client
     Route::post('/usuarios/editar/salvar/{id}', 'usuariosController@editarSalvar');
     //Remover usuarios
     Route::get('/usuarios/remover/{id}', 'usuariosController@removerUsuario')->name('usuario.remover');
+    Route::get('/usuarios/confirm/{id}', 'usuariosController@confirm')->name('usuarios.confirm');
 
 // CONTAS
 // visualizar contas

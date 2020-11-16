@@ -25,7 +25,6 @@ class usuariosController extends Controller
 
     public function cadastrado(Request $request)
     {
-
         try{
         $db = New user();
 
@@ -79,7 +78,11 @@ class usuariosController extends Controller
         $name = $dados['name'];
         $email = $dados['email'];
         $phone = $dados['phone'];
-        $password = bcrypt($dados['password']);
+        if ($db['password'] == $dados['password']) {
+           $password = $dados['password'];
+        }else{
+            $password = bcrypt($dados['password']);
+        }
 
         $db['name'] = $name;
         $db['phone'] = $phone;
@@ -92,7 +95,15 @@ class usuariosController extends Controller
         
     }
 
-     public function removerUsuario(request $request)
+    public function confirm(Request $request, $id)
+    {
+        $db = user::find($id);
+        return view('admin.usuarios.confirmDelete', [
+            'id' => $id,
+        ]);
+    }
+
+    public function removerUsuario(request $request)
     {
         
         // $user = user::all();

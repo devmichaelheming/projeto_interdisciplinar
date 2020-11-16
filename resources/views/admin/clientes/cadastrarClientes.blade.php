@@ -55,7 +55,7 @@
 		</div>
 	</div>
 
-	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
+	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:0.5rem 0rem 1rem 0rem;flex-direction:column;align-items:flex-start;">
 		<label for="switch">Status</label>
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="1" checked>
@@ -72,6 +72,10 @@
 	</div>
 	{{-- <button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled"></i>Cadastrar cliente</button> --}}
 </form>
+<script src="{{ asset('js/jquery.js')}}"></script>
+<script src="{{ asset('jquery-validation/dist/jquery.validate.min.js')}}"></script>
+<script src="{{ asset('jquery-validation/dist/jquery.validate.js')}}"></script>
+<script src="{{ asset('mask/dist/jquery.mask.js')}}"></script>
 <script>
 
 	$('form#form').validate({
@@ -82,10 +86,19 @@
 			email: {
 				required: true
 			},
-			password: {
+			endereco: {
 				required: true
-			}
-			phone: {
+			},
+			nascimento: {
+				required: true
+			},
+			cpf: {
+				required: true
+			},
+			cidade: {
+				required: true
+			},
+			status: {
 				required: true
 			}
 		}

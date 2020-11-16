@@ -4892,7 +4892,7 @@ hr {
   margin-left: 220px;
   background: rgb(241, 241, 241);
   background-repeat: repeat;
-  min-height: 860px;
+  min-height: 100vh;
   padding: 0 0px 30px 15px;
 }
 #col-right.no-heading {
@@ -5176,8 +5176,6 @@ blockquote.pull-right {
   -moz-border-radius-bottomright: 2px;
   -webkit-border-bottom-right-radius: 2px;
   border-bottom-right-radius: 2px;
-  border-top: none;
-  border-right: none;
   background: transparent;
 }
 
@@ -5194,9 +5192,7 @@ blockquote.pull-right {
   -moz-border-radius-bottomleft: 2px;
   -webkit-border-bottom-left-radius: 2px;
   border-bottom-left-radius: 2px;
-  border-top: none;
-  border-right: none;
-  border-left: none;
+
 }
 
 .input-group-addon {
@@ -7769,6 +7765,7 @@ legend {
 .form-horizontal .control-label {
   text-align: left;
   width: 100%;
+  color: #1688ae;
 }
 
 div[class*="col-"] > .form-group {
@@ -8878,6 +8875,8 @@ ul.widget-inbox-list .timestamp {
   padding: 0 10px;
   border-bottom: 1px solid #d0d0d0;
   background-color: #f3f3f3;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 .widget .widget-header h3 {
   display: inline-block;
@@ -8924,7 +8923,7 @@ ul.widget-inbox-list .timestamp {
   }
 }
 .widget .widget-header .widget-header-toolbar.btn-group {
-  top: 3px;
+  top: 6px;
 }
 @media screen and (max-width: 480px) {
   .widget .widget-header .widget-header-toolbar.btn-group > .btn {
@@ -11069,12 +11068,17 @@ justify-content: center;
   padding: 0.5rem;
   margin: 0.5rem 0;
 }
+.error{
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+  color: rgb(255, 77, 77);
+  margin: 0;
+}
 .botao{
   display: flex;
   width: 100%;
-  padding-left: 0.5rem;
   justify-content: flex-start;
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
 }
 .lista-relatorios{
   padding: 2rem 1rem;

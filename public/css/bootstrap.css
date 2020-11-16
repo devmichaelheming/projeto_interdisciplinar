@@ -3820,6 +3820,11 @@ tbody.collapse.in {
   position: relative;
   display: table;
   border-collapse: separate;
+  width: 100%;
+}
+.input-group input{
+  padding: 0 0.5rem;
+  height: 30px;
 }
 .input-group[class*="col-"] {
   float: none;
@@ -5876,6 +5881,7 @@ button.close {
   display: none;
   -webkit-overflow-scrolling: touch;
   outline: 0;
+  overflow-y: auto;
 }
 .modal-descricao {
   position: fixed;
@@ -5890,13 +5896,13 @@ button.close {
   outline: 0;
 }
 .modal.fade .modal-dialog {
-  -webkit-transition: -webkit-transform .3s ease-out;
-       -o-transition:      -o-transform .3s ease-out;
-          transition:         transform .3s ease-out;
-  -webkit-transform: translate(0, -25%);
-      -ms-transform: translate(0, -25%);
-       -o-transform: translate(0, -25%);
-          transform: translate(0, -25%);
+-webkit-transition: -webkit-transform .3s ease-out;
+-o-transition:      -o-transform .3s ease-out;
+transition:         transform .3s ease-out;
+-webkit-transform: translate(0, -25%);
+-ms-transform: translate(0, -25%);
+-o-transform: translate(0, -25%);
+transform: translate(0, -25%);
 }
 .modal.in .modal-dialog {
   -webkit-transform: translate(0, 0);
@@ -5904,9 +5910,9 @@ button.close {
        -o-transform: translate(0, 0);
           transform: translate(0, 0);
 }
-.modal-open .modal {
+.modal-open .modal, .modal-cadastrar, .modal-confirm, .modal-remover, .modal-clientes, .modal-cadastros, .modal-vendas, .modal-servicos{
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
 }
 .col {
     width: 18%;

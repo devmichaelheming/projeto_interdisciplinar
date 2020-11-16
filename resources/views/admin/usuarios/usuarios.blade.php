@@ -131,8 +131,8 @@
 									
 									<td>
                                       <div class="botoes">
-										 <button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/usuarios/editar') }}/{{ $users[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
-											<button type="button" class="botao-remover" data-id="{{ url('admin/usuarios/confirm') }}/{{ $users[$i]['id'] }}"><i class="far fa-trash-alt"></i></button> 
+										<button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/usuarios/editar') }}/{{ $users[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
+										<button type="button" class="botao-remover" data-id="{{ url('admin/usuarios/confirm') }}/{{ $users[$i]['id'] }}"><i class="far fa-trash-alt"></i></button> 
                                       </div>
 									</td>
 
@@ -233,8 +233,6 @@
 	<script src=" {{ asset('templates/theme/assets/js/queen-maps.js') }}"></script>
 	<script src=" {{ asset('dropdown.js') }}"></script>
 	<script src=" {{ asset('parsley.min.js') }}"></script>
-	<script src="{{ asset('jquery-validation/dist/jquery.validate.min.js')}}"></script>
-	<script src="{{ asset('jquery-validation/dist/jquery.validate.js')}}"></script>
 	<script>
 	
 		$(document).ready(function(e) {

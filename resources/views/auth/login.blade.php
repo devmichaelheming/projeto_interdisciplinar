@@ -36,7 +36,7 @@
 					<label for="inputEmail3b" class="control-label sr-only">Email</label>
 					<div class="col-sm-12">
 						<div class="input-group">
-							<span class="input-group-addon"><i class="icon ion-email"></i></span>
+							{{-- <span class="input-group-addon"><i class="icon ion-email"></i></span> --}}
 							<input type="email" class="form-control email @error('email') is-invalid @enderror" value="{{ old('email') }}" id="email" name="email" placeholder="Email">
 							@error('email')
 								<span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
 					<label for="inputPassword3b" class="control-label sr-only">Password</label>
 					<div class="col-sm-12">
 						<div class="input-group">
-							<span class="input-group-addon"><i class="icon ion-locked"></i></span>
+							{{-- <span class="input-group-addon"><i class="icon ion-locked"></i></span> --}}
 							<input type="password" class="form-control password @error('password') is-invalid @enderror" name="password" id="inputPassword3b" placeholder="Password">
 							@error('password')
 								<span class="invalid-feedback" role="alert">
