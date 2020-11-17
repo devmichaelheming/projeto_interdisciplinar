@@ -53,15 +53,9 @@
 
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
-					<div class="widget-header clearfix">
-						<h3><i class="fas fa-address-card" style="margin-right: 0.5rem;"></i> <span>Contatos cadastrados</span></h3>
+					<div class="widget-header">
+						<h3><i class="fas fa-address-card"></i> <span>Contatos cadastrados</span></h3>
 						<div class="btn-group widget-header-toolbar">
-
-							<div class="btn-group widget-header-toolbar">
-								<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/usuarios/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo usuário</button>
-							</div>
-
-	
 						</div>
 					</div>
 

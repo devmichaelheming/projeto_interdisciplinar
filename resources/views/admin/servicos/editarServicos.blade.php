@@ -62,7 +62,7 @@
 	
 	<div class="form-group" style="flex-direction: column">
 		<label for="modelo" class="control-label">Valor do serviço</label>
-		<input type="number" class="inputs" id="valor" name="valor" value="{{$valor}}" required>
+		<input type="text" class="inputs" id="valor" name="valor" value="{{$valor}}" required>
 	</div>
 
 	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:0.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">

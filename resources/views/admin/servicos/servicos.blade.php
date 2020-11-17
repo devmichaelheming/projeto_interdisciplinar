@@ -54,43 +54,43 @@
 				<div class="porcentagens">
 					<div class="col">
 						<div class="quick-info boxed bg-green">
-							<i class="fas fa-user-check"></i>
 							<p>{{ $ativo }} <span>SERVIÇOS FINALIZADOS</span></p>
+							<i class="fas fa-user-check"></i>
 						</div>
 					</div>
 					<div class="col">
 						<div class="quick-info boxed bg-red">
-							<i class="fas fa-user-times"></i>
 							<p>{{ $inativo }} <span>SERVIÇOS EM ANDAMENTO</span></p>
+							<i class="fas fa-user-times"></i>
 						</div>
 					</div>
 					<div class="col">
 						<div class="quick-info boxed bg-blue2">
-							<i class="icon ion-person-stalker"></i>
 							<p>{{ $extornados }} <span>SERVIÇOS EXTORNADOS</span></p>
+							<i class="icon ion-person-stalker"></i>
 						</div>
 					</div>
 					<div class="col">
 						<div class="quick-info boxed bg-gold">
-							<i class="icon ion-cash"></i>
 							<p>${{ $total }} <span>PREVISÃO DE LUCRO</span></p>
+							<i class="icon ion-cash"></i>
 						</div>
 					</div>
 					<div class="col">
 						<div class="quick-info boxed bg-blue">
-							<i class="icon ion-person-stalker"></i>
 							<p>{{ count($servicos) }} <span>SERVIÇOS</span></p>
+							<i class="icon ion-person-stalker"></i>
 						</div>
 					</div>
 				</div>
 				
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
-					<div class="widget-header clearfix">
+					<div class="widget-header">
 						<h3><i class="fas fa-toolbox" style="margin-right:0.5rem;"></i><span>Serviços</span></h3>
 
 						<div class="btn-group widget-header-toolbar">
-							<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/servicos/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo serviço</button>
+							<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/servicos/viewCadastrar') }}"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo serviço</button>
 						</div>
 					</div>
 
@@ -152,14 +152,6 @@
 
 										@endif
 
-										{{-- @if ($servicos[$i]['status'] == 'Andamento')
-											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
-										@elseif ($servicos[$i]['status'] == 'Extornado')
-											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:blue;width:1rem;height:1rem;"></span></div></td>
-										@else
-											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
-										@endif --}}
-
 										@isset($servicos[$i]['id_cliente'])
 											<td>{{ $servicos[$i]['id_cliente'] }}</td>
 										@endisset
@@ -190,7 +182,6 @@
 												<button type="button" class="botao-editar btn-editar" data-id="{{ url('admin/servicos/editar') }}/{{ $servicos[$i]['id'] }}" style="margin-left: 30px;">
 													<i class="fas fa-edit"></i>
 												</button>
-												{{-- <button type="button" class="botao-remover" data-id="{{ url('admin/servicos/confirm') }}/{{ $servicos[$i]['id'] }}" style="margin-left: 30px;"><i class="far fa-trash-alt"></i></button> --}}
 											</div>
 										</td>
 

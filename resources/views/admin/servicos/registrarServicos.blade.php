@@ -61,7 +61,7 @@
 
 	<div class="groups-two" style="flex-direction: column">
 		<label for="valor" class="control-label">Valor do serviço</label>
-		<input type="number" class="inputs" id="valor" name="valor" required placeholder="R$">
+		<input type="text" class="inputs" id="valor" name="valor" required placeholder="R$">
 	</div>
 
 	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">

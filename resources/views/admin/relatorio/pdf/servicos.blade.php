@@ -71,19 +71,22 @@
     }
 </style>
 <body>
+
 <div class="title">Serviços do mês de {{ $mesgeral }}, de {{ $request_ano }}</div>
-    <table class="table table-striped">
+
+<div class="table-responsive">
+    <table class="table invoice-table">
         <thead>
             <tr>
-                <th scope="col">Cliente:</th>
-                <th scope="col">Status:</th>
-                <th scope="col">Ano:</th>
-                <th scope="col">Marca:</th>
-                <th scope="col">Modelo:</th>
-                <th scope="col">Placa:</th>
-                <th scope="col">Valor:</th>
-                <th scope="col">Descrição:</th>
-                <th scope="col">Criado em:</th>
+                <th>Cliente</th>
+                <th>Status</th>
+                <th>Ano</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Placa</th>
+                <th>Valor</th>
+                <th>Descrição</th>
+                <th>Criado em</th>
             </tr>
         </thead>
         <tbody>
@@ -102,5 +105,8 @@
             @endforeach
         </tbody>
     </table>
+</div>
+
+
 </body>
 </html>

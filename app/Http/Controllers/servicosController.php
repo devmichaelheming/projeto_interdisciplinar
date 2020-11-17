@@ -77,7 +77,6 @@ class servicosController extends Controller
 
     public function cadastrado(Request $request)
     {
-        dd($request->all());
         $date = $request['date'];
 
         $subs = substr("$date", 0, 10);
@@ -86,7 +85,6 @@ class servicosController extends Controller
 
         date_default_timezone_set('America/Manaus');
 
-        // $created_at = date('Y/m/d H:i:s');
         $created_at = $request['date'];
 
         $date_atual = str_replace('T', ' ', $created_at);
@@ -148,10 +146,8 @@ class servicosController extends Controller
                 $clientes = clientes::all();
 
                 $dr = mb_strimwidth($db['created_at'], 0, 19);
-
-                // $dd = date("d/m/Y");
-
-                // dd($dr);
+               
+                $convert_date = str_replace(' ', 'T', $dr);
 
                 return view('admin.servicos.editarServicos',[
                     'id' => $id,
@@ -163,7 +159,7 @@ class servicosController extends Controller
                     'placa' => $db['placa'],
                     'valor' => $db['valor'],
                     'descricao' => $db['descricao'],
-                    'created_at' => "12/10/2019 16:58:00",
+                    'created_at' => $convert_date,
                     'clientes' => $clientes,
                 ]); 
         //    }
@@ -175,6 +171,20 @@ class servicosController extends Controller
         $db = servicos::find($id);
 
         $dados = $request->all();
+
+        $date = $dados['date'];
+
+        $subs = substr("$date", 0, 10);
+
+        $convert_date = explode('-', $subs);
+
+        date_default_timezone_set('America/Manaus');
+
+        $date_ano = $convert_date[0];
+        $date_mes = $convert_date[1];
+        $date_dia = $convert_date[2];
+
+        $date_atual = str_replace('T', ' ', $dados['date']);
 
         $id_cliente = $dados['id_cliente'];
         $status = $dados['status'];
@@ -193,6 +203,10 @@ class servicosController extends Controller
         $db['marca'] = $marca;
         $db['valor'] = $valor;
         $db['descricao'] = $descricao;
+        $db['created_at'] = $date_atual;
+        $db['date_ano'] = $date_ano;
+        $db['date_mes'] = $date_mes;
+        $db['date_dia'] = $date_dia;
 
         $db->save();
 

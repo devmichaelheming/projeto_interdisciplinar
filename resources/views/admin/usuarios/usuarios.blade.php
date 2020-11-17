@@ -53,15 +53,14 @@
 
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
-					<div class="widget-header clearfix">
+					<div class="widget-header">
 						<h3><i class="fas fa-users-cog" style="margin-right: 0.5rem;"></i> <span>Usuários do sistema</span></h3>
 						<div class="btn-group widget-header-toolbar">
 
 							<div class="btn-group widget-header-toolbar">
-								<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/usuarios/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo usuário</button>
+								<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/usuarios/viewCadastrar') }}"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo usuário</button>
 							</div>
 
-	
 						</div>
 					</div>
 
@@ -131,7 +130,9 @@
 									
 									<td>
                                       <div class="botoes">
-										<button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/usuarios/editar') }}/{{ $users[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
+										<button type="button" class="botao-editar btn-editar" data-id="{{ url('admin/usuarios/editar') }}/{{ $users[$i]['id'] }}" style="margin-left: 30px;">
+											<i class="fas fa-edit"></i>
+										</button>
 										<button type="button" class="botao-remover" data-id="{{ url('admin/usuarios/confirm') }}/{{ $users[$i]['id'] }}"><i class="far fa-trash-alt"></i></button> 
                                       </div>
 									</td>
@@ -211,6 +212,7 @@
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
+	<script src="{{ asset('js/jquery.js') }}"></script>
 	<script src=" {{ asset('templates/theme/assets/js/jquery/jquery-2.1.0.min.js') }}"></script>
 	<script src=" {{ asset('templates/theme/assets/js/bootstrap/bootstrap.js') }}"></script>
 	<script src=" {{ asset('templates/theme/assets/js/plugins/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
@@ -241,7 +243,7 @@
 			$('body').delay(350).css({'overflow': 'visible'});
 		});
 
-		// EDITAR USUARIO
+		// EDITAR CLIENTE
 
 		$(document).on('click','.btn-editar', function(e){
 			e.preventDefault();
@@ -285,7 +287,6 @@
 				url: '{{ url('admin/usuarios/viewCadastrar') }}',
 				type: 'get',
 				success: function(response){
-					console.log(response)        
 					$(bodyFormName).html(response);
 				}
 			});

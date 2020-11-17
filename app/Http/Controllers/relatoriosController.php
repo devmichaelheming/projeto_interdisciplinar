@@ -81,14 +81,13 @@ class relatoriosController extends Controller
             }
         }
 
-         foreach ($clientes as $cliente) {
+        foreach ($clientes as $cliente) {
             $id_cliente =  $dados_name;
 
             $servicos_cliente = [];
 
             foreach ($servicos as $servico) {    
                 if($id_cliente == $servico->id_cliente){
-
                     $arr = [];
 
                     $arr['status'] = $servico->status;
@@ -101,9 +100,9 @@ class relatoriosController extends Controller
                     $arr['cliente'] = $id_cliente;
 
                     $servicos_cliente[] = $arr;
-
                 }
             }
+            
         }
 
         $dados[] = ['name'=>$name_cliente, 'email'=>$email_cliente, 'phone'=>$phone_cliente, 'nascimento'=>$nascimento_cliente, 'cidade'=>$cidade_cliente, 'cpf'=>$cpf_cliente, 'endereco'=>$endereco_cliente, 'created_at'=>$created_cliente];

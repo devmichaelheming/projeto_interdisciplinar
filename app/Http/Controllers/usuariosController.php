@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\user;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class usuariosController extends Controller
 {
@@ -25,8 +26,12 @@ class usuariosController extends Controller
 
     public function cadastrado(Request $request)
     {
-        try{
-        $db = New user();
+        $verific_email = DB::table('users')->where('email', $request['email'])->count() == 1;
+
+        if($verific_email == "true") {
+            return redirect()->route('admin.usuarios')->with('invalido', 'E-Mail já existente!');
+        } else{
+            $db = New user();
 
             $db->name = $request->input('name');
             $db->email = $request->input('email');
@@ -36,13 +41,6 @@ class usuariosController extends Controller
             $db->save();
 
             return redirect()->route('admin.usuarios')->with('mensagem', 'O usuário foi cadastrado com sucesso!');
-        } catch (QueryException $ex) {
-            
-            if($ex->getCode() === "23000") {
-                return redirect()->route('admin.usuarios')->with('invalido', 'O usuário já está cadastrado no sistema!');
-            } else {
-                return redirect()->route('admin.usuarios')->with('invalido', 'Erro SQL ao cadastrar usuário!');
-            }
         }
     }
 
@@ -71,27 +69,54 @@ class usuariosController extends Controller
     public function editarSalvar(Request $request, $id)
     {
 
+        $verific_email = DB::table('users')->where('email', $request['email'])->count() == 1;
+
         $db = user::find($id);
 
-        $dados = $request->all();
+        if($verific_email == "true") {
 
-        $name = $dados['name'];
-        $email = $dados['email'];
-        $phone = $dados['phone'];
-        if ($db['password'] == $dados['password']) {
-           $password = $dados['password'];
+            $dados = $request->all();
+
+            $name = $dados['name'];
+            $phone = $dados['phone'];
+            if ($db['password'] == $dados['password']) {
+            $password = $dados['password'];
+            }else{
+                $password = bcrypt($dados['password']);
+            }
+
+            $db['name'] = $name;
+            $db['phone'] = $phone;
+            $db['email'] = $db['email'];
+            $db['password'] = $password;
+
+            $db->save();
+
+            return redirect()->route('admin.usuarios')->with('invalido', 'E-Mail ja existente!');
+
         }else{
-            $password = bcrypt($dados['password']);
+
+            $dados = $request->all();
+
+            $name = $dados['name'];
+            $email = $dados['email'];
+            $phone = $dados['phone'];
+            if ($db['password'] == $dados['password']) {
+            $password = $dados['password'];
+            }else{
+                $password = bcrypt($dados['password']);
+            }
+
+            $db['name'] = $name;
+            $db['phone'] = $phone;
+            $db['email'] = $email;
+            $db['password'] = $password;
+
+            $db->save();
+
+            return redirect()->route('admin.usuarios')->with('mensagem', 'O usuário foi atualizdo com sucesso!');
+
         }
-
-        $db['name'] = $name;
-        $db['phone'] = $phone;
-        $db['email'] = $email;
-        $db['password'] = $password;
-
-        $db->save();
-
-        return redirect()->route('admin.usuarios')->with('mensagem', 'O usuário foi atualizdo com sucesso!');
         
     }
 

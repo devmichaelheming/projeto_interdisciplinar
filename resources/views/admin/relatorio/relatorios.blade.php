@@ -56,8 +56,8 @@
 				{{-- TABLE --}}
 				
 				<div class="widget" id="widget">
-					<div class="widget-header clearfix">
-						<h3><i class="fas fa-file-pdf" style="margin-right: 0.5rem;"></i><span>Relatórios</span></h3>
+					<div class="widget-header">
+						<h3><i class="fas fa-file-pdf"></i><span>Relatórios</span></h3>
 					</div>
 					@if (session('mensagem'))
 						<div class="sacefull">

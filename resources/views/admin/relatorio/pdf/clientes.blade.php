@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    {{-- <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}"> --}}
+    {{-- <link href="templates/theme/assets/css/main.css" rel="stylesheet" type="text/css"> --}}
 </head>
 <style>
     body{
@@ -71,50 +71,57 @@
     }
 </style>
 <body>
-    <div class="title">INFORMAÇÃO DO CLIENTE(A): <?PHP echo strtoupper($dados['name']) ?></div>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Nome:</th>
-                <th scope="col">E-Mail:</th>
-                <th scope="col">Telefone:</th>
-                <th scope="col">Data de nascimento:</th>
-                <th scope="col">Cidade:</th>
-                <th scope="col">Cpf:</th>
-                <th scope="col">Endereço:</th>
-                <th scope="col">Criado em:</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $dados['name'] }}</td>
-                <td>{{ $dados['email'] }}</td>
-                <td>{{ $dados['phone'] }}</td>
-                <td>{{ $dados['nascimento'] }}</td>
-                <td>{{ $dados['cidade'] }}</td>
-                <td>{{ $dados['cpf'] }}</td>
-                <td>{{ $dados['endereco'] }}</td>
-                <td>{{ $dados['created_at'] }}</td>
-            </tr>
-        </tbody>
-    </table>
+    
+    <div class="title">Informações do cliente(a): <?PHP echo $dados['name'] ?></div>
 
-    <div class="title">SERVIÇOS CADASTRADOS DO CLIENTE: <?PHP echo strtoupper($dados['name']) ?></div>
+    <div class="table-responsive">
+        <table class="table invoice-table">
+            <thead>
+                <tr>
+                    {{-- <th>#</th> --}}
+                    <th>Nome</th>
+                    <th>E-Mail</th>
+                    <th>Telefone</th>
+                    <th>Data de nascimento</th>
+                    <th>Cidade</th>
+                    <th>Cpf</th>
+                    <th>Endereço</th>
+                    <th>Criado em</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ $dados['name'] }}</td>
+                    <td>{{ $dados['email'] }}</td>
+                    <td>{{ $dados['phone'] }}</td>
+                    <td>{{ $dados['nascimento'] }}</td>
+                    <td>{{ $dados['cidade'] }}</td>
+                    <td>{{ $dados['cpf'] }}</td>
+                    <td>{{ $dados['endereco'] }}</td>
+                    <td>{{ $dados['created_at'] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Status:</th>
-                <th scope="col">Valor:</th>
-                <th scope="col">Descrição:</th>
-                <th scope="col">Ano:</th>
-                <th scope="col">Marca:</th>
-                <th scope="col">Placa:</th>
-                <th scope="col">Criado em:</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($servicos_cliente as $servicos)
+    <div class="title">Serviços cadastrados do cliente: <?PHP echo $dados['name'] ?></div>
+
+    <div class="table-responsive">
+        <table class="table invoice-table">
+            <thead>
+                <tr>
+                    {{-- <th>#</th> --}}
+                    <th>Status</th>
+                    <th>Valor</th>
+                    <th>Descrição</th>
+                    <th>Ano</th>
+                    <th>Marca</th>
+                    <th>Placa</th>
+                    <th>Criado em</th>
+                </tr>
+            </thead>
+            <tbody>
+                 @foreach ($servicos_cliente as $servicos)
                 <tr>
                     <td>{{ $servicos['status'] }}</td>
                     <td>{{ $servicos['valor'] }}</td>
@@ -125,8 +132,9 @@
                     <td>{{ $servicos['created_at'] }}</td>
                 </tr>
             @endforeach
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>

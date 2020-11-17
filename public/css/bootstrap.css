@@ -1604,10 +1604,12 @@ pre code {
   }
 }
 .container-fluid {
+  display: flex;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  flex-direction: column;
 }
 .row {
   margin-right: -15px;
@@ -6143,7 +6145,7 @@ transform: translate(0, -25%);
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000000;
+  z-index: 10000;
   display: none;
   max-width: 276px;
   padding: 1px;
@@ -6164,13 +6166,12 @@ transform: translate(0, -25%);
   white-space: normal;
   background-color: #fff;
   -webkit-background-clip: padding-box;
-          background-clip: padding-box;
+  background-clip: padding-box;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, .2);
   border-radius: 6px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
   line-break: auto;
 }
 .popover.top {

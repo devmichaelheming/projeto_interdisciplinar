@@ -1,37 +1,29 @@
 <form class="form-horizontal" id="form" role="form" action="{{ url('/admin/usuarios/editar/salvar') }}/{{ $id }}" method="POST" enctype="multipart/form-data" >
 	@csrf
-	<div class="form-group">
+	<div class="groups-two" style="flex-direction: column"> 
 		<label for="name" class="control-label">Username</label>
-		<div class="input-group">
-			<input type="text" class="form-control" id="name" name="name" value="{{$name}}">
-		</div>
-	</div>
-	
-	<div class="form-group">
-		<label for="email" class="control-label">Email</label>
-		<div class="input-group">
-			<input type="email" class="form-control" id="email" name="email" value="{{$email}}">
-		</div>
+		<input type="text" class="inputs" id="name" name="name" value="{{ $name }}">
 	</div>
 
-	<div class="form-group">
+	<div class="groups-two" style="flex-direction: column"> 
+		<label for="email" class="control-label">E-Mail</label>
+		<input type="email" class="inputs" id="email" name="email" value="{{ $email }}">
+	</div>
+
+	<div class="groups-two" style="flex-direction: column"> 
 		<label for="phone" class="control-label">Telefone</label>
-		<div class="input-group">
-			<input type="text" class="form-control" id="phone" name="phone" value="{{$phone}}" onkeypress="return isNumber(event)">
-		</div>
+		<input type="text" class="inputs" id="phone" name="phone" value="{{ $phone }}">
 	</div>
-	
-	<div class="form-group">
+
+	<div class="groups-two" style="flex-direction: column"> 
 		<label for="password" class="control-label">Password</label>
-		<div class="input-group">
-			<input type="password" class="form-control" id="password" name="password" value="{{$password}}">
-		</div>
+		<input type="password" class="inputs" id="password" name="password" value="{{ $password }}">
 	</div>
+
 	<div class="botao">
 		<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled"></i>Atualizar</button>
 	</div>
 </form>
-<script src="{{ asset('js/jquery.js')}}"></script>
 <script src="{{ asset('jquery-validation/dist/jquery.validate.min.js')}}"></script>
 <script src="{{ asset('jquery-validation/dist/jquery.validate.js')}}"></script>
 <script src="{{ asset('mask/dist/jquery.mask.js')}}"></script>
@@ -71,6 +63,6 @@
 		}
 	}
 
-	$('#phone').mask('000.000.000-000', options);
+	$('#phone').mask('(00)0.0000-0000', options);
 
 </script>
