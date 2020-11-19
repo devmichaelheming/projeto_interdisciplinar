@@ -56,10 +56,16 @@ class servicosController extends Controller
         }
         
         $total = array_sum($sep);
+
+        $diario_atual = date('Y-m-d');
+
+        $mensal_atual = date('Y-m');
         
         return view('admin.servicos.servicos', [
             "servicos" => $servicos,
             "total" => $total,
+            "diario_atual" => $diario_atual,
+            "mensal_atual" => $mensal_atual,
             "ativo" => json_decode($ativo[0]->status),
             "inativo" => json_decode($inativo[0]->status),
             "extornados" => json_decode($extornados[0]->status),
@@ -227,7 +233,7 @@ class servicosController extends Controller
         $db = servicos::find($id);
 
         $status = '2';
-        $valor = '00.00';
+        $valor = '00,00';
 
         $db['status'] = $status;
         $db['valor'] =  $valor;

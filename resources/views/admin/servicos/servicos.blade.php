@@ -50,69 +50,61 @@
 		<div id="col-right" class="col-right ">
 			@include('admin.servicos.modal')
 			<div class="container-fluid primary-content">
-
+				
 				<div class="porcentagens">
-					<div class="col">
+					<div class="col-cards">
 						<div class="quick-info boxed bg-green">
-							<p>{{ $ativo }} <span>SERVIÇOS FINALIZADOS</span></p>
-							<i class="fas fa-user-check"></i>
+							<div class="quick-info-detail">
+								<p>{{ $ativo }} </p>
+								<span>SERVIÇOS FINALIZADOS</span>
+							</div>
+							<i class="far fa-check-circle"></i>
 						</div>
 					</div>
-					<div class="col">
+					<div class="col-cards">
 						<div class="quick-info boxed bg-red">
-							<p>{{ $inativo }} <span>SERVIÇOS EM ANDAMENTO</span></p>
-							<i class="fas fa-user-times"></i>
+							<div class="quick-info-detail">
+								<p>{{ $inativo }} </p>
+								<span>SERVIÇOS EM ANDAMENTO</span>
+							</div>
+							<i class="fas fa-spinner"></i>
 						</div>
 					</div>
-					<div class="col">
+					<div class="col-cards">
 						<div class="quick-info boxed bg-blue2">
-							<p>{{ $extornados }} <span>SERVIÇOS EXTORNADOS</span></p>
-							<i class="icon ion-person-stalker"></i>
+							<div class="quick-info-detail">
+								<p>{{ $extornados }} </p>
+								<span>SERVIÇOS EXTORNADOS</span>
+							</div>
+							<i class="fas fa-hand-holding-usd"></i>
 						</div>
 					</div>
-					<div class="col">
+					<div class="col-cards">
 						<div class="quick-info boxed bg-gold">
-							<p>${{ $total }} <span>PREVISÃO DE LUCRO</span></p>
+							<div class="quick-info-detail">
+								<p>${{ $total }} </p>
+								<span>PREVISÃO DE LUCRO</span>
+							</div>
 							<i class="icon ion-cash"></i>
 						</div>
 					</div>
-					<div class="col">
+					<div class="col-cards">
 						<div class="quick-info boxed bg-blue">
-							<p>{{ count($servicos) }} <span>SERVIÇOS</span></p>
-							<i class="icon ion-person-stalker"></i>
+							<div class="quick-info-detail">
+								<p>{{ count($servicos) }} </p>
+								<span>SERVIÇOS</span>
+							</div>
+							<i class="fas fa-briefcase"></i>
 						</div>
 					</div>
 				</div>
-				
-				{{-- TABLE --}}
-				<div class="widget" id="widget">
-					<div class="widget-header">
-						<h3><i class="fas fa-toolbox" style="margin-right:0.5rem;"></i><span>Serviços</span></h3>
 
-						<div class="btn-group widget-header-toolbar">
-							<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/servicos/viewCadastrar') }}"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo serviço</button>
-						</div>
-					</div>
-
-					@if (session('mensagem'))
-						<div class="sacefull">
-							<div class="alert alert-success">
-								<span>
-									<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-									{{ session('mensagem') }}
-								</span>
-								<div class="alert-close">
-									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-										<span aria-hidden="true"><i class="fas fa-times"></i></span>
-									</button>
-								</div>
-							</div>
-						</div>
-					@elseif(session('invalido'))
-						<div class="alert alert-danger">
+				@if (session('mensagem'))
+					<div class="sacefull" style="margin-bottom: 1rem;">
+						<div class="alert alert-success">
 							<span>
 								<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-								{{ session('invalido') }}
+								{{ session('mensagem') }}
 							</span>
 							<div class="alert-close">
 								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -120,10 +112,37 @@
 								</button>
 							</div>
 						</div>
-					@endif
+					</div>
+				@elseif(session('invalido'))
+					<div class="alert alert-danger" style="margin-bottom: 1rem;">
+						<span>
+							<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
+							{{ session('invalido') }}
+						</span>
+						<div class="alert-close">
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true"><i class="fas fa-times"></i></span>
+							</button>
+						</div>
+					</div>
+				@endif
+				
+				
+				{{-- TABLE --}}
+				<div class="container-servicos">
 
-					<div class="widget-content table-responsive">
-						<table id="table" class="table table-sorting">
+				<div class="container-table">
+					<div class="widget" id="widget">
+						<div class="widget-header">
+							<h3><i class="fas fa-toolbox" style="margin-right:0.5rem;"></i><span>Serviços</span></h3>
+
+							<div class="btn-group widget-header-toolbar">
+								<button type="submit" class="btn btn-primary btn-cadastrar" data-toggle="modal" data-idc="{{ url('/servicos/viewCadastrar') }}"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo serviço</button>
+							</div>
+						</div>
+
+						<div class="widget-content table-responsive">
+							<table id="table" class="table table-sorting">
 							
 							<thead>
 								<tr>
@@ -191,9 +210,63 @@
 
 							</tbody>
                             
-                        </table>
+							</table>
+						</div>
 					</div>
 				</div>
+
+				<div class="container-relatorio">
+					<div class="widget">
+						<div class="widget-header">
+							<h3><i class="fas fa-file-pdf"></i> <span>RELATÓRIO</span></h3>
+							<div class="btn-group widget-header-toolbar">
+								{{-- <button type="button" class="btn btn-link btn-help" data-content="Gerar o relatório de clientes registrados e seus respectivos serviços"><i class="icon ion-ios-help"></i></button> --}}
+								<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
+							</div>
+						</div>
+						<div class="widget-content">
+							<div class="servicos-relatorio">
+								<form action="{{ route('relatorios.servicos.diario.pdf') }}" method="POST">
+								@csrf
+									<div class="relatorio-clientes">
+
+										<div class="form-group">
+											<label for="diario" class="control-label">Relatório diario</label>
+											<div class="input-group">
+												<input type="date" class="form-control" id="diario" name="diario" value="{{ $diario_atual }}">
+											</div>
+										</div>
+
+										<div class="botao">
+											<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Gerar relatório diario</button>
+										</div>
+
+									</div>
+
+								</form>
+								<form action="{{ route('relatorios.servicos.mensal.pdf') }}" method="POST">
+								@csrf
+								<div class="relatorio-clientes">
+
+									<div class="form-group">
+										<label for="mensal" class="control-label">Relatório mensal</label>
+										<div class="input-group">
+											<input type="month" class="form-control" id="mensal" name="mensal" value="{{ $mensal_atual }}">
+										</div>
+									</div>
+
+									<div class="botao">
+										<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Gerar relatório mensal</button>
+									</div>
+
+								</div>
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 				
 				<!-- END TICKETS -->
 			</div>

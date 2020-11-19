@@ -52,7 +52,10 @@
 		<div id="col-right" class="col-right ">
 			@include('admin.clientes.modal')
 			<div class="container-fluid primary-content" style="flex-direction:row;">
-				<div class="container">
+
+				<div class="container-servicos">
+
+				<div class="container-table">
 					{{-- TABLE --}}
 					<div class="widget" id="widget">
 						<div class="widget-header">
@@ -155,7 +158,6 @@
 								</tbody>
 							</table>
 						</div>
-						
 					</div>
 				</div>
 
@@ -185,6 +187,8 @@
 						</div>
 					</div>
 				</div>
+			
+			</div>
 				
 				<!-- END TICKETS -->
 			</div>

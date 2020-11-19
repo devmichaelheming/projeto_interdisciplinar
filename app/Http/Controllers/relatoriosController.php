@@ -213,7 +213,7 @@ class relatoriosController extends Controller
         }
 
         if (empty($servico[0])) {
-             return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste mês!');
+             return redirect()->route('admin.servicos')->with('invalido', 'Não existe serviços cadastrados neste mês!');
         }
 
         foreach ($servico as $servicos) {
@@ -232,7 +232,7 @@ class relatoriosController extends Controller
             if ($request_ano == $value['date_ano']) {
                 $servicos_total[] = $value;   
             } else{
-                return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste ano!');
+                return redirect()->route('admin.servicos')->with('invalido', 'Não existe serviços cadastrados neste ano!');
             }
         }
 
@@ -296,7 +296,7 @@ class relatoriosController extends Controller
         $servico = servicos::where('date_dia', $request_dia)->get();
 
         if (empty($servico[0])) {
-            return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste dia!');
+            return redirect()->route('admin.servicos')->with('invalido', 'Não existe serviços cadastrados neste dia!');
         }
 
         $servicos_total = [];
@@ -307,7 +307,7 @@ class relatoriosController extends Controller
                     $servicos_total[] = $value;   
                 }
             } else{
-                return redirect()->route('admin.relatorios')->with('invalido', 'Não existe serviços cadastrados neste ano!');
+                return redirect()->route('admin.servicos')->with('invalido', 'Não existe serviços cadastrados neste ano!');
             }
         }
 

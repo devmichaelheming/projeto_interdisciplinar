@@ -5,7 +5,7 @@
 	</div>
 
 	<div class="form-group" style="margin:0;">
-		<label for="id_cliente" class="control-label">Cliente:</label>
+		<span for="id_cliente" class="control-label">Cliente:</span>
 		<select name="id_cliente" id="id_cliente" class="form-control">
 			@foreach ($clientes as $cliente)	
 				<option value="{{$cliente['id']}}">{{$cliente['name']}}</option>
@@ -20,12 +20,12 @@
 	<div class="groups-two">
 
 		<div class="form-group-tipo2">
-			<label for="ano" class="control-label">Ano</label>
+			<span for="ano" class="control-label">Ano</span>
 			<input type="text" class="inputs" id="ano" name="ano" placeholder="Insira o ano do veiculo..." required>
 		</div>
 
 		<div class="form-group-tipo2">
-			<label for="marca" class="control-label">Marca</label>
+			<span for="marca" class="control-label">Marca</span>
 			<input type="text" class="inputs" id="marca" name="marca" placeholder="Insira a marca do veiculo..." required>
 		</div>
 
@@ -34,12 +34,12 @@
 	<div class="groups-two">
 
 		<div class="form-group-tipo2">
-			<label for="modelo" class="control-label">Modelo</label>
+			<span for="modelo" class="control-label">Modelo</span>
 			<input type="text" class="inputs" id="modelo" name="modelo" placeholder="Insira o modelo do veiculo..." required>
 		</div>
 
 		<div class="form-group-tipo2">
-			<label for="placa" class="control-label">Placa</label>
+			<span for="placa" class="control-label">Placa</span>
 			<input type="text" class="inputs" id="placa" name="placa" placeholder="Insira a placa do veiculo..." required>
 		</div>
 
@@ -50,21 +50,21 @@
 	</div>
 
 	<div class="groups-two" style="flex-direction: column">
-		<label for="date" class="control-label">Data do serviço</label>
+		<span for="date" class="control-label">Data do serviço</span>
 		<input type="datetime-local" class="inputs" id="date" name="date" required placeholder="00/00/0000">
 	</div>
 
 	<div class="groups-two" style="flex-direction: column">
-		<label for="phone" class="control-label">Descrição</label>
+		<span for="phone" class="control-label">Descrição</span>
 		<textarea name="descricao" id="descricao" class="inputs" rows="5" placeholder="tipo de serviço, gastos previstos, observações..." required></textarea>
 	</div>
 
 	<div class="groups-two" style="flex-direction: column">
-		<label for="valor" class="control-label">Valor do serviço</label>
+		<span for="valor" class="control-label">Valor do serviço</span>
 		<input type="text" class="inputs" id="valor" name="valor" required placeholder="R$">
 	</div>
 
-	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:1rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
+	<div class="groups-two2" style="display:flex;justify-content:flex-start;padding:1rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
 		<label for="switch">Status do serviço</label>
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="0" checked>
@@ -83,38 +83,34 @@
 		<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Cadastrar</button>
 	</div>
 </form>
+<script src="{{ asset('jquery-validation/dist/jquery.validate.min.js')}}"></script>
+<script src="{{ asset('jquery-validation/dist/jquery.validate.js')}}"></script>
 <script>
 
-	function selecionar(elemento)
-	{
-		var verific = elemento.value
-
-		console.log(verific)
-		
-		switch (verific) {
-			case 'parcelas':
-				$("#retorno div").remove()
-				$("#retorno").append('\
-				<div class="form-group-tipo">\
-					<label for="phone" class="control-label" style="padding:0;">Vezes</label>\
-						<input type="number" class="inputs" id="vezes" name="vezes" required>\
-				</div>\
-				<div class="form-group-tipo">\
-				<label for="phone" class="control-label" style="padding:0;">Periodo</label>\
-				<select id="ticket-priority" id="periodo" name="periodo" class="select-ticket-priority">\
-					<option value="meses">Meses</option>\
-					<option value="anos">Anos</option>\
-				</select>\
-				</div>\
-				');
-			break;
-			case 'unica':
-				$("#retorno div").remove()
-			break;
-			case 'fixa':
-				$("#retorno div").remove()
-			break;
+	$('form#form').validate({
+		rules: {
+			ano: {
+				required: true
+			},
+			marca: {
+				required: true
+			},
+			modelo: {
+				required: true
+			},
+			placa: {
+				required: true
+			},
+			date: {
+				required: true
+			},
+			descricao: {
+				required: true
+			},
+			valor: {
+				required: true
+			},
 		}
-	}
+	})
 
 </script>

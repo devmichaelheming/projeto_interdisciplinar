@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 12/11/2020 às 22:43
+-- Tempo de geração: 19/11/2020 às 15:56
 -- Versão do servidor: 10.4.11-MariaDB
 -- Versão do PHP: 7.2.26
 
@@ -49,8 +49,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `name`, `email`, `phone`, `nascimento`, `cidade`, `status`, `cpf`, `endereco`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(2, 'joao', 'joao@hotmail.com', '666666666', '02/06/1996', 'Sinop', '1', '05668221522', 'Rua Espanha', NULL, NULL, '2020-11-12 18:34:19', '2020-11-12 18:34:19'),
-(3, 'maria', 'maria@hotmail.com', '12345678', '02/05/2001', 'Sinop', '1', '05668221522', 'Rua Espanha', NULL, NULL, '2020-11-12 18:34:35', '2020-11-12 18:34:35');
+(10, 'michael', 'michael.heming25@gmail.com', '(66)6.6666-6666', '2001-05-25', 'Sinop', '1', '015.150.505-05', 'Rua Espanha', NULL, NULL, '2020-11-19 16:32:15', '2020-11-19 16:32:15'),
+(11, 'joao', 'joao@hotmail.com', '(15)6.1561-6515', '1996-12-05', 'Sinop', '0', '561.651.165-16', 'Rua Espanha', NULL, NULL, '2020-11-19 16:32:44', '2020-11-19 16:34:15');
 
 -- --------------------------------------------------------
 
@@ -93,10 +93,12 @@ CREATE TABLE `contatosinicial` (
 --
 
 INSERT INTO `contatosinicial` (`id`, `name`, `sobrenome`, `email`, `telefone`, `assunto`, `mensagem`, `created_at`, `updated_at`) VALUES
-(18, 'teste', 'teste', 'teste@teste.com', '(16)65165-1651', 'teste', 'teste', '2020-11-10 23:00:20', '2020-11-10 23:00:20'),
-(19, 'michael', 'de oliveira', 'michael.heming25@gmail.com', '(14)65165-1561', 'teste', 'teste', '2020-11-10 23:00:30', '2020-11-10 23:00:30'),
-(20, 'joao', 'pedro', 'joao@hotmail.com', '(15)61561-6156', 'teste joao', 'joao teste', '2020-11-10 23:00:59', '2020-11-10 23:00:59'),
-(21, 'asdasd', 'asdads', 'asdaads@asdasd.asd', '(61)65165-1561', '1asasdasd', 'asdasdasda', '2020-11-10 23:01:20', '2020-11-10 23:01:20');
+(1, 'maria', 'de oliveira', 'maria@hotmail.com', '(00)00000-0000', 'teste', 'teste', '2020-11-19 16:25:56', '2020-11-19 16:25:56'),
+(2, 'joao', 'de oliveira', 'joao@hotmail.com', '(00)00000-0000', 'teste', 'teste', '2020-11-19 16:26:20', '2020-11-19 16:26:20'),
+(3, 'pedro', 'oliveira', 'pedro@hotmail.com', '(00)00000-0000', 'teste', 'teste', '2020-11-19 16:26:39', '2020-11-19 16:26:39'),
+(4, 'teste', 'teste', 'teste@teste.com', '(00)00000-0000', 'teste', 'teste', '2020-11-19 16:26:51', '2020-11-19 16:26:51'),
+(5, 'example', 'example', 'example@example.com', '(00)00000-0000', 'teste', 'teste', '2020-11-19 16:27:52', '2020-11-19 16:27:52'),
+(6, 'michael', 'heming de oliveira', 'michael.heming25@gmail.com', '(00)00000-0000', 'teste', 'teste', '2020-11-19 16:28:11', '2020-11-19 16:28:11');
 
 -- --------------------------------------------------------
 
@@ -178,10 +180,9 @@ CREATE TABLE `servicos` (
 --
 
 INSERT INTO `servicos` (`id`, `id_cliente`, `status`, `valor`, `descricao`, `ano`, `marca`, `modelo`, `placa`, `date_dia`, `date_mes`, `date_ano`, `created_at`, `updated_at`) VALUES
-(16, '2', '0', '53', 'teste1', '2020', 'titan', 'cg 160', '15691561', '12', '11', '2020', '2020-11-12 20:56:00', '2020-11-12 20:57:08'),
-(17, '2', '0', '85', 'teste2', '2020', 'titan', 'cg 160', '15691561', '12', '10', '2020', '2020-10-12 20:57:00', '2020-11-12 20:57:44'),
-(18, '3', '0', '95', 'teste', '2020', 'titan', 'cg 160', '15691561', '12', '11', '2019', '2019-11-12 20:58:00', '2020-11-12 20:58:22'),
-(19, '3', '0', '11', 'teste3', '2020', 'titan', 'cg 160', '26262das', '12', '10', '2019', '2019-10-12 20:58:00', '2020-11-13 01:10:57');
+(22, '10', '0', '750,00', 'Revisão geral', '2020', 'fiat', 'fiat uno', 'RIOA123', '19', '11', '2020', '2020-11-19 12:44:00', '2020-11-19 14:22:44'),
+(23, '11', '1', '250,00', 'Motor', '2020', 'Chevrolet', 'Chevrolet Onix', 'RIKD156', '22', '11', '2020', '2020-11-22 17:45:00', '2020-11-19 12:46:14'),
+(24, '11', '2', '00,00', 'manutenção geral', '2018', 'Chevrolet', 'Chevrolet equinox', 'FDAF156', '07', '11', '2020', '2020-11-07 13:52:00', '2020-11-19 16:48:06');
 
 -- --------------------------------------------------------
 
@@ -206,7 +207,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@admin.com', '12345678', NULL, '$2y$10$7kGAs9sD/8TbMWst78RIAuFbFUfEAn6Zbqh2E.DZPPAHjYniGl936', NULL, '2020-11-10 04:00:00', '2020-11-10 19:05:03');
+(1, 'admin', 'admin@admin.com', '(66)9.9915-6151', NULL, '$2y$10$7kGAs9sD/8TbMWst78RIAuFbFUfEAn6Zbqh2E.DZPPAHjYniGl936', NULL, '2020-11-10 04:00:00', '2020-11-18 01:03:44');
 
 --
 -- Índices de tabelas apagadas
@@ -270,7 +271,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `contas`
@@ -282,7 +283,7 @@ ALTER TABLE `contas`
 -- AUTO_INCREMENT de tabela `contatosinicial`
 --
 ALTER TABLE `contatosinicial`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `failed_jobs`
@@ -300,13 +301,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de tabela `servicos`
 --
 ALTER TABLE `servicos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

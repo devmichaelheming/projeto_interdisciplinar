@@ -18,11 +18,11 @@
 				<button type="button" style="background:transparent;border:none;width:100%;padding:0;" data-trigger="hover" title="Popover title" data-content="Contatos">
 					<li><a href="{{ route('admin.contatos') }}"><i class="fas fa-address-card"></i><span class="text"></span></a></li>
 				</button>
-
+{{-- 
 				<button type="button" style="background:transparent;border:none;width:100%;padding:0;" data-trigger="hover" title="Popover title" data-content="Relatórios">
 					<li><a href="{{ route('admin.relatorios') }}"><i class="fas fa-file-pdf"></i><span class="text"></span></a></li>
 				</button>
-				
+				 --}}
 			</ul>
 		</nav>
 	</div>
@@ -30,6 +30,7 @@
 <script>
 
 $(function () {
-			$('[data-trigger="hover"]').popover()
-		})
+	$('[data-trigger="hover"]').popover()
+})
+
 </script>

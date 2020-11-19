@@ -65,7 +65,7 @@
 		<input type="text" class="inputs" id="valor" name="valor" value="{{$valor}}" required>
 	</div>
 
-	<div class="groups-two" style="display:flex;justify-content:flex-start;padding:0.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
+	<div class="groups-two2" style="display:flex;justify-content:flex-start;padding:0.5rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
 		<label for="switch">Status do serviço</label>
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="0" {{ ($status == "0") ? "checked" : "" }}>
@@ -84,5 +84,35 @@
 	<div class="botao">
 		<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Atualizar</button>
 	</div>
-	{{-- <button type="submit" class="btn btn-success"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Atualizar</button> --}}
 </form>
+<script src="{{ asset('jquery-validation/dist/jquery.validate.min.js')}}"></script>
+<script src="{{ asset('jquery-validation/dist/jquery.validate.js')}}"></script>
+<script>
+
+	$('form#form').validate({
+		rules: {
+			ano: {
+				required: true
+			},
+			marca: {
+				required: true
+			},
+			modelo: {
+				required: true
+			},
+			placa: {
+				required: true
+			},
+			date: {
+				required: true
+			},
+			descricao: {
+				required: true
+			},
+			valor: {
+				required: true
+			},
+		}
+	})
+
+</script>
