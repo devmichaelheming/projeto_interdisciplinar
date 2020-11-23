@@ -66,6 +66,7 @@
 								</button>
 								<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
 							</div>
+							
 						</div>
 						@if (session('mensagem'))
 							<div class="sacefull">
@@ -166,6 +167,7 @@
 						<div class="widget-header">
 							<h3><i class="fas fa-file-pdf"></i> <span>RELATÓRIO</span></h3>
 							<div class="btn-group widget-header-toolbar">
+								<button type="button" class="btn btn-link btn-login-help"><i class="icon ion-help-circled"></i></button>
 								{{-- <button type="button" class="btn btn-link btn-help" data-content="Gerar o relatório de clientes registrados e seus respectivos serviços"><i class="icon ion-ios-help"></i></button> --}}
 								<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
 							</div>

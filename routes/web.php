@@ -130,4 +130,25 @@ Route::get('/mes', 'contasController@mes')->name('admin.mes');
 Route::get('/contatos', 'contatosController@index')->name('admin.contatos');
 Route::get('/contatos/vermais/{id}', 'contatosController@vermais')->name('contatos.vermais');
 
+    // INFORMAÇÕES DO SITE
+    Route::get('/site', 'site\siteController@index')->name('admin.site');
+
+    // INFORMAÇÕES DO SITE - BANNERS
+    Route::get('/site/banner', 'site\bannerController@index')->name('admin.banner');
+    Route::get('/site/banner/listar', 'site\bannerController@listar')->name('banner.listar');
+    // visualizar banner
+    Route::get('/site/banner/viewCadastrar', 'site\bannerController@bannerView')->name('banner.cadastrar');
+    // cadastrado
+    Route::post('/site/banner/cadastrado', 'site\bannerController@bannerCadastrar')->name('banner.cadastrado');
+    //Editar banner
+    Route::get('/site/banner/editar/{id}', 'site\bannerController@editarBanner')->name('banner.editar');
+    Route::post('/site/banner/editar/salvar/{id}', 'site\bannerController@editarSalvar');
+    //Remover banner
+    Route::get('/site/banner/remover/{id}', 'site\bannerController@removerBanner')->name('banner.remover');
+    Route::get('/site/banner/confirm/{id}', 'site\bannerController@confirm')->name('banner.confirm');
+
+    Route::get('/site/contatos_info', 'site\contatos_infoController@index')->name('contatos_info.admin');
+    Route::get('/site/contatos_info/listar', 'site\contatos_infoController@listar')->name('contatos_info.listar');
+    Route::post('/site/contatos_info', 'site\contatos_infoController@salvar')->name('contatos_info.salvar');
+
 });

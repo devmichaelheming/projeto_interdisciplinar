@@ -2993,7 +2993,7 @@ select[multiple].input-lg {
     padding-top: 0px;
     margin-bottom: 0;
     text-align: right;
-    padding: 0 0.5rem 0 0.2rem;
+    padding: 0rem 0rem 0rem 0.5rem;
   }
 }
 .form-horizontal .has-feedback .form-control-feedback {

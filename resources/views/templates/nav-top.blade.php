@@ -58,7 +58,7 @@
 			</div> --}}
 	</div>
 </nav>
-	<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
 <script>
 
 	 $(document).ready(function(){
