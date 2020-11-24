@@ -151,4 +151,18 @@ Route::get('/contatos/vermais/{id}', 'contatosController@vermais')->name('contat
     Route::get('/site/contatos_info/listar', 'site\contatos_infoController@listar')->name('contatos_info.listar');
     Route::post('/site/contatos_info', 'site\contatos_infoController@salvar')->name('contatos_info.salvar');
 
+// INFORMAÇÕES DO SITE - CLIENTES
+Route::get('/site/clientes', 'site\clientesController@index')->name('admin.clientes');
+Route::get('/site/clientes/listar', 'site\clientesController@listar')->name('clientes.listar');
+// visualizar clientes
+Route::get('/site/clientes/viewCadastrar', 'site\clientesController@clientesView')->name('clientes.cadastrar');
+// cadastrado
+Route::post('/site/clientes/cadastrado', 'site\clientesController@clientesCadastrar')->name('clientes.cadastrado');
+//Editar clientes
+Route::get('/site/clientes/editar/{id}', 'site\clientesController@editarClientes')->name('clientes.editar');
+Route::post('/site/clientes/editar/salvar/{id}', 'site\clientesController@editarSalvar');
+//Remover clientes
+Route::get('/site/clientes/remover/{id}', 'site\clientesController@removerClientes')->name('clientes.remover');
+Route::get('/site/clientes/confirm/{id}', 'site\clientesController@confirm')->name('clientes.confirm');
+
 });

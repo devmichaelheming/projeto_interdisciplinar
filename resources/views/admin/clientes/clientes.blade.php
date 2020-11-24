@@ -55,25 +55,38 @@
 
 				<div class="container-servicos">
 
-				<div class="container-table">
-					{{-- TABLE --}}
-					<div class="widget" id="widget">
-						<div class="widget-header">
-							<h3><i class="fas fa-users" style="margin-right:0.5rem;"></i> <span>Clientes cadastrados</span></h3>
-							<div class="btn-group widget-header-toolbar">
-								<button type="submit" class="btn-cadastrar" data-toggle="modal" data-idc="{{ url('/clientes/viewCadastrar') }}">
-									<i class="fas fa-plus"></i>
-								</button>
-								<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
+					<div class="container-table">
+						{{-- TABLE --}}
+						<div class="widget" id="widget">
+							<div class="widget-header">
+								<h3><i class="fas fa-users" style="margin-right:0.5rem;"></i> <span>Clientes cadastrados</span></h3>
+								<div class="btn-group widget-header-toolbar">
+									<button type="submit" class="btn-cadastrar" data-toggle="modal" data-idc="{{ url('/clientes/viewCadastrar') }}">
+										<i class="fas fa-plus"></i>
+									</button>
+									<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
+								</div>
+								
 							</div>
-							
-						</div>
-						@if (session('mensagem'))
-							<div class="sacefull">
-								<div class="alert alert-success">
+							@if (session('mensagem'))
+								<div class="sacefull">
+									<div class="alert alert-success">
+										<span>
+											<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
+											{{ session('mensagem') }}
+										</span>
+										<div class="alert-close">
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true"><i class="fas fa-times"></i></span>
+											</button>
+										</div>
+									</div>
+								</div>
+							@elseif(session('invalido'))
+								<div class="alert alert-danger">
 									<span>
 										<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-										{{ session('mensagem') }}
+										{{ session('invalido') }}
 									</span>
 									<div class="alert-close">
 										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -81,208 +94,110 @@
 										</button>
 									</div>
 								</div>
-							</div>
-						@elseif(session('invalido'))
-							<div class="alert alert-danger">
-								<span>
-									<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-									{{ session('invalido') }}
-								</span>
-								<div class="alert-close">
-									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-										<span aria-hidden="true"><i class="fas fa-times"></i></span>
-									</button>
-								</div>
-							</div>
-						@endif
+							@endif
 
-						<div class="widget-content table-responsive">
-							<table id="ticket-table" class="table table-sorting">
-								<thead>
-									<tr>
-										<th>Id</th>
-										<th>Nome</th>
-										<th>Telefone</th>
-										<th>Status</th>
-										<th>Email</th>
-										<th>Endereço</th>
-										<th>Cpf</th>
-										<th>Criado em</th>
-										<th>Editar / Remover</th>
-									</tr>
-								</thead>
-								<tbody>
-									@for ($i = 0; $i < sizeof($clientes); $i++)
+							<div class="widget-content table-responsive">
+								<table id="ticket-table" class="table table-sorting">
+									<thead>
 										<tr>
-											@if ($clientes[$i]['status'] == 'Desativado')
-												<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
-											@else
-												<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
-											@endif
-
-											@isset($clientes[$i]['name'])
-												<td>{{ $clientes[$i]['name'] }}</td>
-											@endisset
-
-											@isset($clientes[$i]['phone'])
-												<td>{{ $clientes[$i]['phone'] }}</td>
-											@endisset
-
-											@isset($clientes[$i]['status'])
-												<td>{{ $clientes[$i]['status'] }}</td>
-											@endisset
-
-											@isset($clientes[$i]['email'])
-												<td>{{ $clientes[$i]['email'] }}</td>
-											@endisset
-
-											@isset($clientes[$i]['endereco'])
-												<td>{{ $clientes[$i]['endereco'] }}</td>
-											@endisset
-
-											@isset($clientes[$i]['cpf'])
-												<td>{{ $clientes[$i]['cpf'] }}</td>
-											@endisset
-
-											@isset($clientes[$i]['created_at'])
-												<td>{{ $clientes[$i]['created_at'] }}</td>
-											@endisset
-
-											<td>
-												<div class="botoes">
-													<button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/clientes/editar') }}/{{ $clientes[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
-													<button type="button" class="botao-remover" data-id="{{ url('admin/clientes/confirm') }}/{{ $clientes[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   
-												</div>
-											</td>
+											<th>Id</th>
+											<th>Nome</th>
+											<th>Telefone</th>
+											<th>Status</th>
+											<th>Email</th>
+											<th>Endereço</th>
+											<th>Cpf</th>
+											<th>Criado em</th>
+											<th>Editar / Remover</th>
 										</tr>
-									@endfor
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
+									</thead>
+									<tbody>
+										@for ($i = 0; $i < sizeof($clientes); $i++)
+											<tr>
+												@if ($clientes[$i]['status'] == 'Desativado')
+													<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
+												@else
+													<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
+												@endif
 
-				<div class="container-relatorio">
-					<div class="widget">
-						<div class="widget-header">
-							<h3><i class="fas fa-file-pdf"></i> <span>RELATÓRIO</span></h3>
-							<div class="btn-group widget-header-toolbar">
-								<button type="button" class="btn btn-link btn-login-help"><i class="icon ion-help-circled"></i></button>
-								{{-- <button type="button" class="btn btn-link btn-help" data-content="Gerar o relatório de clientes registrados e seus respectivos serviços"><i class="icon ion-ios-help"></i></button> --}}
-								<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
+												@isset($clientes[$i]['name'])
+													<td>{{ $clientes[$i]['name'] }}</td>
+												@endisset
+
+												@isset($clientes[$i]['phone'])
+													<td>{{ $clientes[$i]['phone'] }}</td>
+												@endisset
+
+												@isset($clientes[$i]['status'])
+													<td>{{ $clientes[$i]['status'] }}</td>
+												@endisset
+
+												@isset($clientes[$i]['email'])
+													<td>{{ $clientes[$i]['email'] }}</td>
+												@endisset
+
+												@isset($clientes[$i]['endereco'])
+													<td>{{ $clientes[$i]['endereco'] }}</td>
+												@endisset
+
+												@isset($clientes[$i]['cpf'])
+													<td>{{ $clientes[$i]['cpf'] }}</td>
+												@endisset
+
+												@isset($clientes[$i]['created_at'])
+													<td>{{ $clientes[$i]['created_at'] }}</td>
+												@endisset
+
+												<td>
+													<div class="botoes">
+														<button type="button" class="botao-editar btn-editar" style="margin-right: 10px;" data-id="{{ url('admin/clientes/editar') }}/{{ $clientes[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
+														<button type="button" class="botao-remover" data-id="{{ url('admin/clientes/confirm') }}/{{ $clientes[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   
+													</div>
+												</td>
+											</tr>
+										@endfor
+									</tbody>
+								</table>
 							</div>
 						</div>
-						<div class="widget-content">
-							<form action="{{ route('relatorios.clientes.pdf') }}" method="POST">
-								@csrf
-								<select name="id_cliente" id="id_cliente" class="select2">
-									@foreach ($clientes as $cliente)	
-										<option value="{{$cliente['id']}}">{{$cliente['name']}}</option>
-									@endforeach
-								</select>
+					</div>
 
-								<div class="botao">
-									<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.3rem;"></i>Gerar relatório</button>
+					<div class="container-relatorio">
+						<div class="widget">
+							<div class="widget-header">
+								<h3><i class="fas fa-file-pdf"></i> <span>RELATÓRIO</span></h3>
+								<div class="btn-group widget-header-toolbar">
+									<button type="button" class="btn btn-link btn-login-help"><i class="icon ion-help-circled"></i></button>
+									{{-- <button type="button" class="btn btn-link btn-help" data-content="Gerar o relatório de clientes registrados e seus respectivos serviços"><i class="icon ion-ios-help"></i></button> --}}
+									<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
 								</div>
+							</div>
+							<div class="widget-content">
+								<form action="{{ route('relatorios.clientes.pdf') }}" method="POST">
+									@csrf
+									<select name="id_cliente" id="id_cliente" class="select2">
+										@foreach ($clientes as $cliente)	
+											<option value="{{$cliente['id']}}">{{$cliente['name']}}</option>
+										@endforeach
+									</select>
 
-							</form>
+									<div class="botao">
+										<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.3rem;"></i>Gerar relatório</button>
+									</div>
+
+								</form>
+							</div>
 						</div>
 					</div>
-				</div>
 			
-			</div>
-				
-				<!-- END TICKETS -->
-			</div>
-			<div class="right-sidebar">
-				<!-- CHAT -->
-				<div class="widget widget-chat-contacts">
-					<div class="widget-header clearfix">
-						<h3 class="sr-only">CHAT</h3>
-						<div class="btn-group btn-group-justified widget-header-toolbar visible-lg">
-							<div class="btn-group">
-								<button type="button" class="btn btn-primary btn-xs"><i class="icon ion-plus-circled"></i> Add</button>
-							</div>
-							<div class="btn-group">
-								<button type="button" class="btn dropdown-toggle btn-xs btn-success" data-btnclass="btn-success" data-toggle="dropdown">Online <span class="caret"></span></button>
-								<ul class="dropdown-menu dropdown-menu-right chat-status" role="menu">
-									<li><a href="#" class="online" data-btnclass="btn-success">Online</a></li>
-									<li><a href="#" class="away" data-btnclass="btn-warning">Away</a></li>
-									<li><a href="#" class="busy" data-btnclass="btn-danger">Busy</a></li>
-									<li><a href="#" class="offline" data-btnclass="btn-default">Offline</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<div class="widget-content">
-						<strong>Online (4)</strong>
-						<ul class="list-unstyled chat-contacts">
-							<li>
-								<a href="#" id="theusername"><img src="{{ asset('templates/theme/assets/img/user1.png')}}" class="img-circle" alt="Antonius">Antonius</a>
-							</li>
-							<li>
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user2.png')}}" class="img-circle" alt="Antonius">Michael Smith</a>
-							</li>
-							<li class="away">
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user3.png')}}" class="img-circle" alt="Antonius">Stella Ray</a>
-							</li>
-							<li class="busy">
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user4.png')}}" class="img-circle" alt="Antonius">Jane Doe</a>
-							</li>
-						</ul>
-						<strong>Offline (6)</strong>
-						<ul class="list-unstyled chat-contacts contacts-offline">
-							<li>
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user5.png')}}" class="img-circle" alt="John Simmons">John Simmons</a>
-							</li>
-							<li>
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user6.png')}}" class="img-circle" alt="Jack Bay">Jack Bay</a>
-							</li>
-							<li>
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user7.png')}}" class="img-circle" alt="Daraiana">Daraiana</a>
-							</li>
-							<li>
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user8.png')}}" class="img-circle" alt="Alessio Ferrara">Alessio Ferrara</a>
-							</li>
-							<li>
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user9.png')}}" class="img-circle" alt="Sorana">Sorana</a>
-							</li>
-							<li>
-								<a href="#"><img src="{{ asset('templates/theme/assets/img/user10.pn')}}" class="img-circle" alt="Regan Morton">Regan Morton</a>
-							</li>
-						</ul>
-					</div>
 				</div>
-				<!-- END CHAT -->
+				<!-- END TICKETS -->
 			</div>
 		</div>
 		<!-- END COLUMN RIGHT -->
 	</div>
-	<!-- END WRAPPER -->
 	<!-- Javascript -->
-	<script src=" {{ asset('templates/theme/assets/js/jquery/jquery-2.1.0.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/bootstrap/bootstrap.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-common.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/jquery-ui/jquery-ui-1.10.4.custom.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.resize.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.time.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.tooltip.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.orderBars.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/dropzone/dropzone.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/datatable/jquery.dataTables.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/datatable/dataTables.bootstrap.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/google-map/google-map.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/jquery-easypiechart/jquery.easypiechart.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-charts.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-table.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-maps.js') }}"></script>
-	<script src=" {{ asset('select2/select2.min.js') }}"></script>
-	<script src=" {{ asset('dropdown.js') }}"></script>
-	<script src=" {{ asset('parsley.min.js') }}"></script>
+	@include('layouts.scripts')
 	<script>
 	
 		$(document).ready(function(e) {
@@ -342,59 +257,59 @@
 			return false;
 		});
 
-	// CONFIRMAR REMOVER
+		// CONFIRMAR REMOVER
 
-	$(document).on('click','.botao-remover', function(e){
-        e.preventDefault();
-        
-        var bodyFormName = $('.modal-body-confirm');
-		var modalName = $('.modal-confirm');
-		var id = $(this).data('id')
+		$(document).on('click','.botao-remover', function(e){
+			e.preventDefault();
+			
+			var bodyFormName = $('.modal-body-confirm');
+			var modalName = $('.modal-confirm');
+			var id = $(this).data('id')
 
-		console.log(bodyFormName)
-		console.log(modalName)
-		console.log(id)
-        
-		$(modalName).modal('show'); 
+			console.log(bodyFormName)
+			console.log(modalName)
+			console.log(id)
+			
+			$(modalName).modal('show'); 
 
-        $.ajax({
-           url: id,
-           type: 'get',
-           success: function(response){       
-               $(bodyFormName).html(response);
-           }
-        });
-        return false;
-	});
+			$.ajax({
+			url: id,
+			type: 'get',
+			success: function(response){       
+				$(bodyFormName).html(response);
+			}
+			});
+			return false;
+		});
 
-	// REMOVER
+		// REMOVER
 
-	$(document).on('click','.btn-remover', function(e){
-        e.preventDefault();
-        
-        var bodyFormName = $('.modal-body-remover');
-		var modalName = $('.modal-remover');
-		var modalNamee = $('.modal-confirm');
-		var id = $(this).data('id')
+		$(document).on('click','.btn-remover', function(e){
+			e.preventDefault();
+			
+			var bodyFormName = $('.modal-body-remover');
+			var modalName = $('.modal-remover');
+			var modalNamee = $('.modal-confirm');
+			var id = $(this).data('id')
 
-		console.log(bodyFormName)
-		console.log(modalName)
-		console.log(id)
-        
-		$(modalName).modal('show'); 
+			console.log(bodyFormName)
+			console.log(modalName)
+			console.log(id)
+			
+			$(modalName).modal('show'); 
 
-        $.ajax({
-           url: id,
-           type: 'get',
-           success: function(response){
-			$(modalNamee).modal('hide'); 
-			$(bodyFormName).html(response);
-			// location.reload();
-           }
-        });
-		location.reload();
-        return true;
-	});
+			$.ajax({
+			url: id,
+			type: 'get',
+			success: function(response){
+				$(modalNamee).modal('hide'); 
+				$(bodyFormName).html(response);
+				// location.reload();
+			}
+			});
+			location.reload();
+			return true;
+		});
 
 	</script>
 </body>

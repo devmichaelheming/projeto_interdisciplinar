@@ -235,9 +235,75 @@
                                 <a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
                             </div>
                         </div>
+                        @if (session('mensagem_banner'))
+							<div class="sacefull" style="margin-top: 0.5rem;">
+								<div class="alert alert-success">
+									<span>
+										<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
+										{{ session('mensagem_banner') }}
+									</span>
+									<div class="alert-close">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true"><i class="fas fa-times"></i></span>
+										</button>
+									</div>
+								</div>
+							</div>
+						@elseif(session('invalido_banner'))
+							<div class="alert alert-danger" style="margin-top: 0.5rem;">
+								<span>
+									<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
+									{{ session('invalido_banner') }}
+								</span>
+								<div class="alert-close">
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true"><i class="fas fa-times"></i></span>
+									</button>
+								</div>
+							</div>
+						@endif
+
                         <div class="widget-content">
-                            <div class="servicos-relatorio">
-                            </div>
+                            <table id="table" class="table table-sorting">
+							
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Imagem do banner</th>
+									<th>Criado em:</th>
+									<th>Remover</th>
+								</tr>
+							</thead>
+							<tbody>
+                                @for ($i = 0; $i < sizeof($banner); $i++)
+									<tr>
+
+										@isset($banner[$i]['id'])
+											<td>{{ $banner[$i]['id'] }}</td>
+										@endisset
+
+										@isset($banner[$i]['banner'])
+											{{-- <td><img src="{{ asset("storage/") }}/{{ $banner[$i]['banner'] }}" class="img" style="height: 5rem;"></td> --}}
+											<td><img src="data:image/{{ $banner[$i]['ext_img'] }};base64,{{ $banner[$i]['banner'] }}" style="height: 3rem;"></td>
+										@endisset
+								
+										@isset($banner[$i]['created_at'])
+											<td>{{ $banner[$i]['created_at'] }}</td>
+										@endisset
+										
+										<td>
+											<div class="botoes">
+												<button type="button" class="botao-remover" data-id="{{ url('admin/site/banner/confirm') }}/{{ $banner[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   
+											</div>
+										</td>
+
+									</tr>
+								
+                            	@endfor
+
+							</tbody>
+                            
+							</table>
                         </div>
                     </div>
 
@@ -248,9 +314,75 @@
                                 <a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
                             </div>
                         </div>
+                        @if (session('mensagem_banner'))
+							<div class="sacefull" style="margin-top: 0.5rem;">
+								<div class="alert alert-success">
+									<span>
+										<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
+										{{ session('mensagem_banner') }}
+									</span>
+									<div class="alert-close">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+											<span aria-hidden="true"><i class="fas fa-times"></i></span>
+										</button>
+									</div>
+								</div>
+							</div>
+						@elseif(session('invalido_banner'))
+							<div class="alert alert-danger" style="margin-top: 0.5rem;">
+								<span>
+									<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
+									{{ session('invalido_banner') }}
+								</span>
+								<div class="alert-close">
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+										<span aria-hidden="true"><i class="fas fa-times"></i></span>
+									</button>
+								</div>
+							</div>
+						@endif
+
                         <div class="widget-content">
-                            <div class="servicos-relatorio">
-                            </div>
+                            <table id="table" class="table table-sorting">
+							
+							<thead>
+								<tr>
+									<th>Id</th>
+									<th>Imagem do banner</th>
+									<th>Criado em:</th>
+									<th>Remover</th>
+								</tr>
+							</thead>
+							<tbody>
+                                @for ($i = 0; $i < sizeof($banner); $i++)
+									<tr>
+
+										@isset($banner[$i]['id'])
+											<td>{{ $banner[$i]['id'] }}</td>
+										@endisset
+
+										@isset($banner[$i]['banner'])
+											{{-- <td><img src="{{ asset("storage/") }}/{{ $banner[$i]['banner'] }}" class="img" style="height: 5rem;"></td> --}}
+											<td><img src="data:image/{{ $banner[$i]['ext_img'] }};base64,{{ $banner[$i]['banner'] }}" style="height: 3rem;"></td>
+										@endisset
+								
+										@isset($banner[$i]['created_at'])
+											<td>{{ $banner[$i]['created_at'] }}</td>
+										@endisset
+										
+										<td>
+											<div class="botoes">
+												<button type="button" class="botao-remover" data-id="{{ url('admin/site/banner/confirm') }}/{{ $banner[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   
+											</div>
+										</td>
+
+									</tr>
+								
+                            	@endfor
+
+							</tbody>
+                            
+							</table>
                         </div>
                     </div>
 

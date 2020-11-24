@@ -74,16 +74,19 @@
 					<div class="info-text">
 						<div class="quick-info">
 							<i class="fas fa-calculator"></i>
-							{{-- <i class="fas fa-calculator"></i> --}}
-						<div>Total de despesas <span>R$
-						@if (isset($soma))
-							{{ $soma->valor }}
-						@else
-							00,00
-						@endif	
-						</span></div>
+							<div>Total de despesas
+								<span>
+									R$
+									@if (isset($soma))
+										{{ $soma->valor }}
+									@else
+										00,00
+									@endif	
+								</span>
+							</div>
 						</div>
 					</div>
+
 					<div class="info-text">
 						<div class="quick-info">
 							<i class="ion-cash"></i>
@@ -94,6 +97,7 @@
 							</span></div>
 						</div>
 					</div>
+
 					<div class="info-text">
 						<div class="quick-info">
 							<i class="far fa-check-circle"></i>
@@ -114,84 +118,17 @@
 				<div class="modal fade" id="mes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							{{-- <form action="{{ route('admin.mes') }}" method="GET" data-parsley-validate>
-
-							<div class="meses">
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="janeiro" @if($meses[0] == 'ativo') checked @endif required data-parsley-range="[0,1]" data-parsley-errors-container="#error-checkbox">
-									<span><i></i>Janeiro</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="fevereiro" @if($meses[1] == 'ativo') checked @endif>
-									<span><i></i>Fevereiro</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="marco" @if($meses[2] == 'ativo') checked @endif>
-									<span><i></i>Março</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="abril" @if($meses[3] == 'ativo') checked @endif>
-									<span><i></i>Abril</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="maio" @if($meses[4] == 'ativo') checked @endif>
-									<span><i></i>Maio</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="junho" @if($meses[5] == 'ativo') checked @endif>
-									<span><i></i>Junho</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="julho" @if($meses[6] == 'ativo') checked @endif>
-									<span><i></i>Julho</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="agosto" @if($meses[7] == 'ativo') checked @endif>
-									<span><i></i>Agosto</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="setembro" @if($meses[8] == 'ativo') checked @endif>
-									<span><i></i>Setembro</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="outubro" @if($meses[9] == 'ativo') checked @endif>
-									<span><i></i>Outubro</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="novembro" @if($meses[10] == 'ativo') checked @endif>
-									<span><i></i>Novembro</span>
-								</label>
-
-								<label class="fancy-checkbox">
-									<input type="checkbox" name="checkbox" value="dezembro" @if($meses[11] == 'ativo') checked @endif>
-									<span><i></i>Dezembro</span>
-								</label>
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
 							</div>
-								<p id="error-checkbox"></p>
-							<button type="submit" class="btn btn-primary">Aplicar mês</button>
-						</form> --}}
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						</div>
-						
+							<div class="modal-body">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -199,7 +136,6 @@
 				{{-- TABLE --}}
 				<div class="widget" id="widget">
 					<div class="widget-header clearfix">
-						{{-- <h3><i class="icon ion-pricetag"></i> <span>Administradores do sistema</span></h3> --}}
 						<div class="btn-group widget-header-toolbar">
 							<button type="button" class="btn-plus btn-cadastrar" data-toggle="modal" data-idc="{{ url('/contas/viewCadastrar') }}" style="margin-bottom: 1rem;"><i class="fas fa-plus"></i></button>
 						</div>
@@ -221,7 +157,6 @@
 							</div>
 						</div>
 					@elseif(session('invalido'))
-						
 						<div class="alert alert-danger">
 							<span>
 								<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
@@ -237,7 +172,6 @@
 
 					<div class="widget-content table-responsive">
 						<table id="table" class="table table-sorting">
-							
 							<thead>
 								<tr>
 									<th></th>
@@ -246,70 +180,55 @@
 									<th>Vencimento</th>
 									<th>Status</th>
 									<th>Valor</th>
-									{{-- <th>Vencimento</th>
-									<th>Valor</th> --}}
 									<th>Editar/Remover</th>
 								</tr>
 							</thead>
 							<tbody>
                                 @for ($i = 0; $i < sizeof($contas); $i++)
-								<tr>
-                                    {{-- @isset($contas[$i]['id'])
-                                        <td><a href="#">#{{ $contas[$i]['id'] }}</a></td>
-									@endisset --}}
-									@if ($contas[$i]['status'] == 'Aberto')
-										<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
-									@else
-										<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
-									@endif
+									<tr>
 
-                                    @isset($contas[$i]['descricao'])
-                                        <td>{{ $contas[$i]['descricao'] }}</td>
-									@endisset
-									
-									@isset($contas[$i]['competencia'])
-                                        <td>{{ $contas[$i]['competencia'] }}</td>
-									@endisset
-									
-                                    @isset($contas[$i]['vencimento'])
-                                        <td>{{ $contas[$i]['vencimento'] }}</td>
-									@endisset
+										@if ($contas[$i]['status'] == 'Aberto')
+											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:red;width:1rem;height:1rem;"></span></div></td>
+										@else
+											<td><div style="width:100%;height:100%;display:flex;justify-content:center;"><span style="border-radius:100%;background:green;width:1rem;height:1rem;"></span></div></td>
+										@endif
 
-                                    @isset($contas[$i]['status'])
-                                        <td>{{ $contas[$i]['status'] }}</td>
-									@endisset
-									
-                                    @isset($contas[$i]['valor'])
-                                        <td>{{ $contas[$i]['valor'] }}</td>
-                                    @endisset
-                                    
-                                    {{-- @isset($contas[$i]['vencimento'])
-                                        <td>{{ $contas[$i]['vencimento'] }}</td>
-                                    @endisset
-                                    
-                                    @isset($contas[$i]['valor'])
-                                        <td>{{ $contas[$i]['valor'] }}</td>
-									@endisset --}}
-									
-									<td>
-                                      <div class="botoes">
-										<button type="button" class="botao-editar" style="margin-right: 10px;" onclick="javascript:location.href='contas/editar/{{ $contas[$i]['id'] }}'"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
-                                        <button type="button" class="botao-remover" onclick="javascript:location.href='contas/remover/{{ $contas[$i]['id'] }}'"><i class="far fa-trash-alt"></i></button>  
-                                      </div>
-									</td>
+										@isset($contas[$i]['descricao'])
+											<td>{{ $contas[$i]['descricao'] }}</td>
+										@endisset
+										
+										@isset($contas[$i]['competencia'])
+											<td>{{ $contas[$i]['competencia'] }}</td>
+										@endisset
+										
+										@isset($contas[$i]['vencimento'])
+											<td>{{ $contas[$i]['vencimento'] }}</td>
+										@endisset
 
-                                </tr>
-								
-								
-                            @endfor
+										@isset($contas[$i]['status'])
+											<td>{{ $contas[$i]['status'] }}</td>
+										@endisset
+										
+										@isset($contas[$i]['valor'])
+											<td>{{ $contas[$i]['valor'] }}</td>
+										@endisset
+										
+										<td>
+											<div class="botoes">
+												<button type="button" class="botao-editar" style="margin-right: 10px;" onclick="javascript:location.href='contas/editar/{{ $contas[$i]['id'] }}'"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
+												<button type="button" class="botao-remover" onclick="javascript:location.href='contas/remover/{{ $contas[$i]['id'] }}'"><i class="far fa-trash-alt"></i></button>  
+											</div>
+										</td>
 
+									</tr>
+								@endfor
 							</tbody>
-                            
                         </table>
 					</div>
+
 				</div>
 				
-				<!-- END TICKETS -->
+			<!-- END TICKETS -->
 			</div>
 			<div class="right-sidebar">
 				<!-- CHAT -->
@@ -377,29 +296,7 @@
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
-	<script src=" {{ asset('templates/theme/assets/js/jquery/jquery-2.1.0.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/bootstrap/bootstrap.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-common.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/jquery-ui/jquery-ui-1.10.4.custom.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.resize.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.time.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.tooltip.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.orderBars.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/dropzone/dropzone.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/datatable/jquery.dataTables.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/datatable/dataTables.bootstrap.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/google-map/google-map.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/jquery-easypiechart/jquery.easypiechart.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-charts.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-table.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-maps.js') }}"></script>
-	<script src=" {{ asset('js/dropdown.js') }}"></script>
-	<script src=" {{ asset('js/parsley.min.js') }}"></script>
-	<script src=" {{ asset('js/queen-form-layouts.js') }}"></script>
+	@include('layouts.scripts')
 	<script>
 	
 	soma = @JSON($soma->valor)

@@ -1,7 +1,7 @@
 <form class="form-horizontal" id="form" role="form" action="{{ url('/admin/clientes/editar/salvar') }}/{{ $id }}" method="POST" enctype="multipart/form-data" >
 	@csrf
-		<div class="groups-two" style="flex-direction: column"> 
-		<span for="name" class="control-label">Username</span>
+	<div class="groups-two" style="flex-direction: column"> 
+		<span for="name" class="control-label">Nome</span>
 		<input type="text" class="inputs" id="name" name="name" value="{{ $name }}">
 	</div>
 
@@ -35,7 +35,7 @@
 		<input type="text" class="inputs" id="phone" name="phone" value="{{ $phone }}">
 	</div>
 
-	<div class="groups-two2" style="display:flex;justify-content:flex-start;padding:0.5rem 0rem 1rem 0rem;flex-direction:column;align-items:flex-start;">
+	<div class="groups-two2" style="display:flex;justify-content:flex-start;padding:0.5rem 0rem 1rem 0.5rem;flex-direction:column;align-items:flex-start;">
 		<label for="switch">Status</label>
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="1" {{ ($status == "1") ? "checked" : "" }}>

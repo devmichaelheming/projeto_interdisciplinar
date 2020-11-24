@@ -1607,7 +1607,7 @@ pre code {
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: auto;
 }
 .row {
@@ -6861,8 +6861,11 @@ button.close {
 .inputs {
   border: 1px solid rgb(189 189 189);
   width: 100%;
-  border-radius: 0.2rem;
-  padding: 0.5rem 0rem 0.5rem 0.5rem;
+  /* border-radius: 0.2rem; */
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: 0.5rem 0rem 0.5rem 0.8rem
 }
 .modal-title span{
   font-size: 1.5rem;

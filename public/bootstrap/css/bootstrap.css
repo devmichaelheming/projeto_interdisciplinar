@@ -6557,12 +6557,26 @@ a.close.disabled {
   height: 5rem;
   background: no-repeat 50% / 100% 100%;
 }
+.carousel-control-prev-icon2,
+.carousel-control-next-icon2 {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+  background: no-repeat 50% / 100% 100%;
+}
 
 .carousel-control-prev-icon {
   background-image: url("../../back.png");
 }
 
 .carousel-control-next-icon {
+  background-image: url("../../next.png");
+}
+.carousel-control-prev-icon2 {
+  background-image: url("../../back.png");
+}
+
+.carousel-control-next-icon2 {
   background-image: url("../../next.png");
 }
 

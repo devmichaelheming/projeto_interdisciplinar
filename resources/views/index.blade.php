@@ -16,30 +16,24 @@
     <nav>
         <div class="header">
             <img src="{{ asset('logo.png') }}">
-            <div class="contato">
-                <i class="fas fa-phone-volume"></i>
-                <span>(66)3212-5236</span>
-            </div>
-            <div class="rs">
-                <div class="title-rs">REDES SOCIAIS</div>
-                <div class="links-rs">
-                    <span>
-                        <a href="https://www.facebook.com/">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </span>
-                    <span>
-                        <a href="https://api.whatsapp.com/send?phone=556633920717&text=Olá, gostaria de que conhecer um pouco mais do produto">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </span>
-                    <span>
-                        <a href="https://www.instagram.com/">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </span>
-                </div>
-            </div>
+            <span>
+                <a href="#clientes">
+                    <i class="fas fa-users"></i>
+                    <span>Nossos clientes</span>
+                </a>
+            </span>
+            <span>
+                <a href="#beneficios">
+                    <i class="fas fa-sort-amount-up"></i>
+                    <span>Benefícios</span>
+                </a>
+            </span>
+            <span>
+                <a href="#contato">
+                    <i class="fas fa-phone-volume"></i>
+                    <span>Contato</span>
+                </a>
+            </span>
             <div class="dashboard">
                 <a href="{{ route('admin') }}">
                     <i class="fas fa-sign-in-alt"></i>
@@ -76,9 +70,7 @@
 
     <div class="informacoes">
 
-        <div class="top-navegacao"></div>
-
-        <div class="title-informacoes">
+        <div class="title-informacoes" id="clientes">
             <div class="title-info2">NOSSOS CLIENTES</div>
             <div class="linha-form-informacoes">
                 <span></span>
@@ -87,7 +79,7 @@
 
         <div class="bloco-informacoes">
 
-            <div class="informacoes-card" data-anime="left">
+            <div class="informacoes-card">
                 <div class="header-informacoes">
                     <div class="logo">
                         <img src="{{ asset('auto_center.png') }}">
@@ -102,8 +94,9 @@
                     </div>
                 </div>
             </div>
-            <div class="informacoes-card" data-anime="top">
-            <div class="header-informacoes">
+            
+            <div class="informacoes-card">
+                <div class="header-informacoes">
                     <div class="logo">
                         <img src="{{ asset('ams.jpeg') }}">
                     </div>
@@ -117,7 +110,8 @@
                     </div>
                 </div>
             </div>
-            <div class="informacoes-card" data-anime="top">
+
+            <div class="informacoes-card">
                 <div class="header-informacoes">
                     <div class="logo">
                         <img src="{{ asset('alcar.png') }}">
@@ -132,7 +126,8 @@
                     </div>
                 </div>
             </div>
-            <div class="informacoes-card" data-anime="right">
+            
+            <div class="informacoes-card">
                 <div class="header-informacoes">
                     <div class="logo">
                         <img src="{{ asset('itaubas.jpeg') }}">
@@ -152,86 +147,232 @@
         
     </div>
 
-    <div class="linha-form3">
-        <span></span>
-    </div>
+     <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
 
-    <div class="info-geral">
+                    <div class="info-geral">
 
-        <div class="title-beneficios-geral">
-            <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
-            <div class="linha-form2">
-                <span></span>
+                        <div class="title-beneficios-geral">
+                            <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
+                            <div class="linha-form2">
+                                <span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="header-info" id="beneficios">
+
+                            <div class="bloco-info">
+                                <div class="card-info" id="financeiro">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+
+                                <div class="card-info-more" id="financeiro-more">
+                                    <div class="title-card-info-more">CONTROLE FINANCEIRO</div>
+                                    <span>
+                                        Controle os serviços cadastrados no sistema, exibindo de uma maneira pratica na tela de serviços: serviços finalizados, serviços em andamento, serviços extornados, previsões de lucro e quantidade total de serviços.
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="title-beneficios">
+                                <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
+                                <div class="linha-form2">
+                                    <span></span>
+                                </div>
+                            </div>
+                        
+                            <div class="bloco-info">
+
+                                <div class="card-info" id="admin">
+                                    <i class="fas fa-user-lock"></i>
+                                </div>
+
+                                <div class="card-info-more" id="admin-more">
+                                    <div class="title-card-info-more">PERMISSÕES</div>
+                                    <span>
+                                        Controle e administre os usuários cadastrados no sistema, limitando suas permissões para agir no sistema.
+                                    </span>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+                        <div class="bloco-info">
+
+                            <div class="card-info" id="servico">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+
+                            <div class="card-info-more" id="servico-more">
+                                <div class="title-card-info-more">RELATÓRIOS</div>
+                                <span>
+                                    Relatórios das informações dos serviços, e dos clientes cadastrados no sistema.
+                                </span>
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+
+                <div class="carousel-item">
+
+                    <div class="info-geral">
+
+                        <div class="title-beneficios-geral">
+                            <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
+                            <div class="linha-form2">
+                                <span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="header-info" id="beneficios">
+
+                            <div class="bloco-info">
+                                <div class="card-info" id="financeiro">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+
+                                <div class="card-info-more" id="financeiro-more">
+                                    <div class="title-card-info-more">CONTROLE FINANCEIRO</div>
+                                    <span>
+                                        Controle os serviços cadastrados no sistema, exibindo de uma maneira pratica na tela de serviços: serviços finalizados, serviços em andamento, serviços extornados, previsões de lucro e quantidade total de serviços.
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="title-beneficios">
+                                <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
+                                <div class="linha-form2">
+                                    <span></span>
+                                </div>
+                            </div>
+                        
+                            <div class="bloco-info">
+
+                                <div class="card-info" id="admin">
+                                    <i class="fas fa-user-lock"></i>
+                                </div>
+
+                                <div class="card-info-more" id="admin-more">
+                                    <div class="title-card-info-more">PERMISSÕES</div>
+                                    <span>
+                                        Controle e administre os usuários cadastrados no sistema, limitando suas permissões para agir no sistema.
+                                    </span>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+                        <div class="bloco-info">
+
+                            <div class="card-info" id="servico">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+
+                            <div class="card-info-more" id="servico-more">
+                                <div class="title-card-info-more">RELATÓRIOS</div>
+                                <span>
+                                    Relatórios das informações dos serviços, e dos clientes cadastrados no sistema.
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="carousel-item">
+
+                    <div class="info-geral">
+
+                        <div class="title-beneficios-geral">
+                            <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
+                            <div class="linha-form2">
+                                <span></span>
+                            </div>
+                        </div>
+                        
+                        <div class="header-info" id="beneficios">
+
+                            <div class="bloco-info">
+                                
+                                <div class="card-info" id="financeiro">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+
+                                <div class="card-info-more" id="financeiro-more">
+                                    <div class="title-card-info-more">CONTROLE FINANCEIRO</div>
+                                    <span>
+                                        Controle os serviços cadastrados no sistema, exibindo de uma maneira pratica na tela de serviços: serviços finalizados, serviços em andamento, serviços extornados, previsões de lucro e quantidade total de serviços.
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <div class="title-beneficios">
+                                <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
+                                <div class="linha-form2">
+                                    <span></span>
+                                </div>
+                            </div>
+                        
+                            <div class="bloco-info">
+
+                                <div class="card-info" id="admin">
+                                    <i class="fas fa-user-lock"></i>
+                                </div>
+
+                                <div class="card-info-more" id="admin-more">
+                                    <div class="title-card-info-more">PERMISSÕES</div>
+                                    <span>
+                                        Controle e administre os usuários cadastrados no sistema, limitando suas permissões para agir no sistema.
+                                    </span>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+
+                        <div class="bloco-info">
+
+                            <div class="card-info" id="servico">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+
+                            <div class="card-info-more" id="servico-more">
+                                <div class="title-card-info-more">RELATÓRIOS</div>
+                                <span>
+                                    Relatórios das informações dos serviços, e dos clientes cadastrados no sistema.
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        
-        <div class="header-info">
 
-            <div class="bloco-info"   data-anime="leftBig">
-                <div class="card-info" id="financeiro">
-                    <i class="fas fa-coins"></i>
-                    <span>CONTROLE FINANCEIRO</span>
-                </div>
 
-                <div class="card-info-more" id="financeiro-more">
-                    <div class="title-card-info-more">CONTROLE FINANCEIRO</div>
-                    <span>
-                        Controle os serviços cadastrados no sistema, exibindo de uma maneira pratica na tela de serviços: serviços finalizados, serviços em andamento, serviços extornados, previsões de lucro e quantidade total de serviços.
-                    </span>
-                </div>
 
-            </div>
-
-            <div class="title-beneficios">
-                <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
-                <div class="linha-form2">
-                    <span></span>
-                </div>
-            </div>
-        
-            <div class="bloco-info" data-anime="rightBig">
-
-                <div class="card-info" id="admin">
-                    <i class="fas fa-user-lock"></i>
-                    <span>PERMISSÕES</span>
-                </div>
-
-                 <div class="card-info-more" id="admin-more">
-                    <div class="title-card-info-more">PERMISSÕES</div>
-                    <span>
-                        Controle e administre os usuários cadastrados no sistema, limitando suas permissões para agir no sistema.
-                    </span>
-                </div>
-
-            </div>
-            
-        </div>
-
-        <div class="bloco-info"  data-anime="bottomBig">
-
-            <div class="card-info" id="servico">
-                <i class="fas fa-file-pdf"></i>
-                <span>RELATÓRIOS</span>
-            </div>
-
-            <div class="card-info-more" id="servico-more">
-                <div class="title-card-info-more">RELATÓRIOS</div>
-                <span>
-                    Relatórios das informações dos serviços, e dos clientes cadastrados no sistema.
-                </span>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="linha-form3">
-        <span></span>
-    </div>
-
-    <div class="contato-form">
+    <div class="contato-form" id="contato">
         <div class="contato-interno">
 
-            <form id="form" name="form" data-anime="rightBig">
+            <form id="form" name="form">
                 <div class="title-form">ENTRE EM CONTATO CONOSCO</div>
                 <div class="linha-form">
                     <span></span>
@@ -311,6 +452,10 @@
                     </span>
                 </div>   
             </div>
+            <div class="contato">
+                <i class="fas fa-phone-volume"></i>
+                <span>(66)3212-5236</span>
+            </div>
         </div>
         <div class="linha-form3">
             <span></span>
@@ -322,40 +467,40 @@
         </div>
     </footer>
 
-    <script src="{{ asset('jquery.js') }}"></script>
-    <script src="{{ asset('popper.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/popper.js') }}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/anijs-min.js') }}"></script>
     <script src="{{ asset('js/anijs-helper-scrollreveal.js') }}"></script>
-    <script src="{{asset('mask/dist/jquery.mask.js')}}"></script>
-    <script src="{{asset('jquery-validation/dist/jquery.validate.js')}}"></script>
-    <script src="{{asset('anime/script.js')}}"></script>
+    <script src="{{ asset('mask/dist/jquery.mask.js') }}"></script>
+    <script src="{{ asset('jquery-validation/dist/jquery.validate.js') }}"></script>
+    <script src="{{ asset('anime/script.js') }}"></script>
     <script>
 
-        // function typeWriter(elemento) {
-        //     const textoArray = elemento.innerHTML.split('');
-        //     elemento.innerHTML = '';
-        //     textoArray.forEach((letra, i) => {
-        //     setTimeout(() => elemento.innerHTML += letra, 90 * i);
-        //     });
-        // }
-
-        // const titulo = document.querySelector('.title');
-        // typeWriter(titulo);
+        $('.header span a').click(function(e){
+            e.preventDefault();
+            var id = $(this).attr('href'),
+                targetOffset = $(id).offset().top + -150;
+            $('html, body').animate({
+                scrollTop: targetOffset
+            }, 400);
+        });
 
         $(document).ready(function(){
         
             $(window).scroll(function(){
-                if(this.scrollY > 80)
-                    $(".header").addClass("sticky");
-                else
-                    $(".header").removeClass("sticky");
-            });
 
-            // $('.lado-esquerdo button').click(function (){
-            //     $(this).toggleClass("active")
-            //     $(".lado-direito").toggleClass("active")
-            // });
+                if (this.scrollY > 80) {
+                    $(".header").addClass("sticky");
+                    $(".header span a").addClass("sticky-font");
+                    $(".dashboard a").addClass("sticky-font2");
+                } else {
+                    $(".header").removeClass("sticky");
+                    $(".header span a").removeClass("sticky-font");
+                    $(".dashboard a").removeClass("sticky-font2");
+                }
+
+            });
 
         });
 

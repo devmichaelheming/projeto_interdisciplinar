@@ -17,8 +17,8 @@
 		<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Cadastrar</button>
 	</div>
 </form>
-<script src="{{ asset('jquery-validation/dist/jquery.validate.min.js')}}"></script>
-<script src="{{ asset('jquery-validation/dist/jquery.validate.js')}}"></script>
+<script src="{{ asset('jquery-validation/dist/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('jquery-validation/dist/jquery.validate.js') }}"></script>
 <script>
 
 	$('form#form').validate({

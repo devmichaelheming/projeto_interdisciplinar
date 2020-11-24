@@ -64,7 +64,7 @@
 		<input type="text" class="inputs" id="valor" name="valor" required placeholder="R$">
 	</div>
 
-	<div class="groups-two2" style="display:flex;justify-content:flex-start;padding:1rem 0rem 1.5rem 0rem;flex-direction:column;align-items:flex-start;">
+	<div class="groups-two2" style="display:flex;justify-content:flex-start;padding:1rem 0rem 1rem 0.5rem;flex-direction:column;align-items:flex-start;">
 		<label for="switch">Status do serviço</label>
 		<label class="control-inline fancy-radio">
 			<input type="radio" name="status" value="0" checked>
@@ -79,6 +79,7 @@
 			<span><i></i>Extornado</span>
 		</label>
 	</div>
+	
 	<div class="botao">
 		<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Cadastrar</button>
 	</div>
