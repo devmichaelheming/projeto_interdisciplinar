@@ -8,12 +8,15 @@ nav {
 }
 .header img {
     height: 4rem;
+    background: white;
+    border-radius: 0.3rem;
+    padding: 0.3rem 0.5rem;
 }
 .title-beneficios {
     margin: 0 4rem;
 }
 .header {
-    height: 8rem;
+    height: 6rem;
     display: flex;
     width: 100%;
     box-shadow: 0px -5px 10px #777777;
@@ -24,11 +27,12 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
-    background: white;
+    background: transparent;
+    transition: 0.3s ease-out;
 }
 .header span a {
     text-decoration: none;
-    color: #147da0;
+    color: #fff;
     padding: 0.5rem 1rem;
     font-size: 1.3rem;
     font-weight: 600;
@@ -59,9 +63,6 @@ nav {
     width: 100%;
     background: rgb(20, 125, 160);
     background: linear-gradient(90deg, #083d4e 30%, rgba(93, 191, 223, 1) 30%);
-}
-.banner {
-    margin-top: 8rem;
 }
 .carrousel-img1 {
     background-image: url(../banner.png);
@@ -168,7 +169,7 @@ nav {
 }
 
 .sticky {
-    transition: 0.1s linear;
+    transition: 0.3s ease-out;
     height: 6rem;
     background: rgba(14, 88, 112, 1);
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
@@ -193,7 +194,7 @@ nav {
     flex-wrap: wrap;
     background: white;
     flex-direction: column;
-    margin: 8rem 0 4rem 0;
+    margin: 10rem 0 6rem 0;
 }
 .bloco-informacoes {
     width: 100%;
@@ -201,7 +202,7 @@ nav {
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    padding-top: 2rem;
+    padding: 4rem 0;
 }
 .informacoes-card {
     display: flex;
@@ -231,10 +232,6 @@ nav {
     font-family: "montserrat";
     padding: 0.5rem 0 0.5rem 0;
     text-align: center;
-    background: #f7f7f7;
-    border: 1px solid #dedede;
-    border-top-left-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
 }
 .logo {
     display: flex;
@@ -243,17 +240,13 @@ nav {
 }
 .text {
     text-align: center;
-    border: 1px solid #dedede;
-    border-top: none;
-    border-bottom-left-radius: 0.3rem;
-    border-bottom-right-radius: 0.3rem;
     font-size: 14px;
     color: #717171;
     padding: 0.5rem;
 }
 .dashboard a {
     text-decoration: none;
-    color: #147da0;
+    color: #fff;
     font-weight: 600;
     font-size: 1.2rem;
 }
@@ -542,13 +535,13 @@ nav {
     justify-content: center;
     display: flex;
     z-index: 100;
-    transition: 0.3s ease-out;
+    transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 .bloco-info:hover {
     box-shadow: 1px 1px 10px#147da0;
     transform: scale(1.1) !important;
     border: none;
-    transition: 0.3s ease-out;
+    transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 .card-info {
     width: 7rem;

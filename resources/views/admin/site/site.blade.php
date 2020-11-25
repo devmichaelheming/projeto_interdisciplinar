@@ -49,6 +49,7 @@
 
 		<div id="col-right" class="col-right ">
 			@include('admin.site.banner.modal')
+			@include('admin.site.clientes.modal')
 			<div class="container-fluid primary-content">
 
                 {{-- TABLE --}}
@@ -232,7 +233,8 @@
                         <div class="widget-header">
                             <h3><i class="far fa-newspaper"></i> <span>INFORMAÇÃO DOS CLIENTES</span></h3>
                             <div class="btn-group widget-header-toolbar">
-                                <a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
+								<button type="submit" class="btn btn-primary btn-cadastrar-cliente" data-toggle="modal" data-idc="{{ url('/site/clientes/viewCadastrar') }}"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Novo cliente</button>
+								<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
                             </div>
                         </div>
                         @if (session('mensagem_banner'))
@@ -275,25 +277,25 @@
 								</tr>
 							</thead>
 							<tbody>
-                                @for ($i = 0; $i < sizeof($banner); $i++)
+                                @for ($i = 0; $i < sizeof($clientes); $i++)
 									<tr>
 
-										@isset($banner[$i]['id'])
-											<td>{{ $banner[$i]['id'] }}</td>
+										@isset($clientes[$i]['id'])
+											<td>{{ $clientes[$i]['id'] }}</td>
 										@endisset
 
-										@isset($banner[$i]['banner'])
-											{{-- <td><img src="{{ asset("storage/") }}/{{ $banner[$i]['banner'] }}" class="img" style="height: 5rem;"></td> --}}
-											<td><img src="data:image/{{ $banner[$i]['ext_img'] }};base64,{{ $banner[$i]['banner'] }}" style="height: 3rem;"></td>
+										@isset($clientes[$i]['logo'])
+											{{-- <td><img src="{{ asset("storage/") }}/{{ $clientes[$i]['clientes'] }}" class="img" style="height: 5rem;"></td> --}}
+											<td><img src="data:image/{{ $clientes[$i]['ext_logo'] }};base64,{{ $clientes[$i]['logo'] }}" style="height: 3rem;"></td>
 										@endisset
 								
-										@isset($banner[$i]['created_at'])
-											<td>{{ $banner[$i]['created_at'] }}</td>
+										@isset($clientes[$i]['created_at'])
+											<td>{{ $clientes[$i]['created_at'] }}</td>
 										@endisset
 										
 										<td>
 											<div class="botoes">
-												<button type="button" class="botao-remover" data-id="{{ url('admin/site/banner/confirm') }}/{{ $banner[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   
+												<button type="button" class="botao-remover" data-id="{{ url('admin/site/clientes/confirm') }}/{{ $clientes[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   
 											</div>
 										</td>
 
@@ -395,29 +397,7 @@
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
-	<script src="{{ asset('js/jquery.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/jquery/jquery-2.1.0.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/bootstrap/bootstrap.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-common.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/jquery-ui/jquery-ui-1.10.4.custom.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.resize.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.time.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.tooltip.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/flot/jquery.flot.orderBars.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/dropzone/dropzone.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/datatable/jquery.dataTables.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/datatable/dataTables.bootstrap.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/google-map/google-map.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/plugins/stat/jquery-easypiechart/jquery.easypiechart.min.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-charts.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-table.js') }}"></script>
-	<script src=" {{ asset('templates/theme/assets/js/queen-maps.js') }}"></script>
-	<script src=" {{ asset('js/dropdown.js') }}"></script>
-	<script src=" {{ asset('js/parsley.min.js') }}"></script>
+	@include('layouts.scripts')
 	<script>
 	
 		$(document).ready(function(e) {
@@ -426,14 +406,95 @@
 			$('body').delay(350).css({'overflow': 'visible'});
 		});
 
-		// EDITAR CLIENTE
+		// CADASTRAR BANNER
 
-		$(document).on('click','.btn-editar', function(e){
+		$(document).on('click','.btn-cadastrar', function(e){
+			e.preventDefault();
+
+			let bodyFormName = $('.modal-body-cadastrar');
+			let modalName = $('.modal-cadastrar');
+			let idc = $(this).data('idc')
+
+			console.log(bodyFormName)
+			console.log(modalName)
+			console.log(idc)
+
+			$(modalName).modal('show'); 
+
+			$.ajax({
+				url: '{{ url('admin/site/banner/viewCadastrar') }}',
+				type: 'get',
+				success: function(response){
+					$(bodyFormName).html(response);
+				}
+			});
+			return false;
+		});
+
+	// CONFIRMAR REMOVER BANNER
+
+	$(document).on('click','.botao-remover', function(e){
+        e.preventDefault();
+        
+        let bodyFormName = $('.modal-body-confirm');
+		let modalName = $('.modal-confirm');
+		let id = $(this).data('id')
+
+		console.log(bodyFormName)
+		console.log(modalName)
+		console.log(id)
+        
+		$(modalName).modal('show'); 
+
+        $.ajax({
+           url: id,
+           type: 'get',
+           success: function(response){       
+               $(bodyFormName).html(response);
+           }
+        });
+        return false;
+	});
+
+	// REMOVER BANNER
+
+	$(document).on('click','.btn-remover', function(e){
+        e.preventDefault();
+        
+        let bodyFormName = $('.modal-body-remover');
+		let modalName = $('.modal-remover');
+		let modalNamee = $('.modal-confirm');
+		let id = $(this).data('id')
+
+		console.log(bodyFormName)
+		console.log(modalName)
+		console.log(id)
+        
+		$(modalName).modal('show'); 
+
+        $.ajax({
+           url: id,
+           type: 'get',
+           success: function(response){
+			$(modalNamee).modal('hide'); 
+			$(bodyFormName).html(response);
+			// location.reload();
+           }
+        });
+		location.reload();
+        return true;
+	});
+
+	// CLIENTES ---------------------------------------------
+
+	// EDITAR CLIENTE
+
+		$(document).on('click','.btn-editar-cliente', function(e){
 			e.preventDefault();
 			
-			var bodyFormName = $('.modal-body');
-			var modalName = $('.modal');
-			var id = $(this).data('id')
+			let bodyFormName = $('.modal-body-cliente');
+			let modalName = $('.modal-cliente');
+			let id = $(this).data('id')
 
 			console.log(bodyFormName)
 			console.log(modalName)
@@ -453,12 +514,12 @@
 
 		// CADASTRAR USUARIO
 
-		$(document).on('click','.btn-cadastrar', function(e){
+		$(document).on('click','.btn-cadastrar-cliente', function(e){
 			e.preventDefault();
 
-			var bodyFormName = $('.modal-body-cadastrar');
-			var modalName = $('.modal-cadastrar');
-			var idc = $(this).data('idc')
+			let bodyFormName = $('.modal-body-cadastrar-cliente');
+			let modalName = $('.modal-cadastrar-cliente');
+			let idc = $(this).data('idc')
 
 			console.log(bodyFormName)
 			console.log(modalName)
@@ -467,7 +528,7 @@
 			$(modalName).modal('show'); 
 
 			$.ajax({
-				url: '{{ url('admin/site/banner/viewCadastrar') }}',
+				url: '{{ url('admin/site/clientes/viewCadastrar') }}',
 				type: 'get',
 				success: function(response){
 					$(bodyFormName).html(response);
@@ -478,12 +539,12 @@
 
 	// CONFIRMAR REMOVER
 
-	$(document).on('click','.botao-remover', function(e){
+	$(document).on('click','.botao-remover-cliente', function(e){
         e.preventDefault();
         
-        var bodyFormName = $('.modal-body-confirm');
-		var modalName = $('.modal-confirm');
-		var id = $(this).data('id')
+        let bodyFormName = $('.modal-body-confirm-cliente');
+		let modalName = $('.modal-confirm-cliente');
+		let id = $(this).data('id')
 
 		console.log(bodyFormName)
 		console.log(modalName)
@@ -503,13 +564,13 @@
 
 	// REMOVER
 
-	$(document).on('click','.btn-remover', function(e){
+	$(document).on('click','.btn-remover-cliente', function(e){
         e.preventDefault();
         
-        var bodyFormName = $('.modal-body-remover');
-		var modalName = $('.modal-remover');
-		var modalNamee = $('.modal-confirm');
-		var id = $(this).data('id')
+        let bodyFormName = $('.modal-body-remover-cliente');
+		let modalName = $('.modal-remover-cliente');
+		let modalNamee = $('.modal-confirm-cliente');
+		let id = $(this).data('id')
 
 		console.log(bodyFormName)
 		console.log(modalName)

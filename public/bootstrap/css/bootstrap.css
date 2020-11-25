@@ -5920,7 +5920,7 @@ a.close.disabled {
   overflow: hidden;
 }
 
-.modal-open .modal, .modal-cadastrar, .modal-confirm, .modal-remover, .modal-clientes, .modal-cadastros, .modal-vendas, .modal-servicos{
+.modal-open .modal, .modal-cadastrar, .modal-cadastrar-cliente, .modal-confirm, .modal-confirm-cliente, .modal-remover, .modal-clientes, .modal-cadastros, .modal-vendas, .modal-servicos{
   overflow-x: hidden;
   overflow-y: auto;
 }

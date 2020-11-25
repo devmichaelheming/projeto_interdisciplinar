@@ -294,7 +294,6 @@
 		</div>
 		<!-- END COLUMN RIGHT -->
 	</div>
-	<!-- END WRAPPER -->
 	<!-- Javascript -->
 	@include('layouts.scripts')
 	<script>

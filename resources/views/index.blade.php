@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +65,6 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        
     </div>
 
     <div class="informacoes">
@@ -147,227 +146,73 @@
         
     </div>
 
-     <div id="carouselExampleControls2" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
+             <div class="info-geral">
 
-                    <div class="info-geral">
+                    <div class="title-beneficios-geral">
+                        <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
+                        <div class="linha-form2">
+                            <span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="header-info" id="beneficios">
 
-                        <div class="title-beneficios-geral">
+                        <div class="bloco-info">
+                            <div class="card-info" id="financeiro">
+                                <i class="fas fa-coins"></i>
+                            </div>
+
+                            <div class="card-info-more" id="financeiro-more">
+                                <div class="title-card-info-more">CONTROLE FINANCEIRO</div>
+                                <span>
+                                    Controle os serviços cadastrados no sistema, exibindo de uma maneira pratica na tela de serviços: serviços finalizados, serviços em andamento, serviços extornados, previsões de lucro e quantidade total de serviços.
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="title-beneficios">
                             <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
                             <div class="linha-form2">
                                 <span></span>
                             </div>
                         </div>
-                        
-                        <div class="header-info" id="beneficios">
-
-                            <div class="bloco-info">
-                                <div class="card-info" id="financeiro">
-                                    <i class="fas fa-coins"></i>
-                                </div>
-
-                                <div class="card-info-more" id="financeiro-more">
-                                    <div class="title-card-info-more">CONTROLE FINANCEIRO</div>
-                                    <span>
-                                        Controle os serviços cadastrados no sistema, exibindo de uma maneira pratica na tela de serviços: serviços finalizados, serviços em andamento, serviços extornados, previsões de lucro e quantidade total de serviços.
-                                    </span>
-                                </div>
-
-                            </div>
-
-                            <div class="title-beneficios">
-                                <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
-                                <div class="linha-form2">
-                                    <span></span>
-                                </div>
-                            </div>
-                        
-                            <div class="bloco-info">
-
-                                <div class="card-info" id="admin">
-                                    <i class="fas fa-user-lock"></i>
-                                </div>
-
-                                <div class="card-info-more" id="admin-more">
-                                    <div class="title-card-info-more">PERMISSÕES</div>
-                                    <span>
-                                        Controle e administre os usuários cadastrados no sistema, limitando suas permissões para agir no sistema.
-                                    </span>
-                                </div>
-
-                            </div>
-                            
-                        </div>
-
+                    
                         <div class="bloco-info">
 
-                            <div class="card-info" id="servico">
-                                <i class="fas fa-file-pdf"></i>
+                            <div class="card-info" id="admin">
+                                <i class="fas fa-user-lock"></i>
                             </div>
 
-                            <div class="card-info-more" id="servico-more">
-                                <div class="title-card-info-more">RELATÓRIOS</div>
+                            <div class="card-info-more" id="admin-more">
+                                <div class="title-card-info-more">PERMISSÕES</div>
                                 <span>
-                                    Relatórios das informações dos serviços, e dos clientes cadastrados no sistema.
+                                    Controle e administre os usuários cadastrados no sistema, limitando suas permissões para agir no sistema.
                                 </span>
                             </div>
 
                         </div>
                         
                     </div>
-                    
-                </div>
 
-                <div class="carousel-item">
+                    <div class="bloco-info">
 
-                    <div class="info-geral">
-
-                        <div class="title-beneficios-geral">
-                            <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
-                            <div class="linha-form2">
-                                <span></span>
-                            </div>
-                        </div>
-                        
-                        <div class="header-info" id="beneficios">
-
-                            <div class="bloco-info">
-                                <div class="card-info" id="financeiro">
-                                    <i class="fas fa-coins"></i>
-                                </div>
-
-                                <div class="card-info-more" id="financeiro-more">
-                                    <div class="title-card-info-more">CONTROLE FINANCEIRO</div>
-                                    <span>
-                                        Controle os serviços cadastrados no sistema, exibindo de uma maneira pratica na tela de serviços: serviços finalizados, serviços em andamento, serviços extornados, previsões de lucro e quantidade total de serviços.
-                                    </span>
-                                </div>
-
-                            </div>
-
-                            <div class="title-beneficios">
-                                <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
-                                <div class="linha-form2">
-                                    <span></span>
-                                </div>
-                            </div>
-                        
-                            <div class="bloco-info">
-
-                                <div class="card-info" id="admin">
-                                    <i class="fas fa-user-lock"></i>
-                                </div>
-
-                                <div class="card-info-more" id="admin-more">
-                                    <div class="title-card-info-more">PERMISSÕES</div>
-                                    <span>
-                                        Controle e administre os usuários cadastrados no sistema, limitando suas permissões para agir no sistema.
-                                    </span>
-                                </div>
-
-                            </div>
-                            
+                        <div class="card-info" id="servico">
+                            <i class="fas fa-file-pdf"></i>
                         </div>
 
-                        <div class="bloco-info">
-
-                            <div class="card-info" id="servico">
-                                <i class="fas fa-file-pdf"></i>
-                            </div>
-
-                            <div class="card-info-more" id="servico-more">
-                                <div class="title-card-info-more">RELATÓRIOS</div>
-                                <span>
-                                    Relatórios das informações dos serviços, e dos clientes cadastrados no sistema.
-                                </span>
-                            </div>
-
+                        <div class="card-info-more" id="servico-more">
+                            <div class="title-card-info-more">RELATÓRIOS</div>
+                            <span>
+                                Relatórios das informações dos serviços, e dos clientes cadastrados no sistema.
+                            </span>
                         </div>
+
                     </div>
                     
                 </div>
-                <div class="carousel-item">
-
-                    <div class="info-geral">
-
-                        <div class="title-beneficios-geral">
-                            <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
-                            <div class="linha-form2">
-                                <span></span>
-                            </div>
-                        </div>
-                        
-                        <div class="header-info" id="beneficios">
-
-                            <div class="bloco-info">
-                                
-                                <div class="card-info" id="financeiro">
-                                    <i class="fas fa-coins"></i>
-                                </div>
-
-                                <div class="card-info-more" id="financeiro-more">
-                                    <div class="title-card-info-more">CONTROLE FINANCEIRO</div>
-                                    <span>
-                                        Controle os serviços cadastrados no sistema, exibindo de uma maneira pratica na tela de serviços: serviços finalizados, serviços em andamento, serviços extornados, previsões de lucro e quantidade total de serviços.
-                                    </span>
-                                </div>
-
-                            </div>
-
-                            <div class="title-beneficios">
-                                <div class="title-info">BENEFÍCIOS DO SISTEMA</div>
-                                <div class="linha-form2">
-                                    <span></span>
-                                </div>
-                            </div>
-                        
-                            <div class="bloco-info">
-
-                                <div class="card-info" id="admin">
-                                    <i class="fas fa-user-lock"></i>
-                                </div>
-
-                                <div class="card-info-more" id="admin-more">
-                                    <div class="title-card-info-more">PERMISSÕES</div>
-                                    <span>
-                                        Controle e administre os usuários cadastrados no sistema, limitando suas permissões para agir no sistema.
-                                    </span>
-                                </div>
-
-                            </div>
-                            
-                        </div>
-
-                        <div class="bloco-info">
-
-                            <div class="card-info" id="servico">
-                                <i class="fas fa-file-pdf"></i>
-                            </div>
-
-                            <div class="card-info-more" id="servico-more">
-                                <div class="title-card-info-more">RELATÓRIOS</div>
-                                <span>
-                                    Relatórios das informações dos serviços, e dos clientes cadastrados no sistema.
-                                </span>
-                            </div>
-
-                        </div>
-                    </div>
-                    
-                </div>
+                
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls2" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls2" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-
 
     <div class="contato-form" id="contato">
         <div class="contato-interno">

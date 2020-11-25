@@ -15,24 +15,26 @@ public function clientesView()
         
     public function clientesCadastrar(request $request)
     {
+ 
         try{
             $db = New clientesInicial;
 
-            $teste = $request->file('clientes');
+            $teste = $request->file('logo');
 
             if( isset($teste)){
 
-                $name_file = $teste->getClientOriginalName();
+                $name_origin = $teste->getClientOriginalName();
 
-                $ext = pathinfo($name_file, PATHINFO_EXTENSION);
+                $ext = pathinfo($name_origin, PATHINFO_EXTENSION);
 
-                $item = base64_encode(file_get_contents($request->file('clientes')));
-
-                $db->ext_img = $ext;
-                $db->name_img = $name_file;
-                $db->clientes = $item;
+                $item = base64_encode(file_get_contents($request->file('logo')));
+                $db->ext_logo = $ext;
+                $db->name_file_logo = $name_origin;
+                $db->logo = $item;
             };
-            
+
+            $db->nome = $request->input('nome');
+            $db->endereco = $request->input('endereco');
             $db->save();
             
             return redirect()->route('admin.site')->with('mensagem_clientes', 'O Cliente foi cadastrado com sucesso!');
