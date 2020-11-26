@@ -55,7 +55,6 @@
 <script src="{{ asset('jquery-validation/dist/jquery.validate.js')}}"></script>
 <script src="{{ asset('mask/dist/jquery.mask.js')}}"></script>
 <script>
-
 	$('form#form').validate({
 		rules: {
 			name: {
@@ -85,9 +84,8 @@
 			status: {
 				required: true
 			}
-		};
+		}
 	});
-
 	function isNumber(evt) {
 		evt = (evt) ? evt : window.event;
 		var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -96,7 +94,6 @@
 		}
 			return true;
 	};
-
 	var options = {
 		onKeyPress: function (cpf, ev, el, op) {
 			var masks = ['(00)0.0000-0000'],
@@ -104,7 +101,6 @@
 			el.mask(mask, op);
 		}
 	};
-
 	var options_cpf = {
 		onKeyPress: function (cpf, ev, el, op) {
 			var masks = ['000.000.000-00'],
@@ -112,9 +108,7 @@
 			el.mask(mask, op);
 		}
 	};
-
 	$('#phone').mask('(00)0.0000-0000', options);
-
 	$('#cpf').mask('000.000.000-00', options_cpf);
 
 </script>

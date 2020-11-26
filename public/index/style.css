@@ -6,6 +6,40 @@ body {
 nav {
     width: 100%;
 }
+.header button {
+    background: none;
+    width: 70px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    display: none;
+    height: 100%;
+    z-index: 100000;
+}
+.lado-direito {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(7 50 64);
+    top: 0;
+    right: -100%;
+    max-width: 400px;
+    padding: 5rem 0 0rem 0;
+    transition: 0.3s linear;
+    z-index: 102;
+}
+.header button span {
+    display: block;
+    height: 3px;
+    background-color: white;
+    margin: 8px 0;
+    position: relative;
+    transition: 0.3s linear;
+}
+.header button:focus {
+    outline: 0;
+}
 .header img {
     height: 4rem;
     background: white;
@@ -19,16 +53,22 @@ nav {
     height: 6rem;
     display: flex;
     width: 100%;
-    box-shadow: 0px -5px 10px #777777;
     top: 0;
     position: fixed;
-    z-index: 1000;
+    z-index: 101;
     transition: 0.1s ease-out;
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
     background: transparent;
     transition: 0.3s ease-out;
+}
+.header-submenus {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
 }
 .header span a {
     text-decoration: none;
@@ -46,7 +86,6 @@ nav {
     align-items: center;
     width: 100%;
     justify-content: center;
-    margin-bottom: 1rem;
 }
 .title-info2 {
     padding: 0.5rem 1rem;
@@ -64,7 +103,11 @@ nav {
     background: rgb(20, 125, 160);
     background: linear-gradient(90deg, #083d4e 30%, rgba(93, 191, 223, 1) 30%);
 }
-.carrousel-img1 {
+.banner img {
+    height: 30rem;
+    width: 100%;
+}
+/* .carrousel-img1 {
     background-image: url(../banner.png);
     background-position: center;
     height: 30rem;
@@ -84,7 +127,7 @@ nav {
     height: 30rem;
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 .contato {
     display: flex;
     height: 100%;
@@ -162,12 +205,10 @@ nav {
 .sticky-font2 {
     color: #e0e0e0 !important;
 }
-.carousel-item img {
-    height: 30rem;
-    width: 100%;
-    margin-top: 8rem;
-}
 
+.sticky-img {
+    background: transparent !important;
+}
 .sticky {
     transition: 0.3s ease-out;
     height: 6rem;
@@ -194,7 +235,7 @@ nav {
     flex-wrap: wrap;
     background: white;
     flex-direction: column;
-    margin: 10rem 0 6rem 0;
+    margin: 6rem 0;
 }
 .bloco-informacoes {
     width: 100%;
@@ -252,7 +293,7 @@ nav {
 }
 .dashboard a:hover {
     text-decoration: none;
-    color: #104f64;
+    color: #fff;
 }
 .footer-interno span {
     height: 4rem;
@@ -271,6 +312,7 @@ nav {
     background: #e3f5fb;
     padding: 4rem 0;
     display: flex;
+    flex-wrap: wrap;
 }
 .title-footer-top {
     width: 100%;
@@ -499,7 +541,7 @@ nav {
     }
 }
 .info-geral {
-    padding: 6rem 0;
+    padding: 10rem 0;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -536,6 +578,7 @@ nav {
     display: flex;
     z-index: 100;
     transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 10px;
 }
 .bloco-info:hover {
     box-shadow: 1px 1px 10px#147da0;
@@ -594,6 +637,68 @@ nav {
 .title-beneficios-geral {
     display: none;
 }
+.acessar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 6rem 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: rgb(14, 88, 112);
+    background: linear-gradient(
+        90deg,
+        rgba(14, 88, 112, 1) 60%,
+        rgb(4 29 37) 100%
+    );
+    justify-content: space-evenly;
+}
+.acessar img {
+    height: 25rem;
+}
+.bloco-info-acessar {
+    height: 100%;
+    margin: 2rem;
+    width: 45%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+}
+.button-acessar a button {
+    background: white;
+    border: none;
+    color: rgb(10 71 90);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    transition: 0.3s ease-out;
+}
+.button-acessar a button:hover {
+    transition: 0.3s ease-out;
+    transform: translateX(10px);
+}
+.button-acessar a button i {
+    padding-right: 0.5rem;
+}
+.title-acessar {
+    font-size: 3rem;
+    color: white;
+    font-family: "montserrat";
+}
+.conteudo-acessar {
+    font-family: "montserrat";
+    color: white;
+    margin: 1rem 0;
+}
+.carrosel-acessar {
+    height: 100%;
+    width: 45%;
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 @media (max-width: 1600px) {
     .card-info {
         margin-right: 19rem;
@@ -632,6 +737,21 @@ nav {
     }
 }
 @media (max-width: 1440px) {
+    #form {
+        width: 50%;
+    }
+    .conteudo {
+        margin-top: 0.5rem;
+    }
+    .title {
+        padding: 0;
+    }
+    .text {
+        padding: 0rem 0 0.5rem 0;
+    }
+    .title-info {
+        font-size: 1.8rem;
+    }
     .info-geral {
         padding: 6rem 0;
     }
@@ -646,6 +766,7 @@ nav {
         width: 22rem;
         height: 22rem;
         margin: 0;
+        padding: 2rem;
     }
     .informacoes-card {
         width: 18rem;
@@ -662,9 +783,6 @@ nav {
     }
 }
 @media (max-width: 1366px) {
-    #form {
-        width: 45%;
-    }
     .header-info {
         justify-content: space-evenly;
     }
@@ -696,10 +814,30 @@ nav {
     }
 }
 @media (max-width: 1280px) {
+    .acessar {
+        flex-direction: column;
+    }
+    .bloco-info-acessar {
+        margin: 2rem 0rem;
+        width: 90%;
+    }
+    .carrosel-acessar {
+        width: 90%;
+        margin: 2rem 0rem;
+    }
     .carrousel-img2,
     .carrousel-img3,
     .carrousel-img1 {
         height: 20rem;
+    }
+    .title-beneficios {
+        margin: 0 2rem;
+    }
+    .sticky {
+        height: 5rem;
+    }
+    .info-geral {
+        padding: 2rem 0 6rem 0;
     }
     .title-card-info-more {
         font-size: 1rem;
@@ -709,7 +847,7 @@ nav {
     }
     .bloco-informacoes {
         padding-bottom: 6rem;
-        justify-content: center;
+        justify-content: space-evenly;
     }
     .card-info {
         width: 6rem;
@@ -729,9 +867,27 @@ nav {
     }
 }
 @media (max-width: 1024px) {
+    .title-acessar {
+        font-size: 2.5rem;
+    }
+    .acessar img {
+        height: 20rem;
+    }
     .title-beneficios-geral {
         display: block;
         padding-bottom: 4rem;
+    }
+    .footer-top img {
+        height: 4rem;
+    }
+    .header span a {
+        font-size: 1rem;
+    }
+    .dashboard a {
+        font-size: 1rem;
+    }
+    .header img {
+        height: 3.5rem;
     }
     .title-beneficios {
         display: none;
@@ -744,10 +900,9 @@ nav {
         width: 60%;
     }
     .informacoes .logo img {
-        height: 8rem;
+        height: 6rem;
     }
     .informacoes-card {
-        height: 20rem;
         margin: 1rem;
         width: 14rem;
     }
@@ -755,13 +910,116 @@ nav {
         font-size: 0.9rem;
     }
     .text {
-        height: 6rem;
         font-size: 0.9rem;
     }
 }
 @media (max-width: 800px) {
+    .conteudo-acessar {
+        text-align: justify;
+    }
+    .title-acessar {
+        font-size: 2rem;
+    }
+    .bloco-info-acessar {
+        margin: 0rem 0rem 2rem 0;
+        width: 90%;
+    }
+    .header span a {
+        font-size: 1.3rem;
+        color: #eaeaea;
+        font-weight: 500;
+        font-family: "Montserrat";
+    }
+    .contact {
+        padding: 2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .contact .endereco-mobile .conteudo-footer-top span a {
+        padding: 0;
+    }
+    .contact .endereco-mobile .conteudo-footer-top span a i {
+        color: #eaeaea;
+    }
+    .contact .endereco-mobile .bloco1-footer .title-footer-top {
+        color: #eaeaea;
+    }
+    .linha-dropdown {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    .linha-dropdown span:nth-child(1) {
+        padding: 0;
+        width: 100%;
+        margin: 0.5rem 0;
+        background: white;
+        height: 1px;
+    }
+    .linha-dropdown span:nth-child(2) {
+        padding: 0;
+        width: 80%;
+        margin: 0.5rem 0;
+        background: white;
+        height: 1px;
+    }
+    .lado-direito.active {
+        overflow-y: scroll;
+        right: 0;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: center;
+    }
+    .lado-direito span {
+        text-align: center;
+        width: 100%;
+        padding: 1.5rem 0;
+    }
+    .lado-direito span a span {
+        padding: 0;
+    }
+    .lado-direito span:hover {
+        background: rgb(14 73 93);
+    }
+    .header button.active span:nth-child(1) {
+        transform: rotate(-45deg);
+        margin-top: 0.5rem;
+        top: 10px;
+    }
+    .header button.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .header button.active span:nth-child(3) {
+        transform: rotate(45deg);
+        bottom: 10px;
+    }
+    .header button {
+        display: block;
+    }
+    .banner {
+        margin-top: 5rem;
+    }
+    .header img {
+        background: transparent;
+        height: 4rem;
+    }
+    .header {
+        background: rgba(14, 88, 112, 1);
+        height: 5rem;
+        padding: 0 1rem;
+    }
+    .header-submenus {
+        display: none;
+    }
     .title-beneficios-geral {
         padding-bottom: 4rem;
+    }
+    .bloco-informacoes {
+        padding-bottom: 0rem;
     }
     .header-info {
         justify-content: center;

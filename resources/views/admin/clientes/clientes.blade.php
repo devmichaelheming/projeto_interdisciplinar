@@ -26,19 +26,19 @@
 	<link rel="apple-touch-icon-precomposed" type="image/png" sizes="114x114" href="{{ asset('templates/theme/assets/ico/queenadmin-favicon114x114.png') }} ">
 	<link rel="apple-touch-icon-precomposed" type="image/png" sizes="72x72" href="{{ asset('templates/theme/assets/ico/queenadmin-favicon72x72.png') }} ">
 	<link rel="apple-touch-icon-precomposed" type="image/png" sizes="57x57" href="{{ asset('templates/theme/assets/ico/queenadmin-favicon57x57.png') }} ">
-	<link rel="shortcut icon" href="{{ asset('templates/theme/assets/ico/favicon.ico')}}">
+	<link rel="shortcut icon" href="{{ asset('templates/theme/assets/ico/favicon.ico') }}">
 </head>
 
 <body class="fixed-top-active dashboard fixed-left-active">
 	<body>
-        <!-- início do preloader -->
+    	<!-- início do preloader -->
         <div id="preloader">
             <div class="inner">
-               <!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
-              <img src="{{ asset('loading.gif') }}">
+            	<!-- HTML DA ANIMAÇÃO MUITO LOUCA DO SEU PRELOADER! -->
+				<img src="{{ asset('loading.gif') }}">
             </div>
         </div>
-        <!-- fim do preloader --> 
+    	<!-- fim do preloader --> 
     </body>
 	<!-- WRAPPER -->
 	<div class="wrapper main-nav-minified">
@@ -161,14 +161,12 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="container-relatorio">
 						<div class="widget">
 							<div class="widget-header">
 								<h3><i class="fas fa-file-pdf"></i> <span>RELATÓRIO</span></h3>
 								<div class="btn-group widget-header-toolbar">
 									<button type="button" class="btn btn-link btn-login-help"><i class="icon ion-help-circled"></i></button>
-									{{-- <button type="button" class="btn btn-link btn-help" data-content="Gerar o relatório de clientes registrados e seus respectivos serviços"><i class="icon ion-ios-help"></i></button> --}}
 									<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
 								</div>
 							</div>
@@ -189,7 +187,6 @@
 							</div>
 						</div>
 					</div>
-			
 				</div>
 				<!-- END TICKETS -->
 			</div>
