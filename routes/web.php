@@ -165,4 +165,18 @@ Route::post('/site/clientes/editar/salvar/{id}', 'site\clientesController@editar
 Route::get('/site/clientes/remover/{id}', 'site\clientesController@removerClientes')->name('site.clientes.remover');
 Route::get('/site/clientes/confirm/{id}', 'site\clientesController@confirm')->name('site.clientes.confirm');
 
+    // INFORMAÇÕES DO SITE - BANNERS
+    Route::get('/site/info_sistema', 'site\infoSistemaController@index')->name('admin.info_sistema');
+    Route::get('/site/info_sistema/listar', 'site\infoSistemaController@listar')->name('info_sistema.listar');
+    // visualizar info_sistema
+    Route::get('/site/info_sistema/viewCadastrar', 'site\infoSistemaController@info_sistemaView')->name('info_sistema.cadastrar');
+    // cadastrado
+    Route::post('/site/info_sistema/cadastrado', 'site\infoSistemaController@info_sistemaCadastrar')->name('info_sistema.cadastrado');
+    //Editar banner
+    Route::get('/site/info_sistema/editar/{id}', 'site\infoSistemaController@editarInfo_sistema')->name('info_sistema.editar');
+    Route::post('/site/info_sistema/editar/salvar/{id}', 'site\infoSistemaController@editarSalvar');
+    //Remover info_sistema
+    Route::get('/site/info_sistema/remover/{id}', 'site\infoSistemaController@removerInfo_sistema')->name('info_sistema.remover');
+    Route::get('/site/info_sistema/confirm/{id}', 'site\infoSistemaController@confirm')->name('info_sistema.confirm');
+
 });

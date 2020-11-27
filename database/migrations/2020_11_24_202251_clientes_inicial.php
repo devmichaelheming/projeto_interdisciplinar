@@ -13,7 +13,7 @@ class ClientesInicial extends Migration
      */
     public function up()
     {
-     Schema::create('clientesInicial', function (Blueprint $table) {
+        Schema::create('clientesInicial', function (Blueprint $table) {
             $table->id();
             $table->longText('logo');
             $table->string('ext_logo');

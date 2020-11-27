@@ -4920,13 +4920,13 @@ ul.main-menu > li > a span {
 
 /* when off-canvas navigation start hidden */
 @media screen and (max-width: 1200px) {
-  #col-left {
+  /* #col-left {
     left: -220px;
-  }
+  } */
 
-  #col-right {
+  /* #col-right {
     margin-left: 0;
-  }
+  } */
 }
 /* when user click off-canvas button */
 .off-canvas-active #col-left {
@@ -8175,9 +8175,9 @@ div[class*="col-"] > .form-group {
 
 /* off-canvas nav mode, start from: 1200px */
 @media screen and (max-width: 1200px) {
-  .btn-nav-sidebar-minified {
+  /* .btn-nav-sidebar-minified {
     display: none;
-  }
+  } */
 
   .btn-off-canvas {
     display: inline-block;
@@ -8748,9 +8748,9 @@ body.fixed-left-active .main-nav {
   background-color: #232323;
 }
 @media screen and (max-width: 1200px) {
-  .right-sidebar {
+  /* .right-sidebar {
     display: none;
-  }
+  } */
 }
 .right-sidebar .widget-chat-contacts {
   background: transparent;
@@ -10963,10 +10963,9 @@ ul.project-activity-list > li .activity-item > i {
   color: black;
 }
 #form{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .groups-two{
   display: flex;

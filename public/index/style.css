@@ -237,6 +237,14 @@ nav {
     flex-direction: column;
     margin: 6rem 0;
 }
+.informacoes-interno {
+    width: 90%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2rem;
+}
 .bloco-informacoes {
     width: 100%;
     display: flex;

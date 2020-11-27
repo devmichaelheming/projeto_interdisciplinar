@@ -8,6 +8,10 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\user;
 use App\contatosinicial;
+use App\banner;
+use App\contatos_info;
+use App\info_sistema;
+use App\clientesInicial;
 use Illuminate\Http\Request;
 
 class Controller extends BaseController
@@ -15,7 +19,17 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index()
     {
-        return view('index');
+        $banner = banner::all();
+        $clientesInicial = clientesInicial::all(); 
+        $info_sistema = info_sistema::all(); 
+        $contatos_info = contatos_info::find(1); 
+
+        return view('index', [
+            'banner' => $banner,
+            'info' => $contatos_info,
+            'info_sistema' => $info_sistema,
+            'clientesInicial' => $clientesInicial
+        ]);
     }
 
     public function erro(){

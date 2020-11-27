@@ -5873,7 +5873,7 @@ button.close {
 .modal-open {
   overflow: hidden;
 }
-.modal, .modal-cliente, .modal-cadastrar, .modal-cadastrar-cliente, .modal-confirm, .modal-confirm-cliente, .modal-remover, .modal-clientes, .modal-cadastros, .modal-vendas, .modal-servicos{
+.modal, .modal-cliente, .modal-cadastrar, .modal-info, .modal-cadastrar-cliente, .modal-cadastrar-info, .modal-confirm, .modal-confirm-cliente, .modal-confirm-info, .modal-remover, .modal-clientes, .modal-cadastros, .modal-vendas, .modal-servicos{
   position: fixed;
   top: 0;
   right: 0;
@@ -5912,7 +5912,7 @@ transform: translate(0, -25%);
        -o-transform: translate(0, 0);
           transform: translate(0, 0);
 }
-.modal-open .modal, .modal-cadastrar, .modal-confirm, .modal-remover, .modal-clientes, .modal-cadastros, .modal-vendas, .modal-servicos{
+.modal-open .modal, .modal-cadastrar, .modal-confirm, .modal-remover, .modal-clientes, .modal-info, .modal-cadastros, .modal-vendas, .modal-servicos{
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -5981,7 +5981,7 @@ transform: translate(0, -25%);
   max-height: 56rem;
   overflow-y: auto;
 }
-.modal-body-cadastrar, .modal-body-cadastrar-cliente, .modal-body-descricao, .modal-body-clientes, .modal-body-vendas, .modal-body-cadastros, .modal-body-servicos {
+.modal-body-cadastrar, .modal-body-cadastrar-cliente, .modal-body-descricao, .modal-body-clientes, .modal-body-vendas, .modal-body-cadastros, .modal-body-info, .modal-body-servicos {
   position: relative;
   padding: 0.5rem;
   max-height: 56rem;

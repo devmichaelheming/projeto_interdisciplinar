@@ -23,7 +23,7 @@
     
     </div>
 	
-	<img style="width: 100%; height: 100%;margin: 0.5rem 0;" name="logo">
+	<img style="width: 6rem; height: 6rem;margin: 0.5rem 0;border-radius:100%;" name="logo">
 
 	<div class="botao">
 		<button type="submit" class="btn btn-primary"><i class="icon ion-checkmark-circled" style="padding-right:0.5rem;"></i>Cadastrar</button>

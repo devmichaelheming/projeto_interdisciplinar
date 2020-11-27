@@ -1,5 +1,4 @@
-<script src=" {{ asset('templates/theme/assets/js/jquery/jquery-2.1.0.min.js') }}"></script>
-<script src=" {{ asset('templates/theme/assets/js/bootstrap/bootstrap.js') }}"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script><script src=" {{ asset('templates/theme/assets/js/bootstrap/bootstrap.js') }}"></script>
 <script src=" {{ asset('templates/theme/assets/js/plugins/bootstrap-multiselect/bootstrap-multiselect.js') }}"></script>
 <script src=" {{ asset('templates/theme/assets/js/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
 <script src=" {{ asset('templates/theme/assets/js/queen-common.js') }}"></script>

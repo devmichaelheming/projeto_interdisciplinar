@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('index/style.css') }}">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('glide/dist/css/glide.core.css') }}">
+    <link rel="stylesheet" href="{{ asset('glide/dist/css/glide.theme.css') }}">
     <title>Sistema de gerenciamento de mecânicas</title>
 </head>
 <body>
@@ -111,15 +113,22 @@
     <div class="banner">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('banner.png') }}">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('banner2.png') }}">
-                </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('banner3.png') }}">
-                </div>
+                @foreach ($banner as $index => $banners)
+                    @if($index == 0)
+                        <div class="carousel-item active">
+                            <img src="data:image/{{ $banners['ext_img'] }};base64,{{ $banners['banner'] }}">
+                        </div>
+                    @endif
+                @endforeach
+
+                @foreach ($banner as $index => $banners)
+                    @if($index > 0)
+                        <div class="carousel-item">
+                            <img src="data:image/{{ $banners['ext_img'] }};base64,{{ $banners['banner'] }}">
+                        </div>
+                    @endif
+                @endforeach
+
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -140,71 +149,78 @@
                 <span></span>
             </div>
         </div>
+                
+        @if (count($clientesInicial) > 3)
 
-        <div class="bloco-informacoes">
-            <div class="informacoes-card">
-                <div class="header-informacoes">
-                    <div class="logo">
-                        <img src="{{ asset('auto_center.png') }}">
-                    </div>
-                </div>
-                <div class="conteudo">
-                    <div class="title">AUTO CENTER SINOP!</div>
-                    <div class="text">Endereço: R. Colonizador Ênio Pipino, 2205 - St. Industrial Sul, Sinop - MT, 78558-439</div>
-                </div>
-            </div>
-            
-            <div class="informacoes-card">
-                <div class="header-informacoes">
-                    <div class="logo">
-                        <img src="{{ asset('ams.jpeg') }}">
-                    </div>
-                </div>
-                <div class="conteudo">
-                    <div class="title">AMS AUTO MECÂNICA SINOP</div>
-                    <div class="text">Endereço: Av. dos Jacarandás, 165 - Jardim Jacarandas, Sinop - MT, 78557-727</div>
-                </div>
-            </div>
+            <div class="informacoes-interno">   
+                <div class="carrosel-noticiasm glide">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides"> 
+                            @foreach ($clientesInicial as $key => $clientes) 
+                                <li class="glide__slide">
 
-            <div class="informacoes-card">
-                <div class="header-informacoes">
-                    <div class="logo">
-                        <img src="{{ asset('alcar.png') }}">
+                                    <div class="informacoes-card">
+                                        <div class="header-informacoes">
+                                            <div class="logo">
+                                                <img src="data:image/{{ $clientes['ext_logo'] }};base64,{{ $clientes['logo'] }}">
+                                            </div>
+                                        </div>
+                                        <div class="conteudo">
+                                            <div class="title">{{ $clientes['nome'] }}</div>
+                                            <div class="text">{{ $clientes['endereco'] }}</div>
+                                        </div>
+                                    </div>
+
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
-                </div>
-                <div class="conteudo">
-                    <div class="title">ALCAR MECÂNICA</div>
-                    <div class="text">Endereço: R. Colonizador Ênio Pipino, 4211 - St. Industrial Sul, Sinop - MT, 78550-000</div>
-                </div>
-            </div>
-            
-            <div class="informacoes-card">
-                <div class="header-informacoes">
-                    <div class="logo">
-                        <img src="{{ asset('itaubas.jpeg') }}">
+                    {{-- <div class="glide__arrows" data-glide-el="controls">
+                        <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-chevron-left"></i></button>
+                        <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-chevron-right"></i></button>
+                    </div>   --}}
+                    <div class="glide__bulletsm" data-glide-el="controls[nav]">
+                        @foreach ($clientesInicial as $key => $value)
+                            <button class="glide__bulletm" data-glide-dir="={{$key}}"></button>
+                        @endforeach
                     </div>
-                </div>
-                <div class="conteudo">
-                    <div class="title">MECÂNICA ITAÚBAS</div>
-                    <div class="text">Endereço: R. das Samambaias - St. Industrial Sul, Sinop - MT, 78558-105</div>
-                </div>
+                </div> 
+            </div> 
+
+        @else
+
+            <div class="informacoes-interno" style="width: 100%;flex-direction: row;justify-content: space-evenly;">  
+                @foreach ($clientesInicial as $clientes) 
+                        <div class="informacoes-card">
+                            <div class="header-informacoes">
+                                <div class="logo">
+                                    <img src="data:image/{{ $clientes['ext_logo'] }};base64,{{ $clientes['logo'] }}">
+                                </div>
+                            </div>
+                            <div class="conteudo">
+                                <div class="title">{{ $clientes['nome'] }}</div>
+                                <div class="text">{{ $clientes['endereco'] }}</div>
+                            </div>
+                        </div>
+                @endforeach
             </div>
-        </div>
-        
+    
+        @endif
+                        
     </div>
 
     <div class="acessar" id="dashboard">
         <div class="bloco-info-acessar">
             <div class="title-acessar">Porque escolher nosso sistema ?</div>
-            <div class="conteudo-acessar">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa ducimus autem voluptatem nesciunt voluptatum! Repellendus, fugit, voluptatibus magnam alias aliquam sed animi, quo deleniti aspernatur dignissimos sequi quae maxime sit!</div>
+            <div class="conteudo-acessar">Porque nós queremos fazer sua empresa ter mais sucesso! E o nosso papel nesse objetivo é facilitar o seu caminho, proporcionando uma gestão mais organizada, simples e segura. Onde você economiza recursos e tempo para pensar no crescimento da empresa.</div>
             <div class="button-acessar">
                 <a href="{{ route('admin') }}">
                     <button><i class="fas fa-sign-in-alt"></i> ACESSAR O SISTEMA</button>
                 </a>
             </div>
         </div>
-        <div class="carrosel-acessar">
 
+        <div class="carrosel-acessar">
 
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -214,24 +230,24 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="{{ asset('sistema.png') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('servicos.png') }}" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <h5>Página de serviços</h5>
+                            <p>Informações dos serviços cadastrados.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('sistema.png') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('contatos.png') }}" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h5>Página de contatos</h5>
+                            <p>Informações da página em que lista os contatos enviados.</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('sistema.png') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('site.png') }}" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <h5>Informações do site</h5>
+                            <p>Págian para a atualização das informações do site.</p>
                         </div>
                     </div>
                 </div>
@@ -243,8 +259,7 @@
                     <span class="carousel-control-next-icon2" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
-                </div>
-
+            </div>
 
         </div>
     </div>
@@ -355,7 +370,7 @@
                     ENDEREÇO
                 </div>
                 <span>
-                    Rua das Cerejeiras, N° 1987, Jardim Paraíso, CEP 78556-106
+                    {{$info['endereco']}}
                 </span>
             </div>
             <div class="bloco1-footer">
@@ -364,17 +379,17 @@
                 </div>
                 <div class="conteudo-footer-top">
                     <span>
-                        <a href="https://www.facebook.com/">
+                        <a href="{{$info['facebook']}}">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                     </span>
                     <span>
-                        <a href="https://api.whatsapp.com/send?phone=556633920717&text=Olá, gostaria de que conhecer um pouco mais do produto">
+                        <a href="https://api.whatsapp.com/send?phone={{$info['numero_whatsapp']}}&text={{$info['texto_whatsapp']}}">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </span>
                     <span>
-                        <a href="https://www.instagram.com/">
+                        <a href="{{$info['instagram']}}">
                             <i class="fab fa-instagram"></i>
                         </a>
                     </span>
@@ -382,7 +397,7 @@
             </div>
             <div class="contato">
                 <i class="fas fa-phone-volume"></i>
-                <span>(66)3212-5236</span>
+                <span>{{$info['telefone']}}</span>
             </div>
         </div>
         <div class="linha-form3">
@@ -400,7 +415,30 @@
     <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     <script src="{{ asset('mask/dist/jquery.mask.js') }}"></script>
     <script src="{{ asset('jquery-validation/dist/jquery.validate.js') }}"></script>
+    <script src="{{ asset('glide/dist/glide.js') }}"></script>
     <script>
+
+        new Glide(".carrosel-noticiasm", {
+            type: "carousel",
+            perView: 5,
+            focusAt: "center",
+            gap: 40,
+
+            breakpoints: {
+                1366: {
+                    perView: 3
+                },
+                1200: {
+                    perView: 3
+                },
+                800: {
+                    perView: 3
+                },
+                500: {
+                    perView: 3
+                }
+            }
+        }).mount();
 
         $('.header span a').click(function(e){
             e.preventDefault();

@@ -50,6 +50,7 @@
 		<div id="col-right" class="col-right ">
 			@include('admin.site.banner.modal')
 			@include('admin.site.clientes.modal')
+			@include('admin.site.info_sistema.modal')
 			<div class="container-fluid primary-content">
 
                 {{-- TABLE --}}
@@ -63,12 +64,12 @@
                             </div>
 						</div>
 						
-						@if (session('mensagem'))
-							<div class="sacefull" style="margin-bottom: 1rem;">
+						@if (session('mensagem_info'))
+							<div class="sacefull">
 								<div class="alert alert-success">
 									<span>
 										<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-										{{ session('mensagem') }}
+										{{ session('mensagem_info') }}
 									</span>
 									<div class="alert-close">
 										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -78,7 +79,7 @@
 								</div>
 							</div>
 						@elseif(session('invalido'))
-							<div class="alert alert-danger" style="margin-bottom: 1rem;">
+							<div class="alert alert-danger">
 								<span>
 									<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
 									{{ session('invalido') }}
@@ -92,7 +93,7 @@
 						@endif
 
                         <div class="widget-content">
-                            <form class="form-horizontal" id="form" role="form" action="{{ route('banner.cadastrado') }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
+                            <form class="form-horizontal" id="form" role="form" action="{{ route('contatos_info.salvar') }}" method="POST" enctype="multipart/form-data" data-parsley-validate>
 								@csrf
 					
 								<div class="groups-two">
@@ -237,12 +238,12 @@
 								<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
                             </div>
                         </div>
-                        @if (session('mensagem_banner'))
-							<div class="sacefull" style="margin-top: 0.5rem;">
+                        @if (session('mensagem_clientes'))
+							<div class="sacefull">
 								<div class="alert alert-success">
 									<span>
 										<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-										{{ session('mensagem_banner') }}
+										{{ session('mensagem_clientes') }}
 									</span>
 									<div class="alert-close">
 										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -251,11 +252,11 @@
 									</div>
 								</div>
 							</div>
-						@elseif(session('invalido_banner'))
-							<div class="alert alert-danger" style="margin-top: 0.5rem;">
+						@elseif(session('invalido_clientes'))
+							<div class="alert alert-danger">
 								<span>
 									<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-									{{ session('invalido_banner') }}
+									{{ session('invalido_clientes') }}
 								</span>
 								<div class="alert-close">
 									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -286,7 +287,7 @@
 
 										@isset($clientes[$i]['logo'])
 											{{-- <td><img src="{{ asset("storage/") }}/{{ $clientes[$i]['clientes'] }}" class="img" style="height: 5rem;"></td> --}}
-											<td><img src="data:image/{{ $clientes[$i]['ext_logo'] }};base64,{{ $clientes[$i]['logo'] }}" style="height: 3rem;"></td>
+											<td><img src="data:image/{{ $clientes[$i]['ext_logo'] }};base64,{{ $clientes[$i]['logo'] }}" style="height: 4rem;width:4rem;border-radius:100%;"></td>
 										@endisset
 								
 										@isset($clientes[$i]['created_at'])
@@ -309,19 +310,23 @@
                         </div>
                     </div>
 
-                    <div class="widget">
+                    {{-- <div class="widget">
                         <div class="widget-header">
-                            <h3><i class="far fa-newspaper"></i> <span>INFORMAÇÃO DOS BENEFÍCIOS DO SISTEMA</span></h3>
+                            <h3><i class="far fa-newspaper"></i> <span>INFORMAÇÕES DO SISTEMA</span></h3>
                             <div class="btn-group widget-header-toolbar">
+								<div class="btn-group widget-header-toolbar">
+									<button type="submit" class="btn btn-primary btn-cadastrar-info" data-toggle="modal" data-idc="{{ url('/site/info_sistema/viewCadastrar') }}"><i class="fas fa-plus" style="padding-right:0.5rem;"></i>Nova informação</button>
+									<a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
+								</div>
                                 <a href="#" title="Expand/Collapse" class="btn btn-link btn-toggle-expand"><i class="icon ion-ios-arrow-up"></i></a>
                             </div>
                         </div>
-                        @if (session('mensagem_banner'))
+                        @if (session('mensagem_infoSistema'))
 							<div class="sacefull" style="margin-top: 0.5rem;">
 								<div class="alert alert-success">
 									<span>
 										<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-										{{ session('mensagem_banner') }}
+										{{ session('mensagem_infoSistema') }}
 									</span>
 									<div class="alert-close">
 										<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -330,11 +335,11 @@
 									</div>
 								</div>
 							</div>
-						@elseif(session('invalido_banner'))
+						@elseif(session('invalido_infoSistema'))
 							<div class="alert alert-danger" style="margin-top: 0.5rem;">
 								<span>
 									<i class="far fa-check-circle" style="padding-right:0.5rem;"></i>
-									{{ session('invalido_banner') }}
+									{{ session('invalido_infoSistema') }}
 								</span>
 								<div class="alert-close">
 									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -350,31 +355,41 @@
 							<thead>
 								<tr>
 									<th>Id</th>
-									<th>Imagem do banner</th>
-									<th>Criado em:</th>
-									<th>Remover</th>
+									<th>Imagem</th>
+									<th>Titulo</th>
+									<th>Legenda</th>
+									<th>Criado em</th>
+									<th>Editar / Remover</th>
 								</tr>
 							</thead>
 							<tbody>
-                                @for ($i = 0; $i < sizeof($banner); $i++)
+                                @for ($i = 0; $i < sizeof($info_sistema); $i++)
 									<tr>
 
-										@isset($banner[$i]['id'])
-											<td>{{ $banner[$i]['id'] }}</td>
+										@isset($info_sistema[$i]['id'])
+											<td>{{ $info_sistema[$i]['id'] }}</td>
 										@endisset
 
-										@isset($banner[$i]['banner'])
-											{{-- <td><img src="{{ asset("storage/") }}/{{ $banner[$i]['banner'] }}" class="img" style="height: 5rem;"></td> --}}
-											<td><img src="data:image/{{ $banner[$i]['ext_img'] }};base64,{{ $banner[$i]['banner'] }}" style="height: 3rem;"></td>
+										@isset($info_sistema[$i]['img'])
+											<td><img src="data:image/{{ $info_sistema[$i]['ext_img'] }};base64,{{ $info_sistema[$i]['img'] }}" style="height: 3rem;"></td>
 										@endisset
 								
-										@isset($banner[$i]['created_at'])
-											<td>{{ $banner[$i]['created_at'] }}</td>
+										@isset($info_sistema[$i]['title'])
+											<td>{{ $info_sistema[$i]['title'] }}</td>
+										@endisset
+
+										@isset($info_sistema[$i]['legenda'])
+											<td>{{ $info_sistema[$i]['legenda'] }}</td>
+										@endisset
+
+										@isset($info_sistema[$i]['created_at'])
+											<td>{{ $info_sistema[$i]['created_at'] }}</td>
 										@endisset
 										
 										<td>
 											<div class="botoes">
-												<button type="button" class="botao-remover" data-id="{{ url('admin/site/banner/confirm') }}/{{ $banner[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   
+												<button type="button" class="botao-editar btn-editar-info" style="margin-right: 10px;" data-id="{{ url('admin/site/info_sistema/editar') }}/{{ $info_sistema[$i]['id'] }}"><span class="entypo-tools"><i class="fas fa-edit"></i></span></button>
+												<button type="button" class="botao-remover" data-id="{{ url('admin/site/info_sistema/confirm') }}/{{ $info_sistema[$i]['id'] }}"><i class="far fa-trash-alt"></i></button>   
 											</div>
 										</td>
 
@@ -386,7 +401,7 @@
                             
 							</table>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
 				
@@ -529,6 +544,112 @@
 
 			$.ajax({
 				url: '{{ url('admin/site/clientes/viewCadastrar') }}',
+				type: 'get',
+				success: function(response){
+					$(bodyFormName).html(response);
+				}
+			});
+			return false;
+		});
+
+	// CONFIRMAR REMOVER
+
+	$(document).on('click','.botao-remover-cliente', function(e){
+        e.preventDefault();
+        
+        let bodyFormName = $('.modal-body-confirm-cliente');
+		let modalName = $('.modal-confirm-cliente');
+		let id = $(this).data('id')
+
+		console.log(bodyFormName)
+		console.log(modalName)
+		console.log(id)
+        
+		$(modalName).modal('show'); 
+
+        $.ajax({
+           url: id,
+           type: 'get',
+           success: function(response){       
+               $(bodyFormName).html(response);
+           }
+        });
+        return false;
+	});
+
+	// REMOVER
+
+	$(document).on('click','.btn-remover-cliente', function(e){
+        e.preventDefault();
+        
+        let bodyFormName = $('.modal-body-remover-cliente');
+		let modalName = $('.modal-remover-cliente');
+		let modalNamee = $('.modal-confirm-cliente');
+		let id = $(this).data('id')
+
+		console.log(bodyFormName)
+		console.log(modalName)
+		console.log(id)
+        
+		$(modalName).modal('show'); 
+
+        $.ajax({
+           url: id,
+           type: 'get',
+           success: function(response){
+			$(modalNamee).modal('hide'); 
+			$(bodyFormName).html(response);
+			// location.reload();
+           }
+        });
+		location.reload();
+        return true;
+	});
+
+	// INFORMAÇÕES DO SISTEMA ---------------------------------------------
+
+	// EDITAR INFORMAÇÕES DO SISTEMA
+
+		$(document).on('click','.btn-editar-info', function(e){
+			e.preventDefault();
+			
+			let bodyFormName = $('.modal-body-info');
+			let modalName = $('.modal-info');
+			let id = $(this).data('id')
+
+			console.log(bodyFormName)
+			console.log(modalName)
+			console.log(id)
+			
+			$(modalName).modal('show'); 
+
+			$.ajax({
+				url: id,
+				type: 'get',
+				success: function(response){       
+					$(bodyFormName).html(response);
+				}
+			});
+			return false;
+		});
+
+		// CADASTRAR INFORMAÇÕES DO SISTEMA
+
+		$(document).on('click','.btn-cadastrar-info', function(e){
+			e.preventDefault();
+
+			let bodyFormName = $('.modal-body-info');
+			let modalName = $('.modal-cadastrar-info');
+			let idc = $(this).data('idc')
+
+			console.log(bodyFormName)
+			console.log(modalName)
+			console.log(idc)
+
+			$(modalName).modal('show'); 
+
+			$.ajax({
+				url: '{{ url('admin/site/info_sistema/viewCadastrar') }}',
 				type: 'get',
 				success: function(response){
 					$(bodyFormName).html(response);

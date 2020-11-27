@@ -18,11 +18,11 @@ class contatos_infoController extends Controller
         $db->endereco = $dados['endereco'];
         $db->facebook = $dados['facebook'];
         $db->instagram = $dados['instagram'];
-        $db->telefone_whatsapp = $dados['telefone_whatsapp'];
+        $db->texto_whatsapp = $dados['texto_whatsapp'];
         $db->numero_whatsapp = $dados['numero_whatsapp'];
         $db->save();
 
-        return redirect()->route('admin.site')->with('success', 'Os dados da página foram atualizados com sucesso!');
+        return redirect()->route('admin.site')->with('mensagem_info', 'Os dados da página foram atualizados com sucesso!');
     }
 
     public function listar()
